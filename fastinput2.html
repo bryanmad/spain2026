@@ -83,7 +83,7 @@
         }
 
 
-        #pageone {
+        #xpageone {
             position: fixed;
             top: 0;
             left:0;
@@ -210,7 +210,7 @@
 
        	#my-response-iframe,
        	#my-form {
-       	display: none;
+       		display: none;
        	}
        	/* */
 
@@ -687,457 +687,6 @@ color: cyan;
 
 background: dodgerBlue;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* icon color #bef081 */
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-html {
-	//height: 100vh;
-	width: 100vw;
-}
-
-body {
-   overflow/ hidden;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 3vh;
-	background: black;
-	height: 100%;
-	width: 100%;
-}
-/* dropdown */
-
-#dropbtn {
-	color: white;
-	background: black;
-	height: 100%;
- width:80%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid Gray;
-}
-
-#leaderboard {
-	color: white;
-	background: silver;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	//border: 1px solid Gray;
- //border-radius: 15px;
- width:20%;
- //margin-left: 3%;
- //margin-top:1%;
-}
-
-
-#showleaderboard {
-    position: fixed;
-    top: 0;
-    left:0;
-    height: 100vh;
-    width: 100vw;
-    background: dodgerBlue;
-    display:none;
-}
-
-
-.dropdown {
-	position: relative;
-	display: inline-block;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: black;
-	min-width: 160px;
-	overflow: auto;
-	z-index: 1;
-	border-radius: 5px;
-	box-shadow: 10px 10px 25px black;
-	max-height: 70vh;
-}
-
-.dropdown-content a {
-	color: black;
-	font-size: 4vh;
-	background: whiteSmoke;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	border: 1px solid gray;
-	border-radius: 5px;
-}
-
-.show {
-	display: block;
-}
-/* end of dropdown */
-
-
-/* highlights selected player */
-
-.highlight {
-	color: white;
-	background: dodgerBlue;
-}
-
-.scorelow {
-	font-size: 4vh;
-	color: lime;
-	display: inline-block;
-	border: 1px solid Gray;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 5px;
-}
-/* highlights keyboard score pressed */
-
-.scorehigh {
-	font-size: 4vh;
-	color: white;
-	display: inline-block;
-	border: 5px solid Gray;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 5px;
-	background: dodgerBlue;
-}
-
-#info {
-	display: none;
-	overflow: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	color: white;
-	background-color: black;
-	padding-left: 1px;
-	padding-right: 1px;
-	padding-bottom: 1px;
-
-}
-
-#popuppanel {
-	background-color: #ddd;
-	font-size: 3vh;
-	display: inline-block;
-	border-radius: 3px;
-	border: 1px solid #aaa;
-	padding: 10px;
-	margin: 5vw;
-	text-align: center;
-	width: 80vw;
-
-	cursor: pointer;
-}
-/* hide forms */
-
-#my-response-iframe,
-#my-form {
-	display: none;
-}
-/* */
-
-.child-one {
-	height: 7vh;
-	font-size: 3vh;
-	border-radius: 10px;
- border: 5px solid gray;
- display: flex;
-}
-
-
-/* player names */
-
-#p1name {
-	font-size: 3vh;
-	display: inline-block;
-	width: calc(100% / 3 * 2);
-	height: 8vh;
-	line-height: 8vh;
-	border: 1px solid Gray;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 5px;
-}
-/* player scores */
-
-#p1score {
-	font-size: 4vh;
-	display: inline-block;
-	width: calc(100% / 3);
-	height: 8vh; //calc(100% / 9);
-	line-height: 8vh;
-	padding-left: 5%;
-	padding-right: 5%;
-	border: 1px solid Gray;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 5px;
-}
-/* default "keyboard" */
-
-.small {
-	font-size: 4vh;
- color: lime;
-	display: inline-block;
-	height: 7vh;
-	line-height: 7vh;
-	padding-left: 20%;
-	padding-right: 20%;
-	border: 1px solid Gray;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 5px;
-}
-/* banner hole details */
-
-#holedetails {
-	color: white;
-	background: black;
-	font-size: 3vh;
-	display: inline-block;
-	width: 100%;
-	height: 5vh;
-	line-height: 5vh;
-	padding-left: 5%;
-	padding-right: 5%;
-	border: 1px solid Gray;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 5px;
-}
-
-
-
-#player4ballplayer {
-	width: 30%;
-	padding: 1vw;
-
-}
-
-#player4ballname {
-	width: 55%;
-	padding: 1vw;
-
-}
-
-#player4ballhcp {
-	width: 15%;
-	padding: 1vw;
-
-}
-
-.submit {
-	font-size: 100%;
-	color: white;
-	//background: dodgerBlue;
-	height: 100%;
-	line-height: 10vh;
-	text-align: center;
-}
-
-
-
-
-#sending {
-	position: relative;
-	background: black;
-}
-
-
-
-   #front9 {
-     color:  white;
-     //height:  100vh;
-   }
-
-   tr {
-       text-align: center;
-   }
-   td {
-       width: calc(100vw/6);
-   }
-   .head {
-       font-size: 2vh;
-   }
-
-   #hole1,
-   #hole2,
-   #hole3,
-   #hole4,
-   #hole5,
-   #hole6,
-   #hole7,
-   #hole8,
-   #hole9,
-   #hole10,
-   #hole11,
-   #hole12,
-   #hole13,
-   #hole14,
-   #hole15,
-   #hole16,
-   #hole17,
-   #hole18 {
-       color: cyan;
-   }
-
-   #front9points ,
-   #back9points {
-       border: 1px solid cyan;
-   }
-
-
-   #score1,
-   #score2,
-   #score3,
-   #score4,
-   #score5,
-   #score6,
-   #score7,
-   #score8,
-   #score9 {
-       //margin: 3vh;
-       width: calc(100vw / 3);
-       color: lime;
-       border-radius: 10px;
-       border: 5px solid gray;
-       height:12vh;
-       font-size: 10vw;
-
-   }
-
-   #page {
-
-   }
-
-  #acceptpanel {
-      display: none;
-      position: fixed;
-      //top: 20vh;
-
-      bottom: 5vh;
-      //left: 2vw;
-      //right: 20vw;
-
-    border: 1px silver solid;
-      background: black;
-      color: white;
-      font-size: 4vw;
-      padding: 5vw;
-      border-radius: 5px;
-      text-align: center;
-
-      margin-left: 14vw;
-      //margin-right: 5vw;
-      //margin: auto;
-      //width: 80vw;
-      //height: 40vh;
-
-      //opacity: 1;
-
-  }
-
-.button1 {
-   width: 25vw;
-   height: 10vh;
-   text-align: center;
-   //padding: 2vw;
-  font-size: 4vw;
-   border-radius: 5px;
-   //margin: 5vw;
-   background: silver;
-}
-
-.spacer2vh {
-   //height: 2vh;
-   display: flex;
-   padding: 1vh;
-}
-
-#podium {
-   height: 5vh;
-   width: 5vh;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 </head>
 <body>
@@ -1643,7 +1192,7 @@ onclick="numberScore(this.id)"
 <!--end of front 9 -->
 
             <form
-                action="https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/formResponse"
+                action="https://docs.google.com/forms/d/e/FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/formResponse"
                 id="my-form"
                 method="post"
                 name="my-form"
@@ -1663,7 +1212,20 @@ onclick="numberScore(this.id)"
                     type="text"
                     value="default"
                 />
-
+                <!-- day -->
+                <input
+                    id="mx1693107131"
+                    name="entry.1693107131"
+                    type="text"
+                    value="default"
+                />
+                <!-- birdies -->
+                <input
+                    id="mx2003386189"
+                    name="entry.2003386189"
+                    type="text"
+                    value="default"
+                />
                 <!-- h1 -->
                 <input
                     id="mx674343360"
@@ -1924,7 +1486,7 @@ onclick="numberScore(this.id)"
                 height="0"
                 id="my-response-iframe"
                 name="my-response-iframe"
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/e/FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?embedded=true"
                 width="0"
             >
             </iframe>
@@ -2026,7 +1588,7 @@ onclick="numberScore(this.id)"
             // default
             //console.log(day + " using Monday as default")
             // console.log(day + " Monday")
-            course = "Arcot";
+            course = "Cardrona";
             fullday = days[day] + " " + date + " " + months[month];
             //console.log(fullday);
             setupCourse();
@@ -2037,27 +1599,27 @@ onclick="numberScore(this.id)"
                 // array ["hole num",par,si]
                 // Arcot
                 // hole, par, si
-                      arrCourse = [
-                          [0, 0, 0],
-                          [1, 4, 8],
-                          [2, 3, 16],
-                          [3, 4, 12],
-                          [4, 3, 4],
-                          [5, 4, 6],
-                          [6, 5, 18],
-                          [7, 5, 14],
-                          [8, 4, 2],
-                          [9, 3, 10],
-                          [10, 5, 11],
-                          [11, 3, 15],
-                          [12, 4, 1],
-                          [13, 4, 9],
-                          [14, 4, 5],
-                          [15, 3, 17],
-                          [16, 4, 3],
-                          [17, 4, 13],
-                          [18, 4, 7],
-                      ];
+                arrCourse = [
+                    [0, 0, 0],
+                    [1, 5, 7],
+                    [2, 4, 13],
+                    [3, 4, 9],
+                    [4, 4, 3],
+                    [5, 3, 11],
+                    [6, 5, 1],
+                    [7, 4, 5],
+                    [8, 4, 17],
+                    [9, 3, 15],
+                    [10, 4, 4],
+                    [11, 3, 14],
+                    [12, 5, 6],
+                    [13, 3, 12],
+                    [14, 5, 2],
+                    [15, 4, 18],
+                    [16, 4, 10],
+                    [17, 4, 8],
+                    [18, 4, 16],
+                ];
             }
 
             //===========================
@@ -2170,12 +1732,14 @@ onclick="numberScore(this.id)"
                     if (arrPlayersDropdown[k] == playerName) {
                         //found = true;
                         //pos = k;
-                        player1hcp = arrHcpsDropdown[k];
-                        //player1hcp = Math.round(hcp);
+                        hcp = arrHcpsDropdown[k];
+                        player1hcp = Math.round(hcp);
                         player1name = playerName;
                         // change "select player to course
                         document.getElementById("dropbtn").innerText =
                             player1name;
+                    
+                                              //  getStats();
                     }
                 }
                 // find player in options list
@@ -2287,7 +1851,7 @@ onclick="numberScore(this.id)"
                         arrCourse[currenthole][2],
                         id.replace("score", ""),
                     );
-//console.log("pointsCalc currenthole = " + currenthole)
+
                 // update calc totals
                 totalScores();
 
@@ -2456,7 +2020,7 @@ onclick="numberScore(this.id)"
                     if (points < 0) {
                         points = 0;
                     }
-                    //console.log("points = " + points)
+                    //console.log(hcp +","+ par+","+ si+","+ score+" = " +points)
                     return points;
                 }
             }
@@ -2474,7 +2038,7 @@ onclick="numberScore(this.id)"
                     }
                 }
                 //console.log("inside doubleBogeyCalc", xhcp, xpar, xsi);
-                //console.log("currenthole inside doubleBogeyCalc = " + currenthole);
+                //console.log("currenthole = " + currenthole);
                 var db = 0;
                 var temp = 0;
                 for (xscore = 1; xscore <= 9; xscore++) {
@@ -2498,7 +2062,7 @@ onclick="numberScore(this.id)"
             //=============================================================
             function submitForm() {
 
-          //  player1hcp = 10;
+          
 
               // player name
                 document.getElementById("mx693174004").value = player1name;
@@ -2508,12 +2072,8 @@ onclick="numberScore(this.id)"
                 //document.getElementById("mx620915683").value = "36";
                 //    document.getElementById("player1").innerText;
                 // day
-
-
-             //   document.getElementById("mx1693107131").value = days[day];
-
-
-                //document.getElementById("player1").innerText;
+                //document.getElementById("mx1693107131").value = days[day];
+                    //document.getElementById("player1").innerText;
                 // birdies
                 // move to later ...
                 //document.getElementById("mx2003386189").value = "2";
@@ -2688,7 +2248,7 @@ onclick="numberScore(this.id)"
                       document.getElementById("strokes18").innerText);
 
                 // now add all points together
-                totalpoints =
+                totalpoints = 
                   Number(p1) +
                   Number(p2) +
                   Number(p3) +
@@ -2708,9 +2268,7 @@ onclick="numberScore(this.id)"
                Number(p17) +
               Number(p18)
 
-                    document.getElementById("mx620915683").value = totalpoints;
-
-
+document.getElementById("mx620915683").value = totalpoints;
                 /*
                 // player
                 document.getElementById("mx1259211928").value =
@@ -2823,16 +2381,10 @@ onclick="numberScore(this.id)"
 
 
             /*
-            change from
-            https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?usp=pp_url
-
-            to
-
-            https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?usp=pp_url
-
-
+            https://docs.google.com/forms/d/e/1FAIpQLSdoRfF2ls0eDCMa04Eq-BdoiBuboUWyxDInS0y8RVjazKXAQg/viewform?usp=pp_url
             &entry.693174004=name
             &entry.620915683=score
+           
 
             &entry.674343360=h1
             &entry.198561045=h2
@@ -2875,8 +2427,3 @@ onclick="numberScore(this.id)"
         </script>
     </body>
 </html>
-https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?usp=pp_url
-&entry.693174004=name
-&entry.620915683=score
-&entry.674343360=h1
-&entry.198561045=h2&entry.843506492=h3&entry.169380928=h4&entry.737864114=h5&entry.1571961784=h6&entry.471096160=h7&entry.126201380=h8&entry.778564770=h9&entry.1597010693=h10&entry.1187649921=h11&entry.1538253026=h12&entry.1346124026=h13&entry.40855502=h14&entry.1197406545=h15&entry.2014527734=h16&entry.839612202=h17&entry.2069238611=h18&entry.863123802=p1&entry.909665606=p2&entry.559953478=p3&entry.553966355=p4&entry.544592194=p5&entry.257972239=p6&entry.215646764=p7&entry.1925588416=p8&entry.1592088012=p9&entry.367122893=p10&entry.1977397574=p11&entry.561835634=p12&entry.520203825=p13&entry.1943641728=p14&entry.2086437733=p15&entry.61441653=p16&entry.1214112516=p17&entry.1238567880=p18
