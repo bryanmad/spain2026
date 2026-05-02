@@ -210,7 +210,7 @@
 
        	#my-response-iframe,
        	#my-form {
-       		display: none;
+       	display: none;
        	}
        	/* */
 
@@ -687,6 +687,457 @@ color: cyan;
 
 background: dodgerBlue;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* icon color #bef081 */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	//height: 100vh;
+	width: 100vw;
+}
+
+body {
+   overflow/ hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 3vh;
+	background: black;
+	height: 100%;
+	width: 100%;
+}
+/* dropdown */
+
+#dropbtn {
+	color: white;
+	background: black;
+	height: 100%;
+ width:80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid Gray;
+}
+
+#leaderboard {
+	color: white;
+	background: silver;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	//border: 1px solid Gray;
+ //border-radius: 15px;
+ width:20%;
+ //margin-left: 3%;
+ //margin-top:1%;
+}
+
+
+#showleaderboard {
+    position: fixed;
+    top: 0;
+    left:0;
+    height: 100vh;
+    width: 100vw;
+    background: dodgerBlue;
+    display:none;
+}
+
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: black;
+	min-width: 160px;
+	overflow: auto;
+	z-index: 1;
+	border-radius: 5px;
+	box-shadow: 10px 10px 25px black;
+	max-height: 70vh;
+}
+
+.dropdown-content a {
+	color: black;
+	font-size: 4vh;
+	background: whiteSmoke;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+.show {
+	display: block;
+}
+/* end of dropdown */
+
+
+/* highlights selected player */
+
+.highlight {
+	color: white;
+	background: dodgerBlue;
+}
+
+.scorelow {
+	font-size: 4vh;
+	color: lime;
+	display: inline-block;
+	border: 1px solid Gray;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+}
+/* highlights keyboard score pressed */
+
+.scorehigh {
+	font-size: 4vh;
+	color: white;
+	display: inline-block;
+	border: 5px solid Gray;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+	background: dodgerBlue;
+}
+
+#info {
+	display: none;
+	overflow: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: white;
+	background-color: black;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+
+}
+
+#popuppanel {
+	background-color: #ddd;
+	font-size: 3vh;
+	display: inline-block;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	padding: 10px;
+	margin: 5vw;
+	text-align: center;
+	width: 80vw;
+
+	cursor: pointer;
+}
+/* hide forms */
+
+#my-response-iframe,
+#my-form {
+	display: none;
+}
+/* */
+
+.child-one {
+	height: 7vh;
+	font-size: 3vh;
+	border-radius: 10px;
+ border: 5px solid gray;
+ display: flex;
+}
+
+
+/* player names */
+
+#p1name {
+	font-size: 3vh;
+	display: inline-block;
+	width: calc(100% / 3 * 2);
+	height: 8vh;
+	line-height: 8vh;
+	border: 1px solid Gray;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+}
+/* player scores */
+
+#p1score {
+	font-size: 4vh;
+	display: inline-block;
+	width: calc(100% / 3);
+	height: 8vh; //calc(100% / 9);
+	line-height: 8vh;
+	padding-left: 5%;
+	padding-right: 5%;
+	border: 1px solid Gray;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+}
+/* default "keyboard" */
+
+.small {
+	font-size: 4vh;
+ color: lime;
+	display: inline-block;
+	height: 7vh;
+	line-height: 7vh;
+	padding-left: 20%;
+	padding-right: 20%;
+	border: 1px solid Gray;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+}
+/* banner hole details */
+
+#holedetails {
+	color: white;
+	background: black;
+	font-size: 3vh;
+	display: inline-block;
+	width: 100%;
+	height: 5vh;
+	line-height: 5vh;
+	padding-left: 5%;
+	padding-right: 5%;
+	border: 1px solid Gray;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+}
+
+
+
+#player4ballplayer {
+	width: 30%;
+	padding: 1vw;
+
+}
+
+#player4ballname {
+	width: 55%;
+	padding: 1vw;
+
+}
+
+#player4ballhcp {
+	width: 15%;
+	padding: 1vw;
+
+}
+
+.submit {
+	font-size: 100%;
+	color: white;
+	//background: dodgerBlue;
+	height: 100%;
+	line-height: 10vh;
+	text-align: center;
+}
+
+
+
+
+#sending {
+	position: relative;
+	background: black;
+}
+
+
+
+   #front9 {
+     color:  white;
+     //height:  100vh;
+   }
+
+   tr {
+       text-align: center;
+   }
+   td {
+       width: calc(100vw/6);
+   }
+   .head {
+       font-size: 2vh;
+   }
+
+   #hole1,
+   #hole2,
+   #hole3,
+   #hole4,
+   #hole5,
+   #hole6,
+   #hole7,
+   #hole8,
+   #hole9,
+   #hole10,
+   #hole11,
+   #hole12,
+   #hole13,
+   #hole14,
+   #hole15,
+   #hole16,
+   #hole17,
+   #hole18 {
+       color: cyan;
+   }
+
+   #front9points ,
+   #back9points {
+       border: 1px solid cyan;
+   }
+
+
+   #score1,
+   #score2,
+   #score3,
+   #score4,
+   #score5,
+   #score6,
+   #score7,
+   #score8,
+   #score9 {
+       //margin: 3vh;
+       width: calc(100vw / 3);
+       color: lime;
+       border-radius: 10px;
+       border: 5px solid gray;
+       height:12vh;
+       font-size: 10vw;
+
+   }
+
+   #page {
+
+   }
+
+  #acceptpanel {
+      display: none;
+      position: fixed;
+      //top: 20vh;
+
+      bottom: 5vh;
+      //left: 2vw;
+      //right: 20vw;
+
+    border: 1px silver solid;
+      background: black;
+      color: white;
+      font-size: 4vw;
+      padding: 5vw;
+      border-radius: 5px;
+      text-align: center;
+
+      margin-left: 14vw;
+      //margin-right: 5vw;
+      //margin: auto;
+      //width: 80vw;
+      //height: 40vh;
+
+      //opacity: 1;
+
+  }
+
+.button1 {
+   width: 25vw;
+   height: 10vh;
+   text-align: center;
+   //padding: 2vw;
+  font-size: 4vw;
+   border-radius: 5px;
+   //margin: 5vw;
+   background: silver;
+}
+
+.spacer2vh {
+   //height: 2vh;
+   display: flex;
+   padding: 1vh;
+}
+
+#podium {
+   height: 5vh;
+   width: 5vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -1212,20 +1663,7 @@ onclick="numberScore(this.id)"
                     type="text"
                     value="default"
                 />
-                <!-- day -->
-                <input
-                    id="mx1693107131"
-                    name="entry.1693107131"
-                    type="text"
-                    value="default"
-                />
-                <!-- birdies -->
-                <input
-                    id="mx2003386189"
-                    name="entry.2003386189"
-                    type="text"
-                    value="default"
-                />
+
                 <!-- h1 -->
                 <input
                     id="mx674343360"
