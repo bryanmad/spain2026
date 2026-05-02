@@ -1192,7 +1192,7 @@ onclick="numberScore(this.id)"
 <!--end of front 9 -->
 
             <form
-                action="https://docs.google.com/forms/d/e/FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/formResponse"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/formResponse"
                 id="my-form"
                 method="post"
                 name="my-form"
@@ -1486,7 +1486,7 @@ onclick="numberScore(this.id)"
                 height="0"
                 id="my-response-iframe"
                 name="my-response-iframe"
-                src="https://docs.google.com/forms/d/e/FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdk1F7aL3m-HgVO_uvTvUARiquK5_gKh_XrRI3w8vWt4E2O3Q/viewform?embedded=true"
                 width="0"
             >
             </iframe>
@@ -1738,7 +1738,7 @@ onclick="numberScore(this.id)"
                         // change "select player to course
                         document.getElementById("dropbtn").innerText =
                             player1name;
-                    
+
                                               //  getStats();
                     }
                 }
@@ -2062,22 +2062,11 @@ onclick="numberScore(this.id)"
             //=============================================================
             function submitForm() {
 
-          
+
 
               // player name
                 document.getElementById("mx693174004").value = player1name;
-                //    document.getElementById("player1").innerText;
-                // score
-                // move to later ...
-                //document.getElementById("mx620915683").value = "36";
-                //    document.getElementById("player1").innerText;
-                // day
-                //document.getElementById("mx1693107131").value = days[day];
-                    //document.getElementById("player1").innerText;
-                // birdies
-                // move to later ...
-                //document.getElementById("mx2003386189").value = "2";
-                    //document.getElementById("player1").innerText;
+
 
                 // strokes 1 to 18
                 document.getElementById("mx674343360").value =
@@ -2248,7 +2237,7 @@ onclick="numberScore(this.id)"
                       document.getElementById("strokes18").innerText);
 
                 // now add all points together
-                totalpoints = 
+                totalpoints =
                   Number(p1) +
                   Number(p2) +
                   Number(p3) +
@@ -2269,19 +2258,7 @@ onclick="numberScore(this.id)"
               Number(p18)
 
 document.getElementById("mx620915683").value = totalpoints;
-                /*
-                // player
-                document.getElementById("mx1259211928").value =
-                    document.getElementById("player1").innerText;
-                // score
-                document.getElementById("mx396952416").value =
-                    document.getElementById("points1").innerText;
-                // day
-                document.getElementById("mx1546980405").value = compday;
-                // birdies
-                document.getElementById("mx2092654460").value =
-                    document.getElementById("birdies1").innerText;
-*/
+
                 //===== submit data ==========
                 //============================
                 document.forms[0].submit();
@@ -2376,54 +2353,6 @@ document.getElementById("mx620915683").value = totalpoints;
 
 
 
-
-
-
-
-            /*
-            https://docs.google.com/forms/d/e/1FAIpQLSdoRfF2ls0eDCMa04Eq-BdoiBuboUWyxDInS0y8RVjazKXAQg/viewform?usp=pp_url
-            &entry.693174004=name
-            &entry.620915683=score
-           
-
-            &entry.674343360=h1
-            &entry.198561045=h2
-            &entry.843506492=h3
-            &entry.169380928=h4
-            &entry.737864114=h6
-            &entry.1571961784=h6
-            &entry.471096160=h7
-            &entry.126201380=h8
-            &entry.778564770=h9
-            &entry.1597010693=h10
-            &entry.1187649921=h11
-            &entry.1538253026=h12
-            &entry.1346124026=h13
-            &entry.40855502=h14
-            &entry.1197406545=h15
-            &entry.2014527734=h16
-            &entry.839612202=h17
-            &entry.2069238611=h18
-
-            &entry.863123802=p1
-            &entry.909665606=p2
-            &entry.559953478=p3
-            &entry.553966355=p4
-            &entry.544592194=p5
-            &entry.257972239=p6
-            &entry.215646764=p7
-            &entry.1925588416=p8
-            &entry.1592088012=p9
-            &entry.367122893=p10
-            &entry.1977397574=p11
-            &entry.561835634=p12
-            &entry.520203825=p13
-            &entry.1943641728=p14
-            &entry.2086437733=p15
-            &entry.61441653=p16
-            &entry.1214112516=p17
-            &entry.1238567880=p18
-            */
         </script>
     </body>
 </html>
