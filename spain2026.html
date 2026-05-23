@@ -12,678 +12,684 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
     <style>
-                        * {
-                          margin: 0;
-                          padding: 0;
-                        }
-
-                        html {
-                    	  background: black;
-                          background-image: url(calanova.jpeg);
-                          background-size:     cover;
-                          background-repeat:   no-repeat;
-                          height: 100dvh;
-                        }
-
-                        body {
-                          overflow: hidden;
-                        }
-
-
-                        ::-webkit-scrollbar {
-                          display: none;
-                        }
-
-                        /* main square menu item */
-                        .square_menu_icon {
-                          display: block;
-                          position: absolute;
-                          overflow: hidden;
-                          margin: 0;
-                          padding: 0;
-                          width: 45px;
-                          height: 45px;
-                          font-size: 0;
-                          text-indent: -9999px;
-                          appearance: none;
-                          box-shadow: none;
-                          border: none;
-                          cursor: pointer;
-                          transition: background 0.3s;
-                          top: 57%;
-                          left: 50%;
-                          transform: translate(-50%, -50%);
-                          background-color: transparent;
-                          z-index: 99;
-                        }
-
-                        .square_menu_icon:focus {
-                          outline: none;
-                        }
-
-                        .square_menu_icon span {
-                          display: block;
-                          position: absolute;
-                          top: 15px;
-                          left: 0;
-                          right: 0;
-                          height: 7px;
-                          background: #fff;
-                        }
-
-                        .square_menu_icon span:before,
-                        .square_menu_icon span:after {
-                          position: absolute;
-                          display: block;
-                          left: 0;
-                          width: 100%;
-                          height: 7px;
-                          background-color: #fff;
-                          content: "";
-                        }
-
-                        .square_menu_icon span:before {
-                          top: -14px;
-                        }
-
-                        .square_menu_icon span:after {
-                          bottom: -14px;
-                        }
-
-                        .square_menu_icon-X span {
-                          transition: background 0s 0.3s;
-                        }
-
-                        .square_menu_icon-X span:before,
-                        .square_menu_icon-X span:after {
-                          transition-duration: 0.3s, 0.3s;
-                          transition-delay: 0.3s, 0s;
-                        }
-
-                        .square_menu_icon-X span:before {
-                          transition-property: top, transform;
-                        }
-
-                        .square_menu_icon-X span:after {
-                          transition-property: bottom, transform;
-                        }
-
-                        .square_menu_icon-X.is-active span {
-                          background: none;
-                        }
-
-                        .square_menu_icon-X.is-active span:before {
-                          top: 0;
-                          transform: rotate(45deg);
-                        }
-
-                        .square_menu_icon-X.is-active span:after {
-                          bottom: 0;
-                          transform: rotate(-45deg);
-                        }
-
-                        .square_menu_icon-X.is-active span:before,
-                        .square_menu_icon-X.is-active span:after {
-                          transition-delay: 0s, 0.3s;
-                        }
-                        /* end of main square menu item */
-
-                        /* main screen containing everything */
-                        nav {
-                          position: absolute;
-                          top: 9vh;
-                          left: 9vh;
-                          transform: translate(-50%, -50%);
-                          border-radius: 5px;
-                          width: 75px;
-                          height: 75px;
-                          z-index: 4;
-                          border: 2px solid white;
-                          box-shadow: 10px 10px 25px black;
-                        }
-
-
-                        nav:active {
-                          border: 2px solid white; //dodgerBlue;
-                        }
-
-                        section {
-                          width: 100vw;
-                          position: absolute;
-                        }
-
-                        .content {
-                          width: 90%;
-                          opacity: 1;
-                          margin: 0 auto;
-                        }
-
-                        .title {
-                          color: white;
-                          font-family: 'Kalam';
-                          font-size: 6vh;
-                          font-weight: bold;
-                          margin-top: 20vh;
-                          height: 13vh;
-                          font-weight: 900;
-                        }
-
-
-                        .dates {
-                          font-family: 'Kalam';
-                          color: white;
-                          font-size: 20px;
-                        }
-
-                        .pretitle {
-                          font-family: 'Kalam';
-                          transform: rotate(-5deg);
-                          height: 2vh;
-                          color: white;
-                          font-size: 3vh;
-                          float: left;
-                        }
-
-                        #scheduled {
-                          float: left;
-                          padding-top: 1vh;
-                          width: 100%;
-                        }
-
-                        #dcomp1 {
-                          float: left;
-                          padding-left: 5vw;
-                        }
-
-                        #img {
-                          transition-duration: 0.4s;
-                        }
-
-                        #img.half {
-                          background: white;
-                          padding: 3px;
-                          border-radius: 5px;
-                          box-shadow: 10px 10px 10px black;
-                          transform: scale(6) translateX(-45%) translateY(-110%);
-                          content: url(qrcode.png);
-                        }
-
-                        .spacer1 {
-                          height: 5vh;
-                        }
-
-                        .contentinfo {
-                          font-family: 'Kalam';
-                          color: white;
-                          font-size: 2vh;
-                          margin-top: 2vh;
-                          font-weight: 900;
-                        }
-
-                         #flagicon {
-                          position: absolute;
-                          right: 1vh;
-                          font-size: 3vh;
-                          animation: fadeIn 2s ease-in;
-                        }
-
-                        #xdcomp1 {
-                          font-size: 5vw; /*3.3vh;*/
-                          color: white;
-      }
-
-                        @keyframes fadeIn {
-                          0% {
-                            opacity: 0;
-                          }
-
-                          100% {
-                            opacity: 1;
-                          }
-                        }
-
-
-                        /* end of main screen containing everything */
-
-                        /* main square menu */
-                        .bubble_menu {
-                          position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          transform: translate(-50%, -50%);
-                          background-color: DeepSkyBlue;
-                          width: 75px;
-                          height: 75px;
-                          z-index: 4;
-                          cursor: pointer;
-                          border-radius: 5px;
-                          border: 2px solid white;
-                        }
-                        /* main square menu */
-
-                        /* sub menu squares */
-                        #one,
-                        #two,
-                        #three,
-                        #four,
-                        #five,
-                        #six,
-                        #seven,
-                        #eight {
-                          position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          transform: translate(-50%, -50%);
-                          border-radius: 5px;
-                          width: 75px;
-                          height: 75px;
-                          z-index: 3;
-                          text-align: center;
-                          border: 2px solid white;
-                          cursor: pointer;
-                          opacity: 0.0;
-                        }
-
-                        #one {
-                          background-color: salmon;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #two {
-                          background-color: darkKhaki;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #three {
-                          background-color: orchid;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #four {
-                          background-color: lightSteelBlue;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #five {
-                          background-color: cyan;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #six {
-                          background-color: lightGreen;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #seven {
-                          background-color: mediumSlateBlue;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        #eight {
-                          background-color: gold;
-                          display: flex;
-                          justify-content: center;
-                        }
-
-                        .shadow {
-                          box-shadow: 10px 10px 25px black;
-                          opacity: 0.0;
-                        }
-
-                        /*salmon;*/
-                        #onetxt {
-                          margin: auto;
-                          font-size: 35px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*darkKhaki;*/
-                        #twotxt {
-                          margin: auto;
-                          font-size: 35px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*orchid;*/
-                        #threetxt {
-                          margin: auto;
-                          font-size: 35px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*lightSteelBlue;*/
-                        #fourtxt {
-                          margin: auto;
-                          font-size: 35px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*cyan;*/
-                        #fivetxt {
-                          margin: auto;
-                          font-size: 35px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*lightGreen;*/
-                        #sixtxt {
-                          margin: auto;
-                          font-size: 30px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*mediumSlateBlue;*/
-                        #seventxt {
-                          margin: auto;
-                          font-size: 35px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        /*gold*/
-                        #eighttxt {
-                          margin: auto;
-                          font-size: 25px;
-                          color: navy;
-                          font-family: 'Kalam';
-                        }
-
-                        #one:active {
-                          border: 2px solid white; //salmon;
-                        }
-
-                        #two:active {
-                          border: 2px solid white; //darkKhaki;
-                        }
-
-                        #three:active {
-                          border: 2px solid white; //orchid;
-                        }
-
-                        #four:active {
-                          border: 2x solid white; //lightSteelBlue;
-                        }
-
-                        #five:active {
-                          border: 2px solid white; //cyan;
-                        }
-
-                        #six:active {
-                          border: 2px solid white; //lightGreen;
-                        }
-
-                        #seven:active {
-                          border: 2px solid white; //mediumSlateBlue;
-                        }
-
-                        #eight:active {
-                          border: 2px solid white; //gold
-                        }
-
-
-                        @-webkit-keyframes blob {
-                          50% {
-                            width: 85px;
-                            height: 85px;
-                          }
-
-                          100% {
-                            width: 75px;
-                            height: 75px;
-                            )
-                          }
-                        }
-
-                        @-moz-keyframes blob {
-                          50% {
-                            width: 85px;
-                            height: 85px;
-                          }
-
-                          100% {
-                            width: 75px;
-                            height: 75px;
-                            )
-                          }
-                        }
-
-                        @-o-keyframes blob {
-                          50% {
-                            width: 85px;
-                            height: 85px;
-                          }
-
-                          100% {
-                            width: 75px;
-                            height: 75px;
-                            )
-                          }
-                        }
-
-                        @keyframes blob {
-                          50% {
-                            width: 85px;
-                            height: 85px;
-                          }
-
-                          100% {
-                            width: 75px;
-                            height: 75px;
-                          }
-                        }
-
-
-                        .blob {
-                          -webkit-animation: blob 0.5s linear;
-                          -moz-animation: blob 0.5s linear;
-                          -o-animation: blob 0.5s linear;
-                          animation: blob 0.5s linear;
-                        }
-
-                        /* end of sub menu squares */
-
-
-
-                    	  body {
-                    		  animation: grow 1s;
-                    	       }
-
-                    @keyframes grow {
-                        0% { transform: scale(.1); }
-                      100% { transform: scale(1); }
-                    }
-
-
-
-
-
-                        #popuppanel {
-                          position: absolute;
-                          top: 5vh;
-                          right: 2vw;
-                          display: none;
-                          font-family: 'Kalam';
-                          background-color: dodgerBlue;
-                          color: white;
-                          box-shadow: 10px 10px 25px black;
-                          opacity: 0.8;
-                          font-size: 3vh;
-                          border-radius: 5px;
-                          border: 1px solid blue;
-                          padding: 10px;
-                          text-align: left;
-                          width: 30vw;
-                          height: 15vw;
-                          cursor: pointer;
-                        }
-
-
-                        /* marquee CSS */
-
-                        .marquee {
-                    		display: none;
-                          font-family: Arial, Helvetica, sans-serif;
-                          font-size: 35px;
-                          font-style: italic;
-                          height: 60px;
-                          width: 100vw;
-                          overflow: hidden;
-                          position: relative;
-                          background: transparent;
-                          color: white;
-                        }
-
-                        /* marquee for temporary use */
-                        .marquee p {
-                    	  background: transparent;
-                          color: blue;
-                          font-weight: 400;
-                          width: 150%;
-                          height: 100%;
-                    	    margin: 0;
-                          line-height: 60px;
-                          text-align: center;
-                          -moz-transform: translateX(100%);
-                          -webkit-transform: translateX(100%);
-                          transform: translateX(100%);
-                          -moz-animation: scroll-right 10s linear;
-                          -webkit-animation: scroll-right 10s linear;
-                          animation: scroll-right 10s linear;
-                        }
-
-                        @-moz-keyframes scroll-right {
-                          0% {
-                            -moz-transform: translateX(-100%);
-                          }
-
-                          100% {
-                            -moz-transform: translateX(100%);
-                          }
-                        }
-
-                        @-webkit-keyframes scroll-right {
-                          0% {
-                            -webkit-transform: translateX(-100%);
-                          }
-
-                          100% {
-                            -webkit-transform: translateX(100%);
-                          }
-                        }
-
-                        @keyframes scroll-right {
-                          0% {
-                            -moz-transform: translateX(-100%);
-                            -webkit-transform: translateX(-100%);
-                            transform: translateX(-100%);
-                          }
-
-                          100% {
-                            -moz-transform: translateX(100%);
-                            -webkit-transform: translateX(100%);
-                            transform: translateX(100%);
-                          }
-                        }
-                        /* end of marquee for temporary use */
-
-                        #warning {
-                          display: none;
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          background: indigo;
-                          width: 100vw;
-                          height: 100vh;
-                          z-index: 999;
-                          text-align: center;
-                          color: white;
-                          padding-top: 40vh;
-                          font-size: 6vh;
-                          font-family: 'Kalam';
-                        }
-
-                        #cyantxt {
-                          color:  white;
-                        }
-
-                        .photo {
-                          height: 100vh;
-                          background-size: cover;
-                          background-repeat: no-repeat;
-                          background-position: bottom;
-                    	    transition: background 2s linear;
-                        }
-
-                        /* countdown for temporary use */
-                        #countdown {
-                    	    position: fixed;
-                    	    top: 2vh;
-                    	    right: 2vw;
-                    	    width: 65vw;
-                    	    height: 7vh;
-                    	    line-height: 7.5vh;
-                    	    background: white;
-                    	    color: blue;
-                    	    border-radius: 50px;
-                    	    font-size: 7vw;
-                          font-family: 'Kalam';
-                    	    font-weight: bold;
-                    	    box-shadow: 10px 10px 25px black;
-                    	    text-align: center;
-                    	    opacity: 0.4;
-                    	    z-index: 99;
-                    	    display: none;
-                        }
-                        /* end of countdown for temporary use */
-
-                    #imgx {
-                    	z-index: 999;
-                    }
-
-
-                    #overlay {
-                    	display: none;
-                    	position: absolute;
-                    	left: -10vw;
-                    	top: 1vw;
-                    	animation: fadein 10s;
-                    }
-
-                    @keyframes xxxxxxfadein {
-                        from { opacity: 0; }
-                        to   { opacity: 1; }
-                    }
-
-
-
-                    @keyframes fadein {
-                    0% {
-                        opacity: 0;
-                      }
-                    50% {
-                        opacity: 1;
-                      }
-                    100% {
-                        opacity: 0;
-                      }
-                    }
-
-                    #imagewrapper {
-                      position: absolute;
-                    }
+                                                * {
+                                                  margin: 0;
+                                                  padding: 0;
+                                                }
+
+                                                html {
+                                            	  background: black;
+                                                  background-image: url(calanova.jpeg);
+                                                  background-size:     cover;
+                                                  background-repeat:   no-repeat;
+                                                  height: 100dvh;
+                                                }
+
+                                                body {
+                                                  overflow: hidden;
+                                                }
+
+
+                                                ::-webkit-scrollbar {
+                                                  display: none;
+                                                }
+
+                                                /* main square menu item */
+                                                .square_menu_icon {
+                                                  display: block;
+                                                  position: absolute;
+                                                  overflow: hidden;
+                                                  margin: 0;
+                                                  padding: 0;
+                                                  width: 45px;
+                                                  height: 45px;
+                                                  font-size: 0;
+                                                  text-indent: -9999px;
+                                                  appearance: none;
+                                                  box-shadow: none;
+                                                  border: none;
+                                                  cursor: pointer;
+                                                  transition: background 0.3s;
+                                                  top: 57%;
+                                                  left: 50%;
+                                                  transform: translate(-50%, -50%);
+                                                  background-color: transparent;
+                                                  z-index: 99;
+                                                }
+
+                                                .square_menu_icon:focus {
+                                                  outline: none;
+                                                }
+
+                                                .square_menu_icon span {
+                                                  display: block;
+                                                  position: absolute;
+                                                  top: 15px;
+                                                  left: 0;
+                                                  right: 0;
+                                                  height: 7px;
+                                                  background: #fff;
+                                                }
+
+                                                .square_menu_icon span:before,
+                                                .square_menu_icon span:after {
+                                                  position: absolute;
+                                                  display: block;
+                                                  left: 0;
+                                                  width: 100%;
+                                                  height: 7px;
+                                                  background-color: #fff;
+                                                  content: "";
+                                                }
+
+                                                .square_menu_icon span:before {
+                                                  top: -14px;
+                                                }
+
+                                                .square_menu_icon span:after {
+                                                  bottom: -14px;
+                                                }
+
+                                                .square_menu_icon-X span {
+                                                  transition: background 0s 0.3s;
+                                                }
+
+                                                .square_menu_icon-X span:before,
+                                                .square_menu_icon-X span:after {
+                                                  transition-duration: 0.3s, 0.3s;
+                                                  transition-delay: 0.3s, 0s;
+                                                }
+
+                                                .square_menu_icon-X span:before {
+                                                  transition-property: top, transform;
+                                                }
+
+                                                .square_menu_icon-X span:after {
+                                                  transition-property: bottom, transform;
+                                                }
+
+                                                .square_menu_icon-X.is-active span {
+                                                  background: none;
+                                                }
+
+                                                .square_menu_icon-X.is-active span:before {
+                                                  top: 0;
+                                                  transform: rotate(45deg);
+                                                }
+
+                                                .square_menu_icon-X.is-active span:after {
+                                                  bottom: 0;
+                                                  transform: rotate(-45deg);
+                                                }
+
+                                                .square_menu_icon-X.is-active span:before,
+                                                .square_menu_icon-X.is-active span:after {
+                                                  transition-delay: 0s, 0.3s;
+                                                }
+                                                /* end of main square menu item */
+
+                                                /* main screen containing everything */
+                                                nav {
+                                                  position: absolute;
+                                                  top: 9vh;
+                                                  left: 9vh;
+                                                  transform: translate(-50%, -50%);
+                                                  border-radius: 5px;
+                                                  width: 75px;
+                                                  height: 75px;
+                                                  z-index: 4;
+                                                  border: 2px solid white;
+                                                  box-shadow: 10px 10px 25px black;
+                                                }
+
+
+                                                nav:active {
+                                                  border: 2px solid white; //dodgerBlue;
+                                                }
+
+                                                section {
+                                                  width: 100vw;
+                                                  position: absolute;
+                                                }
+
+                                                .content {
+                                                  width: 90%;
+                                                  opacity: 1;
+                                                  margin: 0 auto;
+                                                }
+
+                                                .title {
+                                                  color: white;
+                                                  font-family: 'Kalam';
+                                                  font-size: 6vh;
+                                                  font-weight: bold;
+                                                  margin-top: 20vh;
+                                                  height: 13vh;
+                                                  font-weight: 900;
+                                                }
+
+
+                                                .dates {
+                                                  font-family: 'Kalam';
+                                                  color: white;
+                                                  font-size: 20px;
+                                                }
+
+                                                .pretitle {
+                                                  font-family: 'Kalam';
+                                                  transform: rotate(-5deg);
+                                                  height: 2vh;
+                                                  color: white;
+                                                  font-size: 3vh;
+                                                  float: left;
+                                                }
+
+                                                #scheduled {
+                                                  float: left;
+                                                  padding-top: 1vh;
+                                                  width: 100%;
+                                                }
+
+                                                #dcomp1 {
+                                                  float: left;
+                                                  padding-left: 5vw;
+                                                }
+
+                                                #img {
+                                                  transition-duration: 0.4s;
+                                                }
+
+                                                #img.half {
+                                                  background: white;
+                                                  padding: 3px;
+                                                  border-radius: 5px;
+                                                  box-shadow: 10px 10px 10px black;
+                                                  transform: scale(6) translateX(-45%) translateY(-110%);
+                                                  content: url(qrcode.png);
+                                                }
+
+                                                .spacer1 {
+                                                  height: 5vh;
+                                                }
+
+                                                .contentinfo {
+                                                  font-family: 'Kalam';
+                                                  color: white;
+                                                  font-size: 2vh;
+                                                  margin-top: 2vh;
+                                                  font-weight: 900;
+                                                }
+
+                                                 #flagicon {
+                                                  position: absolute;
+                                                  right: 1vh;
+                                                  font-size: 3vh;
+                                                  animation: fadeIn 2s ease-in;
+                                                }
+
+                                                #xdcomp1 {
+                                                  font-size: 5vw; /*3.3vh;*/
+                                                  color: white;
+                              }
+
+                                                @keyframes fadeIn {
+                                                  0% {
+                                                    opacity: 0;
+                                                  }
+
+                                                  100% {
+                                                    opacity: 1;
+                                                  }
+                                                }
+
+
+                                                /* end of main screen containing everything */
+
+                                                /* main square menu */
+                                                .bubble_menu {
+                                                  position: absolute;
+                                                  top: 50%;
+                                                  left: 50%;
+                                                  transform: translate(-50%, -50%);
+                                                  background-color: DeepSkyBlue;
+                                                  width: 75px;
+                                                  height: 75px;
+                                                  z-index: 4;
+                                                  cursor: pointer;
+                                                  border-radius: 5px;
+                                                  //border: 2px solid white;
+                                                  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+
+                                                }
+                                                /* main square menu */
+
+                                                /* sub menu squares */
+                                                #one,
+                                                #two,
+                                                #three,
+                                                #four,
+                                                #five,
+                                                #six,
+                                                #seven,
+                                                #eight {
+                                                  position: absolute;
+                                                  top: 50%;
+                                                  left: 50%;
+                                                  transform: translate(-50%, -50%);
+                                                  border-radius: 5px;
+                                                  width: 75px;
+                                                  height: 75px;
+                                                  z-index: 3;
+                                                  text-align: center;
+                                                  border: 2px solid white;
+                                                  cursor: pointer;
+                                                  opacity: 0.0;
+                                                  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+
+                                                }
+
+                                                #one {
+                                                  background-color: salmon;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #two {
+                                                  background-color: darkKhaki;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #three {
+                                                  background-color: orchid;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #four {
+                                                  background-color: lightSteelBlue;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #five {
+                                                  background-color: cyan;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #six {
+                                                  background-color: lightGreen;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #seven {
+                                                  background-color: mediumSlateBlue;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                #eight {
+                                                  background-color: gold;
+                                                  display: flex;
+                                                  justify-content: center;
+                                                }
+
+                                                .shadow {
+                                                  box-shadow: 10px 10px 25px black;
+                                                  opacity: 0.0;
+                                                }
+
+                                                /*salmon;*/
+                                                #onetxt {
+                                                  margin: auto;
+                                                  font-size: 35px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*darkKhaki;*/
+                                                #twotxt {
+                                                  margin: auto;
+                                                  font-size: 35px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*orchid;*/
+                                                #threetxt {
+                                                  margin: auto;
+                                                  font-size: 35px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*lightSteelBlue;*/
+                                                #fourtxt {
+                                                  margin: auto;
+                                                  font-size: 35px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*cyan;*/
+                                                #fivetxt {
+                                                  margin: auto;
+                                                  font-size: 35px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*lightGreen;*/
+                                                #sixtxt {
+                                                  margin: auto;
+                                                  font-size: 30px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*mediumSlateBlue;*/
+                                                #seventxt {
+                                                  margin: auto;
+                                                  font-size: 35px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                /*gold*/
+                                                #eighttxt {
+                                                  margin: auto;
+                                                  font-size: 25px;
+                                                  color: navy;
+                                                  font-family: 'Kalam';
+                                                  line-height: 99%;
+                                                }
+
+                                                #one:active {
+                                                  border: 2px solid white; //salmon;
+                                                }
+
+                                                #two:active {
+                                                  border: 2px solid white; //darkKhaki;
+                                                }
+
+                                                #three:active {
+                                                  border: 2px solid white; //orchid;
+                                                }
+
+                                                #four:active {
+                                                  border: 2x solid white; //lightSteelBlue;
+                                                }
+
+                                                #five:active {
+                                                  border: 2px solid white; //cyan;
+                                                }
+
+                                                #six:active {
+                                                  border: 2px solid white; //lightGreen;
+                                                }
+
+                                                #seven:active {
+                                                  border: 2px solid white; //mediumSlateBlue;
+                                                }
+
+                                                #eight:active {
+                                                  border: 2px solid white; //gold
+                                                }
+
+
+                                                @-webkit-keyframes blob {
+                                                  50% {
+                                                    width: 85px;
+                                                    height: 85px;
+                                                  }
+
+                                                  100% {
+                                                    width: 75px;
+                                                    height: 75px;
+                                                    )
+                                                  }
+                                                }
+
+                                                @-moz-keyframes blob {
+                                                  50% {
+                                                    width: 85px;
+                                                    height: 85px;
+                                                  }
+
+                                                  100% {
+                                                    width: 75px;
+                                                    height: 75px;
+                                                    )
+                                                  }
+                                                }
+
+                                                @-o-keyframes blob {
+                                                  50% {
+                                                    width: 85px;
+                                                    height: 85px;
+                                                  }
+
+                                                  100% {
+                                                    width: 75px;
+                                                    height: 75px;
+                                                    )
+                                                  }
+                                                }
+
+                                                @keyframes blob {
+                                                  50% {
+                                                    width: 85px;
+                                                    height: 85px;
+                                                  }
+
+                                                  100% {
+                                                    width: 75px;
+                                                    height: 75px;
+                                                  }
+                                                }
+
+
+                                                .blob {
+                                                  -webkit-animation: blob 0.5s linear;
+                                                  -moz-animation: blob 0.5s linear;
+                                                  -o-animation: blob 0.5s linear;
+                                                  animation: blob 0.5s linear;
+                                                }
+
+                                                /* end of sub menu squares */
+
+
+
+                                            	  body {
+                                            		  animation: grow 1s;
+                                            	       }
+
+                                            @keyframes grow {
+                                                0% { transform: scale(.1); }
+                                              100% { transform: scale(1); }
+                                            }
+
+
+
+
+
+                                                #popuppanel {
+                                                  position: absolute;
+                                                  top: 5vh;
+                                                  right: 2vw;
+                                                  display: none;
+                                                  font-family: 'Kalam';
+                                                  background-color: dodgerBlue;
+                                                  color: white;
+                                                  box-shadow: 10px 10px 25px black;
+                                                  opacity: 0.8;
+                                                  font-size: 3vh;
+                                                  border-radius: 5px;
+                                                  border: 1px solid blue;
+                                                  padding: 10px;
+                                                  text-align: left;
+                                                  width: 30vw;
+                                                  height: 15vw;
+                                                  cursor: pointer;
+                                                }
+
+
+                                                /* marquee CSS */
+
+                                                .marquee {
+                                            		display: none;
+                                                  font-family: Arial, Helvetica, sans-serif;
+                                                  font-size: 35px;
+                                                  font-style: italic;
+                                                  height: 60px;
+                                                  width: 100vw;
+                                                  overflow: hidden;
+                                                  position: relative;
+                                                  background: transparent;
+                                                  color: white;
+                                                }
+
+                                                /* marquee for temporary use */
+                                                .marquee p {
+                                            	  background: transparent;
+                                                  color: blue;
+                                                  font-weight: 400;
+                                                  width: 150%;
+                                                  height: 100%;
+                                            	    margin: 0;
+                                                  line-height: 60px;
+                                                  text-align: center;
+                                                  -moz-transform: translateX(100%);
+                                                  -webkit-transform: translateX(100%);
+                                                  transform: translateX(100%);
+                                                  -moz-animation: scroll-right 10s linear;
+                                                  -webkit-animation: scroll-right 10s linear;
+                                                  animation: scroll-right 10s linear;
+                                                }
+
+                                                @-moz-keyframes scroll-right {
+                                                  0% {
+                                                    -moz-transform: translateX(-100%);
+                                                  }
+
+                                                  100% {
+                                                    -moz-transform: translateX(100%);
+                                                  }
+                                                }
+
+                                                @-webkit-keyframes scroll-right {
+                                                  0% {
+                                                    -webkit-transform: translateX(-100%);
+                                                  }
+
+                                                  100% {
+                                                    -webkit-transform: translateX(100%);
+                                                  }
+                                                }
+
+                                                @keyframes scroll-right {
+                                                  0% {
+                                                    -moz-transform: translateX(-100%);
+                                                    -webkit-transform: translateX(-100%);
+                                                    transform: translateX(-100%);
+                                                  }
+
+                                                  100% {
+                                                    -moz-transform: translateX(100%);
+                                                    -webkit-transform: translateX(100%);
+                                                    transform: translateX(100%);
+                                                  }
+                                                }
+                                                /* end of marquee for temporary use */
+
+                                                #warning {
+                                                  display: none;
+                                                  position: absolute;
+                                                  top: 0;
+                                                  left: 0;
+                                                  background: indigo;
+                                                  width: 100vw;
+                                                  height: 100vh;
+                                                  z-index: 999;
+                                                  text-align: center;
+                                                  color: white;
+                                                  padding-top: 40vh;
+                                                  font-size: 6vh;
+                                                  font-family: 'Kalam';
+                                                }
+
+                                                #cyantxt {
+                                                  color:  white;
+                                                }
+
+                                                .photo {
+                                                  height: 100vh;
+                                                  background-size: cover;
+                                                  background-repeat: no-repeat;
+                                                  background-position: bottom;
+                                            	    transition: background 2s linear;
+                                                }
+
+                                                /* countdown for temporary use */
+                                                #countdown {
+                                            	    position: fixed;
+                                            	    top: 2vh;
+                                            	    right: 2vw;
+                                            	    width: 65vw;
+                                            	    height: 7vh;
+                                            	    line-height: 7.5vh;
+                                            	    background: white;
+                                            	    color: blue;
+                                            	    border-radius: 50px;
+                                            	    font-size: 7vw;
+                                                  font-family: 'Kalam';
+                                            	    font-weight: bold;
+                                            	    box-shadow: 10px 10px 25px black;
+                                            	    text-align: center;
+                                            	    opacity: 0.4;
+                                            	    z-index: 99;
+                                            	    display: none;
+                                                }
+                                                /* end of countdown for temporary use */
+
+                                            #imgx {
+                                            	z-index: 999;
+                                            }
+
+
+                                            #overlay {
+                                            	display: none;
+                                            	position: absolute;
+                                            	left: -10vw;
+                                            	top: 1vw;
+                                            	animation: fadein 10s;
+                                            }
+
+                                            @keyframes xxxxxxfadein {
+                                                from { opacity: 0; }
+                                                to   { opacity: 1; }
+                                            }
+
+
+
+                                            @keyframes fadein {
+                                            0% {
+                                                opacity: 0;
+                                              }
+                                            50% {
+                                                opacity: 1;
+                                              }
+                                            100% {
+                                                opacity: 0;
+                                              }
+                                            }
+
+                                            #imagewrapper {
+                                              position: absolute;
+                                            }
+
     </style>
   </head>
   <body oncontextmenu="return false;">
