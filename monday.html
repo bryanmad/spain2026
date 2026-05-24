@@ -11,481 +11,543 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <style>
-                                    * {
-                                        margin: 0;
-                                        padding: 0;
-                                        box-sizing: border-box;
-                                    }
+                                                            * {
+                                                                margin: 0;
+                                                                padding: 0;
+                                                                box-sizing: border-box;
+                                                            }
 
-                                    html {
-                                        width: 100vw;
-                                    }
+                                                            html {
+                                                                width: 100vw;
+                                                            }
 
-                                    body {
-                                        overflow: hidden;
-                                        font-family: Arial, Helvetica, sans-serif;
-                                        font-size: 3vh;
-                                        background: dodgerBlue;
-                                        height: 100%;
-                                        width: 100%;
-                                    }
+                                                            body {
+                                                                overflow: hidden;
+                                                                font-family: Arial, Helvetica, sans-serif;
+                                                                font-size: 3vh;
+                                                                background: dodgerBlue;
+                                                                height: 100%;
+                                                                width: 100%;
+                                                            }
 
-                                    #info {
-                                        display: none;
-                                        overflow: auto;
-                                        position: absolute;
-                                        top: 0;
-                                        left: 0;
-                                        height: 100%;
-                                        width: 100%;
-                                        color: white;
-                                        background-color: black;
-                                        padding-left: 1px;
-                                        padding-right: 1px;
-                                        padding-bottom: 1px;
-                                    }
+                                                            #info {
+                                                                display: none;
+                                                                overflow: auto;
+                                                                position: absolute;
+                                                                top: 0;
+                                                                left: 0;
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                color: white;
+                                                                background-color: black;
+                                                                padding-left: 1px;
+                                                                padding-right: 1px;
+                                                                padding-bottom: 1px;
+                                                            }
 
-                                    #popuppanel {
-                                        background-color: #ddd;
-                                        font-size: 3vh;
-                                        display: inline-block;
-                                        border-radius: 3px;
-                                        border: 1px solid #aaa;
-                                        padding: 10px;
-                                        margin: 5vw;
-                                        text-align: center;
-                                        width: 80vw;
-                                        cursor: pointer;
-                                    }
-                                    /* hide forms */
+                                                            #popuppanel {
+                                                                background-color: #ddd;
+                                                                font-size: 3vh;
+                                                                display: inline-block;
+                                                                border-radius: 3px;
+                                                                border: 1px solid #aaa;
+                                                                padding: 10px;
+                                                                margin: 5vw;
+                                                                text-align: center;
+                                                                width: 80vw;
+                                                                cursor: pointer;
+                                                            }
+                                                            /* hide forms */
 
-                                    #my-response-iframe,
-                                    #my-form {
-                                        display: none;
-                                    }
+                                                            #my-response-iframe,
+                                                            #my-form {
+                                                                display: none;
+                                                            }
 
-                                    .headerwrapper {
-                                        height: 7vh;
-                                        font-size: 3vh;
-                                        flex-direction: row;
-                                        display: flex;
-                                    }
+                                                            .headerwrapper {
+                                                                height: 7vh;
+                                                                font-size: 3vh;
+                                                                flex-direction: row;
+                                                                display: flex;
+                                                            }
 
-                                    #headerpageone,
-                                    #headermainpage,
-                                    #headerpagethree {
-                                        color: white;
-                                        background: black;
-                                        height: 100%;
-                                        width: 100%;
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                    }
+                                                            #headerpageone,
+                                                            #headermainpage,
+                                                            #headerpagethree {
+                                                                color: white;
+                                                                background: black;
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                display: flex;
+                                                                justify-content: center;
+                                                                align-items: center;
+                                                            }
 
-                                    #mainpage {
-                                        position: fixed;
-                                        top: 0;
-                                        left: 0;
-                                        height: 100vh;
-                                        width: 100vw;
-                                        background: dodgerBlue;
-                                        display: block; //none;
-                                    }
+                                                            #mainpage {
+                                                                position: fixed;
+                                                                top: 0;
+                                                                left: 0;
+                                                                height: 100vh;
+                                                                width: 100vw;
+                                                                background: dodgerBlue;
+                                                                display: block; //none;
+                                                            }
 
-                                    .submit {
-                                        font-size: 100%;
-                                        color: white;
-                                        height: 100%;
-                                        line-height: 10vh;
-                                        text-align: center;
-                                    }
+                                                            .submit {
+                                                                font-size: 100%;
+                                                                color: white;
+                                                                height: 100%;
+                                                                line-height: 10vh;
+                                                                text-align: center;
+                                                            }
 
-                                    #sending {
-                                        position: relative;
-                                        background: black;
-                                    }
+                                                            #sending {
+                                                                position: relative;
+                                                                background: black;
+                                                            }
 
-                                    tr {
-                                        text-align: center;
-                                    }
-                                    td {
-                                        width: calc(100vw / 6);
-                                    }
-                                    .head {
-                                        font-size: 2vh;
-                                    }
+                                                            tr {
+                                                                text-align: center;
+                                                            }
+                                                            td {
+                                                                width: calc(100vw / 6);
+                                                            }
+                                                            .head {
+                                                                font-size: 2vh;
+                                                            }
 
-                                    #acceptpanel {
-                                        display: none;
-                                        position: fixed;
-                                        bottom: 5vh;
-                                        border: 1px silver solid;
-                                        background: black;
-                                        color: white;
-                                        font-size: 2vh;
-                                        padding: 5vw;
-                                        border-radius: 5px;
-                                        text-align: center;
-                                        margin-left: 14vw;
-                                    }
+                                                            #acceptpanel {
+                                                                display: none;
+                                                                position: fixed;
+                                                                bottom: 5vh;
+                                                                border: 1px silver solid;
+                                                                background: black;
+                                                                color: white;
+                                                                font-size: 2vh;
+                                                                padding: 5vw;
+                                                                border-radius: 5px;
+                                                                text-align: center;
+                                                                margin-left: 14vw;
+                                                            }
 
-                                    .button1 {
-                                        width: 25vw;
-                                        height: 10vh;
-                                        text-align: center;
-                                        font-size: 2vh;
-                                        border-radius: 5px;
-                                        background: silver;
-                                    }
+                                                            .button1 {
+                                                                width: 25vw;
+                                                                height: 10vh;
+                                                                text-align: center;
+                                                                font-size: 2vh;
+                                                                border-radius: 5px;
+                                                                background: silver;
+                                                            }
 
-                                    .spacer1vh {
-                                        display: flex;
-                                        padding: 1vh;
-                                    }
+                                                            .spacer1vh {
+                                                                display: flex;
+                                                                padding: 1vh;
+                                                            }
 
-                                    #podium,
-                                    #home,
-                                    #stat {
-                                        height: 5vh;
-                                        width: 5vh;
-                                    }
+                                                            #podium,
+                                                            #home,
+                                                            #stat {
+                                                                height: 5vh;
+                                                                width: 5vh;
+                                                            }
 
-                                    /* for each day */
-                                    #createleaderboarditems {
-                                        text-align: center;
-                                        color: white;
-                                        font-size: 4vh;
-                                        height: auto;
-                                        display: block;
-                                    }
+                                                            /* for each day */
+                                                            #createleaderboarditems {
+                                                                text-align: center;
+                                                                color: white;
+                                                                font-size: 4vh;
+                                                                height: auto;
+                                                                display: block;
+                                                            }
 
-                                    .team {
-                                        width: 90%;
-                                        height: 5vh;
-                                        margin-left: 5%;
-                                        margin-top: 2%;
-                                        margin-bottom: 2%;
-                                        background: rgba(105, 105, 105, 0.8);
-                                        box-shadow: 0 3px 5px black;
-                                        display: flex;
-                                        align-items: center;
-                                        transition-property: top;
-                                        /* how fast ? is */
-                                        transition-duration: 200ms;
-                                        border-radius: 5px; //10px;
-                                        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                                        border: 2px solid rgba(255, 255, 255, 0.3);
-                                        //background-clip: padding-box;
-
-
-                                        margin-left: 100%;
+                                                            .team {
+                                                                width: 90%;
+                                                                height: 5vh;
+                                                                margin-left: 5%;
+                                                                margin-top: 2%;
+                                                                margin-bottom: 2%;
+                                                                background: rgba(105, 105, 105, 0.8);
+                                                                box-shadow: 0 3px 5px black;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                transition-property: top;
+                                                                /* how fast ? is */
+                                                                transition-duration: 200ms;
+                                                                border-radius: 5px; //10px;
+                                                                transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                                                                border: 2px solid rgba(255, 255, 255, 0.3);
+                                                                //background-clip: padding-box;
 
 
-box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
- 
-
-                                    }
-
-            /* how fast it slides in */
-                                .animate {
-                            transform: translate3d(-105%, 0, 0);
-                            //-webkit-transform: translate3d(-105%, 0, 0);
-                            -webkit-transition: transform 0.5s ease;
-                        }
+                                                                margin-left: 100%;
 
 
+                        box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
+
+
+                                                            }
+
+                                    /* how fast it slides in */
+                                                        .animate {
+                                                    transform: translate3d(-105%, 0, 0);
+                                                    //-webkit-transform: translate3d(-105%, 0, 0);
+                                                    -webkit-transition: transform 0.5s ease;
+                                                }
 
 
 
 
-                                    .teamhcp {
-                                        width: 90%;
-                                        height: 5vh;
-                                        margin-left: 5%;
-                                        margin-top: 2%;
-                                        margin-bottom: 2%;
-                                        padding-left: 5vw;
-                                        background: rgba(105, 105, 105, 0.8);
-                                        box-shadow: 0 3px 5px black;
-                                        display: flex;
-                                        align-items: center;
-                                        transition-property: top;
-                                       /* how fast ? is */
-                                        transition-duration: 500ms;
-                                        border-radius: 5px; //10px;
-                                        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                                        border: 2px solid rgba(255, 255, 255, 0.3);
-                                        //background-clip: padding-box;
-                                    }
 
-                                    .name {
-                                        width: 40%;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: left;
-                                        font-size: 3vh;
-                                        color: white;
-                                        font-weight: 400;
-                                        text-transform: capitalize;
-                                    }
 
-                                    .namehcp {
-                                        width: 50%;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: left;
-                                        font-size: 3vh;
-                                        color: white;
-                                        font-weight: 400;
-                                        text-transform: capitalize;
-                                    }
+                                                            .teamhcp {
+                                                                width: 90%;
+                                                                height: 5vh;
+                                                                margin-left: 5%;
+                                                                margin-top: 2%;
+                                                                margin-bottom: 2%;
+                                                                padding-left: 5vw;
+                                                                background: rgba(105, 105, 105, 0.8);
+                                                                box-shadow: 0 3px 5px black;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                transition-property: top;
+                                                               /* how fast ? is */
+                                                                transition-duration: 500ms;
+                                                                border-radius: 5px; //10px;
+                                                                transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                                                                border: 2px solid rgba(255, 255, 255, 0.3);
+                                                                //background-clip: padding-box;
+                                                            }
 
-                                    .scores {
-                                        width: 40%;
-                                        font-size: 3vh;
-                                        color: white;
-                                        font-weight: 400;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                        padding-left: 5vh;
-                                    }
+                                                            .name {
+                                                                width: 40%;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                justify-content: left;
+                                                                font-size: 3vh;
+                                                                color: white;
+                                                                font-weight: 400;
+                                                                text-transform: capitalize;
+                                                            }
 
-                                    .tees {
-                                        width: 35%;
-                                        font-size: 2vh;
-                                        color: cyan;
-                                        font-weight: 400;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                        padding-left: 5vh;
-                                    }
+                                                            .namehcp {
+                                                                width: 50%;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                justify-content: left;
+                                                                font-size: 3vh;
+                                                                color: white;
+                                                                font-weight: 400;
+                                                                text-transform: capitalize;
+                                                            }
 
-                                    #tees4,
-                                    #tees5,
-                                    #tees6,
-                                    #tees7 {
-                                        color: yellow;
-                                    }
+                                                            .scores {
+                                                                width: 40%;
+                                                                font-size: 3vh;
+                                                                color: white;
+                                                                font-weight: 400;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                                padding-left: 5vh;
+                                                            }
 
-                                    .position {
-                                        width: 20%;
-                                        font-size: 3vh;
-                                        color: white;
-                                        font-weight: 400;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                    }
+                                                            .tees {
+                                                                width: 35%;
+                                                                font-size: 2vh;
+                                                                color: cyan;
+                                                                font-weight: 400;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                                padding-left: 5vh;
+                                                            }
 
-                                    .hcps {
-                                        width: 12%;
-                                        font-size: 3vh;
-                                        color: white;
-                                        font-weight: 400;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                    }
+                                                            #tees4,
+                                                            #tees5,
+                                                            #tees6,
+                                                            #tees7 {
+                                                                color: yellow;
+                                                            }
 
-                                    .hcpsadj {
-                                        padding-left: 6vh;
-                                        width: auto;
-                                        font-size: 2.5vh;
-                                        color: silver;
-                                        font-weight: 400;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                    }
+                                                            .position {
+                                                                width: 20%;
+                                                                font-size: 3vh;
+                                                                color: white;
+                                                                font-weight: 400;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                            }
 
-                                    #headerinfo {
-                                        padding-top: 2vh;
-                                        padding-bottom: 1vh;
-                                        color: white;
-                                        font-size: 5vh;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                        width: 80%;
-                                    }
+                                                            .hcps {
+                                                                width: 12%;
+                                                                font-size: 3vh;
+                                                                color: white;
+                                                                font-weight: 400;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                            }
 
-                                    #footerinfo,
-                                    #footerstats {
-                                        position: absolute;
-                                        bottom: 200px;
-                                        width: 100%;
-                                        color: white;
-                                        font-size: 2.5vh;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                    }
+                                                            .hcpsadj {
+                                                                padding-left: 6vh;
+                                                                width: auto;
+                                                                font-size: 2.5vh;
+                                                                color: silver;
+                                                                font-weight: 400;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                            }
 
-                                    .birdgif, .birdgifnumber {
-                                        width: 10%;
-                                        visibility: hidden;
-                                    }
+                                                            #headerinfo {
+                                                                padding-top: 2vh;
+                                                                padding-bottom: 1vh;
+                                                                color: white;
+                                                                font-size: 5vh;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                                width: 80%;
+                                                            }
 
-                                    .numbird {
-                                        width: 10%;
-                                        visibility: hidden;
-                                        text-align: center;
-                                        color: cyan;
-                                        font-size: 2vh;
-                                        font-style: italic;
-                                    }
+                                                            #footerinfo,
+                                                            #footerstats {
+                                                                position: absolute;
+                                                                bottom: 200px;
+                                                                width: 100%;
+                                                                color: white;
+                                                                font-size: 2.5vh;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                            }
 
-                                    .birdimg {
-                                        height: 3.3vh;
-                                        display: flex;
-                                        text-align: center;
-                                        justify-content: center;
-                                        padding-left: 1vw;
-                                        padding-right: 1vw;
-                                    }
+                                                            .birdgif, .birdgifnumber {
+                                                                width: 10%;
+                                                                visibility: hidden;
+                                                            }
 
-                                    #statsinfo {
-                                        width: 300px;
-                                        height: 300px;
-                                        border: 1px solid cyan;
-                                        display: flex;
-                                    }
+                                                            .numbird {
+                                                                width: 10%;
+                                                                visibility: hidden;
+                                                                text-align: center;
+                                                                color: cyan;
+                                                                font-size: 2vh;
+                                                                font-style: italic;
+                                                            }
 
-                                    #statsinfo div {
-                                        border: 1px sold yellow;
-                                        flex: 1;
-                                    }
+                                                            .birdimg {
+                                                                height: 3.3vh;
+                                                                display: flex;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                                padding-left: 1vw;
+                                                                padding-right: 1vw;
+                                                            }
 
-                                    .table_component {
-                                        overflow: auto;
-                                        width: 100%;
-                                    }
+                                                            #statsinfo {
+                                                                width: 300px;
+                                                                height: 300px;
+                                                                border: 1px solid cyan;
+                                                                display: flex;
+                                                            }
 
-                                    .table_component table {
-                                        height: 100%;
-                                        width: 100%;
-                                        border-collapse: collapse;
-                                        border-spacing: 1px;
-                                        text-align: center;
-                                        font-size: 2vh;
-                                    }
+                                                            #statsinfo div {
+                                                                border: 1px sold yellow;
+                                                                flex: 1;
+                                                            }
 
-                                    .table_component caption {
-                                        caption-side: top;
-                                        text-align: left;
-                                    }
+                                                            .table_component {
+                                                                overflow: auto;
+                                                                width: 100%;
+                                                            }
 
-                                    .table_component th {
-                                        background-color: #1589ff;
-                                        color: cyan;
-                                        padding: 5px;
-                                    }
+                                                            .table_component table {
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                border-collapse: collapse;
+                                                                border-spacing: 1px;
+                                                                text-align: center;
+                                                                font-size: 2vh;
+                                                            }
 
-                                    .table_component td {
-                                        background-color: dodgerBlue;
-                                        color: white;
-                                        padding: 5px;
-                                    }
+                                                            .table_component caption {
+                                                                caption-side: top;
+                                                                text-align: left;
+                                                            }
 
-                                    .table_component table tbody tr:nth-of-type(even) > * {
-                                        background: #1589ff;
-                                    }
+                                                            .table_component th {
+                                                                background-color: #1589ff;
+                                                                color: cyan;
+                                                                padding: 5px;
+                                                            }
 
-                                    #toptr {
-                                        color: cyan;
-                                    }
+                                                            .table_component td {
+                                                                background-color: dodgerBlue;
+                                                                color: white;
+                                                                padding: 5px;
+                                                            }
 
-                                    .cyan {
-                                        background: dodgerBlue;
-                                    }
+                                                            .table_component table tbody tr:nth-of-type(even) > * {
+                                                                background: #1589ff;
+                                                            }
 
-                                    #statspanel {
-                                        display: none;
-                                        position: fixed;
-                                        bottom: 25vh;
-                                        background: #3a3b3c;
-                                        color: white;
-                                        font-size: 4vw;
-                                        width: 96%;
-                                        margin-left: 2%;
-                                        margin-top: 2%;
-                                        margin-bottom: 2%;
-                                        box-shadow: 0 3px 5px black;
-                                        align-items: center;
-                                        border-radius: 5px;
-                                        border: 1px solid black;
-                                        animation-name: expandfrommiddle;
-                                        animation-duration: 0.7s;
-                                        animation-timing-function: ease-out;
-                                    }
+                                                            #toptr {
+                                                                color: cyan;
+                                                            }
 
-                                    @keyframes expandfrommiddle {
-                                        from {
-                                            scale: 0.1;
-                                            opacity: 0%;
-                                        }
-                                        to {
-                                            scale: 1;
-                                            opacity: 100%;
-                                        }
-                                    }
+                                                            .cyan {
+                                                                background: dodgerBlue;
+                                                            }
 
-                                    @keyframes fade-in {
-                                        from {
-                                            opacity: 0%;
-                                            scale: 0.2;
-                                        }
-                                        to {
-                                            opacity: 100%;
-                                            scale: 1;
-                                        }
-                                    }
+                                                            #statspanel {
+                                                                display: none;
+                                                                position: fixed;
+                                                                bottom: 25vh;
+                                                                background: #3a3b3c;
+                                                                color: white;
+                                                                font-size: 4vw;
+                                                                width: 96%;
+                                                                margin-left: 2%;
+                                                                margin-top: 2%;
+                                                                margin-bottom: 2%;
+                                                                box-shadow: 0 3px 5px black;
+                                                                align-items: center;
+                                                                border-radius: 5px;
+                                                                border: 1px solid black;
+                                                                animation-name: expandfrommiddle;
+                                                                animation-duration: 0.7s;
+                                                                animation-timing-function: ease-out;
+                                                            }
 
-                                    @keyframes slide-in {
-                                        from {
-                                            translate: 0 -100vh;
-                                        }
+                                                            @keyframes expandfrommiddle {
+                                                                from {
+                                                                    scale: 0.1;
+                                                                    opacity: 0%;
+                                                                }
+                                                                to {
+                                                                    scale: 1;
+                                                                    opacity: 100%;
+                                                                }
+                                                            }
 
-                                        to {
-                                            translate: 0 0;
-                                        }
-                                    }
+                                                            @keyframes fade-in {
+                                                                from {
+                                                                    opacity: 0%;
+                                                                    scale: 0.2;
+                                                                }
+                                                                to {
+                                                                    opacity: 100%;
+                                                                    scale: 1;
+                                                                }
+                                                            }
 
-                                    /* DivTable.com */
-                                    tr {
-                                        color: white;
-                                        background: black;
-                                        font-size: 2vh;
-                                    }
+                                                            @keyframes slide-in {
+                                                                from {
+                                                                    translate: 0 -100vh;
+                                                                }
 
-                                    .static {
-                                        color: cyan;
-                                    }
+                                                                to {
+                                                                    translate: 0 0;
+                                                                }
+                                                            }
 
-                                    .bg {
-                                        font-size: 3vh;
-                                    }
-                                    #panel {
-                                        display: none;
-                                        position: fixed;
-                                        top: 10vh;
-                                        text-align: center;
-                                        justify-content: center;
-                                        height: 67vh;
-                                        width: 80vw;
-                                        left: 10vw;
-                                        background: black;
-                                        opacity: 0.8;
-                                        color: white;
-                                        font-family: arial;
-                                        font-size: 3vh;
-                                        border-radius: 5px;
-                                        padding: 5vh;
-                                        padding-top: 20vh;
-                                    }
+                                                            /* DivTable.com */
+                                                            tr {
+                                                                color: white;
+                                                                background: black;
+                                                                font-size: 2vh;
+                                                            }
+
+                                                            .static {
+                                                                color: cyan;
+                                                            }
+
+                                                            .bg {
+                                                                font-size: 3vh;
+                                                            }
+                                                            #panel {
+                                                                display: none;
+                                                                position: fixed;
+                                                                top: 10vh;
+                                                                text-align: center;
+                                                                justify-content: center;
+                                                                height: 67vh;
+                                                                width: 80vw;
+                                                                left: 10vw;
+                                                                background: black;
+                                                                opacity: 0.8;
+                                                                color: white;
+                                                                font-family: arial;
+                                                                font-size: 3vh;
+                                                                border-radius: 5px;
+                                                                padding: 5vh;
+                                                                padding-top: 20vh;
+                                                            }
+
+
+
+
+            .container {
+              width: 100vw;
+              height: 40vh;
+              position: fixed;
+              top: 0;
+              left: 0;
+              background: dodgerBlue;
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+              justify-content: center;
+              align-content: center;
+            }
+
+            .flex {
+              min-height: 60pt;
+            }
+
+            @keyframes loading {
+              0% {
+                width: 50pt;
+                height: 50pt;
+                margin-top: 0;
+              }
+              25% {
+                height: 4pt;
+                margin-top: 23pt;
+              }
+              50% {
+                width: 4pt;
+              }
+              75% {
+                width: 50pt;
+              }
+              100% {
+                width: 50pt;
+                height: 50pt;
+                margin-top: 0;
+              }
+            }
+
+            .loader {
+              width: 50pt;
+              height: 50pt;
+              border-radius: 100%;
+              border: cyan 4pt solid;
+              margin-left: auto;
+              margin-right: auto;
+              background-color: transparent;
+              animation: loading 1s infinite;
+            }
+
+            .load-text {
+              padding-top: 15px;
+              text-align: center;
+              font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
+              color: cyan;
+            }
         </style>
     </head>
     <body>
@@ -495,7 +557,16 @@ box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba
                 <div id="headermainpage">Leaderboard</div>
                 <div id="playersList"></div>
             </div>
-            <div id="createleaderboarditems"><br>checking ...</div>
+            <div id="createleaderboarditems">
+                <!-- this is overwritten on start -->
+                <div class="container">
+                    <div class="flex">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="load-text">Loading...</div>
+                </div>
+                <!-- end of this is overwritten on start -->
+            </div>
         </div>
 
         <div style="margin-top: 8px"></div>
