@@ -1,61 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>spain2025</title>
+        <meta content="Bryan M" name="author" />
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<title>spain2025</title>
-	<meta content="Bryan M" name="author" />
-	<link href="favicon.ico" rel="icon" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<style>
+            body {
+                overflow: hidden;
+                background-color: dodgerBlue;
+            }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-        
-body {
-    overflow: hidden;
-    background-color: #2EB872;
-}
+            #loading {
+                background: dodgerBlue;
+                height: 100vh;
+            }
 
-#loading {
-	background: #2EB872;
-	height: 100vh;
-}
+            img {
+                height: 50vh;
+                width: 100vw;
+            }
 
-img {
-	height: 50vh;
-	width: 100vw;
-}
-</style>
-</head>
-<body>
-<div id="loading">
-   <img src="hole.gif" alt="">    
-</div>
-<script>
+            .container {
+                width: 100vw;
+                height: 40vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: dodgerBlue;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: center;
+                align-content: center;
+            }
 
-document.onreadystatechange = function () {
-   if (document.readyState == "complete") {
-       setTimeout(() => {  
-           start();
-       }, 1500)
-   }
-};
-    
- 
-    
-    
- //https://docs.google.com/spreadsheets/d/e/2PACX-1vQbTWlmxAkPOBkiiXSBGrgBBp9_A76Jqhx4YaKccrniwwz9r3JXKqVExd1z7oeG6EgTddq1kQc8Fli_/pubhtml?gid=984735541&single=true
-   //https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true
-   //https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true 
-function start() {
-    window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true&chrome=false")
-}
+            .flex {
+                min-height: 60pt;
+            }
 
-</script>
-</body>
+            @keyframes loading {
+                0% {
+                    width: 50pt;
+                    height: 50pt;
+                    margin-top: 0;
+                }
+                25% {
+                    height: 4pt;
+                    margin-top: 23pt;
+                }
+                50% {
+                    width: 4pt;
+                }
+                75% {
+                    width: 50pt;
+                }
+                100% {
+                    width: 50pt;
+                    height: 50pt;
+                    margin-top: 0;
+                }
+            }
 
+            .loader {
+                width: 50pt;
+                height: 50pt;
+                border-radius: 100%;
+                border: cyan 4pt solid;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: transparent;
+                animation: loading 1s infinite;
+            }
+
+            .load-text {
+                padding-top: 15px;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 3vh;
+                color: cyan;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loading">
+            <!-- this is overwritten on start -->
+            <div class="container">
+                <div class="flex">
+                    <div class="loader"></div>
+                </div>
+                <div class="load-text">Loading...</div>
+            </div>
+            <!-- end of this is overwritten on start -->
+        </div>
+        <script>
+            document.onreadystatechange = function () {
+                if (document.readyState == "complete") {
+                    setTimeout(() => {
+                        start();
+                    }, 1500);
+                }
+            };
+
+            //https://docs.google.com/spreadsheets/d/e/2PACX-1vQbTWlmxAkPOBkiiXSBGrgBBp9_A76Jqhx4YaKccrniwwz9r3JXKqVExd1z7oeG6EgTddq1kQc8Fli_/pubhtml?gid=984735541&single=true
+            //https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true
+            //https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true
+            function start() {
+                window.location.assign(
+                    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true&chrome=false"
+                );
+            }
+        </script>
+    </body>
 </html>
