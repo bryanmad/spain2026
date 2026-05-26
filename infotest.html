@@ -7,7 +7,7 @@
         <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
         <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
         <title>spain2026</title>
-        <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <style>
@@ -545,7 +545,7 @@
                                                                         animation: loading 1s infinite;
                                                                       }
 
-                                                                      .load-text {
+                                                                      .loader-text {
                                                                         padding-top: 15px;
                                                                         text-align: center;
                                                                         //font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -562,7 +562,7 @@
                                                                       #sunday, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday {
                                                                           background: gray;
                                                                           color: white;
-                                                                          font-size: 2.2vh;
+                                                                          font-size: 2vh;
 
                                                                           padding-right: 2vw;
                                                                           padding-top: 2vh;
@@ -618,7 +618,7 @@
                                               .mainx {
                                               display: flex;
                                               flex-direction: row;
-                                              font-size: 30px;
+                                              font-size: 2vh;
                                               color: green;
                                   box-shadow: inset 0 0 10px royalblue;
                                                   //background: #1589FF; //silver;
@@ -659,7 +659,7 @@
                                               color: white;
                                               background: dodgerBlue;
                                   //font-family:monospace;
-                                              font-family: Arial, Helvetica, sans-serif;
+                                              //font-family: "Roboto Mono";
                                               font-size: 2vh;
                                               border: none;
                                               padding-left: 2vw;
@@ -670,6 +670,9 @@
 
                         .yellowtxt {
                             color: yellow;
+                            font-family: monospace;
+                            font-size: 1.7vh;
+                            padding-left:5vw;
                         }
         </style>
     </head>
@@ -686,7 +689,7 @@
                     <div class="flex">
                         <div class="loader"></div>
                     </div>
-                    <div class="load-text">Loading...</div>
+                    <div class="loader-text">Loading...</div>
                 </div>
                 <!-- end of this is overwritten on start -->
             </div>
@@ -721,18 +724,23 @@ document.getElementById("myDetails").open = true;
                 <div>meet at bar</div>
             </div>
 
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
+            <div class="txta">
+                After going through security and passport control at the Airport, meet at the Tap + Brew which is
+                situated at the far end of Departures, after going through Duty Free. Meet up with everyone and any
+                outstanding £25 for prize money will be collected.
+            </div>
+            <div class="txta yellowtxt">
+                <a>Newcastle NCL to Malaga AGP</a><br /><br />
+                <a>Departs: Sun 12 Oct 2025 at 07:50</a><br />
+                <a>Arrives: Sun 12 Oct 2025 at 12:15</a><br />
+                <a>Duration: 3 hrs 25 mins</a><br />
+                <a>Flight: LS557</a><br />
+            </div>
+            <div class="txta">
+                xxxxxxxxxxxxAfter going through security and passport control at the Airport, meet at the Tap + Brew
+                which is situated at the far end of Departures, after going through Duty Free. Meet up with everyone and
+                any outstanding £25 for prize money will be collected. Newcastle NCL to Malaga AGP
+            </div>
 
             <div class="mainx">
                 <div><img src="manwithbag.png" class="imgleft" /></div>
