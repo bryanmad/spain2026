@@ -11,543 +11,459 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <style>
-                                                            * {
-                                                                margin: 0;
-                                                                padding: 0;
-                                                                box-sizing: border-box;
-                                                            }
-
-                                                            html {
-                                                                width: 100vw;
-                                                            }
-
-                                                            body {
-                                                                overflow: hidden;
-                                                                font-family: Arial, Helvetica, sans-serif;
-                                                                font-size: 3vh;
-                                                                background: dodgerBlue;
-                                                                height: 100%;
-                                                                width: 100%;
-                                                            }
-
-                                                            #info {
-                                                                display: none;
-                                                                overflow: auto;
-                                                                position: absolute;
-                                                                top: 0;
-                                                                left: 0;
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                color: white;
-                                                                background-color: black;
-                                                                padding-left: 1px;
-                                                                padding-right: 1px;
-                                                                padding-bottom: 1px;
-                                                            }
-
-                                                            #popuppanel {
-                                                                background-color: #ddd;
-                                                                font-size: 3vh;
-                                                                display: inline-block;
-                                                                border-radius: 3px;
-                                                                border: 1px solid #aaa;
-                                                                padding: 10px;
-                                                                margin: 5vw;
-                                                                text-align: center;
-                                                                width: 80vw;
-                                                                cursor: pointer;
-                                                            }
-                                                            /* hide forms */
-
-                                                            #my-response-iframe,
-                                                            #my-form {
-                                                                display: none;
-                                                            }
-
-                                                            .headerwrapper {
-                                                                height: 7vh;
-                                                                font-size: 3vh;
-                                                                flex-direction: row;
-                                                                display: flex;
-                                                            }
-
-                                                            #headerpageone,
-                                                            #headermainpage,
-                                                            #headerpagethree {
-                                                                color: white;
-                                                                background: black;
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                display: flex;
-                                                                justify-content: center;
-                                                                align-items: center;
-                                                            }
-
-                                                            #mainpage {
-                                                                position: fixed;
-                                                                top: 0;
-                                                                left: 0;
-                                                                height: 100vh;
-                                                                width: 100vw;
-                                                                background: dodgerBlue;
-                                                                display: block; //none;
-                                                            }
-
-                                                            .submit {
-                                                                font-size: 100%;
-                                                                color: white;
-                                                                height: 100%;
-                                                                line-height: 10vh;
-                                                                text-align: center;
-                                                            }
-
-                                                            #sending {
-                                                                position: relative;
-                                                                background: black;
-                                                            }
-
-                                                            tr {
-                                                                text-align: center;
-                                                            }
-                                                            td {
-                                                                width: calc(100vw / 6);
-                                                            }
-                                                            .head {
-                                                                font-size: 2vh;
-                                                            }
-
-                                                            #acceptpanel {
-                                                                display: none;
-                                                                position: fixed;
-                                                                bottom: 5vh;
-                                                                border: 1px silver solid;
-                                                                background: black;
-                                                                color: white;
-                                                                font-size: 2vh;
-                                                                padding: 5vw;
-                                                                border-radius: 5px;
-                                                                text-align: center;
-                                                                margin-left: 14vw;
-                                                            }
-
-                                                            .button1 {
-                                                                width: 25vw;
-                                                                height: 10vh;
-                                                                text-align: center;
-                                                                font-size: 2vh;
-                                                                border-radius: 5px;
-                                                                background: silver;
-                                                            }
-
-                                                            .spacer1vh {
-                                                                display: flex;
-                                                                padding: 1vh;
-                                                            }
-
-                                                            #podium,
-                                                            #home,
-                                                            #stat {
-                                                                height: 5vh;
-                                                                width: 5vh;
-                                                            }
-
-                                                            /* for each day */
-                                                            #createleaderboarditems {
-                                                                text-align: center;
-                                                                color: white;
-                                                                font-size: 4vh;
-                                                                height: auto;
-                                                                display: block;
-                                                            }
-
-                                                            .team {
-                                                                width: 90%;
-                                                                height: 5vh;
-                                                                margin-left: 5%;
-                                                                margin-top: 2%;
-                                                                margin-bottom: 2%;
-                                                                background: rgba(105, 105, 105, 0.8);
-                                                                box-shadow: 0 3px 5px black;
-                                                                display: flex;
-                                                                align-items: center;
-                                                                transition-property: top;
-                                                                /* how fast ? is */
-                                                                transition-duration: 200ms;
-                                                                border-radius: 5px; //10px;
-                                                                transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                                                                border: 2px solid rgba(255, 255, 255, 0.3);
-                                                                //background-clip: padding-box;
-
-
-                                                                margin-left: 100%;
-
-
-                        box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
-
-
-                                                            }
-
-                                    /* how fast it slides in */
-                                                        .animate {
-                                                    transform: translate3d(-105%, 0, 0);
-                                                    //-webkit-transform: translate3d(-105%, 0, 0);
-                                                    -webkit-transition: transform 0.5s ease;
-                                                }
-
-
-
-
-
-
-                                                            .teamhcp {
-                                                                width: 90%;
-                                                                height: 5vh;
-                                                                margin-left: 5%;
-                                                                margin-top: 2%;
-                                                                margin-bottom: 2%;
-                                                                padding-left: 5vw;
-                                                                background: rgba(105, 105, 105, 0.8);
-                                                                box-shadow: 0 3px 5px black;
-                                                                display: flex;
-                                                                align-items: center;
-                                                                transition-property: top;
-                                                               /* how fast ? is */
-                                                                transition-duration: 500ms;
-                                                                border-radius: 5px; //10px;
-                                                                transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                                                                border: 2px solid rgba(255, 255, 255, 0.3);
-                                                                //background-clip: padding-box;
-                                                            }
-
-                                                            .name {
-                                                                width: 40%;
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: left;
-                                                                font-size: 3vh;
-                                                                color: white;
-                                                                font-weight: 400;
-                                                                text-transform: capitalize;
-                                                            }
-
-                                                            .namehcp {
-                                                                width: 50%;
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: left;
-                                                                font-size: 3vh;
-                                                                color: white;
-                                                                font-weight: 400;
-                                                                text-transform: capitalize;
-                                                            }
-
-                                                            .scores {
-                                                                width: 40%;
-                                                                font-size: 3vh;
-                                                                color: white;
-                                                                font-weight: 400;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                                padding-left: 5vh;
-                                                            }
-
-                                                            .tees {
-                                                                width: 35%;
-                                                                font-size: 2vh;
-                                                                color: cyan;
-                                                                font-weight: 400;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                                padding-left: 5vh;
-                                                            }
-
-                                                            #tees4,
-                                                            #tees5,
-                                                            #tees6,
-                                                            #tees7 {
-                                                                color: yellow;
-                                                            }
-
-                                                            .position {
-                                                                width: 20%;
-                                                                font-size: 3vh;
-                                                                color: white;
-                                                                font-weight: 400;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                            }
-
-                                                            .hcps {
-                                                                width: 12%;
-                                                                font-size: 3vh;
-                                                                color: white;
-                                                                font-weight: 400;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                            }
-
-                                                            .hcpsadj {
-                                                                padding-left: 6vh;
-                                                                width: auto;
-                                                                font-size: 2.5vh;
-                                                                color: silver;
-                                                                font-weight: 400;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                            }
-
-                                                            #headerinfo {
-                                                                padding-top: 2vh;
-                                                                padding-bottom: 1vh;
-                                                                color: white;
-                                                                font-size: 5vh;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                                width: 80%;
-                                                            }
-
-                                                            #footerinfo,
-                                                            #footerstats {
-                                                                position: absolute;
-                                                                bottom: 200px;
-                                                                width: 100%;
-                                                                color: white;
-                                                                font-size: 2.5vh;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                            }
-
-                                                            .birdgif, .birdgifnumber {
-                                                                width: 10%;
-                                                                visibility: hidden;
-                                                            }
-
-                                                            .numbird {
-                                                                width: 10%;
-                                                                visibility: hidden;
-                                                                text-align: center;
-                                                                color: cyan;
-                                                                font-size: 2vh;
-                                                                font-style: italic;
-                                                            }
-
-                                                            .birdimg {
-                                                                height: 3.3vh;
-                                                                display: flex;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                                padding-left: 1vw;
-                                                                padding-right: 1vw;
-                                                            }
-
-                                                            #statsinfo {
-                                                                width: 300px;
-                                                                height: 300px;
-                                                                border: 1px solid cyan;
-                                                                display: flex;
-                                                            }
-
-                                                            #statsinfo div {
-                                                                border: 1px sold yellow;
-                                                                flex: 1;
-                                                            }
-
-                                                            .table_component {
-                                                                overflow: auto;
-                                                                width: 100%;
-                                                            }
-
-                                                            .table_component table {
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                border-collapse: collapse;
-                                                                border-spacing: 1px;
-                                                                text-align: center;
-                                                                font-size: 2vh;
-                                                            }
-
-                                                            .table_component caption {
-                                                                caption-side: top;
-                                                                text-align: left;
-                                                            }
-
-                                                            .table_component th {
-                                                                background-color: #1589ff;
-                                                                color: cyan;
-                                                                padding: 5px;
-                                                            }
-
-                                                            .table_component td {
-                                                                background-color: dodgerBlue;
-                                                                color: white;
-                                                                padding: 5px;
-                                                            }
-
-                                                            .table_component table tbody tr:nth-of-type(even) > * {
-                                                                background: #1589ff;
-                                                            }
-
-                                                            #toptr {
-                                                                color: cyan;
-                                                            }
-
-                                                            .cyan {
-                                                                background: dodgerBlue;
-                                                            }
-
-                                                            #statspanel {
-                                                                display: none;
-                                                                position: fixed;
-                                                                bottom: 25vh;
-                                                                background: #3a3b3c;
-                                                                color: white;
-                                                                font-size: 4vw;
-                                                                width: 96%;
-                                                                margin-left: 2%;
-                                                                margin-top: 2%;
-                                                                margin-bottom: 2%;
-                                                                box-shadow: 0 3px 5px black;
-                                                                align-items: center;
-                                                                border-radius: 5px;
-                                                                border: 1px solid black;
-                                                                animation-name: expandfrommiddle;
-                                                                animation-duration: 0.7s;
-                                                                animation-timing-function: ease-out;
-                                                            }
-
-                                                            @keyframes expandfrommiddle {
-                                                                from {
-                                                                    scale: 0.1;
-                                                                    opacity: 0%;
-                                                                }
-                                                                to {
-                                                                    scale: 1;
-                                                                    opacity: 100%;
-                                                                }
-                                                            }
-
-                                                            @keyframes fade-in {
-                                                                from {
-                                                                    opacity: 0%;
-                                                                    scale: 0.2;
-                                                                }
-                                                                to {
-                                                                    opacity: 100%;
-                                                                    scale: 1;
-                                                                }
-                                                            }
-
-                                                            @keyframes slide-in {
-                                                                from {
-                                                                    translate: 0 -100vh;
-                                                                }
-
-                                                                to {
-                                                                    translate: 0 0;
-                                                                }
-                                                            }
-
-                                                            /* DivTable.com */
-                                                            tr {
-                                                                color: white;
-                                                                background: black;
-                                                                font-size: 2vh;
-                                                            }
-
-                                                            .static {
-                                                                color: cyan;
-                                                            }
-
-                                                            .bg {
-                                                                font-size: 3vh;
-                                                            }
-                                                            #panel {
-                                                                display: none;
-                                                                position: fixed;
-                                                                top: 10vh;
-                                                                text-align: center;
-                                                                justify-content: center;
-                                                                height: 67vh;
-                                                                width: 80vw;
-                                                                left: 10vw;
-                                                                background: black;
-                                                                opacity: 0.8;
-                                                                color: white;
-                                                                font-family: arial;
-                                                                font-size: 3vh;
-                                                                border-radius: 5px;
-                                                                padding: 5vh;
-                                                                padding-top: 20vh;
-                                                            }
-
-
-
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+            html {
+            width: 100vw;
+            }
+
+            body {
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3vh;
+            background: dodgerBlue;
+            height: 100%;
+            width: 100%;
+            }
+
+            /* hide forms */
+            #my-response-iframe,
+            #my-form {
+            display: none;
+            }
+
+            .headerwrapper {
+            height: 7vh;
+            font-size: 3vh;
+            flex-direction: row;
+            display: flex;
+            }
+
+            #headermainpage {
+            color: white;
+            background: black;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            #mainpage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: dodgerBlue;
+            display: block; //none;
+            }
+
+            .submit {
+            font-size: 100%;
+            color: white;
+            height: 100%;
+            line-height: 10vh;
+            text-align: center;
+            }
+
+            tr {
+            text-align: center;
+            }
+
+            td {
+            width: calc(100vw / 6);
+            }
+
+            #acceptpanel {
+            display: none;
+            position: fixed;
+            bottom: 5vh;
+            border: 1px silver solid;
+            background: black;
+            color: white;
+            font-size: 2vh;
+            padding: 5vw;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 14vw;
+            }
+
+            .spacer1vh {
+            display: flex;
+            padding: 1vh;
+            }
+
+            /* for each day */
+            #createleaderboarditems {
+            text-align: center;
+            color: white;
+            font-size: 4vh;
+            height: auto;
+            display: block;
+            }
+
+            .team {
+            width: 90%;
+            height: 5vh;
+            margin-left: 5%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            background: rgba(105, 105, 105, 0.8);
+            box-shadow: 0 3px 5px black;
+            display: flex;
+            align-items: center;
+            transition-property: top;
+            /* how fast ? is */
+            transition-duration: 200ms;
+            border-radius: 5px; //10px;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            //background-clip: padding-box;
+            margin-left: 100%;
+            box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
+            }
+
+            /* how fast it slides in */
+            .animate {
+            transform: translate3d(-105%, 0, 0);
+            //-webkit-transform: translate3d(-105%, 0, 0);
+            -webkit-transition: transform 0.5s ease;
+            }
+
+            .teamhcp {
+            width: 90%;
+            height: 5vh;
+            margin-left: 5%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            padding-left: 5vw;
+            background: rgba(105, 105, 105, 0.8);
+            box-shadow: 0 3px 5px black;
+            display: flex;
+            align-items: center;
+            transition-property: top;
+            /* how fast ? is */
+            transition-duration: 500ms;
+            border-radius: 5px; //10px;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            //background-clip: padding-box;
+            }
+
+            .name {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-size: 3vh;
+            color: white;
+            font-weight: 400;
+            text-transform: capitalize;
+            }
+
+            .namehcp {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-size: 3vh;
+            color: white;
+            font-weight: 400;
+            text-transform: capitalize;
+            }
+
+            .scores {
+            width: 40%;
+            font-size: 3vh;
+            color: white;
+            font-weight: 400;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding-left: 5vh;
+            }
+
+            .tees {
+            width: 35%;
+            font-size: 2vh;
+            color: cyan;
+            font-weight: 400;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding-left: 5vh;
+            }
+
+            #tees4,
+            #tees5,
+            #tees6,
+            #tees7 {
+            color: yellow;
+            }
+
+            .position {
+            width: 20%;
+            font-size: 3vh;
+            color: white;
+            font-weight: 400;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            }
+
+            .hcps {
+            width: 12%;
+            font-size: 3vh;
+            color: white;
+            font-weight: 400;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            }
+
+            .hcpsadj {
+            padding-left: 6vh;
+            width: auto;
+            font-size: 2.5vh;
+            color: silver;
+            font-weight: 400;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            }
+
+            #footerstats {
+            position: absolute;
+            bottom: 200px;
+            width: 100%;
+            color: white;
+            font-size: 2.5vh;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            }
+
+            .birdgif, .birdgifnumber {
+            width: 10%;
+            visibility: hidden;
+            }
+
+            .numbird {
+            width: 10%;
+            visibility: hidden;
+            text-align: center;
+            color: cyan;
+            font-size: 2vh;
+            font-style: italic;
+            }
+
+            .birdimg {
+            height: 3.3vh;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding-left: 1vw;
+            padding-right: 1vw;
+            }
+
+            #statsinfo {
+            width: 300px;
+            height: 300px;
+            border: 1px solid cyan;
+            display: flex;
+            }
+
+            .table_component {
+            overflow: auto;
+            width: 100%;
+            }
+
+            .table_component table {
+            height: 100%;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: center;
+            font-size: 2vh;
+            }
+
+            .table_component caption {
+            caption-side: top;
+            text-align: left;
+            }
+
+            .table_component th {
+            background-color: #1589ff;
+            color: cyan;
+            padding: 5px;
+            }
+
+            .table_component td {
+            background-color: dodgerBlue;
+            color: white;
+            padding: 5px;
+            }
+
+            .table_component table tbody tr:nth-of-type(even) > * {
+            background: #1589ff;
+            }
+
+            #toptr {
+            color: cyan;
+            }
+
+            .cyan {
+            background: dodgerBlue;
+            }
+
+            #statspanel {
+            display: none;
+            position: fixed;
+            bottom: 25vh;
+            background: #3a3b3c;
+            color: white;
+            font-size: 4vw;
+            width: 96%;
+            margin-left: 2%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            box-shadow: 0 3px 5px black;
+            align-items: center;
+            border-radius: 5px;
+            border: 1px solid black;
+            animation-name: expandfrommiddle;
+            animation-duration: 0.7s;
+            animation-timing-function: ease-out;
+            }
+
+            @keyframes expandfrommiddle {
+            from {
+            scale: 0.1;
+            opacity: 0%;
+            }
+            to {
+            scale: 1;
+            opacity: 100%;
+            }
+            }
+
+            @keyframes fade-in {
+            from {
+            opacity: 0%;
+            scale: 0.2;
+            }
+            to {
+            opacity: 100%;
+            scale: 1;
+            }
+            }
+
+            @keyframes slide-in {
+            from {
+            translate: 0 -100vh;
+            }
+            to {
+            translate: 0 0;
+            }
+            }
+
+            /* DivTable.com */
+            tr {
+            color: white;
+            background: black;
+            font-size: 2vh;
+            }
+
+            .static {
+            color: cyan;
+            }
+
+            .bg {
+            font-size: 3vh;
+            }
+
+            #panel {
+            display: none;
+            position: fixed;
+            top: 10vh;
+            text-align: center;
+            justify-content: center;
+            height: 67vh;
+            width: 80vw;
+            left: 10vw;
+            background: black;
+            opacity: 0.7;
+            color: white;
+            font-family: arial;
+            font-size: 3vh;
+            border-radius: 5px;
+            padding: 5vh;
+            padding-top: 20vh;
+            }
 
             .container {
-              width: 100vw;
-              height: 40vh;
-              position: fixed;
-              top: 0;
-              left: 0;
-              background: dodgerBlue;
-              display: flex;
-              flex-direction: column;
-              align-items: stretch;
-              justify-content: center;
-              align-content: center;
+            width: 100vw;
+            height: 40vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: dodgerBlue;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            align-content: center;
             }
 
             .flex {
-              min-height: 60pt;
+            min-height: 60pt;
             }
 
             @keyframes loading {
-              0% {
-                width: 50pt;
-                height: 50pt;
-                margin-top: 0;
-              }
-              25% {
-                height: 4pt;
-                margin-top: 23pt;
-              }
-              50% {
-                width: 4pt;
-              }
-              75% {
-                width: 50pt;
-              }
-              100% {
-                width: 50pt;
-                height: 50pt;
-                margin-top: 0;
-              }
+            0% {
+            width: 50pt;
+            height: 50pt;
+            margin-top: 0;
+            }
+            25% {
+            height: 4pt;
+            margin-top: 23pt;
+            }
+            50% {
+            width: 4pt;
+            }
+            75% {
+            width: 50pt;
+            }
+            100% {
+            width: 50pt;
+            height: 50pt;
+            margin-top: 0;
+            }
             }
 
             .loader {
-              width: 50pt;
-              height: 50pt;
-              border-radius: 100%;
-              border: cyan 4pt solid;
-              margin-left: auto;
-              margin-right: auto;
-              background-color: transparent;
-              animation: loading 1s infinite;
+            width: 50pt;
+            height: 50pt;
+            border-radius: 100%;
+            border: cyan 4pt solid;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: transparent;
+            animation: loading 1s infinite;
             }
 
             .load-text {
-              padding-top: 15px;
-              text-align: center;
-              //font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
-              font-size: 3vh;
-                color: cyan;
+            padding-top: 15px;
+            text-align: center;
+            //font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 3vh;
+            color: cyan;
             }
         </style>
     </head>
@@ -738,7 +654,6 @@
             // declare global variables
 
             var data;
-            var hcpData;
 
             // set up courses with details for calculations etc.
             // array ["hole num",par,si]
@@ -773,69 +688,7 @@
             //===========================
             // this code runs at startup
             //===========================
-            getHcpData();
-            // need to set up a couple of arrays from the data in google sheets
-            async function getHcpData() {
-                var datastream = await fetch(
-                    "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/hcpslookup"
-                );
-                try {
-                    if (!datastream.ok) {
-                        const message = `An error has occured: ${datastream.status}`;
-                        //throw new Error(message);
-                        alert("error: " + message);
-                    }
-                    hcpData = await datastream.json();
-                    // don't need blank players
-                    hcpData = hcpData.filter(function (el) {
-                        return el.players !== "";
-                    });
-
-                    // say if hcps are updated
-                    // show message
-                    console.log(hcpData[0].updated + " ---------");
-
-                    if (
-                        hcpData[0].updated == "Monday" ||
-                        hcpData[0].updated == "Tuesday" ||
-                        hcpData[0].updated == "Wednesday" ||
-                        hcpData[0].updated == "Thursday"
-                    ) {
-                        console.log(hcpData[0].updated + " therefore OK");
-                    } else {
-                        document.getElementById("panel").innerText =
-                            "Handicaps and tee groups for Monday have not been updated, they will be updated Monday morning.";
-                        document.getElementById("panel").style.display = "flex";
-                    }
-
-                    //having got hcp data, now get results data
-                    getData();
-                    //
-                    //
-                } catch (error) {
-                    console.error(error.message);
-                    console.log(error.message);
-                    alert(error.message);
-                }
-            }
-
-            //=============================================================
-            //=============================================================
-            // function start()
-            // - initialise everything and do checks etc.
-            //=============================================================
-            function start() {
-                //    $("#mainpage").fadeIn(200);
-
-                // see if there is any data and decide what to do
-                console.log("data.length = " + data.length);
-                if (data.length > 0) {
-                    useDataResults(data);
-                } else {
-                    useDataHcp(data);
-                }
-            }
-
+            getData();
             //=============================================================
             // functions - run when called
             //=============================================================
@@ -845,38 +698,85 @@
             // - gets results data
             //=============================================================
             async function getData() {
-                var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/resultsday1";
+                var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/resultsDay1";
+
                 try {
-                    const dataStream = await fetch(url);
+                    const dataStream = await fetch(url, {
+                        signal: AbortSignal.timeout(10000)
+                    });
                     if (!dataStream.ok) {
                         throw new Error(`Response status: ${dataStream.status}`);
                     }
                     data = await dataStream.json();
-                    // don't need blank players
-                    data = data.filter(function (el) {
-                        return el.players !== "";
-                    });
 
-                    data.sort((a, b) => parseInt(b.playerpoints) - parseInt(a.playerpoints));
-                } catch (error) {
-                    console.error(error.message);
-                    console.log(error.message);
-                    alert(error.message);
+                    // say if hcps are updated
+                    // show message
+                    console.log(data[0].updated + " ---------");
+
+                    if (
+                        data[0].updated == "Monday" ||
+                        data[0].updated == "Tuesday" ||
+                        data[0].updated == "Wednesday" ||
+                        data[0].updated == "Thursday" ||
+                        data[0].updated == "Friday"
+                    ) {
+                        console.log(data[0].updated + " therefore OK");
+                    } else {
+                        document.getElementById("panel").innerText =
+                            "Handicaps and tee groups for Monday have not been updated, they will be updated Monday morning.";
+                        document.getElementById("panel").style.display = "flex";
+                    }
+                    $("#pagetwo").fadeIn(500);
+                    console.log(data);
+                    // data is sorted with highest score first so test that to see if it >0
+                    //console.log("data[0].playerpoints = " + data.length);
+                    if (data[0].players.length > 0) {
+                        // change < to >
+                        useDataResults();
+                    } else {
+                        useDataHcp();
+                    }
+                    //
+                    //
+                } catch (err) {
+                    console.error(err.message);
+                    if (err.name === "TimeoutError") {
+                        // This exception is from the abort signal
+                        console.error("Timeout: no results within 10 seconds");
+                    } else if (err.name === "AbortError") {
+                        // This exception is from the fetch itself
+                        console.error("Fetch aborted by user action (browser stop button, closing tab, etc.");
+                    } else if (err.name === "TypeError") {
+                        console.error("AbortSignal.timeout() method is not supported");
+                    } else {
+                        // A network error, or some other problem.
+                        console.error(`Error: type: ${err.name}, message: ${err.message}`);
+                    }
                 }
-                console.log(data);
-                // Decide which data to show depending on if there are results yet
-                //
-                start();
             }
+
+            //=============================================================
+            // functions - run when called
+            //=============================================================
 
             function useDataHcp() {
                 let container = document.getElementById("createleaderboarditems");
                 // empty container
                 container.innerHTML = "";
+                // say if hcps are updated
+                //
+                // show message
+                if (data[0].updated == "Monday") {
+                    console.log(data[0].updated + " therefore OK");
+                } else {
+                    document.getElementById("panel").innerText =
+                        "Handicaps and tee groups for Monday have not been updated, they will be updated Monday morning.";
+                    document.getElementById("panel").style.display = "flex";
+                }
 
                 // build screen
 
-                hcpData.forEach((el, i) => {
+                data.forEach((el, i) => {
                     let box = document.createElement("div");
                     box.id = "box" + i;
                     box.className = "teamhcp";
@@ -884,7 +784,7 @@
                     let name = document.createElement("span");
                     name.id = "namehcp" + i;
                     name.className = "namehcp";
-                    name.innerHTML = el.players;
+                    name.innerHTML = el.hcpplayers;
 
                     let hcps = document.createElement("span");
                     hcps.id = "hcps" + i;
@@ -903,23 +803,24 @@
                     // fade the initial view
                     container.style.opacity = 0.3;
                 });
-                /*             
+
                 var k = 0;
+
                 // do proper display
-                // setTimeout(function () {
-                hcpData.forEach((el, i) => {
+                data.forEach((el, i) => {
                     k++;
-                    if (el.players !== "") {
-                        bodyUpdateHcps(el.players, el.hcps, i);
-                    }
-                    //    }, k * 300);
+                    setTimeout(function () {
+                        console.log("run ... 1", el.hcpplayers, el.hcps);
+                        if (el.hcpplayers !== "") {
+                            bodyUpdateHcps(el.hcpplayers, el.hcps, i);
+                        }
+                    }, k * 300);
                 });
 
                 document.getElementById("box4").style.borderColor = "DarkSeaGreen";
                 document.getElementById("box5").style.borderColor = "DarkSeaGreen";
                 document.getElementById("box6").style.borderColor = "DarkSeaGreen";
                 document.getElementById("box7").style.borderColor = "DarkSeaGreen";
-*/
             }
 
             function useDataResults(data) {
@@ -981,38 +882,34 @@
                     container.style.opacity = 0.3;
                 });
 
-                document.getElementById("headermainpage").innerText = "Monday results";
-                document.getElementById("createleaderboarditems").style.opacity = 0;
+                var k = 0;
 
                 // do proper display
-                data.forEach((el, k) => {
+                data.forEach((el, i) => {
+                    //k++;
                     setTimeout(function () {
+                        console.log("run ... 1", el.hcpplayers, el.hcps);
                         if (el.players !== "") {
-                            bodyUpdate(el.players, el.playerpoints);
+                            bodyUpdateHcps(el.players, el.playerpoints, i);
                         }
-                    }, 100);
+                    }, i * 300);
                 });
             }
 
             function bodyUpdateHcps(nom, hcps, i) {
                 document.getElementById("headermainpage").innerText = "Handicaps for Monday";
 
-                let elName = nom;
-                hcpData.find((team) => team.players === elName);
+                data.find((team) => team.players === nom);
 
                 let AllTeams = Array.from(document.querySelectorAll(".teamhcp"));
+                let element = AllTeams[i];
+                let elementName = element.querySelector(".namehcp");
+                let elementScore = element.querySelector(".hcps");
 
-                AllTeams.forEach((element, n) => {
-                    let elementName = element.querySelector(".namehcp");
-                    let elementScore = element.querySelector(".hcps");
-                    if (elementName.innerHTML == elName) {
-                        setTimeout(function () {
-                            elementScore.innerHTML = hcps;
-
-                            element.style.opacity = 1;
-                        }, n * 300);
-                    }
-                });
+                if (elementName.innerHTML == nom) {
+                    elementScore.innerHTML = hcps;
+                    element.style.opacity = 1;
+                }
             }
 
             function bodyUpdate(xplayers, xplayerspoints) {
@@ -1081,13 +978,6 @@
                         );
                     }
                 });
-
-                //AllTeams.forEach((element, n) => {
-                //let elementName = element.querySelector(".name");
-                //const div = document.querySelector('#my-div');
-                //element.parentNode.style.transition = "opacity 0.5s";
-                //element.parentNode.style.opacity = 1.0;
-                //});
             }
 
             function showStats(id) {
