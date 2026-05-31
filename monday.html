@@ -706,35 +706,38 @@
                     });
                     if (!dataStream.ok) {
                         throw new Error(`Response status: ${dataStream.status}`);
-                    }
-                    data = await dataStream.json();
-
-                    // say if hcps are updated
-                    // show message
-                    console.log(data[0].updated + " ---------");
-
-                    if (
-                        data[0].updated == "Monday" ||
-                        data[0].updated == "Tuesday" ||
-                        data[0].updated == "Wednesday" ||
-                        data[0].updated == "Thursday" ||
-                        data[0].updated == "Friday"
-                    ) {
-                        console.log(data[0].updated + " therefore OK");
                     } else {
-                        document.getElementById("panel").innerText =
-                            "Handicaps and tee groups for Monday have not been updated, they will be updated Monday morning.";
-                        document.getElementById("panel").style.display = "flex";
-                    }
-                    $("#pagetwo").fadeIn(500);
-                    console.log(data);
-                    // data is sorted with highest score first so test that to see if it >0
-                    //console.log("data[0].playerpoints = " + data.length);
-                    if (data[0].players.length > 0) {
-                        // change < to >
-                        useDataResults();
-                    } else {
-                        useDataHcp();
+                        data = await dataStream.json();
+
+                        // say if hcps are updated
+                        // show message
+                        console.log(data[0].updated + " ---------");
+
+                        if (
+                            data[0].updated == "Monday" ||
+                            data[0].updated == "Tuesday" ||
+                            data[0].updated == "Wednesday" ||
+                            data[0].updated == "Thursday" ||
+                            data[0].updated == "Friday"
+                        ) {
+                            console.log(data[0].updated + " therefore OK");
+                        } else {
+                            document.getElementById("panel").innerText =
+                                "Handicaps and tee groups for Monday have not been updated, they will be updated Monday morning.";
+                            document.getElementById("panel").style.display = "flex";
+                        }
+                        $("#pagetwo").fadeIn(500);
+                        console.log(data);
+                        // data is sorted with highest score first so test that to see if it >0
+                        //console.log("data[0].playerpoints = " + data.length);
+                        if (data[0].players.length > 0) {
+                            // change < to >
+                            console.log("using useDataResults()");
+                            document.getElementById("panel").style.display = "none";
+                            useDataResults();
+                        } else {
+                            useDataHcp();
+                        }
                     }
                     //
                     //
@@ -801,7 +804,7 @@
 
                     container.appendChild(box);
                     // fade the initial view
-                    container.style.opacity = 0.3;
+                    box.style.opacity = 0.3;
                 });
 
                 var k = 0;
@@ -823,11 +826,11 @@
                 document.getElementById("box7").style.borderColor = "DarkSeaGreen";
             }
 
-            function useDataResults(data) {
+            function useDataResults() {
                 let container = document.getElementById("createleaderboarditems");
                 // empty container
                 container.innerHTML = "";
-
+                console.log(data);
                 data.forEach((el, i) => {
                     let box = document.createElement("div");
                     box.id = "box" + i;
@@ -885,99 +888,105 @@
                 var k = 0;
 
                 // do proper display
+
+                document.getElementById("createleaderboarditems").style.opacity = 1;
+
                 data.forEach((el, i) => {
-                    //k++;
+                    k++;
                     setTimeout(function () {
-                        console.log("run ... 1", el.hcpplayers, el.hcps);
+                        console.log("run ... 1", el.players, el.playerpoints);
                         if (el.players !== "") {
-                            bodyUpdateHcps(el.players, el.playerpoints, i);
+                            console.log(el.players, el.playerpoints, i);
+                            console.log(typeof i);
+                            bodyUpdate(el.players, el.playerpoints, i);
                         }
-                    }, i * 300);
+                    }, k * 300);
                 });
             }
 
             function bodyUpdateHcps(nom, hcps, i) {
                 document.getElementById("headermainpage").innerText = "Handicaps for Monday";
-
+                // find the correct data
                 data.find((team) => team.players === nom);
-
+                // find the correct place for the data
                 let AllTeams = Array.from(document.querySelectorAll(".teamhcp"));
                 let element = AllTeams[i];
                 let elementName = element.querySelector(".namehcp");
-                let elementScore = element.querySelector(".hcps");
-
+                let elementHcp = element.querySelector(".hcps");
+                console.log(elementName.innerHTML, nom);
                 if (elementName.innerHTML == nom) {
-                    elementScore.innerHTML = hcps;
+                    console.log("yes " + elementName.innerHTML, nom);
+                    elementName.innerHTML = nom;
+                    elementHcp.innerHTML = hcps;
                     element.style.opacity = 1;
                 }
             }
 
-            function bodyUpdate(xplayers, xplayerspoints) {
-                document.getElementById("createleaderboarditems").style.opacity = 1;
+            function bodyUpdate(nom, points, i) {
+                let pos = i + 1;
+                //temp
 
-                data.find((team) => team.players === xplayers);
+                data.find((team) => team.players === nom);
                 // now sort out positions for same scores
-                var held = 1;
-                var heldscore = 0;
-
-                data.forEach((element, index) => {
-                    if (element.playerpoints == heldscore) {
-                        element.position = held;
-                    } else {
-                        element.position = index + 1;
-                    }
-                    held = element.position;
-                    heldscore = element.playerpoints;
-                });
-                // do each "box" separately
                 let AllTeams = Array.from(document.querySelectorAll(".team"));
-
-                AllTeams.forEach((element, n) => {
-                    let elementPos = element.querySelector(".position");
-                    let elementName = element.querySelector(".name");
-                    let elementScore = element.querySelector(".scores");
-                    let elementBirdGif = element.querySelector(".birdgif");
-                    let elementBirdGifNumber = element.querySelector(".birdgifnumber");
-                    if (elementName.innerHTML == xplayers) {
-                        elementPos.innerHTML = data.find((team) => team.players === elementName.innerHTML).position;
-                        elementScore.innerHTML = xplayerspoints;
-
-                        var birdnum = data.find((team) => team.players === elementName.innerHTML).bird;
-                        if (birdnum > 0) {
-                            document.getElementById("birdgif" + n).style.visibility = "visible";
-                            document.getElementById("birdgifnumber" + n).className = "numbird";
-                            document.getElementById("birdgifnumber" + n).innerText = birdnum;
-                            document.getElementById("birdgifnumber" + n).style.visibility = "visible";
-                        }
-                        // fade in results
-                        elementPos.style.opacity = 0;
-                        elementName.style.opacity = 0;
-                        elementScore.style.opacity = 0;
-                        elementBirdGif.style.opacity = 0;
-                        elementBirdGifNumber.style.opacity = 0;
-
-                        setTimeout(
-                            function () {
-                                //document.getElementById("createleaderboarditems").style.transition = "opacity 3s";
-                                //document.getElementById("createleaderboarditems").style.opacity = 1.0;
-                                elementPos.style.transition = "opacity 3s";
-                                elementName.style.transition = "opacity 3s";
-                                elementScore.style.transition = "opacity 3s";
-                                elementBirdGif.style.transition = "opacity 3s";
-                                elementBirdGifNumber.style.transition = "opacity 3s";
-
-                                elementPos.style.opacity = 1;
-                                elementName.style.opacity = 1;
-                                elementScore.style.opacity = 1;
-                                elementBirdGif.style.opacity = 1;
-                                elementBirdGifNumber.style.opacity = 1;
-
-                                element.classList.add("animate");
-                            },
-                            n * 300 + 300
-                        );
+                let element = AllTeams[i];
+                let elementPos = element.querySelector(".position");
+                let elementScore = element.querySelector(".scores");
+                let elementName = element.querySelector(".name");
+                // cope with first position
+                if (i < 1) {
+                    let previousElement = AllTeams[i];
+                    let previousElementPos = previousElement.querySelector(".position");
+                    let previousElementScore = previousElement.querySelector(".scores");
+                    elementPos.innerHTML = pos;
+                } else {
+                    let previousElement = AllTeams[i - 1];
+                    let previousElementPos = previousElement.querySelector(".position");
+                    let previousElementScore = previousElement.querySelector(".scores");
+                    // if this score is the same as previous - same position
+                    if (previousElementScore.innerHTML == points) {
+                        elementPos.innerHTML = previousElementPos.innerHTML;
+                    } else {
+                        elementPos.innerHTML = pos;
                     }
-                });
+                }
+                // end of cope with first position
+                //
+
+                // sort out the birdies
+                let elementBirdGif = element.querySelector(".birdgif");
+                let elementBirdGifNumber = element.querySelector(".birdgifnumber");
+                if (elementName.innerHTML == nom) {
+                    elementScore.innerHTML = points;
+                }
+                var birdnum = data.find((team) => team.players === elementName.innerHTML).bird;
+                if (birdnum > 0) {
+                    document.getElementById("birdgif" + i).style.visibility = "visible";
+                    document.getElementById("birdgifnumber" + i).className = "numbird";
+                    document.getElementById("birdgifnumber" + i).innerText = birdnum;
+                    document.getElementById("birdgifnumber" + i).style.visibility = "visible";
+                }
+
+                // fade in results
+                elementPos.style.opacity = 0;
+                elementName.style.opacity = 0;
+                elementScore.style.opacity = 0;
+                elementBirdGif.style.opacity = 0;
+                elementBirdGifNumber.style.opacity = 0;
+
+                elementPos.style.transition = "opacity 3s";
+                elementName.style.transition = "opacity 3s";
+                elementScore.style.transition = "opacity 3s";
+                elementBirdGif.style.transition = "opacity 3s";
+                elementBirdGifNumber.style.transition = "opacity 3s";
+
+                elementPos.style.opacity = 1;
+                elementName.style.opacity = 1;
+                elementScore.style.opacity = 1;
+                elementBirdGif.style.opacity = 1;
+                elementBirdGifNumber.style.opacity = 1;
+
+                element.classList.add("animate");
             }
 
             function showStats(id) {
