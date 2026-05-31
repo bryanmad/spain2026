@@ -191,7 +191,7 @@
             .tees {
             width: 35%;
             font-size: 2vh;
-            color: cyan;
+            color: white;
             font-weight: 400;
             display: flex;
             text-align: center;
@@ -202,7 +202,16 @@
             #tees4,
             #tees5,
             #tees6,
-            #tees7 {
+            #tees7,
+            #hcps4,
+            #hcps5,
+            #hcps6,
+            #hcps7,
+            #namehcp4,
+            #namehcp5,
+            #namehcp6,
+            #namehcp7
+            {
             color: yellow;
             }
 
@@ -894,12 +903,9 @@
                 data.forEach((el, i) => {
                     k++;
                     setTimeout(function () {
-                        console.log("run ... 1", el.players, el.playerpoints);
-                        if (el.players !== "") {
-                            console.log(el.players, el.playerpoints, i);
-                            console.log(typeof i);
-                            bodyUpdate(el.players, el.playerpoints, i);
-                        }
+                        //if (el.players !== "") {
+                        bodyUpdate(el.players, el.playerpoints, i);
+                        //}
                     }, k * 300);
                 });
             }
