@@ -11,1057 +11,220 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <style>
-                                                                                                                                                       * {
-                                                                                                                                                           margin: 0;
-                                                                                                                                                           padding: 0;
-                                                                                                                                                           box-sizing: border-box;
-                                                                                                                                                       }
-
-                                                                                                                                                       html {
-                                                                                                                                                           width: 100vw;
-                                                                                                                                                       }
-
-                                                                                                                                                       body {
-                                                                                                                                                           //overflow: hidden;
-                                                                                                                                                           font-family: Arial, Helvetica, sans-serif;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           background: dodgerBlue;
-                                                                                                                                                           height: 100%;
-                                                                                                                                                           width: 100%;
-                                                                                                                                                       }
-
-                                                                                                                                                       #info {
-                                                                                                                                                           display: none;
-                                                                                                                                                           overflow: auto;
-                                                                                                                                                           position: absolute;
-                                                                                                                                                           top: 0;
-                                                                                                                                                           left: 0;
-                                                                                                                                                           height: 100%;
-                                                                                                                                                           width: 100%;
-                                                                                                                                                           color: white;
-                                                                                                                                                           background-color: black;
-                                                                                                                                                           padding-left: 1px;
-                                                                                                                                                           padding-right: 1px;
-                                                                                                                                                           padding-bottom: 1px;
-                                                                                                                                                       }
-
-                                                                                                                                                       #popuppanel {
-                                                                                                                                                           background-color: #ddd;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           display: inline-block;
-                                                                                                                                                           border-radius: 3px;
-                                                                                                                                                           border: 1px solid #aaa;
-                                                                                                                                                           padding: 10px;
-                                                                                                                                                           margin: 5vw;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           width: 80vw;
-                                                                                                                                                           cursor: pointer;
-                                                                                                                                                       }
-                                                                                                                                                       /* hide forms */
-
-                                                                                                                                                       #my-response-iframe,
-                                                                                                                                                       #my-form {
-                                                                                                                                                           display: none;
-                                                                                                                                                       }
-
-                                                                                                                                                       .headerwrapper {
-                                                                                                                                                           height: 7vh;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           flex-direction: row;
-                                                                                                                                                           display: flex;
-                                                                                                                                                       }
-
-                                                                                                                                                       #headerpageone,
-                                                                                                                                                       #headermainpage,
-                                                                                                                                                       #headerpagethree {
-                                                                                                                                                           color: white;
-                                                                                                                                                           background: black;
-                                                                                                                                                           height: 100%;
-                                                                                                                                                           width: 100%;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                           align-items: center;
-                                                                                                                                                       }
-
-                                                                                                                                                       #mainpage {
-                                                                                                                                                           position: fixed;
-                                                                                                                                                           top: 0;
-                                                                                                                                                           left: 0;
-                                                                                                                                                           height: 100vh;
-                                                                                                                                                           width: 100vw;
-                                                                                                                                                           background: dodgerBlue;
-                                                                                                                                                           display: block; //none;
-                                                                                                                                                       }
-
-                                                                                                                                                       .submit {
-                                                                                                                                                           font-size: 100%;
-                                                                                                                                                           color: white;
-                                                                                                                                                           height: 100%;
-                                                                                                                                                           line-height: 10vh;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                       }
-
-                                                                                                                                                       #sending {
-                                                                                                                                                           position: relative;
-                                                                                                                                                           background: black;
-                                                                                                                                                       }
-
-                                                                                                                                                       tr {
-                                                                                                                                                           text-align: center;
-                                                                                                                                                       }
-                                                                                                                                                       td {
-                                                                                                                                                           width: calc(100vw / 6);
-                                                                                                                                                       }
-                                                                                                                                                       .head {
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       #acceptpanel {
-                                                                                                                                                           display: none;
-                                                                                                                                                           position: fixed;
-                                                                                                                                                           bottom: 5vh;
-                                                                                                                                                           border: 1px silver solid;
-                                                                                                                                                           background: black;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                           padding: 5vw;
-                                                                                                                                                           border-radius: 5px;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           margin-left: 14vw;
-                                                                                                                                                       }
-
-                                                                                                                                                       .button1 {
-                                                                                                                                                           width: 25vw;
-                                                                                                                                                           height: 10vh;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                           border-radius: 5px;
-                                                                                                                                                           background: silver;
-                                                                                                                                                       }
-
-                                                                                                                                                       .spacer1vh {
-                                                                                                                                                           display: flex;
-                                                                                                                                                           padding: 1vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       #podium,
-                                                                                                                                                       #home,
-                                                                                                                                                       #stat {
-                                                                                                                                                           height: 5vh;
-                                                                                                                                                           width: 5vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       /* for each day */
-                                                                                                                                                       #createleaderboarditems {
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-size: 4vh;
-                                                                                                                                                           height: auto;
-                                                                                                                                                           display: block;
-                                                                                                                                                       }
-
-                                                                                                                                                       .team {
-                                                                                                                                                           width: 90%;
-                                                                                                                                                           height: 5vh;
-                                                                                                                                                           margin-left: 5%;
-                                                                                                                                                           margin-top: 2%;
-                                                                                                                                                           margin-bottom: 2%;
-                                                                                                                                                           background: rgba(105, 105, 105, 0.8);
-                                                                                                                                                           box-shadow: 0 3px 5px black;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           align-items: center;
-                                                                                                                                                           transition-property: top;
-                                                                                                                                                           /* how fast ? is */
-                                                                                                                                                           transition-duration: 200ms;
-                                                                                                                                                           border-radius: 5px; //10px;
-                                                                                                                                                           transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                                                                                                                                                           border: 2px solid rgba(255, 255, 255, 0.3);
-                                                                                                                                                           //background-clip: padding-box;
-
-
-                                                                                                                                                           margin-left: 100%;
-
-
-                                                                                                                   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
-
-
-                                                                                                                                                       }
-
-                                                                                                                               /* how fast it slides in */
-                                                                                                                                                   .animate {
-                                                                                                                                               transform: translate3d(-105%, 0, 0);
-                                                                                                                                               //-webkit-transform: translate3d(-105%, 0, 0);
-                                                                                                                                               -webkit-transition: transform 0.5s ease;
-                                                                                                                                           }
-
-
-
-
-
-
-                                                                                                                                                       .teamhcp {
-                                                                                                                                                           width: 90%;
-                                                                                                                                                           height: 5vh;
-                                                                                                                                                           margin-left: 5%;
-                                                                                                                                                           margin-top: 2%;
-                                                                                                                                                           margin-bottom: 2%;
-                                                                                                                                                           padding-left: 5vw;
-                                                                                                                                                           background: rgba(105, 105, 105, 0.8);
-                                                                                                                                                           box-shadow: 0 3px 5px black;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           align-items: center;
-                                                                                                                                                           transition-property: top;
-                                                                                                                                                          /* how fast ? is */
-                                                                                                                                                           transition-duration: 500ms;
-                                                                                                                                                           border-radius: 5px; //10px;
-                                                                                                                                                           transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                                                                                                                                                           border: 2px solid rgba(255, 255, 255, 0.3);
-                                                                                                                                                           //background-clip: padding-box;
-                                                                                                                                                       }
-
-                                                                                                                                                       .name {
-                                                                                                                                                           width: 40%;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           align-items: center;
-                                                                                                                                                           justify-content: left;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           text-transform: capitalize;
-                                                                                                                                                       }
-
-                                                                                                                                                       .namehcp {
-                                                                                                                                                           width: 50%;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           align-items: center;
-                                                                                                                                                           justify-content: left;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           text-transform: capitalize;
-                                                                                                                                                       }
-
-                                                                                                                                                       .scores {
-                                                                                                                                                           width: 40%;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                           padding-left: 5vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       .tees {
-                                                                                                                                                           width: 35%;
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                           color: cyan;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                           padding-left: 5vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       #tees4,
-                                                                                                                                                       #tees5,
-                                                                                                                                                       #tees6,
-                                                                                                                                                       #tees7 {
-                                                                                                                                                           color: yellow;
-                                                                                                                                                       }
-
-                                                                                                                                                       .position {
-                                                                                                                                                           width: 20%;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                       }
-
-                                                                                                                                                       .hcps {
-                                                                                                                                                           width: 12%;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                       }
-
-                                                                                                                                                       .hcpsadj {
-                                                                                                                                                           padding-left: 6vh;
-                                                                                                                                                           width: auto;
-                                                                                                                                                           font-size: 2.5vh;
-                                                                                                                                                           color: silver;
-                                                                                                                                                           font-weight: 400;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                       }
-
-                                                                                                                                                       #headerinfo {
-                                                                                                                                                           padding-top: 2vh;
-                                                                                                                                                           padding-bottom: 1vh;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-size: 5vh;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                           width: 80%;
-                                                                                                                                                       }
-
-                                                                                                                                                       #footerinfo,
-                                                                                                                                                       #footerstats {
-                                                                                                                                                           position: absolute;
-                                                                                                                                                           bottom: 200px;
-                                                                                                                                                           width: 100%;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-size: 2.5vh;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                       }
-
-                                                                                                                                                       .birdgif, .birdgifnumber {
-                                                                                                                                                           width: 10%;
-                                                                                                                                                           visibility: hidden;
-                                                                                                                                                       }
-
-                                                                                                                                                       .numbird {
-                                                                                                                                                           width: 10%;
-                                                                                                                                                           visibility: hidden;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           color: cyan;
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                           font-style: italic;
-                                                                                                                                                       }
-
-                                                                                                                                                       .birdimg {
-                                                                                                                                                           height: 3.3vh;
-                                                                                                                                                           display: flex;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                           padding-left: 1vw;
-                                                                                                                                                           padding-right: 1vw;
-                                                                                                                                                       }
-
-                                                                                                                                                       #statsinfo {
-                                                                                                                                                           width: 300px;
-                                                                                                                                                           height: 300px;
-                                                                                                                                                           border: 1px solid cyan;
-                                                                                                                                                           display: flex;
-                                                                                                                                                       }
-
-                                                                                                                                                       #statsinfo div {
-                                                                                                                                                           border: 1px sold yellow;
-                                                                                                                                                           flex: 1;
-                                                                                                                                                       }
-
-                                                                                                                                                       .table_component {
-                                                                                                                                                           overflow: auto;
-                                                                                                                                                           width: 100%;
-                                                                                                                                                       }
-
-                                                                                                                                                       .table_component table {
-                                                                                                                                                           height: 100%;
-                                                                                                                                                           width: 100%;
-                                                                                                                                                           border-collapse: collapse;
-                                                                                                                                                           border-spacing: 1px;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       .table_component caption {
-                                                                                                                                                           caption-side: top;
-                                                                                                                                                           text-align: left;
-                                                                                                                                                       }
-
-                                                                                                                                                       .table_component th {
-                                                                                                                                                           background-color: #1589ff;
-                                                                                                                                                           color: cyan;
-                                                                                                                                                           padding: 5px;
-                                                                                                                                                       }
-
-                                                                                                                                                       .table_component td {
-                                                                                                                                                           background-color: dodgerBlue;
-                                                                                                                                                           color: white;
-                                                                                                                                                           padding: 5px;
-                                                                                                                                                       }
-
-                                                                                                                                                       .table_component table tbody tr:nth-of-type(even) > * {
-                                                                                                                                                           background: #1589ff;
-                                                                                                                                                       }
-
-                                                                                                                                                       #toptr {
-                                                                                                                                                           color: cyan;
-                                                                                                                                                       }
-
-                                                                                                                                                       .cyan {
-                                                                                                                                                           background: dodgerBlue;
-                                                                                                                                                       }
-
-                                                                                                                                                       #statspanel {
-                                                                                                                                                           display: none;
-                                                                                                                                                           position: fixed;
-                                                                                                                                                           bottom: 25vh;
-                                                                                                                                                           background: #3a3b3c;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-size: 4vw;
-                                                                                                                                                           width: 96%;
-                                                                                                                                                           margin-left: 2%;
-                                                                                                                                                           margin-top: 2%;
-                                                                                                                                                           margin-bottom: 2%;
-                                                                                                                                                           box-shadow: 0 3px 5px black;
-                                                                                                                                                           align-items: center;
-                                                                                                                                                           border-radius: 5px;
-                                                                                                                                                           border: 1px solid black;
-                                                                                                                                                           animation-name: expandfrommiddle;
-                                                                                                                                                           animation-duration: 0.7s;
-                                                                                                                                                           animation-timing-function: ease-out;
-                                                                                                                                                       }
-
-                                                                                                                                                       @keyframes expandfrommiddle {
-                                                                                                                                                           from {
-                                                                                                                                                               scale: 0.1;
-                                                                                                                                                               opacity: 0%;
-                                                                                                                                                           }
-                                                                                                                                                           to {
-                                                                                                                                                               scale: 1;
-                                                                                                                                                               opacity: 100%;
-                                                                                                                                                           }
-                                                                                                                                                       }
-
-                                                                                                                                                       @keyframes fade-in {
-                                                                                                                                                           from {
-                                                                                                                                                               opacity: 0%;
-                                                                                                                                                               scale: 0.2;
-                                                                                                                                                           }
-                                                                                                                                                           to {
-                                                                                                                                                               opacity: 100%;
-                                                                                                                                                               scale: 1;
-                                                                                                                                                           }
-                                                                                                                                                       }
-
-                                                                                                                                                       @keyframes slide-in {
-                                                                                                                                                           from {
-                                                                                                                                                               translate: 0 -100vh;
-                                                                                                                                                           }
-
-                                                                                                                                                           to {
-                                                                                                                                                               translate: 0 0;
-                                                                                                                                                           }
-                                                                                                                                                       }
-
-                                                                                                                                                       /* DivTable.com */
-                                                                                                                                                       tr {
-                                                                                                                                                           color: white;
-                                                                                                                                                           background: black;
-                                                                                                                                                           font-size: 2vh;
-                                                                                                                                                       }
-
-                                                                                                                                                       .static {
-                                                                                                                                                           color: cyan;
-                                                                                                                                                       }
-
-                                                                                                                                                       .bg {
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                       }
-                                                                                                                                                       #panel {
-                                                                                                                                                           display: none;
-                                                                                                                                                           position: fixed;
-                                                                                                                                                           top: 10vh;
-                                                                                                                                                           text-align: center;
-                                                                                                                                                           justify-content: center;
-                                                                                                                                                           height: 67vh;
-                                                                                                                                                           width: 80vw;
-                                                                                                                                                           left: 10vw;
-                                                                                                                                                           background: black;
-                                                                                                                                                           opacity: 0.8;
-                                                                                                                                                           color: white;
-                                                                                                                                                           font-family: arial;
-                                                                                                                                                           font-size: 3vh;
-                                                                                                                                                           border-radius: 5px;
-                                                                                                                                                           padding: 5vh;
-                                                                                                                                                           padding-top: 20vh;
-                                                                                                                                                       }
-
-
-
-
-                                                                                                       .container {
-                                                                                                         width: 100vw;
-                                                                                                         height: 40vh;
-                                                                                                         position: fixed;
-                                                                                                         top: 0;
-                                                                                                         left: 0;
-                                                                                                         background: dodgerBlue;
-                                                                                                         //display: flex;
-
-                                                                                                           display: none;
-
-                                                                                                         flex-direction: column;
-                                                                                                         align-items: stretch;
-                                                                                                         justify-content: center;
-                                                                                                         align-content: center;
-                                                                                                       }
-
-                                                                                                       .flex {
-                                                                                                         min-height: 60pt;
-                                                                                                       }
-
-                                                                                                       @keyframes loading {
-                                                                                                         0% {
-                                                                                                           width: 50pt;
-                                                                                                           height: 50pt;
-                                                                                                           margin-top: 0;
-                                                                                                         }
-                                                                                                         25% {
-                                                                                                           height: 4pt;
-                                                                                                           margin-top: 23pt;
-                                                                                                         }
-                                                                                                         50% {
-                                                                                                           width: 4pt;
-                                                                                                         }
-                                                                                                         75% {
-                                                                                                           width: 50pt;
-                                                                                                         }
-                                                                                                         100% {
-                                                                                                           width: 50pt;
-                                                                                                           height: 50pt;
-                                                                                                           margin-top: 0;
-                                                                                                         }
-                                                                                                       }
-
-                                                                                                       .loader {
-                                                                                                         width: 50pt;
-                                                                                                         height: 50pt;
-                                                                                                         border-radius: 100%;
-                                                                                                         border: cyan 4pt solid;
-                                                                                                         margin-left: auto;
-                                                                                                         margin-right: auto;
-                                                                                                         background-color: transparent;
-                                                                                                         animation: loading 1s infinite;
-                                                                                                       }
-
-                                                                                                       .loader-text {
-                                                                                                         padding-top: 15px;
-                                                                                                         text-align: center;
-                                                                                                         //font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
-                                                                                                         font-size: 3vh;
-                                                                                                           color: cyan;
-                                                                                                       }
-
-
-
-
-
-
-
-                                                                                                       #sunday, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday {
-                                                                                                           background: gray;
-                                                                                                           color: white;
-                                                                                                           font-size: 2vh;
-
-                                                                                                           padding-right: 2vw;
-                                                                                                           padding-top: 2vh;
-                                                                                                           padding-bottom: 2vh;
-
-                                                                                           border: 1px solid silver;
-
-                                             box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
-
-                                                                                                       }
-
-                                                                                                       p {
-                                                                                                           color: white;
-                                                                                                           font-size: 2vh;
-                                                                                                           padding-top: 2vh;
-                                                                                                           padding-bottom: 2vh;
-                                                                                                           padding-left: 1vw;
-                                                                                                           padding-right: 1vw;
-                                                                                                       }
-
-                                                                                                       .right {
-                                                                                                           color: blue; //cyan;
-                                                                                                           float: right;
-                                                                                                           font-size:2vh;
-                                                                                                           //padding-top: 2.25vh;
-                                                                                                           //padding-bottom: 2.25vh;
-                                                                                                           display: inline;
-                                                                                                       }
-
-
-                                                                                           .spanleft {
-                                                                                               color: white;
-                                                                                               padding-right: 2vw;
-                                                                                               //width: 10%;
-                                                                                               //height: 10vh;
-                                                                                               background: cyan;
-                                                                                           }
-
-                                                                                           .spanright {
-                                                                                               height: 10vh;
-                                                                                               font-size: 2vh;
-                                                                               color: white;
-                                                                                               background: gray;
-                                                                                           }
-
-                                                                               .imgleft {
-                                                                                   height: 4vh;
-                                                                               }
-
-
-
-
-                                                                               .mainx {
-                                                                               display: flex;
-                                                                               flex-direction: row;
-                                                                               font-size: 2vh;
-                                                                               color: green;
-                                                                   box-shadow: inset 0 0 10px royalblue;
-                                                                                   //background: #1589FF; //silver;
-                                                                               //border: 2px solid yellow;
-                                                                               //padding: 5px;
-                                                                               width: 90%;
-                                                                               //text-align: center;
-                                                                                   margin-top: 1vh;
-
-                                                                                   border-top-right-radius: 50px;
-                                                                                   border-bottom-right-radius: 50px;
-
-
-                                                                           }
-
-                                                                           .mainx div {
-                                                                               //border: 2px solid cyan;
-                                                                               //margin: 10px 20px;
-                                                                               //width: 100px;
-                                                                               height: 5vh;
-                                                                               font-size: 2vh;
-                                                                               padding-left: 2vw;
-                                                                               color: white;
-
-                                                                               display:flex;
-
-
-
-                                                                           }
-
-                                                                           img {
-                                                                               //border: 1px solid red;
-                                                                           }
-
-
-                                                                           .txta {
-                                                                               color: white;
-                                                                               background: dodgerBlue;
-                                                                   //font-family:monospace;
-                                                                               //font-family: "Roboto Mono";
-                                                                               font-size: 2vh;
-                                                                               border: none;
-                                                                               padding-left: 2vw;
-                                                                               padding-right: 2vw;
-                                                                               padding-top: 2vh;
-                                                                               padding-bottom: 2vh;
-                                                                           }
-
-                                                         .yellowtxt {
-                                                             color: yellow;
-                                                             font-family: monospace;
-                                                             font-style: italic;
-                                                             font-size: 1.8vh;
-                                                             padding-left:5vw;
-                                                         }
-
-                                             #tapandbrew {
-                                                 width: 100%;
-                                             }
-
-                                             #group {
-                                                 //object-fit:contain;
-                                                 width: 100%;
-                                   height: 75vw;
-                                   object-fit: cover;
-                                             }
-
-                                             .imga {
-                                                 height:75vw;
-                                             }
-
-                                   .flexcontainer {
-                         display: flex;
-                         flex-direction: column;
-                         flex-wrap: nowrap;
-                         justify-content: flex-start;
-
-
-
-
-
-                         align-items: stretch;
-                         align-content: stretch;
-                         gap: 1px;
-                                       border: 1px solid red;
-                       }
-
-                       .flexcontainer div {
-                           display: flex;
-                         flex-direction: row;
-                         flex-wrap: nowrap;
-                         justify-content: flex-start;
-                         align-items: stretch;
-                         align-content: stretch;
-                         gap: 1px;
-                           border: 1px solid blue;
-
-
-
-
-
-                       }
-
-                       .col1 {
-                           width: auto;
-                           padding:2vw;
-                           color: white;
-                       }
-                       .col2 {
-                           width: auto;
-            padding:2vw;
-                           color: white;
-                       }
-                       .col3 {
-                           width: auto;
-                           padding: 2vw;
-                           color: white;
-                       }
+* {
+   margin: 0;
+   padding: 0;
+  box-sizing: border-box;
+    }
+
+    html {
+        width: 100vw;
+    }
+
+    body {
+        //overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3vh;
+        background: whiteSmoke;
+        height: 100%;
+        width: 100%;
+    }
+
+  
+  .flexcontainer {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: nowrap;
+     justify-content: flex-start;
+     align-items: stretch;
+     align-content: stretch;
+     gap: 1px;
+     }
+
+    .flexcontainer div {
+        color: black;
+       display: flex;
+       flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: flex-start;
+     align-items: stretch;
+     align-content: stretch;
+     gap: 1px;
+     //width: 100%;
+    //background: white; 
+    }
+
+ 
+            
+       
+    #headerpagetwo {
+    color: white;
+    background: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+            
+            
+    details {
+                
+    }
+            
+            
+            
+    .days {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 98vw;
+        height: 10vh;
+        //border: 3px solid gray;
+        background: black;
+        font-size: 3vh;
+        color: white;
+        border-radius: 5px;
+        margin: 1vw;
+    }
+            
+       img {
+    max-width:100%;
+}
+            .mainx {
+            
+                
+                
+            } 
+            .mainxtxt {
+                width: 50vw;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                border: 2px solid cyan;
+                padding: 1vw;
+                font-size: 2vh;
+                background-color: silver;
+                margin-left: 1vw;
+            }
+            
+            .txta {
+                max-width:100vw;
+                margin: 1vw;
+                font-size: 2vh;
+                padding: 1vh;
+            }
+            
+      
         </style>
     </head>
     <body>
-        <div class="flexcontainer">
-            <div>
-                <div class="col1">xxxx</div>
-                <div class="col2">yyyy</div>
-                <div class="col3">zzzz</div>
-            </div>
-            <div>
-                <div class="col1"><img src="group.jpeg" id="group" /></div>
-                <div class="col3">zz</div>
-            </div>
-            <div>
-                <div class="col1"><img src="manwithbag.png" class="imgleft" /></div>
-                <div class="col2">6:30</div>
-                <div class="col3">meet in bar</div>
-            </div>
-            <div class="txta">
-                After going through security and passport control at the Airport, meet at the Tap + Brew which is
-                situated at the far end of Departures, after going through Duty Free. Meet up with everyone and any
-                outstanding £25 for prize money will be collected.
-            </div>
-            <div>Item 5</div>
-            <div>Item 6</div>
-            <div>Item 7</div>
-            <div>Item 8</div>
-            <div>Item 9</div>
-            <div>Item 10</div>
-        </div>
-
-        <div id="xxxmainpage">
+        
+        <div id="pagetwo">
             <!-- leaderboard -->
-            <div class="headerwrapper">
-                <div id="headermainpage">Information</div>
+            <div class="child-two">
+                <div id="headerpagetwo">Itinerary</div>
                 <div id="playersList"></div>
-            </div>
-            <div id="xcreateleaderboarditems">
-                <!-- this is overwritten on start -->
-                <div class="container">
-                    <div class="flex">
-                        <div class="loader"></div>
-                    </div>
-                    <div class="loader-text">Loading...</div>
+            </div>    
+        </div>
+        
+        <div class="flexcontainer">
+            <!-- headings -->
+            <div>
+                <div class="xxxxcol1">
+             
                 </div>
-                <!-- end of this is overwritten on start -->
+               
             </div>
+        
+            <!-- ##### Sunday ##### -->
+            <div>
+                <details open>
+                    <!--
+                    <summary id="sunday">Sunday 12th October<a class="right">✈️ fly to spain</a></summary>
+                -->
+                    <summary class="days" id="sunday">Sunday 11th October</summary>
+                        <div class="mainx">
+                           
+                            <div class="mainxtxt">6:30am - meet at bar</div>
+                        </div>
+                        <div class="txta">
+After going through security and passport control at the Airport, meet at the Tap + Brew which is
+situated at the far end of Departures, after going through Duty Free. Meet up with everyone and any
+outstanding £25 for prize money will be collected.
+                        </div>
+
+                        <div class="imga">
+                            <img src="tapandbrew.jpg" id="tapandbrew" width: 100%/>
+                        </div>
+
+                        <div class="txta">
+                            <a>Newcastle NCL to Malaga AGP</a><br /><br />
+                            <a>&nbsp;Departs: Sun 12 Oct 2025 at 07:50</a><br />
+                            <a>&nbsp;Arrives: Sun 12 Oct 2025 at 12:15</a><br />
+                            <a>Duration: 3 hrs 25 mins</a><br />
+                            <a>&nbsp;&nbsp;Flight: LS557</a><br />
+                        </div>
+            
+                        <div class="mainx">
+                            <div><img src="manwithbag.png" class="imgleft" /></div>
+                            <div>12:15pm</div>
+                            <div>flight arrives in Spain</div>
+                        </div>
+
+            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="53">
+  
+   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
+   Meet up with everyone and any outstanding £25 for prize money will be collected.
+                
+Newcastle NCL to Malaga AGP
+                
+   Departs: Sun 12 Oct 2025 at 07:50
+   Arrives: Sun 12 Oct 2025 at 12:15
+  Duration: 3 hrs 25 mins
+    Flight: LS557
+            </textarea>
+        </details>
         </div>
-        <!-- notes at the top -->
-        <div class="imga">
-            <img src="group.jpeg" id="group" />
-        </div>
-
-        <!-- end notes at the top -->
-
-        <!--
-
-document.getElementById("myDetails").open = true; 
-
--->
-
-        <!-- ##### Sunday ##### -->
-        <details open>
-            <summary id="sunday">Sunday 12th October<a class="right">✈️ fly to spain</a></summary>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>6:30am</div>
-                <div>meet at bar</div>
+    <!-- end of sunday -->        
+            
+  
+          <!-- ##### Sunday ##### -->
+            <div>
+                <details closed>  
+         <summary class="days" id="monday">Monday 12th October</summary>    
+                   <textarea disabled id="txt2" class="txta" name="txt2" rows="15" cols="47">
+  
+   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
+   Meet up with everyone and any outstanding £25 for prize money will be collected.
+   
+            </textarea>  
+                    
+                </details>
             </div>
-
-            <div class="txta">
-                After going through security and passport control at the Airport, meet at the Tap + Brew which is
-                situated at the far end of Departures, after going through Duty Free. Meet up with everyone and any
-                outstanding £25 for prize money will be collected.
+            
+          <!-- ##### Sunday ##### -->
+            <div>
+                <details closed>  
+         <summary class="days" id="tuesday">Tuesday 13th October</summary>   
+                    <textarea disabled id="txt3" class="txta" name="txt3" rows="15" cols="47">
+  
+   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
+   Meet up with everyone and any outstanding £25 for prize money will be collected.
+   
+            </textarea>  
+            </details>
             </div>
-
-            <div class="imga">
-                <img src="tapandbrew.jpg" id="tapandbrew" />
-            </div>
-
-            <div class="txta yellowtxt">
-                <a>Newcastle NCL to Malaga AGP</a><br /><br />
-                <a>&nbsp;Departs: Sun 12 Oct 2025 at 07:50</a><br />
-                <a>&nbsp;Arrives: Sun 12 Oct 2025 at 12:15</a><br />
-                <a>Duration: 3 hrs 25 mins</a><br />
-                <a>&nbsp;&nbsp;Flight: LS557</a><br />
-            </div>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>12:15pm</div>
-                <div>flight arrives in Spain</div>
-            </div>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>12:45pm</div>
-                <div>pickup at Malaga airport</div>
-            </div>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>13:00pm</div>
-                <div>book in at hotel</div>
-            </div>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>12:15pm</div>
-                <div>flight arrives in Spain</div>
-            </div>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>15:00pm</div>
-                <div>rooms become available</div>
-            </div>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Sunday ##### -->
-
-        <!-- ##### Monday ##### -->
-        <details closed>
-            <summary id="monday">Monday 12th October<span class="right">⛳ Calanova</span></summary>
-
-            <div class="mainx">
-                <div><img src="manwithbag.png" class="imgleft" /></div>
-                <div>6:30am</div>
-                <div>meet at bar</div>
-            </div>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-
-        <!-- ##### end Monday ##### -->
-
-        <!-- ##### Tuesday ##### -->
-        <details closed>
-            <summary id="tuesday">Tuesday 13th October<span class="right">⛳ La Cala America</span></summary>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Tuesday ##### -->
-
-        <!-- ##### Wednesday ##### -->
-        <details closed>
-            <summary id="wednesday">Wednesday 14th October<span class="right">⛳ Mijas Los Lagos</span></summary>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Wednesday ##### -->
-
-        <!-- ##### Thursday ##### -->
-        <details closed>
-            <summary id="thursday">Thursday 15th October<span class="right">⛳ La Cala Europa</span></summary>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Thursday ##### -->
-
-        <!-- ##### Friday ##### -->
-        <details closed>
-            <summary id="friday">Friday 16th October<span class="right">⛳ La Cala Asia</span></summary>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Friday ##### -->
-
-        <!-- ##### Saturday ##### -->
-        <details closed>
-            <summary id="saturday">Saturday 17th October<span class="right">✈️ fly home</span></summary>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Saturday ##### -->
-
-        <!-- ##### Sunday ##### -->
-        <details closed>
-            <summary id="saturday">Saturday 17th October<span class="right">✈️ fly home</span></summary>
-
-            <textarea disabled id="txt1" class="txta" name="txt1" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-                
-Newcastle NCL to Malaga AGP
-                
-   Departs: Sun 12 Oct 2025 at 07:50
-   Arrives: Sun 12 Oct 2025 at 12:15
-  Duration: 3 hrs 25 mins
-    Flight: LS557
-            </textarea>
-        </details>
-        <!-- ##### end Sunday ##### -->
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
         <script>
             //=================================================================================
