@@ -1,269 +1,287 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="ie=edge" http-equiv="X-UA-Compatible" />
-        <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
-        <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
-        <title>spain2026</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-        <style>
-* {
-   margin: 0;
-   padding: 0;
-  box-sizing: border-box;
-    }
-
-    html {
-        width: 100vw;
-    }
-
-    body {
-        //overflow: hidden;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 3vh;
-        background: whiteSmoke;
-        height: 100%;
-        width: 100%;
-    }
-
-  
-  .flexcontainer {
-     display: flex;
-     flex-direction: column;
-     flex-wrap: nowrap;
-     justify-content: flex-start;
-     align-items: stretch;
-     align-content: stretch;
-     gap: 1px;
-     }
-
-    .flexcontainer div {
-        color: black;
-       display: flex;
-       flex-direction: row;
-     flex-wrap: nowrap;
-     justify-content: flex-start;
-     align-items: stretch;
-     align-content: stretch;
-     gap: 1px;
-     //width: 100%;
-    //background: white; 
-    }
-
- 
-            
-       
-    #headerpage {
-    color: white;
-    background: black;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-            
-            
-    details {
-                
-    }
-            
-            
-            
-    .days {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 98vw;
-        height: 10vh;
-        //border: 3px solid gray;
-        background: black;
-        font-size: 3vh;
-        color: white;
-        border-radius: 5px;
-        margin: 1vw;
-    }
-            
-       img {
-    max-width:100%;
-}
-            .mainx {
-            
-                
-                
-            } 
-            .mainxtxt {
-                //width: 50vw;
-                border-top-right-radius: 25px;
-                border-bottom-right-radius: 25px;
-                border: 2px solid cyan;
-                padding: 2vw;
-                font-size: 2vh;
-                background-color: silver;
-                margin-left: 1vw;
-                padding-right: 5vw;
-            }
-            
-            .txta, .imga {
-                max-width:100vw;
-                margin: 1vw;
-                font-size: 2vh;
-                padding: 1vh;
-                
-                
-                border: 1px solid #ffc0cd;
-                
-                
-                
-            }
-            
-      
-        </style>
-    </head>
-    <body>
-        
-        <div id="page">
-            <!-- leaderboard -->
-            <div class="child-two">
-                <div id="headerpage">Itinerary</div>
-                <div id="playersList"></div>
-            </div>    
-        </div>
-        
-        <div class="flexcontainer">
-            <!-- headings -->
-            <div>
-                <div class="xxxxcol1">
-             
-                </div>
-               
-            </div>
-        
-            <!-- ##### Sunday ##### -->
-            <div>
-                <details open>
-                    <!--
-                    <summary id="sunday">Sunday 12th October<a class="right">✈️ fly to spain</a></summary>
-                -->
-                    <summary class="days" id="sunday">Sunday 11th October</summary>
-                        <div class="mainx">                         
-                            <div class="mainxtxt">6:30am - meet at bar</div>
-                        </div>
-                        <div class="txta">
-After going through security and passport control at the Airport, meet at the Tap + Brew which is
-situated at the far end of Departures, after going through Duty Free.
-<br>                        
-Meet up with everyone and anything outstanding will be sorted.
-                        </div>
-
-                        <div class="imga">
-                            <img src="tapandbrew.jpg" id="tapandbrew" width: 100%/>
-                        </div>
-
-                        <div class="txta">
-                            <p>Newcastle NCL to Malaga AGP</p>
-                        </div>
-                        <div class="txta">
-                            <a><i>Departs:</i> Sunday 11th Oct 2026 at 07:50</a><br />
-                        </div>
-                        <div class="txta">
-                            <a><i>Arrives:</i> Sunday 11th Oct 2026 at 12:15</a><br />
-                        </div>
-                        <div class="txta">
-                            <a><i>Duration:</i> 3 hrs 25 mins</a><br />
-                        </div>
-                        <div class="txta">
-                            <a><i>Flight:</i> LS557</a><br />
-                        </div>
-            
-                    <div class="mainx">                  
-                            <div class="mainxtxt">7:50am - flight departs Newcastle</div>
-                        </div>
-                    
-                    <div><img src="manwithbag.png" class="imgleft" /></div>
-                          
-                    
-                    
-                    <div class="mainx">                  
-                            <div class="mainxtxt">7:50am - flight arrives in Spain</div>
-                        </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                        <div class="mainx">
-                              <div>12:15pm</div>
-                            <div>flight arrives in Spain</div>
-                        </div>
-<br>
-                    <br>
-            
-        </details>
-        </div>
-    <!-- end of sunday -->        
-            
-  
-          <!-- ##### Sunday ##### -->
-            <div>
-                <details closed>  
-         <summary class="days" id="monday">Monday 12th October</summary>    
-                   <textarea disabled id="txt2" class="txta" name="txt2" rows="15" cols="47">
-  
-   After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-   Meet up with everyone and any outstanding £25 for prize money will be collected.
-   
-            </textarea>  
-                    
-                </details>
-            </div>
-            
-          <!-- ##### Sunday ##### -->
-            <div>
-                <details closed>  
-         <summary class="days" id="tuesday">Tuesday 13th October</summary>   
-                    <textarea disabled id="txt3" class="txta" name="txt3" rows="15" cols="47">
-  
-    After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
-    &#13;&#10;
- 
-    Meet up with everyone and any outstanding £25 for prize money will be collected.
-                        
-            </textarea>  
+   <head>
+      <meta charset="UTF-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+      <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
+      <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
+      <title>spain2026</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <style>
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         html {
+         width: 100vw;
+         }
+         body {
+         //overflow: hidden;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 3vh;
+         background: whiteSmoke;
+         height: 100%;
+         width: 100%;
+         }
+         .flexcontainer {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: nowrap;
+         justify-content: flex-start;
+         align-items: stretch;
+         align-content: stretch;
+         gap: 1px;
+         }
+         .flexcontainer div {
+         color: black;
+         display: flex;
+         flex-direction: row;
+         flex-wrap: nowrap;
+         justify-content: flex-start;
+         align-items: stretch;
+         align-content: stretch;
+         gap: 1px;
+         //width: 100%;
+         //background: white; 
+         }
+         #headerpage {
+         color: white;
+         background: black;
+         height: 100%;
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+         details {
+         }
+         .days {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 98vw;
+         height: 10vh;
+         //border: 3px solid gray;
+         background: black;
+         font-size: 3vh;
+         color: white;
+         border-radius: 5px;
+         margin: 1vw;
+         }
+         img {
+         max-width:50%;
+         }
+         .mainx {
+         } 
+         .mainxtxt {
+         //width: 50vw;
+         border-top-right-radius: 25px;
+         border-bottom-right-radius: 25px;
+         border: 2px solid cyan;
+         padding: 2vw;
+         font-size: 2vh;
+         background-color: silver;
+         margin-left: 1vw;
+         padding-right: 5vw;
+         }
+         .txta, .imga {
+         max-width:100vw;
+         margin: 1vw;
+         font-size: 2vh;
+         padding: 1vh;
+         border: 1px solid #ffc0cd;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="page">
+         <div class="child-two">
+            <div id="headerpage">Itinerary</div>
+            <div id="playersList"></div>
+         </div>
+      </div>
+      <div class="flexcontainer">
+         <!-- headings -->
+         <!-- ##### Sunday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="sunday">Sunday 11th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">6:30am - meet at bar</div>
+               </div>
+               <div class="txta">
+                  After going through security and passport control at the Airport, meet at the Tap + Brew which is
+                  situated at the far end of Departures, after going through Duty Free.
+                  <br>                        
+                  Meet up with everyone and sort out any outstanding details.
+               </div>
+               <div class="imga">
+                  <img src="tapandbrew.jpg" id="tapandbrew" width: 100%/>
+               </div>
+               <div class="txta">
+                  <p>Newcastle NCL to Malaga AGP</p>
+               </div>
+               <div class="txta">
+                  <a><i>Departs:</i> Sunday 11th Oct 2026 at 07:50</a><br />
+               </div>
+               <div class="txta">
+                  <a><i>Arrives:</i> Sunday 11th Oct 2026 at 12:15</a><br />
+               </div>
+               <div class="txta">
+                  <a><i>Duration:</i> 3 hrs 25 mins</a><br />
+               </div>
+               <div class="txta">
+                  <a><i>Flight:</i> LS557</a><br />
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - flight departs Newcastle</div>
+               </div>
+               <div><img src="manwithbag.png" class="imgleft" /></div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - flight arrives in Spain</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Malaga airport bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Hotel checkin</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Hotel rooms available</div>
+               </div>
+               <br><br>       
             </details>
-            </div>
-            
-            
-            
-            
-            
-            
-        </div>          
-            
-            
-            
-            
-
-        <script>
-            //=================================================================================
-            // this runs on startup or reload
-            //
-            //=================================================================================
-            // prevent default img menu of options
-            document.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-            });
-
-            // declare global variables
-            
-            
-        </script>
-    </body>
+         </div>
+         <!-- end of sunday -->        
+         <!-- ##### Monday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="monday">Monday 12th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Calanova golf</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Tee off</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Bus pickup for return to hotel</div>
+               </div>
+               <div class="txta">                 
+                  After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
+                  Meet up with everyone and any outstanding £25 for prize money will be collected.
+               </div>
+            </details>
+         </div>
+         <!-- ##### Tuesday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="tuesday">Tuesday 13th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Cala ???</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Tee off</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Bus pickup for return to hotel</div>
+               </div>
+            </details>
+         </div>
+         <!-- ##### Wednesday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="wednesday">Wednesday 14th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Cala ???</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Tee off</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Bus pickup for return to hotel</div>
+               </div>
+            </details>
+         </div>
+         <!-- ##### Thursday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="thursday">Thursday 15th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Cala ???</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Tee off</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Bus pickup for return to hotel</div>
+               </div>
+            </details>
+         </div>
+         <!-- ##### Friday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="friday">Friday 16th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Cala ???</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Tee off</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Bus pickup for return to hotel</div>
+               </div>
+            </details>
+         </div>
+         <!-- ##### Saturday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="saturday">Saturday 16th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Return home</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - bus pickup</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Tee off</div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Bus pickup for return to hotel</div>
+               </div>
+            </details>
+         </div>
+      </div>
+      <script>
+         //=================================================================================
+         // this runs on startup or reload
+         //
+         //=================================================================================
+         // prevent default img menu of options
+         document.addEventListener("contextmenu", (event) => {
+             event.preventDefault();
+         });
+         
+         // declare global variables
+         
+         
+      </script>
+   </body>
 </html>
