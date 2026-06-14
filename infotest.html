@@ -57,7 +57,7 @@
  
             
        
-    #headerpagetwo {
+    #headerpage {
     color: white;
     background: black;
     height: 100%;
@@ -97,7 +97,7 @@
                 
             } 
             .mainxtxt {
-                width: 50vw;
+                //width: 50vw;
                 border-top-right-radius: 25px;
                 border-bottom-right-radius: 25px;
                 border: 2px solid cyan;
@@ -105,6 +105,7 @@
                 font-size: 2vh;
                 background-color: silver;
                 margin-left: 1vw;
+                padding-right: 5vw;
             }
             
             .txta, .imga {
@@ -112,6 +113,12 @@
                 margin: 1vw;
                 font-size: 2vh;
                 padding: 1vh;
+                
+                
+                border: 1px solid #ffc0cd;
+                
+                
+                
             }
             
       
@@ -119,10 +126,10 @@
     </head>
     <body>
         
-        <div id="pagetwo">
+        <div id="page">
             <!-- leaderboard -->
             <div class="child-two">
-                <div id="headerpagetwo">Itinerary</div>
+                <div id="headerpage">Itinerary</div>
                 <div id="playersList"></div>
             </div>    
         </div>
@@ -143,15 +150,14 @@
                     <summary id="sunday">Sunday 12th October<a class="right">✈️ fly to spain</a></summary>
                 -->
                     <summary class="days" id="sunday">Sunday 11th October</summary>
-                        <div class="mainx">
-                           
+                        <div class="mainx">                         
                             <div class="mainxtxt">6:30am - meet at bar</div>
                         </div>
                         <div class="txta">
 After going through security and passport control at the Airport, meet at the Tap + Brew which is
 situated at the far end of Departures, after going through Duty Free.
 <br>                        
-Meet up with everyone and any outstanding £25 for prize money will be collected.
+Meet up with everyone and anything outstanding will be sorted.
                         </div>
 
                         <div class="imga">
@@ -159,19 +165,46 @@ Meet up with everyone and any outstanding £25 for prize money will be collected
                         </div>
 
                         <div class="txta">
-                            <a>Newcastle NCL to Malaga AGP</a><br /><br />
-                            <a>&nbsp;Departs: Sun 12 Oct 2025 at 07:50</a><br />
-                            <a>&nbsp;Arrives: Sun 12 Oct 2025 at 12:15</a><br />
-                            <a>Duration: 3 hrs 25 mins</a><br />
-                            <a>&nbsp;&nbsp;Flight: LS557</a><br />
+                            <p>Newcastle NCL to Malaga AGP</p>
+                        </div>
+                        <div class="txta">
+                            <a><i>Departs:</i> Sunday 11th Oct 2026 at 07:50</a><br />
+                        </div>
+                        <div class="txta">
+                            <a><i>Arrives:</i> Sunday 11th Oct 2026 at 12:15</a><br />
+                        </div>
+                        <div class="txta">
+                            <a><i>Duration:</i> 3 hrs 25 mins</a><br />
+                        </div>
+                        <div class="txta">
+                            <a><i>Flight:</i> LS557</a><br />
                         </div>
             
+                    <div class="mainx">                  
+                            <div class="mainxtxt">7:50am - flight departs Newcastle</div>
+                        </div>
+                    
+                    <div><img src="manwithbag.png" class="imgleft" /></div>
+                          
+                    
+                    
+                    <div class="mainx">                  
+                            <div class="mainxtxt">7:50am - flight arrives in Spain</div>
+                        </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                         <div class="mainx">
-                            <div><img src="manwithbag.png" class="imgleft" /></div>
-                            <div>12:15pm</div>
+                              <div>12:15pm</div>
                             <div>flight arrives in Spain</div>
                         </div>
-
+<br>
+                    <br>
             
         </details>
         </div>
@@ -200,7 +233,7 @@ Meet up with everyone and any outstanding £25 for prize money will be collected
   
     After going through security and passport control at the Airport, meet at the Tap + Brew which is situated at the far end of Departures, after going through Duty Free.
     &#13;&#10;
-    &#13;&#10;
+ 
     Meet up with everyone and any outstanding £25 for prize money will be collected.
                         
             </textarea>  
@@ -229,6 +262,8 @@ Meet up with everyone and any outstanding £25 for prize money will be collected
             });
 
             // declare global variables
+            
+            
         </script>
     </body>
 </html>
