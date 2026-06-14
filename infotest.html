@@ -93,10 +93,40 @@
          font-size: 2vh;
          padding: 1vh;
          border: 1px solid red;
+             
+             
+             //display: flex;
+             
+             
          }
          i {
          color: gray;
          }  
+          
+          flexright {
+              display: flex;
+              justify-content: center;
+           align-items: center;
+              padding-left: 5vw;
+          }  
+          flexleft {
+              width: 50vw;
+              display: flex;
+              justify-content: right;
+           align-items: center;
+          }
+          
+          .fl {
+              display: inline-block;
+              text-align: left;
+              width:25vw;
+          }
+          .fr {
+              display: inline-block;
+              text-align: center;
+          }
+          
+          
       </style>
    </head>
    <body>
@@ -128,21 +158,44 @@
                   <img src="tapandbrew.jpg" id="tapandbrew" width: 100%/>
                </div>
                <div class="txta">
-                  <p><i>Flight Details:</i> Newcastle NCL to Malaga AGP</p>
+                   <div class="fl">
+                   <i>Flight Details:</i>
+                   </div>
+                   <div class="fr">
+                   <a>Newcastle NCL to Malaga AGP</a>
+                   </div>
                </div>    
                <div class="txta">
-                  <a><i>Departs:</i> Sunday 11th Oct 2026 at 07:50</a><br />
+                   <div class="fl">
+                   <i>Departs:</i>
+                   </div>
+                   <div class="fr">
+                   <a>Sunday 11th Oct 2026 at 07:50</a>
+                   </div>
                </div>
                <div class="txta">
-                  <a><i>Arrives:</i> Sunday 11th Oct 2026 at 12:15</a><br />
+                   <div class="fl">
+                   <i>Arrives:</i>
+                   </div>
+                   <div class="fr">
+                   <a>Sunday 11th Oct 2026 at 12:15</a>
+                   </div>
                </div>
-            
-                
                <div class="txta">
-                  <a><i>Duration:</i> 3 hrs 25 mins</a><br />
+                   <div class="fl">
+                   <i>Duration:</i>
+                   </div>
+                   <div class="fr">
+                   <a>3 hrs 25 mins</a>
+                   </div>
                </div>
                <div class="txta">
-                  <a><i>Flight:</i> LS557</a><br />
+                   <div class="fl">
+                   <i>Flight number:</i>
+                   </div>
+                   <div class="fr">
+                   <a>LS557</a>
+                   </div>
                </div>
                 
                <div class="mainx">
