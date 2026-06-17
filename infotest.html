@@ -47,16 +47,58 @@
          //width: 100%;
          //background: white; 
          }
+         
+          .headerwrapper {
+                        height: 7vh;
+                        font-size: 3vh;
+                        flex-direction: row;
+                        display: flex;
+                        }
+
+                        
+
+                        #mainpage {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        height: 100vh;
+                        width: 100vw;
+                        background: dodgerBlue;
+                        display: block; //none;
+                        }
+
+         
+         
+         
+         
+         
+         
+         
+         
+        #headermainpage {
+                        color: white;
+                        background: black;
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        } 
+         
+         
+         
          #headerpage {
          color: white;
          background: black;
          height: 100%;
-         width: 10vw;
+         width: 100%;
          display: flex;
          justify-content: center;
          align-items: center;
          }
+         
          details {
+            width: 100%;
          }
          .days {
          display: flex;
@@ -72,7 +114,7 @@
          margin: 1vw;
          }
          img {
-         max-width:100%;
+         min-width:100%;
          }
          .mainx {
          } 
@@ -103,7 +145,7 @@
          
          
          .txta, .imga {
-         max-width:90vw;
+         max-width:98vw;
          margin: 1vw;
          font-size: 2vh;
          padding: 1vh;
@@ -112,7 +154,7 @@
              
              //display: flex;
              
-             
+             //width: 100vw;
          }
          i {
          color: gray;
@@ -145,13 +187,29 @@
       </style>
    </head>
    <body>
+   <!--  
+      <div id="mainpage">
+            <div class="headerwrapper">
+                <div id="headermainpage">Leaderboard</div>
+            </div>
+      </div>
+      -->
+      
+      
+      
+      
+      
+    
       <div id="page">
-         <div class="child-two">
-            <div id="headerpage">Itinerary</div>
+         <div>
+            <div id="headermainpage">Itinerary</div>
             <div id="playersList"></div>
          </div>
       </div>
-      <div class="flexcontainer">
+   
+   
+
+<div class="flexcontainer">
          <!-- headings -->
          <!-- ##### Sunday ##### -->
          <div>
