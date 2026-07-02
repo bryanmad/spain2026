@@ -468,6 +468,11 @@
                         table {
               border-collapse: collapse;
             }
+            #back {
+                position: fixed;
+                left: 25vw;
+                top: 25vw;
+            }
         </style>
     </head>
     <body>
@@ -494,9 +499,11 @@
         <div style="margin-top: 8px"></div>
 
         <!-- popup stats panel -->
-        <div id="statspanel" onclick="hideStatsPanel()">
+        <div id="statspanel">
+            <img id="back" src="close.png" height="50" width="50" onclick="hideStatsPanel()" />
+
             <!-- HCP graph -->
-            <canvas id="myChart" style="width: 93vw; max-width: 93vw; height: 85vh; max-height: 85vh"></canvas>
+            <canvas id="myChart" style="width: 93vw; max-width: 93vw; height: 85vh; max-height: 85vh"> </canvas>
 
             <!-- DivTable.com 
             <table>
@@ -951,13 +958,7 @@
 
             function drawGraph(arrMyPoints) {
                 var PlayerGraph;
-                const xValues = [
-                    arrMyPoints[0] + " eagles",
-                    arrMyPoints[1] + " birdies",
-                    arrMyPoints[2] + " pars",
-                    arrMyPoints[3] + " bogeys",
-                    arrMyPoints[4] + " worse"
-                ];
+                const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
                 //const yValues = [55, 49, 44, 24, 15];
 
                 var yValues = arrMyPoints;
