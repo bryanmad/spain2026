@@ -947,7 +947,14 @@
 
                     //document.getElementById("statspanel").style.background = "black";
                     //arrMyPoints = [eagles, birdies, pars, bogeys, worse];
-                    arrMyPoints = [5, 9, 44, 55, 66];
+                    // get correct players stats
+                    let newEagle = data.find((searchplayer) => searchplayer.players === childtxt).eagle;
+                    let newBird = data.find((searchplayer) => searchplayer.players === childtxt).bird;
+                    let newPar = data.find((searchplayer) => searchplayer.players === childtxt).par;
+                    let newBogey = data.find((searchplayer) => searchplayer.players === childtxt).bogey;
+                    let newWorse = data.find((searchplayer) => searchplayer.players === childtxt).worse;
+
+                    arrMyPoints = [newEagle, newBird, newPar, newBogey, newWorse];
                     drawGraph(arrMyPoints);
                 }
             }
@@ -962,7 +969,7 @@
                 //const yValues = [55, 49, 44, 24, 15];
 
                 var yValues = arrMyPoints;
-                var barColors = ["cyan"];
+                var barColors = ["MediumSpringGreen"];
 
                 var ctx = document.getElementById("myChart");
                 try {
@@ -970,7 +977,7 @@
                     PlayerGraph.destroy();
                     //console.log("trying to destory then redraw chart");
                 } catch (e) {
-                    //console.log("chart does not exist yet to destroy");
+                    console.log("chart does not exist yet to destroy");
                 }
 
                 Chart.defaults.font.size = 16;
@@ -992,7 +999,7 @@
                             legend: { display: false },
                             title: {
                                 display: true,
-                                text: childtxt + " - How you've played ...",
+                                text: "     " + childtxt + " - How you've played ...",
                                 font: { size: 18, color: "white" }
                             }
                         }
