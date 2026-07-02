@@ -496,7 +496,7 @@
         <!-- popup stats panel -->
         <div id="statspanel" onclick="hideStatsPanel()">
             <!-- HCP graph -->
-            <canvas id="myChart" style="width: 80vw; max-width: 80vw; height: 68vh; max-height: 68vh"></canvas>
+            <canvas id="myChart" style="width: 90vw; max-width: 90vw; height: 90vh; max-height: 90vh"></canvas>
 
             <!-- DivTable.com 
             <table>
@@ -951,7 +951,13 @@
 
             function drawGraph(arrMyPoints) {
                 var PlayerGraph;
-                const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
+                const xValues = [
+                    "eagles " + arrMyPoints[0],
+                    "birdies " + arrMyPoints[1],
+                    "pars " + arrMyPoints[2],
+                    "bogeys " + arrMyPoints[3],
+                    "worse " + arrMyPoints[4]
+                ];
                 //const yValues = [55, 49, 44, 24, 15];
 
                 var yValues = arrMyPoints;
@@ -966,7 +972,7 @@
                     //console.log("chart does not exist yet to destroy");
                 }
 
-                Chart.defaults.font.size = 10;
+                Chart.defaults.font.size = 16;
                 Chart.defaults.color = "white";
 
                 var PlayerGraph = new Chart(ctx, {
@@ -986,7 +992,7 @@
                             title: {
                                 display: true,
                                 text: childtxt + " - How you played ",
-                                font: { size: 16, color: "white" }
+                                font: { size: 20, color: "white" }
                             }
                         }
                     }
