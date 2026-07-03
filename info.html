@@ -1,122 +1,1219 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <title>spain2025</title>
-        <meta content="Bryan M" name="author" />
-        <link href="favicon.ico" rel="icon" type="image/x-icon" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                overflow: hidden;
-                background-color: dodgerBlue;
-            }
-
-            #loading {
-                background: dodgerBlue;
-                height: 100vh;
-            }
-
-            img {
-                height: 50vh;
-                width: 100vw;
-            }
-
-            .container {
-                width: 100vw;
-                height: 40vh;
-                position: fixed;
-                top: 0;
-                left: 0;
-                background: dodgerBlue;
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                justify-content: center;
-                align-content: center;
-            }
-
-            .flex {
-                min-height: 60pt;
-            }
-
-            @keyframes loading {
-                0% {
-                    width: 50pt;
-                    height: 50pt;
-                    margin-top: 0;
-                }
-                25% {
-                    height: 4pt;
-                    margin-top: 23pt;
-                }
-                50% {
-                    width: 4pt;
-                }
-                75% {
-                    width: 50pt;
-                }
-                100% {
-                    width: 50pt;
-                    height: 50pt;
-                    margin-top: 0;
-                }
-            }
-
-            .loader {
-                width: 50pt;
-                height: 50pt;
-                border-radius: 100%;
-                border: cyan 4pt solid;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: transparent;
-                animation: loading 1s infinite;
-            }
-
-            .load-text {
-                padding-top: 15px;
-                text-align: center;
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 3vh;
-                color: cyan;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="loading">
-            <!-- this is overwritten on start -->
-            <div class="container">
-                <div class="flex">
-                    <div class="loader"></div>
-                </div>
-                <div class="load-text">Loading...</div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+      <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
+      <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
+      <title>spain2026</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <style>
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         html {
+         width: 100vw;
+         }
+         body {
+         //overflow: hidden;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 3vh;
+         background: white;
+         color: black;
+         height: 100%;
+         //width: 100%;
+         }
+         .flexcontainer {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: nowrap;
+         justify-content: flex-start;
+         align-items: stretch;
+         align-content: stretch;
+         gap: 1px;
+         }
+         .flexcontainer div {
+         color: black;
+         display: flex;
+         flex-direction: row;
+         flex-wrap: nowrap;
+         justify-content: flex-start;
+         align-items: stretch;
+         align-content: stretch;
+         gap: 1px;
+         //width: 100%;
+         //background: white; 
+         }
+         .headerwrapper {
+         height: 7vh;
+         font-size: 3vh;
+         flex-direction: row;
+         display: flex;
+         }
+         #mainpage {
+         position: fixed;
+         top: 0;
+         left: 0;
+         height: 100vh;
+         width: 100vw;
+         background: dodgerBlue;
+         display: block; //none;
+         }
+         #headermainpage {
+         color: black;
+         background: white;
+         height: 100%;
+         width: 100vw; //100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         } 
+         #headerpage {
+         color: black;
+         background: white;
+         height: 100%;
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+         details {
+         width: 100%;
+         }
+         .days {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         //width: 98vw;
+         height: 9.6vh;
+         //border: 3px solid gray;
+         background: gray;
+         font-size: 3vh;
+         color: white;
+         border-radius: 5px;
+         margin: 1vw;
+         }
+         img {
+         min-width:100%;
+         }
+         .mainx {
+         } 
+         .mainxtxt {
+         //width: 50vw;
+         border-top-right-radius: 25px;
+         border-bottom-right-radius: 25px;
+         border: 2px solid cyan;
+         padding-top: 2vh;
+         padding-bottom: 2vh;
+         padding-left: 2vw;
+         padding-right: 5vw;
+         font-size: 2vh;
+         background-color: silver;
+         margin-left: 1vw;
+         }
+         .txtlink {
+         max-width:90vw;
+         margin: 1vw;
+         font-size: 2vh;
+         padding: 1vh;
+         //border: 1px solid red;
+         color: blue;  
+         }
+         .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
+         max-width:98vw;
+         margin: 1vw;
+         font-size: 2vh;
+         padding: 1vh;
+         //border: 1px solid red;
+         color: white;    
+         //display: flex;
+         //width: 100vw;
+         }
+         .txtabred {
+         max-width:40%;
+         border: 1px solid red;
+         color: white;    
+         }
+         .txtabgreen {
+         max-width:40%;
+         border: 1px solid green;
+         color: white;    
+         }
+         .txtabblue {
+         max-width:40%;
+         border: 1px solid blue;
+         color: white;    
+         }
+         
+         
+         
+         i {
+         color: gray;
+         }  
+         flexright {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding-left: 5vw;
+         }  
+         flexleft {
+         width: 50vw;
+         display: flex;
+         justify-content: right;
+         align-items: center;
+         }
+         .fl {
+         display: inline-block;
+         text-align: left;
+         width: 35vw;
+         //font-size: 3vw;
+         }
+         .fr {
+         display: inline-block;
+         text-align: left;
+         //font-size: 3vw;
+         }
+         .tfl {
+         display: inline-block;
+         text-align: left;
+         width: 15vw;
+         //font-size: 3vw;
+         }
+         .tfr {
+         display: inline-block;
+         text-align: left;
+         //font-size: 3vw;
+         }
+         #page {
+         //width: 100vw;
+         }
+        
+      </style>
+   </head>
+   <body>
+      <!--  
+         <div id="mainpage">
+               <div class="headerwrapper">
+                   <div id="headermainpage">Leaderboard</div>
+               </div>
+         </div>
+         -->
+      <!--
+         <div id="page">
+            <div>
+               <div id="headermainpage">Itinerary</div>
+               
             </div>
-            <!-- end of this is overwritten on start -->
-        </div>
-        <script>
-            document.onreadystatechange = function () {
-                if (document.readyState == "complete") {
-                    setTimeout(() => {
-                        start();
-                    }, 1500);
-                }
-            };
-
-            //https://docs.google.com/spreadsheets/d/e/2PACX-1vQbTWlmxAkPOBkiiXSBGrgBBp9_A76Jqhx4YaKccrniwwz9r3JXKqVExd1z7oeG6EgTddq1kQc8Fli_/pubhtml?gid=984735541&single=true
-            //https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true
-            //https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true
-            function start() {
-                window.location.assign(
-                    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFuTT5WoiC3w5CVkhxqHK9hSzwqaHqW6jykll_KjWtGP97iGnANXyA5Vr3ArBS2FkYQFMWLyxpvipl/pubhtml?gid=1106162428&single=true&chrome=false"
-                );
-            }
-        </script>
-    </body>
+         </div>
+         -->
+      <div class="flexcontainer">
+         <!-- headings -->
+         <!-- ##### Sunday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="sunday">Sunday 11th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">6:30am - meet at bar</div>
+               </div>
+               <div class="txta">
+                  After going through security and passport control at the Airport, meet at the Tap + Brew which is
+                  situated at the far end of Departures, after going through Duty Free.
+                  <br>                        
+                  Meet up with everyone and sort out any outstanding details.
+               </div>
+               <div class="imga">
+                  <img src="meet.png" id="meet" width: 100%/>
+               </div>
+               <div class="imga">
+                  <img src="tapandbrew.jpg" id="tapandbrew" width: 100%/>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:55am - flight departs Newcastle</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Flight Details:</i>
+                  </div>
+                  <div class="fr">
+                     <a>Newcastle (NCL) to Malaga (AGP)</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Departs:</i>
+                  </div>
+                  <div class="fr">
+                     <a>Sunday 11th Oct 2026 at 07:55</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Arrives:</i>
+                  </div>
+                  <div class="fr">
+                     <a>Sunday 11th Oct 2026 at 12:20</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Duration:</i>
+                  </div>
+                  <div class="fr">
+                     <a>3 hrs 25 mins</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Flight number:</i>
+                  </div>
+                  <div class="fr">
+                     <a>LS557</a>
+                  </div>
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - flight arrives in Spain</div>
+               </div>
+               <div class="txta">
+                  After disembarking, there is the new passport control rules, requiring UK nationals to register their biometric data (facial images and fingerprints).
+               </div>
+               <div class="txta">
+                  It is possible you may be asked to produce:
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <a>Proof of Identity:</a>
+                  </div>
+                  <div class="fr">
+                     <i>your passport</i>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <a>Proof of Funds:</a>
+                  </div>
+                  <div class="fr">
+                     <i>confirmation of sufficient<br>funds for your stay</i>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <a>Return Ticket:</a>
+                  </div>
+                  <div class="fr">
+                     <i>proof of your return ticket</i>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <a>Accommodation Proof:</a>
+                  </div>
+                  <div class="fr">
+                     <i>hotel booking</i>
+                  </div>
+               </div>
+               <div class="txta">
+                  <i>The documentation below is there if required</i>
+               </div>
+               <div class="imga">
+                  <img src="itinerarypage.jpg" id="itinerarypage" width: 100%/>
+               </div>
+               <div class="txta">
+                  When passport control is successfully negotiated, proceed to the pickup area to collect the bags and then to the main entrance where our driver will be waiting just outside the main doors.
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">12:15pm - Malaga airport bus pickup</div>
+               </div>
+               <div class="txta">
+                  Once everyone is assembled, we go down to the bus in the parking area, the bags are loaded and we board the bus. The journey to the hotel is less than 15 minutes, where we unload the bags.
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">15:00pm - Hotel check-in</div>
+               </div>
+               <div class="txta">
+                  The rooms will not normally be available until 15:00 but we can sign in, get fitted with a "wrist-band" identifying us as "all-inclusive" and store the bags in a secure room. We are guests from then on.
+               </div>
+               <div class="txta">
+                  There is a local par 3 course (a taxi ride away) at:
+               </div>
+               <div class="txta">
+                  - Miguel Angel Jimenez Golf Academy
+               </div>
+               <div class="txta">
+                  - C. Corelli, 2, 29620 Torremolinos
+               </div>
+               <div class="txta">
+                  - Málaga, Spain
+               </div>
+               <div class="txta">
+                  ... and local bars etc. a short walk away.
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">7:50am - Hotel rooms available</div>
+               </div>
+               <div class="txta">
+                  Rooms become available and we transfer the bags to the rooms etc.
+               </div>
+               <div class="txta">
+                  Meal times are:
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     08:00 - 10:30
+                  </div>
+                  <div class="fr">
+                     <a>Breakfast</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     13:00 - 15:00
+                  </div>
+                  <div class="fr">
+                     <a>Lunch</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     19:00 - 22:00
+                  </div>
+                  <div class="fr">
+                     <a>Dinner</a>
+                  </div>
+               </div>
+            </details>
+         </div>
+         <!-- end of sunday -->        
+         <!-- ##### Monday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="monday">Monday 12th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Calanova golf</div>
+               </div>
+               <div class="imga">
+                  <img src="calanova1.jpg" id="calanova1" width: 100%/>
+               </div>
+               <div class="txta">
+                  A course we haven't played. From what I've been told, the course had a change of ownership a year or 2 ago and a lot of work was done. The course has wide fairways and big greens but is not an easy course to play.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">9:00am - depart for Calanova golf</div>
+               </div>
+               <div class="txta">
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey should take less than 30 minutes.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">10:20am - Tee off</div>
+               </div>
+               <div class="txta">
+                  Tee groups and times:
+               </div>
+              
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>Dale</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>JohnS</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>Richard</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>SteveW</p>
+                  </div>
+               </div>
+             
+               <!--
+                   tee
+               -->
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>JohnD</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>Jamie</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>Peter</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>Bryan</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Oz</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Eddie</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Graham</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>SteveA</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
+               </div>
+               <div class="txta">                 
+                  Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
+               </div>
+            </details>
+         </div>
+         <!-- ##### Tuesday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="tuesday">Tuesday 13th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">La Cala America</div>
+               </div>
+               <div class="imga">
+                  <img src="lacalaamerica1.jpg" id="lacalaamerica1" width: 100%/>
+               </div>
+               <div class="txta">
+                  A course nearly all of us have played, so not much to say.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">9:00am - depart for La Cala America</div>
+               </div>
+               <div class="txta">
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">10:30am - Tee off</div>
+               </div>
+               <div class="txta">
+                  Tee groups and times:
+               </div>
+              
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Oz</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Peter</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Richard</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Bryan</p>
+                  </div>
+               </div>
+             
+               <!--
+                   tee
+               -->
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>Dale</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>Graham</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>Jamie</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>SteveW</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>Eddie</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>JohnD</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>JohnS</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>SteveA</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
+               </div>
+               <div class="txta">                 
+                  Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
+               </div>
+            </details>
+         </div>
+         <!-- ##### Wednesday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="wednesday">Wednesday 14th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Mijas Los Lagos</div>
+               </div>
+               <div class="imga">
+                  <img src="mijasloslagos1.jpg" id="mijasloslagos1" width: 100%/>
+               </div>
+               <div class="txta">
+                  A course nearly all of us have played. Originally we intended to play the Los Olivos course but it is undergoing a program of work and improvement so we are playing the Los Lagos course, where the work that was in progress last year has been completed.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">9:50am - depart for Mijas Los Lagos</div>
+               </div>
+               <div class="txta">
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">10:30am - Tee off</div>
+               </div>
+               <div class="txta">
+                  Tee groups and times:
+               </div>
+              
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>Oz</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>Graham</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>JohnD</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:20</div>
+                  <div class="tfr">
+                     <p>JohnS</p>
+                  </div>
+               </div>
+             
+               <!--
+                   tee
+               -->
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>Jamie</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>SteveA</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>Bryan</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:28</div>
+                  <div class="tfr">
+                     <p>SteveW</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Dale</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Eddie</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Peter</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:36</div>
+                  <div class="tfr">
+                     <p>Richard</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
+               </div>
+               <div class="txta">                 
+                  Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
+               </div>
+            </details>
+         </div>
+         <!-- ##### Thursday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="thursday">Thursday 15th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">La Cala Europa</div>
+               </div>
+               <div class="imga">
+                  <img src="lacalaeuropa1.jpg" id="lacalaeuropa1" width: 100%/>
+               </div>
+               <div class="txta">
+                  A course nearly all of us have played, so not much to say.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">9:00am - depart for La Cala Europa</div>
+               </div>
+               <div class="txta">
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">10:30am - Tee off</div>
+               </div>
+              <div class="txta">
+                  Tee groups and times:
+               </div>
+              
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Eddie</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Jamie</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>JohnS</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">10:30</div>
+                  <div class="tfr">
+                     <p>Bryan</p>
+                  </div>
+               </div>
+             
+               <!--
+                   tee
+               -->
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>Graham</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>SteveA</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>Peter</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">10:38</div>
+                  <div class="tfr">
+                     <p>Richard</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>Oz</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>Dale</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>JohnD</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">10:46</div>
+                  <div class="tfr">
+                     <p>SteveW</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
+               </div>
+               <div class="txta">                 
+                  Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
+               </div>
+            </details>
+         </div>
+         <!-- ##### Friday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="friday">Friday 16th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">La Cala Asia</div>
+               </div>
+               <div class="imga">
+                  <img src="lacalaasia1.jpg" id="lacalaasia1" width: 100%/>
+               </div>
+               <div class="txta">
+                  A course nearly all of us have played, so not much to say.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">9:30am - depart for La Cala Asia</div>
+               </div>
+               <div class="txta">
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">11:00am - Tee off</div>
+               </div>
+               <div class="txta">
+                  Tee groups and times:
+               </div>
+              
+               <div class="txtabred">
+                  <div class="tfl">11:00</div>
+                  <div class="tfr">
+                     <p>Dale</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">11:00</div>
+                  <div class="tfr">
+                     <p>Graham</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">11:00</div>
+                  <div class="tfr">
+                     <p>SteveA</p>
+                  </div>
+               </div>
+               <div class="txtabred">
+                  <div class="tfl">11:00</div>
+                  <div class="tfr">
+                     <p>Bryan</p>
+                  </div>
+               </div>
+             
+               <!--
+                   tee
+               -->
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">11:08</div>
+                  <div class="tfr">
+                     <p>Eddie</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">11:08</div>
+                  <div class="tfr">
+                     <p>JohnS</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">11:08</div>
+                  <div class="tfr">
+                     <p>Peter</p>
+                  </div>
+               </div>
+               <div class="txtabgreen">
+                  <div class="tfl">11:08</div>
+                  <div class="tfr">
+                     <p>SteveW</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">11:16</div>
+                  <div class="tfr">
+                     <p>Oz</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">11:16</div>
+                  <div class="tfr">
+                     <p>JohnD</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">11:16</div>
+                  <div class="tfr">
+                     <p>Jamie</p>
+                  </div>
+               </div>
+               <div class="txtabblue">
+                  <div class="tfl">11:16</div>
+                  <div class="tfr">
+                     <p>Richard</p>
+                  </div>
+               </div>
+               <div class="txta">
+                  &nbsp;
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:30pm - Bus pickup for return to hotel</div>
+               </div>
+               <div class="txta">                 
+                  Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
+               </div>
+            </details>
+         </div>
+         <!-- ##### Saturday ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="saturday">Saturday 17th October</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Return home</div>
+               </div>
+               <div class="txta">
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">10:00am - bus pickup</div>
+               </div>
+               <div class="txta">
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">10:30am - Arrive at Malaga airport</div>
+               </div>
+               <div class="txta">
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">12.15pm - Flight departs Spain</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Flight Details:</i>
+                  </div>
+                  <div class="fr">
+                     <a>Malaga (AGP) to Newcastle (NCL)</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Departs:</i>
+                  </div>
+                  <div class="fr">
+                     <a>Saturday 17th Oct 2026 at 12:15</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Arrives:</i>
+                  </div>
+                  <div class="fr">
+                     <a>Saturday 17th Oct 2026 at 14:40</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Duration:</i>
+                  </div>
+                  <div class="fr">
+                     <a>3 hrs 25 mins</a>
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     <i>Flight number:</i>
+                  </div>
+                  <div class="fr">
+                     <a>LS558</a>
+                  </div>
+               </div>
+            </details>
+         </div>
+         <!-- ##### addenda ##### -->
+         <div>
+            <details open>
+               <summary class="days" id="adenda">Adenda</summary>
+               <div class="mainx">
+                  <div class="mainxtxt">Assigning tee times</div>
+               </div>
+               <div class="txta">
+                  Using the list below ...
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     1
+                  </div>
+                  <div class="fr">
+                     Bryan
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     2
+                  </div>
+                  <div class="fr">
+                     Dale
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     3
+                  </div>
+                  <div class="fr">
+                     Eddie
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     4
+                  </div>
+                  <div class="fr">
+                     Graham
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     5
+                  </div>
+                  <div class="fr">
+                     Jamie
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     6
+                  </div>
+                  <div class="fr">
+                     JohnD
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     7
+                  </div>
+                  <div class="fr">
+                     JohnS
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     8
+                  </div>
+                  <div class="fr">
+                     Oz
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     9
+                  </div>
+                  <div class="fr">
+                     Peter
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     10
+                  </div>
+                  <div class="fr">
+                     Richard
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     11
+                  </div>
+                  <div class="fr">
+                     SteveA
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     12
+                  </div>
+                  <div class="fr">
+                     SteveW
+                  </div>
+               </div>
+               <div class="txta">
+                  Using https://www.golfsoftware.com produces the following combinations.
+                  <br>
+                  It was run a couple of times to get a set of numbers where I was not in the last group so I could enter the scores.  
+               </div>
+               <div class="imga">
+                  <img src="teenumbers.png" id="teenumbers"/>
+               </div>
+               <div class="txta">
+                  This translates to the tee times below.
+               </div>
+               <div class="imga">
+                  <img src="teeplayers.png" id="teeplayers"/>
+               </div>
+               <div class="txta">
+               </div>
+               <div class="mainx">
+                  <div class="mainxtxt">Calculating Handicaps</div>
+               </div>
+               <div class="txta">
+                  A simplified version of last year.
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     1st place:
+                  </div>
+                  <div class="fr">
+                     3 shots cut
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     2nd place:
+                  </div>
+                  <div class="fr">
+                     2 shots cut
+                  </div>
+               </div>
+               <div class="txta">
+                  <div class="fl">
+                     3rd place:
+                  </div>
+                  <div class="fr">
+                     1 shot cut
+                  </div>
+               </div>
+            </details>
+         </div>
+      </div>
+      <script>
+         //=================================================================================
+         // this runs on startup or reload
+         //
+         //=================================================================================
+         // prevent default img menu of options
+         document.addEventListener("contextmenu", (event) => {
+             event.preventDefault();
+         });
+         
+         // declare global variables
+         
+         
+      </script>
+   </body>
 </html>
