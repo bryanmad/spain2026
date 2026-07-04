@@ -769,7 +769,7 @@
                     console.error(err.message);
                     if (err.name === "TimeoutError") {
                         // This exception is from the abort signal
-                        console.error("Timeout: no results within 10 seconds");
+                        console.error("Timeout: network error");
                     } else if (err.name === "AbortError") {
                         // This exception is from the fetch itself
                         console.error("Fetch aborted by user action (browser stop button, closing tab, etc.");
