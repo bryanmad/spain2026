@@ -976,7 +976,7 @@
                 //const yValues = [55, 49, 44, 24, 15];
 
                 var yValues = arrMyPoints;
-                var barColors = ["MediumSpringGreen"];
+                var barColors = ["#07beb8", "#3dccc7", "#68d8d6", "silver", "darkGray"];
 
                 var ctx = document.getElementById("myChart");
                 try {
@@ -996,18 +996,37 @@
                         labels: xValues,
                         datasets: [
                             {
-                                backgroundColor: barColors,
+                                backgroundColor: barColors[0],
+                                data: yValues
+                            },
+                            {
+                                backgroundColor: barColors[1],
+                                data: yValues
+                            },
+                            {
+                                backgroundColor: barColors[2],
                                 data: yValues
                             }
                         ]
                     },
+
                     options: {
                         plugins: {
-                            legend: { display: false },
                             title: {
                                 display: true,
-                                text: "     " + childtxt + " - How you've played ...",
-                                font: { size: 18, color: "white" }
+                                text: "     " + childtxt + " - How you've played ..."
+                            },
+                            legend: {
+                                display: false
+                            }
+                        },
+                        responsive: true,
+                        scales: {
+                            x: {
+                                stacked: true
+                            },
+                            y: {
+                                stacked: true
                             }
                         }
                     }
