@@ -976,7 +976,7 @@
                 //const yValues = [55, 49, 44, 24, 15];
 
                 var yValues = arrMyPoints;
-                var barColors = ["#07beb8", "#3dccc7", "#68d8d6", "silver", "darkGray"];
+                var barColors = ["#5465ff", "#788bff", "#9bb1ff", "#bfd7ff", "#e2fdff"];
 
                 var ctx = document.getElementById("myChart");
                 try {
@@ -1005,6 +1005,14 @@
                             },
                             {
                                 backgroundColor: barColors[2],
+                                data: yValues
+                            },
+                            {
+                                backgroundColor: barColors[3],
+                                data: yValues
+                            },
+                            {
+                                backgroundColor: barColors[4],
                                 data: yValues
                             }
                         ]
