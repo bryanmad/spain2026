@@ -665,29 +665,31 @@
             // day 3 - mijas los lagos
             // day 4 - la cala europa
             // day 5 - la cala asia
+
+            // La Cala America
+            // Tuesday
             // hole, par, si
             arrCourse = [
                 [0, 0, 0],
-                [1, 5, 9],
-                [2, 4, 5],
-                [3, 4, 1],
-                [4, 4, 11],
-                [5, 4, 1],
-                [6, 3, 7],
-                [7, 4, 15],
-                [8, 3, 17],
-                [9, 5, 3],
-                [10, 5, 6],
-                [11, 4, 4],
-                [12, 4, 18],
-                [13, 3, 12],
-                [14, 5, 2],
-                [15, 4, 8],
-                [16, 4, 10],
-                [17, 3, 16],
-                [18, 4, 14]
+                [1, 5, 10],
+                [2, 4, 14],
+                [3, 4, 16],
+                [4, 3, 6],
+                [5, 4, 12],
+                [6, 5, 2],
+                [7, 4, 4],
+                [8, 3, 18],
+                [9, 5, 8],
+                [10, 4, 7],
+                [11, 3, 13],
+                [12, 4, 5],
+                [13, 4, 3],
+                [14, 3, 15],
+                [15, 5, 1],
+                [16, 3, 17],
+                [17, 4, 9],
+                [18, 5, 11]
             ];
-
             //===========================
             // this code runs at startup
             //===========================
@@ -701,7 +703,7 @@
             // - gets results data
             //=============================================================
             async function getData() {
-                var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/resultsDay5";
+                var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/resultsDay2";
                 try {
                     console.log("timeout delay = " + (getDataRetryCount * 1000 + 2000));
                     const dataStream = await fetch(url, {
