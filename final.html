@@ -955,14 +955,43 @@
                     //document.getElementById("statspanel").style.background = "black";
                     //arrMyPoints = [eagles, birdies, pars, bogeys, worse];
                     // get correct players stats
-                    let newEagle = data.find((searchplayer) => searchplayer.players === childtxt).eagle;
-                    let newBird = data.find((searchplayer) => searchplayer.players === childtxt).bird;
-                    let newPar = data.find((searchplayer) => searchplayer.players === childtxt).par;
-                    let newBogey = data.find((searchplayer) => searchplayer.players === childtxt).bogey;
-                    let newWorse = data.find((searchplayer) => searchplayer.players === childtxt).worse;
+                    let newEagle1 = data.find((searchplayer) => searchplayer.players === childtxt).eagle1;
+                    let newBirdie1 = data.find((searchplayer) => searchplayer.players === childtxt).bird1;
+                    let newPar1 = data.find((searchplayer) => searchplayer.players === childtxt).par1;
+                    let newBogey1 = data.find((searchplayer) => searchplayer.players === childtxt).bogey1;
+                    let newWorse1 = data.find((searchplayer) => searchplayer.players === childtxt).worse1;
 
-                    arrMyPoints = [newEagle, newBird, newPar, newBogey, newWorse];
-                    drawGraph(arrMyPoints);
+                    let newEagle2 = data.find((searchplayer) => searchplayer.players === childtxt).eagle2;
+                    let newBirdie2 = data.find((searchplayer) => searchplayer.players === childtxt).bird2;
+                    let newPar2 = data.find((searchplayer) => searchplayer.players === childtxt).par2;
+                    let newBogey2 = data.find((searchplayer) => searchplayer.players === childtxt).bogey2;
+                    let newWorse2 = data.find((searchplayer) => searchplayer.players === childtxt).worse2;
+
+                    let newEagle3 = data.find((searchplayer) => searchplayer.players === childtxt).eagle3;
+                    let newBirdie3 = data.find((searchplayer) => searchplayer.players === childtxt).bird3;
+                    let newPar3 = data.find((searchplayer) => searchplayer.players === childtxt).par3;
+                    let newBogey3 = data.find((searchplayer) => searchplayer.players === childtxt).bogey3;
+                    let newWorse3 = data.find((searchplayer) => searchplayer.players === childtxt).worse3;
+
+                    let newEagle4 = data.find((searchplayer) => searchplayer.players === childtxt).eagle4;
+                    let newBirdie4 = data.find((searchplayer) => searchplayer.players === childtxt).bird4;
+                    let newPar4 = data.find((searchplayer) => searchplayer.players === childtxt).par4;
+                    let newBogey4 = data.find((searchplayer) => searchplayer.players === childtxt).bogey4;
+                    let newWorse4 = data.find((searchplayer) => searchplayer.players === childtxt).worse4;
+
+                    let newEagle5 = data.find((searchplayer) => searchplayer.players === childtxt).eagle5;
+                    let newBirdie5 = data.find((searchplayer) => searchplayer.players === childtxt).birdie5;
+                    let newPar5 = data.find((searchplayer) => searchplayer.players === childtxt).par5;
+                    let newBogey5 = data.find((searchplayer) => searchplayer.players === childtxt).bogey5;
+                    let newWorse5 = data.find((searchplayer) => searchplayer.players === childtxt).worse5;
+
+                    arrMyPoints1 = [newEagle1, newBirdie1, newPar1, newBogey1, newWorse1];
+                    arrMyPoints2 = [newEagle2, newBirdie2, newPar2, newBogey2, newWorse2];
+                    arrMyPoints3 = [newEagle3, newBirdie3, newPar3, newBogey3, newWorse3];
+                    arrMyPoints4 = [newEagle4, newBirdie4, newPar4, newBogey4, newWorse4];
+                    arrMyPoints5 = [newEagle5, newBirdie5, newPar5, newBogey5, newWorse5];
+
+                    drawGraph(arrMyPoints1, arrMyPoints2, arrMyPoints3, arrMyPoints4, arrMyPoints5);
                 }
             }
 
@@ -970,12 +999,12 @@
                 document.getElementById("statspanel").style.display = "none";
             }
 
-            function drawGraph(arrMyPoints) {
+            function drawGraph(arrMyPoints1, arrMyPoints2, arrMyPoints3, arrMyPoints4, arrMyPoints5) {
                 var PlayerGraph;
                 const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
                 //const yValues = [55, 49, 44, 24, 15];
 
-                var yValues = arrMyPoints;
+                //var yValues = arrMyPoints;
                 var barColors = ["#4d94ff", "#6da8ff", "#8fbcff", "#a3c8ff", " 	#b6d3ff"];
                 //var barColors = ["#005e88", "#00709d", "#0083b2", "#0096c7", "#00aadd"];
                 var ctx = document.getElementById("myChart");
@@ -997,23 +1026,23 @@
                         datasets: [
                             {
                                 backgroundColor: barColors[0],
-                                data: arrMyPoints
+                                data: arrMyPoints1
                             },
                             {
                                 backgroundColor: barColors[1],
-                                data: [1, 2, 2, 20, 20]
+                                data: arrMyPoints2
                             },
                             {
                                 backgroundColor: barColors[2],
-                                data: [1, 2, 2, 20, 20]
+                                data: arrMyPoints3
                             },
                             {
                                 backgroundColor: barColors[3],
-                                data: yValues
+                                data: arrMyPoints4
                             },
                             {
                                 backgroundColor: barColors[4],
-                                data: yValues
+                                data: arrMyPoints5
                             }
                         ]
                     },
