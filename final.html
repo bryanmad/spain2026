@@ -769,7 +769,7 @@
                     console.error(err.message);
                     if (err.name === "TimeoutError") {
                         // This exception is from the abort signal
-                        console.error("Timeout: network error");
+                        console.error("Timeout: server too busy");
                     } else if (err.name === "AbortError") {
                         // This exception is from the fetch itself
                         console.error("Fetch aborted by user action (browser stop button, closing tab, etc.");
@@ -976,8 +976,8 @@
                 //const yValues = [55, 49, 44, 24, 15];
 
                 var yValues = arrMyPoints;
-                var barColors = ["#f9c80e", "#f86624", "#ea3546", "#662e9b", "#e43bccd"];
-
+                var barColors = ["#4d94ff", "#6da8ff", "#8fbcff", "#a3c8ff", " 	#b6d3ff"];
+                //var barColors = ["#005e88", "#00709d", "#0083b2", "#0096c7", "#00aadd"];
                 var ctx = document.getElementById("myChart");
                 try {
                     var PlayerGraph = Chart.getChart("myChart");
@@ -997,15 +997,15 @@
                         datasets: [
                             {
                                 backgroundColor: barColors[0],
-                                data: yValues
+                                data: arrMyPoints
                             },
                             {
                                 backgroundColor: barColors[1],
-                                data: yValues
+                                data: [1, 2, 2, 20, 20]
                             },
                             {
                                 backgroundColor: barColors[2],
-                                data: yValues
+                                data: [1, 2, 2, 20, 20]
                             },
                             {
                                 backgroundColor: barColors[3],
