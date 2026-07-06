@@ -472,7 +472,7 @@
         <div id="mainpage">
             <!-- leaderboard -->
             <div class="headerwrapper">
-                <div id="headermainpage">Tuesday Leaderboard</div>
+                <div id="headermainpage"></div>
                 <!--
                 <div id="playersList"></div>
 -->
@@ -880,7 +880,7 @@
             }
 
             function bodyUpdateHcps(nom, hcps, i) {
-                document.getElementById("headermainpage").innerText = "Handicaps for Tuesday";
+                document.getElementById("headermainpage").innerText = "Tee Slots for Tuesday";
                 // find the correct data
                 data.find((team) => team.players === nom);
                 // find the correct place for the data
@@ -898,6 +898,7 @@
             }
 
             function bodyUpdate(nom, points, i) {
+                document.getElementById("headermainpage").innerText = "Tuesday Leaderboard";
                 let pos = i + 1;
                 //temp
 
