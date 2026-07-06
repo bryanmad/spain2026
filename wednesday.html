@@ -755,16 +755,6 @@
                 let container = document.getElementById("createleaderboarditems");
                 // empty container
                 container.innerHTML = "";
-                // say if hcps are updated
-                //
-                // show message
-                if (data[0].updated == "Monday") {
-                    console.log(data[0].updated + " therefore OK");
-                } else {
-                    document.getElementById("panel").innerText =
-                        "Handicaps and tee groups for Friday have not been updated, they will be updated once Thursdays results have been confirmed.";
-                    document.getElementById("panel").style.display = "flex";
-                }
 
                 // build screen
 
@@ -891,7 +881,7 @@
             }
 
             function bodyUpdateHcps(nom, hcps, i) {
-                document.getElementById("headermainpage").innerText = "Handicaps for Friday";
+                document.getElementById("headermainpage").innerText = "Handicaps for Wednesday";
                 // find the correct data
                 data.find((team) => team.players === nom);
                 // find the correct place for the data
