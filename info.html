@@ -10,201 +10,199 @@
       <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <style>
-         * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         }
-         html {
-         width: 100vw;
-         }
-         body {
-         //overflow: hidden;
-         font-family: Arial, Helvetica, sans-serif;
-         font-size: 3vh;
-         background: white;
-         color: black;
-         height: 100%;
-         //width: 100%;
-         }
-         .flexcontainer {
-         display: flex;
-         flex-direction: column;
-         flex-wrap: nowrap;
-         justify-content: flex-start;
-         align-items: stretch;
-         align-content: stretch;
-         gap: 1px;
-         }
-         .flexcontainer div {
-         color: black;
-         display: flex;
-         flex-direction: row;
-         flex-wrap: nowrap;
-         justify-content: flex-start;
-         align-items: stretch;
-         align-content: stretch;
-         gap: 1px;
-         //width: 100%;
-         //background: white; 
-         }
-         .headerwrapper {
-         height: 7vh;
-         font-size: 3vh;
-         flex-direction: row;
-         display: flex;
-         }
-         #mainpage {
-         position: fixed;
-         top: 0;
-         left: 0;
-         height: 100vh;
-         width: 100vw;
-         background: dodgerBlue;
-         display: block; //none;
-         }
-         #headermainpage {
-         color: black;
-         background: white;
-         height: 100%;
-         width: 100vw; //100%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         } 
-         #headerpage {
-         color: black;
-         background: white;
-         height: 100%;
-         width: 100%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         }
-         details {
-         width: 100%;
-         }
-         .days {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         //width: 98vw;
-         height: 9.6vh;
-         //border: 3px solid gray;
-         background: gray;
-         font-size: 3vh;
-         color: white;
-         border-radius: 5px;
-         margin: 1vw;
-         }
-         img {
-         min-width:100%;
-         }
-         .mainx {
-         } 
-         .mainxtxt {
-         //width: 50vw;
-         border-top-right-radius: 25px;
-         border-bottom-right-radius: 25px;
-         border: 2px solid cyan;
-         padding-top: 2vh;
-         padding-bottom: 2vh;
-         padding-left: 2vw;
-         padding-right: 5vw;
-         font-size: 2vh;
-         background-color: silver;
-         margin-left: 1vw;
-         }
-         .txtlink {
-         max-width:90vw;
-         margin: 1vw;
-         font-size: 2vh;
-         padding: 1vh;
-         //border: 1px solid red;
-         color: blue;  
-         }
-         .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
-         max-width:98vw;
-         margin: 1vw;
-         font-size: 2vh;
-         padding: 1vh;
-         //border: 1px solid red;
-         color: white;    
-         //display: flex;
-         //width: 100vw;
-         }
-         .txtabred {
-         max-width:40%;
-         border: 1px solid red;
-         color: white;    
-         }
-         .txtabgreen {
-         max-width:40%;
-         border: 1px solid green;
-         color: white;    
-         }
-         .txtabblue {
-         max-width:40%;
-         border: 1px solid blue;
-         color: white;    
-         }
-        .txtabbluelong {
-         width:75%;
-         border: 1px solid blue;
-         color: white; 
-         font-size: 4vw;
-         padding: 2vw;
-           display: flex;
-         justify-content: center;
-         align-items: center;
-         margin: 2vw;
-         }
-         
-         i {
-         color: gray;
-         }  
-         flexright {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         padding-left: 5vw;
-         }  
-         flexleft {
-         width: 50vw;
-         display: flex;
-         justify-content: right;
-         align-items: center;
-         }
-         .fl {
-         display: inline-block;
-         text-align: left;
-         width: 35vw;
-         //font-size: 3vw;
-         }
-         .fr {
-         display: inline-block;
-         text-align: left;
-         //font-size: 3vw;
-         }
-         .tfl {
-         display: inline-block;
-         text-align: left;
-         width: 15vw;
-         //font-size: 3vw;
-         }
-         .tfr {
-         display: inline-block;
-         text-align: left;
-         //font-size: 3vw;
-         }
-         #page {
-         //width: 100vw;
-         }
-        
+          * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          }
+          html {
+          width: 100vw;
+          }
+          body {
+          //overflow: hidden;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 3vh;
+          background: white;
+          color: black;
+          height: 100%;
+          //width: 100%;
+          }
+          .flexcontainer {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+          align-content: stretch;
+          gap: 1px;
+          }
+          .flexcontainer div {
+          color: black;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+          align-content: stretch;
+          gap: 1px;
+          //width: 100%;
+          //background: white;
+          }
+          .headerwrapper {
+          height: 7vh;
+          font-size: 3vh;
+          flex-direction: row;
+          display: flex;
+          }
+          #mainpage {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100vw;
+          background: dodgerBlue;
+          display: block; //none;
+          }
+          #headermainpage {
+          color: black;
+          background: white;
+          height: 100%;
+          width: 100vw; //100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          }
+          #headerpage {
+          color: black;
+          background: white;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          }
+          details {
+          width: 100%;
+          }
+          .days {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          //width: 98vw;
+          height: 9.6vh;
+          //border: 3px solid gray;
+          background: gray;
+          font-size: 3vh;
+          color: white;
+          border-radius: 5px;
+          margin: 1vw;
+          }
+          img {
+          //min-width:100%;
+          }
+          .mainx {
+          }
+          .mainxtxt {
+          //width: 50vw;
+          border-top-right-radius: 25px;
+          border-bottom-right-radius: 25px;
+          border: 2px solid cyan;
+          padding-top: 2vh;
+          padding-bottom: 2vh;
+          padding-left: 2vw;
+          padding-right: 5vw;
+          font-size: 2vh;
+          background-color: silver;
+          margin-left: 1vw;
+          }
+          .txtlink {
+          max-width:90vw;
+          margin: 1vw;
+          font-size: 2vh;
+          padding: 1vh;
+          //border: 1px solid red;
+          color: blue;
+          }
+          .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
+          max-width:98vw;
+          margin: 1vw;
+          font-size: 2vh;
+          padding: 1vh;
+          //border: 1px solid red;
+          color: white;
+          //display: flex;
+          //width: 100vw;
+          }
+          .txtabred {
+          max-width:40%;
+          border: 1px solid red;
+          color: white;
+          }
+          .txtabgreen {
+          max-width:40%;
+          border: 1px solid green;
+          color: white;
+          }
+          .txtabblue {
+          max-width:40%;
+          border: 1px solid blue;
+          color: white;
+          }
+         .txtabbluelong {
+          width:75%;
+          border: 1px solid blue;
+          color: white;
+          font-size: 4vw;
+          padding: 2vw;
+            display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 2vw;
+          }
+
+          i {
+          color: gray;
+          }
+          flexright {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-left: 5vw;
+          }
+          flexleft {
+          width: 50vw;
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          }
+          .fl {
+          display: inline-block;
+          text-align: left;
+          width: 35vw;
+          //font-size: 3vw;
+          }
+          .fr {
+          display: inline-block;
+          text-align: left;
+          //font-size: 3vw;
+          }
+          .tfl {
+          display: inline-block;
+          text-align: left;
+          width: 15vw;
+          //font-size: 3vw;
+          }
+          .tfr {
+          display: inline-block;
+          text-align: left;
+          //font-size: 3vw;
+          }
+          #page {
+          //width: 100vw;
+          }
       </style>
    </head>
    <body>
-  
       <div class="flexcontainer">
          <!-- headings -->
          <!-- ##### Sunday ##### -->
@@ -217,20 +215,20 @@
                <div class="txta">
                   After going through security and passport control at the Airport, meet at the Tap + Brew which is
                   situated at the far end of Departures, after going through Duty Free.
-                  <br>                        
+                  <br />
                   Meet up with everyone and sort out any outstanding details.
                </div>
                <div class="imga">
-                  <img src="meet.png" id="meet" width: 100%/>
+                  <img src="meet.png" id="meet" style="width: 100%; height: auto" />
                </div>
                <div class="imga">
-                  <img src="tapandbrew.jpg" id="tapandbrew" width: 100%/>
+                  <img src="tapandbrew.jpg" id="tapandbrew" style="width: 100%; height: auto" />
                </div>
                <div class="mainx">
                   <div class="mainxtxt">7:55am - flight departs Newcastle</div>
                </div>
                <div class="txta">
-                    <img src="plane.png" alt="">
+                  <img src="plane.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
                   <div class="fl">
@@ -276,11 +274,10 @@
                   <div class="mainxtxt">7:50am - flight arrives in Spain</div>
                </div>
                <div class="txta">
-                  After disembarking, there is the new passport control rules, requiring UK nationals to register their biometric data (facial images and fingerprints).
+                  After disembarking, there is the new passport control rules, requiring UK nationals to register their
+                  biometric data (facial images and fingerprints).
                </div>
-               <div class="txta">
-                  It is possible you may be asked to produce:
-               </div>
+               <div class="txta">It is possible you may be asked to produce:</div>
                <div class="txta">
                   <div class="fl">
                      <a>Proof of Identity:</a>
@@ -294,7 +291,7 @@
                      <a>Proof of Funds:</a>
                   </div>
                   <div class="fr">
-                     <i>confirmation of sufficient<br>funds for your stay</i>
+                     <i>confirmation of sufficient<br />funds for your stay</i>
                   </div>
                </div>
                <div class="txta">
@@ -317,117 +314,81 @@
                   <i>The documentation below is there if required</i>
                </div>
                <div class="imga">
-                  <img src="itinerarypage.jpg" id="itinerarypage" width: 100%/>
+                  <img src="itinerarypage.jpg" id="itinerarypage" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  When passport control is successfully negotiated, proceed to the pickup area to collect the bags and then to the main entrance where our driver will be waiting just outside the main doors.
+                  When passport control is successfully negotiated, proceed to the pickup area to collect the bags and
+                  then to the main entrance where our driver will be waiting just outside the main doors.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">12:15pm - Malaga airport bus pickup</div>
                </div>
-            <div class="txta">
-                    <img src="bus.png" alt="">
+               <div class="txta">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Once everyone is assembled, we go down to the bus in the parking area, the bags are loaded and we board the bus. The journey to the hotel is less than 15 minutes, where we unload the bags.
+                  Once everyone is assembled, we go down to the bus in the parking area, the bags are loaded and we
+                  board the bus. The journey to the hotel is less than 15 minutes, where we unload the bags.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">15:00pm - Hotel check-in</div>
                </div>
                <div class="txta">
-                  The rooms will not normally be available until 15:00 but we can sign in, get fitted with a "wrist-band" identifying us as "all-inclusive" and store the bags in a secure room. We are guests from then on.
+                  The rooms will not normally be available until 15:00 but we can sign in, get fitted with a
+                  "wrist-band" identifying us as "all-inclusive" and store the bags in a secure room. We are guests from
+                  then on.
                </div>
-               <div class="txta">
-                  There is a local par 3 course (a taxi ride away) at:
-               </div>
-               <div class="txta">
-                  - Miguel Angel Jimenez Golf Academy
-               </div>
-               <div class="txta">
-                  - C. Corelli, 2, 29620 Torremolinos
-               </div>
-               <div class="txta">
-                  - Málaga, Spain
-               </div>
-               <div class="txta">
-                  ... and local bars etc. a short walk away.
-               </div>
+               <div class="txta">There is a local par 3 course (a taxi ride away) at:</div>
+               <div class="txta">- Miguel Angel Jimenez Golf Academy</div>
+               <div class="txta">- C. Corelli, 2, 29620 Torremolinos</div>
+               <div class="txta">- Málaga, Spain</div>
+               <div class="txta">... and local bars etc. a short walk away.</div>
                <div class="mainx">
                   <div class="mainxtxt">7:50am - Hotel rooms available</div>
                </div>
-               
-               
-               
-               
+
                <div class="txtabbluelong">
-                  <div>
-                     Bryan Maddison&nbsp;&nbsp;&amp;&nbsp;&nbsp;Steve Alldridge
-                  </div>
+                  <div>Bryan Maddison&nbsp;&nbsp;&amp;&nbsp;&nbsp;Steve Alldridge</div>
                </div>
                <div class="txtabbluelong">
-                  <div>
-                     Dale Aitkenhead&nbsp;&nbsp;&amp;&nbsp;&nbsp;Richard Hedley
-                  </div>
+                  <div>Dale Aitkenhead&nbsp;&nbsp;&amp;&nbsp;&nbsp;Richard Hedley</div>
                </div>
                <div class="txtabbluelong">
-                  <div>
-                     Stephen Weldon&nbsp;&nbsp;&amp;&nbsp;&nbsp;Eddie Hicks
-                  </div>
+                  <div>Stephen Weldon&nbsp;&nbsp;&amp;&nbsp;&nbsp;Eddie Hicks</div>
                </div>
                <div class="txtabbluelong">
-                  <div>
-                     Graham Airey&nbsp;&nbsp;&amp;&nbsp;&nbsp;Jamie Morton
-                  </div>
+                  <div>Graham Airey&nbsp;&nbsp;&amp;&nbsp;&nbsp;Jamie Morton</div>
                </div>
                <div class="txtabbluelong">
-                  <div>
-                     John Dean&nbsp;&nbsp;&amp;&nbsp;&nbsp;Dean Phillips
-                  </div>
+                  <div>John Dean&nbsp;&nbsp;&amp;&nbsp;&nbsp;Dean Phillips</div>
                </div>
                <div class="txtabbluelong">
-                  <div>
-                     Peter Dowson&nbsp;&nbsp;&amp;&nbsp;&nbsp;John Storey
-                  </div>
+                  <div>Peter Dowson&nbsp;&nbsp;&amp;&nbsp;&nbsp;John Storey</div>
                </div>
-               
-               
-               
-               
-               
-               
-               <div class="txta">
-                  Rooms become available and we transfer the bags to the rooms etc.
-               </div>
-               <div class="txta">
-                  Meal times are:
-               </div>
+
+               <div class="txta">Rooms become available and we transfer the bags to the rooms etc.</div>
+               <div class="txta">Meal times are:</div>
                <div class="txtabbluelong">
-                  <div class="fl">
-                     08:00 - 10:30
-                  </div>
+                  <div class="fl">08:00 - 10:30</div>
                   <div class="fr">
                      <a>Breakfast</a>
                   </div>
                </div>
                <div class="txtabbluelong">
-                  <div class="fl">
-                     13:00 - 15:00
-                  </div>
+                  <div class="fl">13:00 - 15:00</div>
                   <div class="fr">
                      <a>Lunch</a>
                   </div>
                </div>
                <div class="txtabbluelong">
-                  <div class="fl">
-                     19:00 - 22:00
-                  </div>
+                  <div class="fl">19:00 - 22:00</div>
                   <div class="fr">
                      <a>Dinner</a>
                   </div>
                </div>
             </details>
          </div>
-         <!-- end of sunday -->        
+         <!-- end of sunday -->
          <!-- ##### Monday ##### -->
          <div>
             <details closed>
@@ -436,27 +397,28 @@
                   <div class="mainxtxt">Calanova golf</div>
                </div>
                <div class="imga">
-                  <img src="calanova1.jpg" id="calanova1" width: 100%/>
+                  <img src="calanova1.jpg" id="calanova1" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  A course we haven't played. The course had a change of ownership a year or 2 ago and a lot of work was done. The course is hilly, undulating, with elevated tees and lots of elevation changes. Not an easy course.				
+                  A course we haven't played. The course had a change of ownership a year or 2 ago and a lot of work was
+                  done. The course is hilly, undulating, with elevated tees and lots of elevation changes. Not an easy
+                  course.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">9:00am - depart for Calanova golf</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey should take less than 30 minutes.				
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey should
+                  take less than 30 minutes.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">10:20am - Tee off</div>
                </div>
-               <div class="txta">
-                  Tee groups and times:
-               </div>
-              
+               <div class="txta">Tee groups and times:</div>
+
                <div class="txtabred">
                   <div class="tfl">10:20</div>
                   <div class="tfr">
@@ -481,13 +443,11 @@
                      <p>SteveW</p>
                   </div>
                </div>
-             
+
                <!--
                    tee
                -->
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabgreen">
                   <div class="tfl">10:28</div>
                   <div class="tfr">
@@ -512,9 +472,7 @@
                      <p>Bryan</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabblue">
                   <div class="tfl">10:36</div>
                   <div class="tfr">
@@ -539,16 +497,14 @@
                      <p>SteveA</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
-               <div class="txta">                 
+               <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
             </details>
@@ -561,27 +517,27 @@
                   <div class="mainxtxt">La Cala America</div>
                </div>
                <div class="imga">
-                  <img src="lacalaamerica1.jpg" id="lacalaamerica1" width: 100%/>
+                  <img src="lacalaamerica1.jpg" id="lacalaamerica1" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  A course nearly all of us have played. It is a little longer, undulating with some elevated tees and more suitable for long hitters.				
+                  A course nearly all of us have played. It is a little longer, undulating with some elevated tees and
+                  more suitable for long hitters.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">9:00am - depart for La Cala America</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
+                  about 30 minutes.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Tee off</div>
                </div>
-               <div class="txta">
-                  Tee groups and times:
-               </div>
-              
+               <div class="txta">Tee groups and times:</div>
+
                <div class="txtabred">
                   <div class="tfl">10:30</div>
                   <div class="tfr">
@@ -606,13 +562,11 @@
                      <p>Bryan</p>
                   </div>
                </div>
-             
+
                <!--
                    tee
                -->
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabgreen">
                   <div class="tfl">10:38</div>
                   <div class="tfr">
@@ -637,9 +591,7 @@
                      <p>SteveW</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabblue">
                   <div class="tfl">10:46</div>
                   <div class="tfr">
@@ -664,16 +616,14 @@
                      <p>SteveA</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
-               <div class="txta">                 
+               <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
             </details>
@@ -686,27 +636,29 @@
                   <div class="mainxtxt">Mijas Los Lagos</div>
                </div>
                <div class="imga">
-                  <img src="mijasloslagos1.jpg" id="mijasloslagos1" width: 100%/>
+                  <img src="mijasloslagos1.jpg" id="mijasloslagos1" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  A course nearly all of us have played.  It is flatter with wide fairways and plenty of water hazards. Originally we intended to play the Los Olivos course but it is undergoing a program of work and improvement so we are playing the Los Lagos course, where the work that was in progress last year has been completed.				
+                  A course nearly all of us have played. It is flatter with wide fairways and plenty of water hazards.
+                  Originally we intended to play the Los Olivos course but it is undergoing a program of work and
+                  improvement so we are playing the Los Lagos course, where the work that was in progress last year has
+                  been completed.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">9:50am - depart for Mijas Los Lagos</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
+                  about 30 minutes.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Tee off</div>
                </div>
-               <div class="txta">
-                  Tee groups and times:
-               </div>
-              
+               <div class="txta">Tee groups and times:</div>
+
                <div class="txtabred">
                   <div class="tfl">10:20</div>
                   <div class="tfr">
@@ -731,13 +683,11 @@
                      <p>JohnS</p>
                   </div>
                </div>
-             
+
                <!--
                    tee
                -->
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabgreen">
                   <div class="tfl">10:28</div>
                   <div class="tfr">
@@ -762,9 +712,7 @@
                      <p>SteveW</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabblue">
                   <div class="tfl">10:36</div>
                   <div class="tfr">
@@ -789,16 +737,14 @@
                      <p>Richard</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
-               <div class="txta">                 
+               <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
             </details>
@@ -811,27 +757,27 @@
                   <div class="mainxtxt">La Cala Europa</div>
                </div>
                <div class="imga">
-                  <img src="lacalaeuropa1.jpg" id="lacalaeuropa1" width: 100%/>
+                  <img src="lacalaeuropa1.jpg" id="lacalaeuropa1" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  A course nearly all of us have played. The most forgiving course, flatter with wider fairways and larger greens.				
+                  A course nearly all of us have played. The most forgiving course, flatter with wider fairways and
+                  larger greens.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">9:00am - depart for La Cala Europa</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
+                  about 30 minutes.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Tee off</div>
                </div>
-              <div class="txta">
-                  Tee groups and times:
-               </div>
-              
+               <div class="txta">Tee groups and times:</div>
+
                <div class="txtabred">
                   <div class="tfl">10:30</div>
                   <div class="tfr">
@@ -856,13 +802,11 @@
                      <p>Bryan</p>
                   </div>
                </div>
-             
+
                <!--
                    tee
                -->
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabgreen">
                   <div class="tfl">10:38</div>
                   <div class="tfr">
@@ -887,9 +831,7 @@
                      <p>Richard</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabblue">
                   <div class="tfl">10:46</div>
                   <div class="tfr">
@@ -914,16 +856,14 @@
                      <p>SteveW</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
-               <div class="txta">                 
+               <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
             </details>
@@ -936,27 +876,27 @@
                   <div class="mainxtxt">La Cala Asia</div>
                </div>
                <div class="imga">
-                  <img src="lacalaasia1.jpg" id="lacalaasia1" width: 100%/>
+                  <img src="lacalaasia1.jpg" id="lacalaasia1" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  A course nearly all of us have played. The oldest and tightest course with narrower fairways and some elevated greens..				
+                  A course nearly all of us have played. The oldest and tightest course with narrower fairways and some
+                  elevated greens..
                </div>
                <div class="mainx">
                   <div class="mainxtxt">9:30am - depart for La Cala Asia</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes about 30 minutes.				
+                  Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
+                  about 30 minutes.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">11:00am - Tee off</div>
                </div>
-               <div class="txta">
-                  Tee groups and times:
-               </div>
-              
+               <div class="txta">Tee groups and times:</div>
+
                <div class="txtabred">
                   <div class="tfl">11:00</div>
                   <div class="tfr">
@@ -981,13 +921,11 @@
                      <p>Bryan</p>
                   </div>
                </div>
-             
+
                <!--
                    tee
                -->
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabgreen">
                   <div class="tfl">11:08</div>
                   <div class="tfr">
@@ -1012,9 +950,7 @@
                      <p>SteveW</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="txtabblue">
                   <div class="tfl">11:16</div>
                   <div class="tfr">
@@ -1039,16 +975,14 @@
                      <p>Richard</p>
                   </div>
                </div>
-               <div class="txta">
-                  &nbsp;
-               </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">17:30pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
-                    <img src="bus.png" alt="">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
-               <div class="txta">                 
+               <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
             </details>
@@ -1057,34 +991,35 @@
          <div>
             <details closed>
                <summary class="days" id="saturday">Saturday 17th October</summary>
-               <div class="mainx">       
+               <div class="mainx">
                   <div class="mainxtxt">Return home</div>
                </div>
                <div class="txta">
-                    <img src="bags.png" alt=""></img>
+                  <img src="bags.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="mainx">
                   <div class="mainxtxt">10:00am - bus pickup</div>
                </div>
-            <div class="txta">
-                    <img src="bus.png" alt="">
+               <div class="txta">
+                  <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
-                  Be outside of hotel in time to load golf bags and board bus to leave on time. The journey takes about 15 minutes.
+                  Be outside of hotel in time to load golf bags and board bus to leave on time. The journey takes about
+                  15 minutes.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Arrive at Malaga airport</div>
                </div>
                <div class="txta">
                   After the bus drops us off, head to the Jet2 check-in at the far end of T3 at the airport.
-                  <br>Once golf bags are processed, proceed through security.
-                  <br>Remember there are new procedures in place. 
+                  <br />Once golf bags are processed, proceed through security. <br />Remember there are new procedures
+                  in place.
                </div>
                <div class="mainx">
                   <div class="mainxtxt">12.15pm - Flight departs Spain</div>
                </div>
-            <div class="txta">
-                    <img src="plane.png" alt=""></img>
+               <div class="txta">
+                  <img src="plane.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">
                   <div class="fl">
@@ -1126,43 +1061,132 @@
                      <a>LS558</a>
                   </div>
                </div>
+                <div class="mainx">
+                  <div class="mainxtxt">14.40pm - Flight arrives UK</div>
+               </div>
+               <div class="txta">
+                  <img src="manwithbag.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
+               <div class="txta">&nbsp;</div>
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
             </details>
          </div>
-         <!-- ##### addenda ##### -->
+         <!-- ##### sundry ##### -->
          <div>
             <details closed>
-               <summary class="days" id="adenda">Sundry</summary>
-               
+               <summary class="days" id="sundry">Sundry</summary>
+
                <div class="mainx">
                   <div class="mainxtxt">Calculating Handicaps</div>
                </div>
+               <div class="txta">A simplified version of last year.</div>
                <div class="txta">
-                  A simplified version of last year.
+                  <div class="fl">1st place:</div>
+                  <div class="fr">3 shots cut</div>
                </div>
                <div class="txta">
-                  <div class="fl">
-                     1st place:
-                  </div>
-                  <div class="fr">
-                     3 shots cut
-                  </div>
+                  <div class="fl">2nd place:</div>
+                  <div class="fr">2 shots cut</div>
                </div>
                <div class="txta">
-                  <div class="fl">
-                     2nd place:
-                  </div>
-                  <div class="fr">
-                     2 shots cut
-                  </div>
+                  <div class="fl">3rd place:</div>
+                  <div class="fr">1 shot cut</div>
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">Daily prize money</div>
+               </div>
+               <div class="txta">Daily prizes.</div>
+               <div class="txta">
+                  <div class="fl">1st place:</div>
+                  <div class="fr">£15</div>
                </div>
                <div class="txta">
-                  <div class="fl">
-                     3rd place:
-                  </div>
-                  <div class="fr">
-                     1 shot cut
-                  </div>
+                  <div class="fl">2nd place:</div>
+                  <div class="fr">£10</div>
                </div>
+               <div class="txta">
+                  <div class="fl">3rd place:</div>
+                  <div class="fr">£5</div>
+               </div>
+
+               <div class="txta">total for 5 days = £150</div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">Overall prize money</div>
+               </div>
+               <div class="txta">Same as last year.</div>
+               <div class="txta">
+                  <div class="fl">1st place:</div>
+                  <div class="fr">£30</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">2nd place:</div>
+                  <div class="fr">£25</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">3rd place:</div>
+                  <div class="fr">£20</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">4th place:</div>
+                  <div class="fr">£15</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">5th place:</div>
+                  <div class="fr">£10</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">6th place:</div>
+                  <div class="fr">£10</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">7th place:</div>
+                  <div class="fr">£10</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">8th place:</div>
+                  <div class="fr">£10</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">9th place:</div>
+                  <div class="fr">£5</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">10th place:</div>
+                  <div class="fr">£5</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">11th place:</div>
+                  <div class="fr">£5</div>
+               </div>
+               <div class="txta">
+                  <div class="fl">12th place:</div>
+                  <div class="fr">£5</div>
+               </div>
+
+               <div class="txta">total for overall = £150</div>
+
+               <div class="txta">Full total = £300</div>
+
+               <div class="txta">12 players so £25 each</div>
+
+               <div class="txta">everyone receives a minimum of £5</div>
+
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
       </div>
@@ -1173,12 +1197,10 @@
          //=================================================================================
          // prevent default img menu of options
          document.addEventListener("contextmenu", (event) => {
-             event.preventDefault();
+            event.preventDefault();
          });
-         
+
          // declare global variables
-         
-         
       </script>
    </body>
 </html>
