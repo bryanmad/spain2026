@@ -985,92 +985,93 @@
                 if (document.getElementById(id).hasChildNodes()) {
                     let childtxt = document.getElementById(id).childNodes[1].innerText;
                     //console.log("called by " + childtxt);
+                    if (childtxt.length > 0) {
+                        document.getElementById("statspanel").style.display = "flex";
+                        document.getElementById("theader").innerText = "\n" + childtxt + "\n\n";
 
-                    document.getElementById("statspanel").style.display = "flex";
-                    document.getElementById("theader").innerText = "\n" + childtxt + "\n\n";
+                        // box0 is position 1 etc.
+                        statspos = id.replace("box", "");
 
-                    // box0 is position 1 etc.
-                    statspos = id.replace("box", "");
+                        document.getElementById("st1").innerText = data[statspos].h1;
+                        document.getElementById("st2").innerText = data[statspos].h2;
+                        document.getElementById("st3").innerText = data[statspos].h3;
+                        document.getElementById("st4").innerText = data[statspos].h4;
+                        document.getElementById("st5").innerText = data[statspos].h5;
+                        document.getElementById("st6").innerText = data[statspos].h6;
+                        document.getElementById("st7").innerText = data[statspos].h7;
+                        document.getElementById("st8").innerText = data[statspos].h8;
+                        document.getElementById("st9").innerText = data[statspos].h9;
+                        document.getElementById("st10").innerText = data[statspos].h10;
+                        document.getElementById("st11").innerText = data[statspos].h11;
+                        document.getElementById("st12").innerText = data[statspos].h12;
+                        document.getElementById("st13").innerText = data[statspos].h13;
+                        document.getElementById("st14").innerText = data[statspos].h14;
+                        document.getElementById("st15").innerText = data[statspos].h15;
+                        document.getElementById("st16").innerText = data[statspos].h16;
+                        document.getElementById("st17").innerText = data[statspos].h17;
+                        document.getElementById("st18").innerText = data[statspos].h18;
 
-                    document.getElementById("st1").innerText = data[statspos].h1;
-                    document.getElementById("st2").innerText = data[statspos].h2;
-                    document.getElementById("st3").innerText = data[statspos].h3;
-                    document.getElementById("st4").innerText = data[statspos].h4;
-                    document.getElementById("st5").innerText = data[statspos].h5;
-                    document.getElementById("st6").innerText = data[statspos].h6;
-                    document.getElementById("st7").innerText = data[statspos].h7;
-                    document.getElementById("st8").innerText = data[statspos].h8;
-                    document.getElementById("st9").innerText = data[statspos].h9;
-                    document.getElementById("st10").innerText = data[statspos].h10;
-                    document.getElementById("st11").innerText = data[statspos].h11;
-                    document.getElementById("st12").innerText = data[statspos].h12;
-                    document.getElementById("st13").innerText = data[statspos].h13;
-                    document.getElementById("st14").innerText = data[statspos].h14;
-                    document.getElementById("st15").innerText = data[statspos].h15;
-                    document.getElementById("st16").innerText = data[statspos].h16;
-                    document.getElementById("st17").innerText = data[statspos].h17;
-                    document.getElementById("st18").innerText = data[statspos].h18;
+                        document.getElementById("p1").innerText = data[statspos].p1;
+                        document.getElementById("p2").innerText = data[statspos].p2;
+                        document.getElementById("p3").innerText = data[statspos].p3;
+                        document.getElementById("p4").innerText = data[statspos].p4;
+                        document.getElementById("p5").innerText = data[statspos].p5;
+                        document.getElementById("p6").innerText = data[statspos].p6;
+                        document.getElementById("p7").innerText = data[statspos].p7;
+                        document.getElementById("p8").innerText = data[statspos].p8;
+                        document.getElementById("p9").innerText = data[statspos].p9;
+                        document.getElementById("p10").innerText = data[statspos].p10;
+                        document.getElementById("p11").innerText = data[statspos].p11;
+                        document.getElementById("p12").innerText = data[statspos].p12;
+                        document.getElementById("p13").innerText = data[statspos].p13;
+                        document.getElementById("p14").innerText = data[statspos].p14;
+                        document.getElementById("p15").innerText = data[statspos].p15;
+                        document.getElementById("p16").innerText = data[statspos].p16;
+                        document.getElementById("p17").innerText = data[statspos].p17;
+                        document.getElementById("p18").innerText = data[statspos].p18;
 
-                    document.getElementById("p1").innerText = data[statspos].p1;
-                    document.getElementById("p2").innerText = data[statspos].p2;
-                    document.getElementById("p3").innerText = data[statspos].p3;
-                    document.getElementById("p4").innerText = data[statspos].p4;
-                    document.getElementById("p5").innerText = data[statspos].p5;
-                    document.getElementById("p6").innerText = data[statspos].p6;
-                    document.getElementById("p7").innerText = data[statspos].p7;
-                    document.getElementById("p8").innerText = data[statspos].p8;
-                    document.getElementById("p9").innerText = data[statspos].p9;
-                    document.getElementById("p10").innerText = data[statspos].p10;
-                    document.getElementById("p11").innerText = data[statspos].p11;
-                    document.getElementById("p12").innerText = data[statspos].p12;
-                    document.getElementById("p13").innerText = data[statspos].p13;
-                    document.getElementById("p14").innerText = data[statspos].p14;
-                    document.getElementById("p15").innerText = data[statspos].p15;
-                    document.getElementById("p16").innerText = data[statspos].p16;
-                    document.getElementById("p17").innerText = data[statspos].p17;
-                    document.getElementById("p18").innerText = data[statspos].p18;
+                        var sfront = 0;
+                        var pfront = 0;
+                        var sifront = 0;
+                        var parfront = 0;
+                        var parfront9 = 0;
 
-                    var sfront = 0;
-                    var pfront = 0;
-                    var sifront = 0;
-                    var parfront = 0;
-                    var parfront9 = 0;
+                        for (i = 1; i <= 9; i++) {
+                            sfront += +document.getElementById("st" + i).innerText;
+                            pfront += +document.getElementById("p" + i).innerText;
+                            document.getElementById("si" + i).innerText = arrCourse[i][2];
+                            document.getElementById("par" + i).innerText = arrCourse[i][1];
 
-                    for (i = 1; i <= 9; i++) {
-                        sfront += +document.getElementById("st" + i).innerText;
-                        pfront += +document.getElementById("p" + i).innerText;
-                        document.getElementById("si" + i).innerText = arrCourse[i][2];
-                        document.getElementById("par" + i).innerText = arrCourse[i][1];
+                            parfront9 += arrCourse[i][1];
+                        }
 
-                        parfront9 += arrCourse[i][1];
+                        var sback = 0;
+                        var pback = 0;
+                        var siback = 0;
+                        var parback = 0;
+                        var parback9 = 0;
+
+                        for (i = 10; i <= 18; i++) {
+                            sback += +document.getElementById("st" + i).innerText;
+                            pback += +document.getElementById("p" + i).innerText;
+                            document.getElementById("si" + i).innerText = arrCourse[i][2];
+                            document.getElementById("par" + i).innerText = arrCourse[i][1];
+
+                            parback9 += +arrCourse[i][1];
+                        }
+                        var stotal = sfront + sback;
+                        var ptotal = pfront + pback;
+
+                        document.getElementById("statscomment").innerHTML =
+                            "<br>" + stotal + " strokes, " + ptotal + " points." + "<br><br>";
+
+                        document.getElementById("sfront").innerText = sfront;
+                        document.getElementById("sback").innerText = sback;
+                        document.getElementById("pfront").innerText = pfront;
+                        document.getElementById("pback").innerText = pback;
+                        document.getElementById("parfront").innerText = parfront9;
+                        document.getElementById("parback").innerText = parback9;
                     }
-
-                    var sback = 0;
-                    var pback = 0;
-                    var siback = 0;
-                    var parback = 0;
-                    var parback9 = 0;
-
-                    for (i = 10; i <= 18; i++) {
-                        sback += +document.getElementById("st" + i).innerText;
-                        pback += +document.getElementById("p" + i).innerText;
-                        document.getElementById("si" + i).innerText = arrCourse[i][2];
-                        document.getElementById("par" + i).innerText = arrCourse[i][1];
-
-                        parback9 += +arrCourse[i][1];
-                    }
-                    var stotal = sfront + sback;
-                    var ptotal = pfront + pback;
-
-                    document.getElementById("statscomment").innerHTML =
-                        "<br>" + stotal + " strokes, " + ptotal + " points." + "<br><br>";
-
-                    document.getElementById("sfront").innerText = sfront;
-                    document.getElementById("sback").innerText = sback;
-                    document.getElementById("pfront").innerText = pfront;
-                    document.getElementById("pback").innerText = pback;
-                    document.getElementById("parfront").innerText = parfront9;
-                    document.getElementById("parback").innerText = parback9;
                 }
             }
 

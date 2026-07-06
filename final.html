@@ -511,157 +511,6 @@
 
             <!-- HCP graph -->
             <canvas id="myChart" style="width: 100%; max-width: 100%; height: 100%; max-height: 100%"> </canvas>
-
-            <!-- DivTable.com 
-            <table>
-                <tbody>
-                    <tr class="static bg">
-                        <td colspan="11" id="theader"></td>
-                    </tr>
-                    
-                    
-                    
-                    
-                    
-                    <tr class="static">
-                        <td>hole</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>front</td>
-                    </tr>
-                    <tr class="static">
-                        <td>si</td>
-                        <td id="si1">1</td>
-                        <td id="si2">2</td>
-                        <td id="si3">3</td>
-                        <td id="si4">4</td>
-                        <td id="si5">5</td>
-                        <td id="si6">6</td>
-                        <td id="si7">7</td>
-                        <td id="si8">8</td>
-                        <td id="si9">9</td>
-                        <td></td>
-                    </tr>
-                    <tr class="static">
-                        <td>par</td>
-                        <td id="par1">1</td>
-                        <td id="par2">2</td>
-                        <td id="par3">3</td>
-                        <td id="par4">4</td>
-                        <td id="par5">5</td>
-                        <td id="par6">6</td>
-                        <td id="par7">7</td>
-                        <td id="par8">8</td>
-                        <td id="par9">9</td>
-                        <td id="parfront">123</td>
-                    </tr>
-                    <tr>
-                        <td>strokes</td>
-                        <td id="st1">1</td>
-                        <td id="st2">2</td>
-                        <td id="st3">3</td>
-                        <td id="st4">4</td>
-                        <td id="st5">5</td>
-                        <td id="st6">6</td>
-                        <td id="st7">7</td>
-                        <td id="st8">8</td>
-                        <td id="st9">9</td>
-                        <td id="sfront">123</td>
-                    </tr>
-                    <tr>
-                        <td>points</td>
-                        <td id="p1">1</td>
-                        <td id="p2">2</td>
-                        <td id="p3">3</td>
-                        <td id="p4">4</td>
-                        <td id="p5">5</td>
-                        <td id="p6">6</td>
-                        <td id="p7">7</td>
-                        <td id="p8">8</td>
-                        <td id="p9">9</td>
-                        <td id="pfront">123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="11">&nbsp;</td>
-                    </tr>
-                    <tr class="static">
-                        <td>hole</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                        <td>back</td>
-                    </tr>
-                    <tr class="static">
-                        <td>si</td>
-                        <td id="si10">1</td>
-                        <td id="si11">2</td>
-                        <td id="si12">3</td>
-                        <td id="si13">4</td>
-                        <td id="si14">5</td>
-                        <td id="si15">6</td>
-                        <td id="si16">7</td>
-                        <td id="si17">8</td>
-                        <td id="si18">9</td>
-                        <td></td>
-                    </tr>
-                    <tr class="static">
-                        <td>par</td>
-                        <td id="par10">1</td>
-                        <td id="par11">2</td>
-                        <td id="par12">3</td>
-                        <td id="par13">4</td>
-                        <td id="par14">5</td>
-                        <td id="par15">6</td>
-                        <td id="par16">7</td>
-                        <td id="par17">8</td>
-                        <td id="par18">9</td>
-                        <td id="parback">123</td>
-                    </tr>
-                    <tr>
-                        <td>strokes</td>
-                        <td id="st10">1</td>
-                        <td id="st11">2</td>
-                        <td id="st12">3</td>
-                        <td id="st13">4</td>
-                        <td id="st14">5</td>
-                        <td id="st15">6</td>
-                        <td id="st16">7</td>
-                        <td id="st17">8</td>
-                        <td id="st18">9</td>
-                        <td id="sback">123</td>
-                    </tr>
-                    <tr>
-                        <td>points</td>
-                        <td id="p10">1</td>
-                        <td id="p11">2</td>
-                        <td id="p12">3</td>
-                        <td id="p13">4</td>
-                        <td id="p14">5</td>
-                        <td id="p15">6</td>
-                        <td id="p16">7</td>
-                        <td id="p17">8</td>
-                        <td id="p18">9</td>
-                        <td id="pback">123</td>
-                    </tr>
-                    <tr class="static bg">
-                        <td colspan="11" id="statscomment"><br /><br /><br /></td>
-                    </tr>
-                </tbody>
-            </table>
--->
         </div>
         <!-- popup panel -->
         <div id="panel" onclick="closePanel()"></div>
@@ -682,35 +531,6 @@
             var childtxt;
             var data;
             var getDataRetryCount = 0;
-            // set up courses with details for calculations etc.
-            // array ["hole num",par,si]
-            // day 1 - calanova
-            // day 2 - la cala america
-            // day 3 - mijas los lagos
-            // day 4 - la cala europa
-            // day 5 - la cala asia
-            // hole, par, si
-            arrCourse = [
-                [0, 0, 0],
-                [1, 5, 9],
-                [2, 4, 5],
-                [3, 4, 1],
-                [4, 4, 11],
-                [5, 4, 1],
-                [6, 3, 7],
-                [7, 4, 15],
-                [8, 3, 17],
-                [9, 5, 3],
-                [10, 5, 6],
-                [11, 4, 4],
-                [12, 4, 18],
-                [13, 3, 12],
-                [14, 5, 2],
-                [15, 4, 8],
-                [16, 4, 10],
-                [17, 3, 16],
-                [18, 4, 14]
-            ];
 
             //===========================
             // this code runs at startup
@@ -726,7 +546,6 @@
             //=============================================================
             async function getData() {
                 var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/resultsFinal";
-
                 try {
                     console.log("timeout delay = " + (getDataRetryCount * 1000 + 2000));
                     const dataStream = await fetch(url, {
@@ -736,35 +555,10 @@
                         throw new Error(`Response status: ${dataStream.status}`);
                     } else {
                         data = await dataStream.json();
-
-                        // say if hcps are updated
-                        // show message
-                        //console.log(data[0].updated + " ---------");
-
-                        //if (data[0].updated == "Monday") {
-                        //    console.log(data[0].updated + " therefore OK");
-                        //} else {
-                        //    document.getElementById("panel").innerText =
-                        //        "Handicaps and tee groups for Monday have not been updated, they will be updated Monday morning.";
-                        //    document.getElementById("panel").style.display = "flex";
-                        //}
-
                         $("#pagetwo").fadeIn(500);
-
-                        //console.log(data);
-                        // data is sorted with highest score first so test that to see if it >0
-                        //console.log("data[0].playerpoints = " + data.length);
-                        //if (data[0].players.length > 0) {
-                        // change < to >
-                        //console.log("using useDataResults()");
                         document.getElementById("panel").style.display = "none";
                         useDataResults();
-                        //} else {
-                        //    useDataHcp();
-                        //}
                     }
-                    //
-                    //
                 } catch (err) {
                     console.error(err.message);
                     if (err.name === "TimeoutError") {
@@ -832,7 +626,6 @@
                     let birdcount = document.createElement("img");
                     birdcount.id = "birdcount" + i;
                     birdcount.className = "birdimg";
-                    //birdcount.src = "bird.gif";
 
                     birdgif.appendChild(birdimg);
                     birdgifnumber.appendChild(birdcount);
@@ -853,22 +646,18 @@
                 var k = 0;
 
                 // do proper display
-
                 document.getElementById("createleaderboarditems").style.opacity = 1;
 
                 data.forEach((el, i) => {
                     k++;
                     setTimeout(function () {
-                        //if (el.players !== "") {
                         bodyUpdate(el.players, el.playerpoints, i);
-                        //}
                     }, k * 300);
                 });
             }
 
             function bodyUpdate(nom, points, i) {
                 let pos = i + 1;
-                //temp
 
                 data.find((team) => team.players === nom);
                 // now sort out positions for same scores
@@ -934,47 +723,31 @@
             }
 
             function showStats(id) {
-                //console.log("showStats(id) = " + id);
-
                 if (document.getElementById(id).hasChildNodes()) {
                     childtxt = document.getElementById(id).childNodes[1].innerText;
-                    //console.log("called by " + childtxt);
-
                     document.getElementById("statspanel").style.display = "flex";
-                    //document.getElementById("theader").innerText = "\n" + childtxt + "\n\n";
-
-                    // box0 is position 1 etc.
-                    //statspos = id.replace("box", "");
-
-                    //document.getElementById("st1").innerText = data[statspos].eagle;
-                    //document.getElementById("st2").innerText = data[statspos].bird;
-                    //document.getElementById("st3").innerText = data[statspos].par;
-                    //document.getElementById("st4").innerText = data[statspos].bogey;
-                    //document.getElementById("st5").innerText = data[statspos].worse;
-
-                    //document.getElementById("statspanel").style.background = "black";
                     //arrMyPoints = [eagles, birdies, pars, bogeys, worse];
                     // get correct players stats
                     let newEagle1 = data.find((searchplayer) => searchplayer.players === childtxt).eagle1;
-                    let newBirdie1 = data.find((searchplayer) => searchplayer.players === childtxt).bird1;
+                    let newBirdie1 = data.find((searchplayer) => searchplayer.players === childtxt).birdie1;
                     let newPar1 = data.find((searchplayer) => searchplayer.players === childtxt).par1;
                     let newBogey1 = data.find((searchplayer) => searchplayer.players === childtxt).bogey1;
                     let newWorse1 = data.find((searchplayer) => searchplayer.players === childtxt).worse1;
 
                     let newEagle2 = data.find((searchplayer) => searchplayer.players === childtxt).eagle2;
-                    let newBirdie2 = data.find((searchplayer) => searchplayer.players === childtxt).bird2;
+                    let newBirdie2 = data.find((searchplayer) => searchplayer.players === childtxt).birdie2;
                     let newPar2 = data.find((searchplayer) => searchplayer.players === childtxt).par2;
                     let newBogey2 = data.find((searchplayer) => searchplayer.players === childtxt).bogey2;
                     let newWorse2 = data.find((searchplayer) => searchplayer.players === childtxt).worse2;
 
                     let newEagle3 = data.find((searchplayer) => searchplayer.players === childtxt).eagle3;
-                    let newBirdie3 = data.find((searchplayer) => searchplayer.players === childtxt).bird3;
+                    let newBirdie3 = data.find((searchplayer) => searchplayer.players === childtxt).birdie3;
                     let newPar3 = data.find((searchplayer) => searchplayer.players === childtxt).par3;
                     let newBogey3 = data.find((searchplayer) => searchplayer.players === childtxt).bogey3;
                     let newWorse3 = data.find((searchplayer) => searchplayer.players === childtxt).worse3;
 
                     let newEagle4 = data.find((searchplayer) => searchplayer.players === childtxt).eagle4;
-                    let newBirdie4 = data.find((searchplayer) => searchplayer.players === childtxt).bird4;
+                    let newBirdie4 = data.find((searchplayer) => searchplayer.players === childtxt).birdie4;
                     let newPar4 = data.find((searchplayer) => searchplayer.players === childtxt).par4;
                     let newBogey4 = data.find((searchplayer) => searchplayer.players === childtxt).bogey4;
                     let newWorse4 = data.find((searchplayer) => searchplayer.players === childtxt).worse4;
@@ -1002,16 +775,11 @@
             function drawGraph(arrMyPoints1, arrMyPoints2, arrMyPoints3, arrMyPoints4, arrMyPoints5) {
                 var PlayerGraph;
                 const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
-                //const yValues = [55, 49, 44, 24, 15];
-
-                //var yValues = arrMyPoints;
                 var barColors = ["#4d94ff", "#6da8ff", "#8fbcff", "#a3c8ff", " 	#b6d3ff"];
-                //var barColors = ["#005e88", "#00709d", "#0083b2", "#0096c7", "#00aadd"];
                 var ctx = document.getElementById("myChart");
                 try {
                     var PlayerGraph = Chart.getChart("myChart");
                     PlayerGraph.destroy();
-                    //console.log("trying to destory then redraw chart");
                 } catch (e) {
                     console.log("chart does not exist yet to destroy");
                 }
