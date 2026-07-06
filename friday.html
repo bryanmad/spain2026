@@ -834,7 +834,9 @@
                     let position = document.createElement("span");
                     position.id = "position" + i;
                     position.className = "position";
-                    position.innerHTML = i;
+                    if (el.players.length > 0) {
+                        position.innerHTML = i;
+                    }
 
                     let birdgif = document.createElement("span");
                     birdgif.id = "birdgif" + i;
@@ -928,9 +930,13 @@
                     let previousElementScore = previousElement.querySelector(".scores");
                     // if this score is the same as previous - same position
                     if (previousElementScore.innerHTML == points) {
-                        elementPos.innerHTML = previousElementPos.innerHTML;
+                        if (points > 0) {
+                            elementPos.innerHTML = previousElementPos.innerHTML;
+                        }
                     } else {
-                        elementPos.innerHTML = pos;
+                        if (points > 0) {
+                            elementPos.innerHTML = pos;
+                        }
                     }
                 }
                 // end of cope with first position
