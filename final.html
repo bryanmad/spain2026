@@ -531,7 +531,8 @@
             var childtxt;
             var data;
             var getDataRetryCount = 0;
-
+            // Define the sleep function
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             //===========================
             // this code runs at startup
             //===========================
@@ -576,6 +577,9 @@
                     // retry
                     getDataRetryCount++;
                     if (getDataRetryCount < 5) {
+                        document.getElementsByClassName("load-text")[0].innerText =
+                            "retrying " + getDataRetryCount + "/5";
+                        sleep(getDataRetryCount * 1000 + 2000);
                         getData();
                     }
                 }
@@ -776,6 +780,7 @@
                 var PlayerGraph;
                 const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
                 var barColors = ["#4d94ff", "#6da8ff", "#8fbcff", "#a3c8ff", " 	#b6d3ff"];
+                var borderColors = ["#000000"];
                 var ctx = document.getElementById("myChart");
                 try {
                     var PlayerGraph = Chart.getChart("myChart");
@@ -794,23 +799,43 @@
                         datasets: [
                             {
                                 backgroundColor: barColors[0],
-                                data: arrMyPoints1
+                                data: arrMyPoints1,
+                                borderColor: borderColors[0],
+                                borderWidth: 1,
+                                //borderRadius: 10,
+                                borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[1],
-                                data: arrMyPoints2
+                                data: arrMyPoints2,
+                                borderColor: borderColors[0],
+                                borderWidth: 1,
+                                //borderRadius: 10,
+                                borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[2],
-                                data: arrMyPoints3
+                                data: arrMyPoints3,
+                                borderColor: borderColors[0],
+                                borderWidth: 1,
+                                //borderRadius: 10,
+                                borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[3],
-                                data: arrMyPoints4
+                                data: arrMyPoints4,
+                                borderColor: borderColors[0],
+                                borderWidth: 1,
+                                //borderRadius: 10,
+                                borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[4],
-                                data: arrMyPoints5
+                                data: arrMyPoints5,
+                                borderColor: borderColors[0],
+                                borderWidth: 1,
+                                //borderRadius: 10,
+                                borderSkipped: false
                             }
                         ]
                     },
