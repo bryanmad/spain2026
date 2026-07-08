@@ -466,6 +466,11 @@
                         table {
               border-collapse: collapse;
             }
+            #back {
+                position: absolute;
+                left: 5vw;
+                top: 5vw;
+            }
         </style>
     </head>
     <body>
@@ -492,7 +497,8 @@
         <div style="margin-top: 8px"></div>
 
         <!-- popup stats panel -->
-        <div id="statspanel" onclick="hideStatsPanel()">
+        <div id="statspanel">
+            <img id="back" src="close.png" height="50" width="50" onclick="hideStatsPanel()" />
             <!-- DivTable.com -->
             <table>
                 <tbody>
