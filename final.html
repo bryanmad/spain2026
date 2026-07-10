@@ -854,6 +854,24 @@
                             },
                             legend: {
                                 display: false
+                            },
+                            tooltip: {
+                                mode: "index",
+                                intersect: false,
+                                // 1. Reverse order of displayed tooltip items
+                                itemSort: function (a, b) {
+                                    return b.datasetIndex - a.datasetIndex;
+                                },
+                                callbacks: {
+                                    // 2. Sum all active stacked values and return in a footer
+                                    footer: function (tooltipItems) {
+                                        let sum = 0;
+                                        tooltipItems.forEach(function (item) {
+                                            sum += item.parsed.y;
+                                        });
+                                        return "Total: " + sum.toLocaleString();
+                                    }
+                                }
                             }
                         },
                         responsive: true,
