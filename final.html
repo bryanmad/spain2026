@@ -303,7 +303,7 @@
                                     position: fixed;
                                     top: 3vh;
                                     left: 4vw;
-                                    background: black; //dodgerBlue;
+                                    background: white; //white;//black; //dodgerBlue;
                                     color: white;
                                     font-size: 4vw;
                                     height: 83vh;
@@ -782,8 +782,8 @@
             function drawGraph(arrMyPoints1, arrMyPoints2, arrMyPoints3, arrMyPoints4, arrMyPoints5) {
                 var PlayerGraph;
                 const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
-                var barColors = ["#1d0e2c", "#2d2c5e", "#3d4b91", "#4e69c3", "#5e87f5"];
-                var borderColors = ["#000000"];
+                var barColors = ["#8867e1", "#be59f5", "#65b0d6", "#40ffc6", "#c8df6f"];
+                var borderColors = ["white"];
                 var ctx = document.getElementById("myChart");
                 try {
                     var PlayerGraph = Chart.getChart("myChart");
@@ -793,7 +793,7 @@
                 }
 
                 Chart.defaults.font.size = 16;
-                Chart.defaults.color = "white";
+                Chart.defaults.color = "black";
 
                 var PlayerGraph = new Chart(ctx, {
                     type: "bar",
@@ -856,7 +856,10 @@
                         responsive: true,
                         scales: {
                             x: {
-                                stacked: true
+                                stacked: true,
+                                grid: {
+                                       display: false
+                                },
                             },
                             y: {
                                 stacked: true
