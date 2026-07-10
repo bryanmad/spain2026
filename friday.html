@@ -948,7 +948,7 @@
                 if (elementName.innerHTML == nom) {
                     elementScore.innerHTML = points;
                 }
-                var birdnum = data.find((team) => team.players === elementName.innerHTML).bird;
+                var birdnum = data.find((team) => team.players === elementName.innerHTML).birdieclub;
                 if (birdnum > 0) {
                     document.getElementById("birdgif" + i).style.visibility = "visible";
                     document.getElementById("birdgifnumber" + i).className = "numbird";
