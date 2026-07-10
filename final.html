@@ -582,6 +582,9 @@
                         sleep(getDataRetryCount * 1000 + 2000);
                         getData();
                     }
+                    if (getDataRetryCount == 5) {
+                        document.getElementsByClassName("load-text")[0].innerText = "Please try again later.";
+                    }
                 }
             }
 
@@ -779,7 +782,7 @@
             function drawGraph(arrMyPoints1, arrMyPoints2, arrMyPoints3, arrMyPoints4, arrMyPoints5) {
                 var PlayerGraph;
                 const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
-                var barColors = ["#4d94ff", "#6da8ff", "#8fbcff", "#a3c8ff", " 	#b6d3ff"];
+                var barColors = ["#9b5de5", "#f15bb5", "#fee440", "#00bbf9", " 	#00f5d4"];
                 var borderColors = ["#000000"];
                 var ctx = document.getElementById("myChart");
                 try {
