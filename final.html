@@ -303,7 +303,7 @@
                                     position: fixed;
                                     top: 3vh;
                                     left: 4vw;
-                                    background: white; //white;//black; //dodgerBlue;
+                                    background: black; //white;//black; //dodgerBlue;
                                     color: white;
                                     font-size: 4vw;
                                     height: 83vh;
@@ -783,7 +783,7 @@
                 var PlayerGraph;
                 const xValues = ["eagles", "birdies", "pars", "bogeys", "worse"];
                 var barColors = ["#8867e1", "#be59f5", "#65b0d6", "#40ffc6", "#c8df6f"];
-                var borderColors = ["white"];
+                var borderColors = ["black"];
                 var ctx = document.getElementById("myChart");
                 try {
                     var PlayerGraph = Chart.getChart("myChart");
@@ -793,7 +793,15 @@
                 }
 
                 Chart.defaults.font.size = 16;
-                Chart.defaults.color = "black";
+                Chart.defaults.color = "white";
+
+                const footer = (tooltipItems) => {
+                    let sum = 0;
+                    tooltipItems.forEach(function (tooltipItem) {
+                        sum += tooltipItem.parsed.y;
+                    });
+                    return "Sum: " + sum;
+                };
 
                 var PlayerGraph = new Chart(ctx, {
                     type: "bar",
@@ -804,40 +812,35 @@
                                 backgroundColor: barColors[0],
                                 data: arrMyPoints1,
                                 borderColor: borderColors[0],
-                                borderWidth: 1,
-                                //borderRadius: 10,
+                                borderWidth: 2,
                                 borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[1],
                                 data: arrMyPoints2,
                                 borderColor: borderColors[0],
-                                borderWidth: 1,
-                                //borderRadius: 10,
+                                borderWidth: 2,
                                 borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[2],
                                 data: arrMyPoints3,
                                 borderColor: borderColors[0],
-                                borderWidth: 1,
-                                //borderRadius: 10,
+                                borderWidth: 2,
                                 borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[3],
                                 data: arrMyPoints4,
                                 borderColor: borderColors[0],
-                                borderWidth: 1,
-                                //borderRadius: 10,
+                                borderWidth: 2,
                                 borderSkipped: false
                             },
                             {
                                 backgroundColor: barColors[4],
                                 data: arrMyPoints5,
                                 borderColor: borderColors[0],
-                                borderWidth: 1,
-                                //borderRadius: 10,
+                                borderWidth: 2,
                                 borderSkipped: false
                             }
                         ]
@@ -858,11 +861,15 @@
                             x: {
                                 stacked: true,
                                 grid: {
-                                       display: false
-                                },
+                                    display: false
+                                }
                             },
                             y: {
-                                stacked: true
+                                stacked: true,
+                                grid: {
+                                    display: true,
+                                    color: "#3A3B3C"
+                                }
                             }
                         }
                     }
