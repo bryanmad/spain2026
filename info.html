@@ -208,7 +208,7 @@
          <!-- ##### Sunday ##### -->
          <div>
             <details closed>
-               <summary class="days" id="sunday">Sunday 11th October</summary>
+               <summary class="days" id="sunday" onclick="view(this.id)">Sunday 11th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">6:30am - meet at bar</div>
                </div>
@@ -1074,11 +1074,10 @@
                <div class="txta">&nbsp;</div>
             </details>
          </div>
-         <!-- ##### sundry ##### -->
+         <!-- ##### notes ##### -->
          <div>
-            <details closed>
-               <summary class="days" id="sundry">Notes</summary>
-
+            <details id="notesdetails" closed>
+               <summary class="days" id="notes" onclick="view(this.id)">Notes</summary>
                <div class="mainx">
                   <div class="mainxtxt">Calculating Handicaps</div>
                </div>
@@ -1209,6 +1208,24 @@
          });
 
          // declare global variables
+
+         function view(id) {
+            console.log("in view");
+
+            const All_Details = document.querySelectorAll("details");
+
+            All_Details.forEach((deet) => {
+               deet.addEventListener("toggle", toggleOpenOneOnly);
+            });
+
+            function toggleOpenOneOnly(e) {
+               if (this.open) {
+                  All_Details.forEach((deet) => {
+                     if (deet != this && deet.open) deet.open = false;
+                  });
+               }
+            }
+         }
       </script>
    </body>
 </html>
