@@ -1221,7 +1221,7 @@
 
          function view(id) {
             console.log("in view");
-
+var i=0;
             const All_Details = document.querySelectorAll("details");
 
             All_Details.forEach((deet) => {
@@ -1231,9 +1231,12 @@
             function toggleOpenOneOnly(e) {
                if (this.open) {
                   All_Details.forEach((deet) => {
+                     i++
                      if (deet != this && deet.open) deet.open = false;
                   });
-                  window.scrollBy(0, 60);
+                  if (i== 8) {
+                  window.scrollBy(0, 200);
+                  };
                }
             }
          }
