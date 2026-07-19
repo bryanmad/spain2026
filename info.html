@@ -206,7 +206,7 @@
       <div class="flexcontainer">
          <!-- headings -->
          <!-- ##### Sunday ##### -->
-         <div>
+         <div id="sun">
             <details closed>
                <summary class="days" id="sunday" onclick="view(this.id)">Sunday 11th October</summary>
                <div class="mainx">
@@ -390,9 +390,9 @@
          </div>
          <!-- end of sunday -->
          <!-- ##### Monday ##### -->
-         <div>
+         <div id="mon">
             <details closed>
-               <summary class="days" id="monday">Monday 12th October</summary>
+               <summary class="days" id="monday" onclick="view(this.id)">Monday 12th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">Calanova golf</div>
                </div>
@@ -510,9 +510,9 @@
             </details>
          </div>
          <!-- ##### Tuesday ##### -->
-         <div>
+         <div id="tue">
             <details closed>
-               <summary class="days" id="tuesday">Tuesday 13th October</summary>
+               <summary class="days" id="tuesday" onclick="view(this.id)">Tuesday 13th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">La Cala America</div>
                </div>
@@ -629,9 +629,9 @@
             </details>
          </div>
          <!-- ##### Wednesday ##### -->
-         <div>
+         <div id="wed">
             <details closed>
-               <summary class="days" id="wednesday">Wednesday 14th October</summary>
+               <summary class="days" id="wednesday" onclick="view(this.id)">Wednesday 14th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">Mijas Los Lagos</div>
                </div>
@@ -750,9 +750,9 @@
             </details>
          </div>
          <!-- ##### Thursday ##### -->
-         <div>
+         <div id="thu">
             <details closed>
-               <summary class="days" id="thursday">Thursday 15th October</summary>
+               <summary class="days" id="thursday" onclick="view(this.id)">Thursday 15th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">La Cala Europa</div>
                </div>
@@ -869,9 +869,9 @@
             </details>
          </div>
          <!-- ##### Friday ##### -->
-         <div>
+         <div id="fri">
             <details closed>
-               <summary class="days" id="friday">Friday 16th October</summary>
+               <summary class="days" id="friday" onclick="view(this.id)">Friday 16th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">La Cala Asia</div>
                </div>
@@ -988,9 +988,9 @@
             </details>
          </div>
          <!-- ##### Saturday ##### -->
-         <div>
+         <div id="sat">
             <details closed>
-               <summary class="days" id="saturday">Saturday 17th October</summary>
+               <summary class="days" id="saturday" onclick="view(this.id)">Saturday 17th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">Return home</div>
                </div>
@@ -1075,7 +1075,7 @@
             </details>
          </div>
          <!-- ##### notes ##### -->
-         <div>
+         <div id="not">
             <details id="notesdetails" closed>
                <summary class="days" id="notes" onclick="view(this.id)">Notes</summary>
                <div class="mainx">
@@ -1220,23 +1220,37 @@
          // declare global variables
 
          function view(id) {
-            console.log("in view");
             const All_Details = document.querySelectorAll("details");
 
             All_Details.forEach((deet) => {
-               deet.addEventListener("toggle", toggleOpenOneOnly);
-            });
+               deet.addEventListener("toggle", (event) => {
+                  if (deet.open) {
+                     /* the element was toggled open */
+                     document.getElementById("sun").style.display = "none";
+                     document.getElementById("mon").style.display = "none";
+                     document.getElementById("tue").style.display = "none";
+                     document.getElementById("wed").style.display = "none";
+                     document.getElementById("thu").style.display = "none";
+                     document.getElementById("fri").style.display = "none";
+                     document.getElementById("sat").style.display = "none";
+                     document.getElementById("not").style.display = "none";
+                     console.log(id);
 
-            function toggleOpenOneOnly(e) {
-               if (this.open) {
-                  All_Details.forEach((deet) => {
-                     if (deet != this && deet.open) deet.open = false;
-                  });
-                  if (this.id == "notesdetails") {
-                     window.scrollBy(0, 200);
+                     document.getElementById(id.substring(0, 3)).style.display = "flex";
+                  } else {
+                     /* the element was toggled closed */
+                     document.getElementById("sun").style.display = "flex";
+                     document.getElementById("mon").style.display = "flex";
+                     document.getElementById("tue").style.display = "flex";
+                     document.getElementById("wed").style.display = "flex";
+                     document.getElementById("thu").style.display = "flex";
+                     document.getElementById("fri").style.display = "flex";
+                     document.getElementById("sat").style.display = "flex";
+                     document.getElementById("not").style.display = "flex";
+                     console.log(id);
                   }
-               }
-            }
+               });
+            });
          }
       </script>
    </body>
