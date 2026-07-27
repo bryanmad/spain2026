@@ -10,196 +10,198 @@
       <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <style>
-          * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          }
-          html {
-          width: 100vw;
-          }
-          body {
-          //overflow: hidden;
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 3vh;
-          background: white;
-          color: black;
-          height: 100%;
-          //width: 100%;
-          }
-          .flexcontainer {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          align-items: stretch;
-          align-content: stretch;
-          gap: 1px;
-          }
-          .flexcontainer div {
-          color: black;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          align-items: stretch;
-          align-content: stretch;
-          gap: 1px;
-          //width: 100%;
-          //background: white;
-          }
-          .headerwrapper {
-          height: 7vh;
-          font-size: 3vh;
-          flex-direction: row;
-          display: flex;
-          }
-          #mainpage {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100vh;
-          width: 100vw;
-          background: dodgerBlue;
-          display: block; //none;
-          }
-          #headermainpage {
-          color: black;
-          background: white;
-          height: 100%;
-          width: 100vw; //100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          }
-          #headerpage {
-          color: black;
-          background: white;
-          height: 100%;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          }
-          details {
-          width: 100%;
-          }
-          .days {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          //width: 98vw;
-          height: 9.9vh;
-          //border: 3px solid gray;
-          background: navy; //gray;
-          font-size: 3vh;
-          color: white;
-          border-radius: 5px;
-          margin: 1vw;
-          }
-          img {
-          //min-width:100%;
-          }
-          .mainx {
-          }
-          .mainxtxt {
-          //width: 50vw;
-          border-top-right-radius: 25px;
-          border-bottom-right-radius: 25px;
-          border: 2px solid blue; //cyan;
-          padding-top: 2vh;
-          padding-bottom: 2vh;
-          padding-left: 2vw;
-          padding-right: 5vw;
-          font-size: 2vh;
-          background-color: silver;
-          margin-left: 1vw;
-          }
-          .txtlink {
-          max-width:90vw;
-          margin: 1vw;
-          font-size: 2vh;
-          padding: 1vh;
-          //border: 1px solid red;
-          color: blue;
-          }
-          .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
-          max-width:98vw;
-          margin: 1vw;
-          font-size: 2vh;
-          padding: 1vh;
-          //border: 1px solid red;
-          color: white;
-          //display: flex;
-          //width: 100vw;
-          }
-          .txtabred {
-          max-width:40%;
-          border: 1px solid red;
-          color: white;
-          }
-          .txtabgreen {
-          max-width:40%;
-          border: 1px solid green;
-          color: white;
-          }
-          .txtabblue {
-          max-width:40%;
-          border: 1px solid blue;
-          color: white;
-          }
-         .txtabbluelong {
-          width:75%;
-          border: 1px solid blue;
-          color: white;
-          font-size: 4vw;
-          padding: 2vw;
-            display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: 2vw;
-          }
+                   * {
+                   margin: 0;
+                   padding: 0;
+                   box-sizing: border-box;
+                   }
+                   html {
+                   width: 100vw;
+                   }
+                   body {
+                   //overflow: hidden;
+                   font-family: Arial, Helvetica, sans-serif;
+                   font-size: 3vh;
+                   background: navy; //white;
+                   color: black;
+                   height: 100%;
+                   //width: 100%;
+                   }
+                   .flexcontainer {
+                   display: flex;
+                   flex-direction: column;
+                   flex-wrap: nowrap;
+                   justify-content: flex-start;
+                   align-items: stretch;
+                   align-content: stretch;
+                   gap: 1px;
+                   }
+                   .flexcontainer div {
+                   color: black;
+                   display: flex;
+                   flex-direction: row;
+                   flex-wrap: nowrap;
+                   justify-content: flex-start;
+                   align-items: stretch;
+                   align-content: stretch;
+                   gap: 1px;
+                   //width: 100%;
+                   //background: white;
+                   }
+                   .headerwrapper {
+                   height: 7vh;
+                   font-size: 3vh;
+                   flex-direction: row;
+                   display: flex;
+                   }
+                   #mainpage {
+                   position: fixed;
+                   top: 0;
+                   left: 0;
+                   height: 100vh;
+                   width: 100vw;
+                   background: dodgerBlue;
+                   display: block; //none;
+                   }
+                   #headermainpage {
+                   color: black;
+                   background: white;
+                   height: 100%;
+                   width: 100vw; //100%;
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   }
+                   #headerpage {
+                   color: black;
+                   background: white;
+                   height: 100%;
+                   width: 100%;
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   }
+                   details {
+                   width: 100%;
+                   }
+                   .days {
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   //width: 98vw;
+                   height: 9.9vh;
+                   //border: 3px solid gray;
+                   background: rgba(105, 105, 105, 0.8);
+                   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
+         border: 2px solid rgba(255, 255, 255, 0.3);
+                   font-size: 3vh;
+                   color: white;
+                   border-radius: 5px;
+                   margin: 1vw;
+                   }
+                   img {
+                   //min-width:100%;
+                   }
+                   .mainx {
+                   }
+                   .mainxtxt {
+                   //width: 50vw;
+                   border-top-right-radius: 25px;
+                   border-bottom-right-radius: 25px;
+                   border: 2px solid blue; //cyan;
+                   padding-top: 2vh;
+                   padding-bottom: 2vh;
+                   padding-left: 2vw;
+                   padding-right: 5vw;
+                   font-size: 2vh;
+                   background-color: silver;
+                   margin-left: 1vw;
+                   }
+                   .txtlink {
+                   max-width:90vw;
+                   margin: 1vw;
+                   font-size: 2vh;
+                   padding: 1vh;
+                   //border: 1px solid red;
+                   color: blue;
+                   }
+                   .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
+                   max-width:98vw;
+                   margin: 1vw;
+                   font-size: 2vh;
+                   padding: 1vh;
+                   //border: 1px solid red;
+                   color: white;
+                   //display: flex;
+                   //width: 100vw;
+                   }
+                   .txtabred {
+                   max-width:40%;
+                   border: 1px solid red;
+                   color: white;
+                   }
+                   .txtabgreen {
+                   max-width:40%;
+                   border: 1px solid green;
+                   color: white;
+                   }
+                   .txtabblue {
+                   max-width:40%;
+                   border: 1px solid blue;
+                   color: white;
+                   }
+                  .txtabbluelong {
+                   width:75%;
+                   border: 1px solid blue;
+                   color: white;
+                   font-size: 4vw;
+                   padding: 2vw;
+                     display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   margin: 2vw;
+                   }
 
-          i {
-          color: gray;
-          }
-          flexright {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding-left: 5vw;
-          }
-          flexleft {
-          width: 50vw;
-          display: flex;
-          justify-content: right;
-          align-items: center;
-          }
-          .fl {
-          display: inline-block;
-          text-align: left;
-          width: 35vw;
-          //font-size: 3vw;
-          }
-          .fr {
-          display: inline-block;
-          text-align: left;
-          //font-size: 3vw;
-          }
-          .tfl {
-          display: inline-block;
-          text-align: left;
-          width: 15vw;
-          //font-size: 3vw;
-          }
-          .tfr {
-          display: inline-block;
-          text-align: left;
-          //font-size: 3vw;
-          }
-          #page {
-          //width: 100vw;
-          }
+                   i {
+                   color: gray;
+                   }
+                   flexright {
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   padding-left: 5vw;
+                   }
+                   flexleft {
+                   width: 50vw;
+                   display: flex;
+                   justify-content: right;
+                   align-items: center;
+                   }
+                   .fl {
+                   display: inline-block;
+                   text-align: left;
+                   width: 35vw;
+                   //font-size: 3vw;
+                   }
+                   .fr {
+                   display: inline-block;
+                   text-align: left;
+                   //font-size: 3vw;
+                   }
+                   .tfl {
+                   display: inline-block;
+                   text-align: left;
+                   width: 15vw;
+                   //font-size: 3vw;
+                   }
+                   .tfr {
+                   display: inline-block;
+                   text-align: left;
+                   //font-size: 3vw;
+                   }
+                   #page {
+                   //width: 100vw;
+                   }
       </style>
    </head>
    <body>
@@ -1375,7 +1377,8 @@
                      document.getElementById("fri").style.display = "none";
                      document.getElementById("sat").style.display = "none";
                      document.getElementById("not").style.display = "none";
-
+                     
+document.getElementById(id.substring(0, 3)).style.background = "white";
                      document.getElementById(id.substring(0, 3)).style.display = "flex";
                   } else {
                      /* the element was toggled closed */
@@ -1387,6 +1390,8 @@
                      document.getElementById("fri").style.display = "flex";
                      document.getElementById("sat").style.display = "flex";
                      document.getElementById("not").style.display = "flex";
+                     
+                     document.getElementById(id.substring(0, 3)).style.background = "navy";
                   }
                });
             });
