@@ -10,198 +10,239 @@
       <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <style>
-                   * {
-                   margin: 0;
-                   padding: 0;
-                   box-sizing: border-box;
-                   }
-                   html {
-                   width: 100vw;
-                   }
-                   body {
-                   //overflow: hidden;
-                   font-family: Arial, Helvetica, sans-serif;
-                   font-size: 3vh;
-                   background: navy; //white;
-                   color: black;
-                   height: 100%;
-                   //width: 100%;
-                   }
-                   .flexcontainer {
-                   display: flex;
-                   flex-direction: column;
-                   flex-wrap: nowrap;
-                   justify-content: flex-start;
-                   align-items: stretch;
-                   align-content: stretch;
-                   gap: 1px;
-                   }
-                   .flexcontainer div {
-                   color: black;
-                   display: flex;
-                   flex-direction: row;
-                   flex-wrap: nowrap;
-                   justify-content: flex-start;
-                   align-items: stretch;
-                   align-content: stretch;
-                   gap: 1px;
-                   //width: 100%;
-                   //background: white;
-                   }
-                   .headerwrapper {
-                   height: 7vh;
-                   font-size: 3vh;
-                   flex-direction: row;
-                   display: flex;
-                   }
-                   #mainpage {
-                   position: fixed;
-                   top: 0;
-                   left: 0;
-                   height: 100vh;
-                   width: 100vw;
-                   background: dodgerBlue;
-                   display: block; //none;
-                   }
-                   #headermainpage {
-                   color: black;
-                   background: white;
-                   height: 100%;
-                   width: 100vw; //100%;
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                   }
-                   #headerpage {
-                   color: black;
-                   background: white;
-                   height: 100%;
-                   width: 100%;
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                   }
-                   details {
-                   width: 100%;
-                   }
-                   .days {
-                   display: flex;
-                   align-items: center;
-                   justify-content: center;
-                   //width: 98vw;
-                   height: 9.9vh;
-                   //border: 3px solid gray;
-                   background: rgba(105, 105, 105, 0.8);
-                   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
-         border: 2px solid rgba(255, 255, 255, 0.3);
-                   font-size: 3vh;
-                   color: white;
-                   border-radius: 5px;
-                   margin: 1vw;
-                   }
-                   img {
-                   //min-width:100%;
-                   }
-                   .mainx {
-                   }
-                   .mainxtxt {
-                   //width: 50vw;
-                   border-top-right-radius: 25px;
-                   border-bottom-right-radius: 25px;
-                   border: 2px solid blue; //cyan;
-                   padding-top: 2vh;
-                   padding-bottom: 2vh;
-                   padding-left: 2vw;
-                   padding-right: 5vw;
-                   font-size: 2vh;
-                   background-color: silver;
-                   margin-left: 1vw;
-                   }
-                   .txtlink {
-                   max-width:90vw;
-                   margin: 1vw;
-                   font-size: 2vh;
-                   padding: 1vh;
-                   //border: 1px solid red;
-                   color: blue;
-                   }
-                   .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
-                   max-width:98vw;
-                   margin: 1vw;
-                   font-size: 2vh;
-                   padding: 1vh;
-                   //border: 1px solid red;
-                   color: white;
-                   //display: flex;
-                   //width: 100vw;
-                   }
-                   .txtabred {
-                   max-width:40%;
-                   border: 1px solid red;
-                   color: white;
-                   }
-                   .txtabgreen {
-                   max-width:40%;
-                   border: 1px solid green;
-                   color: white;
-                   }
-                   .txtabblue {
-                   max-width:40%;
-                   border: 1px solid blue;
-                   color: white;
-                   }
-                  .txtabbluelong {
-                   width:75%;
-                   border: 1px solid blue;
-                   color: white;
-                   font-size: 4vw;
-                   padding: 2vw;
-                     display: flex;
-                   justify-content: center;
-                   align-items: center;
-                   margin: 2vw;
-                   }
+                                     * {
+                                     margin: 0;
+                                     padding: 0;
+                                     box-sizing: border-box;
+                                     }
+                                     html {
+                                     width: 100vw;
+                                     }
+                                     body {
+                                     //overflow: hidden;
+                                     font-family: Arial, Helvetica, sans-serif;
+                                     font-size: 3vh;
+                                     background: navy; //white;
+                                     color: black;
+                                     height: 100%;
+                                     //width: 100%;
+                                     }
+                                     .flexcontainer {
+                                     display: flex;
+                                     flex-direction: column;
+                                     flex-wrap: nowrap;
+                                     justify-content: flex-start;
+                                     align-items: stretch;
+                                     align-content: stretch;
+                                     gap: 1px;
+                                     }
+                                     .flexcontainer div {
+                                     color: black;
+                                     display: flex;
+                                     flex-direction: row;
+                                     flex-wrap: nowrap;
+                                     justify-content: flex-start;
+                                     align-items: stretch;
+                                     align-content: stretch;
+                                     gap: 1px;
+                                     //width: 100%;
+                                     //background: white;
+                                     }
+                                     .headerwrapper {
+                                     height: 7vh;
+                                     font-size: 3vh;
+                                     flex-direction: row;
+                                     display: flex;
+                                     }
+                                     #mainpage {
+                                     position: fixed;
+                                     top: 0;
+                                     left: 0;
+                                     height: 100vh;
+                                     width: 100vw;
+                                     background: dodgerBlue;
+                                     display: block; //none;
+                                     }
+                                     #headermainpage {
+                                     color: black;
+                                     background: white;
+                                     height: 100%;
+                                     width: 100vw; //100%;
+                                     display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     }
+                                     #headerpage {
+                                     color: black;
+                                     background: white;
+                                     height: 100%;
+                                     width: 100%;
+                                     display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     }
+                                     details {
+                                     width: 100%;
+                                     }
+                                     .days {
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: center;
+                                     //width: 98vw;
+                                     height: 9.9vh;
+                                     //border: 3px solid gray;
+                                     background: rgba(105, 105, 105, 0.8);
+                                     box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
+                           border: 2px solid rgba(255, 255, 255, 0.3);
+                                     font-size: 3vh;
+                                     color: white;
+                                     border-radius: 5px;
+                                     margin: 1vw;
+                                     }
+                                     img {
+                                     //min-width:100%;
+                                     }
+                                     .mainx {
+                                     }
+                                     .mainxtxt {
+                                     //width: 50vw;
+                                     border-top-right-radius: 25px;
+                                     border-bottom-right-radius: 25px;
+                                     border: 2px solid blue; //cyan;
+                                     padding-top: 2vh;
+                                     padding-bottom: 2vh;
+                                     padding-left: 2vw;
+                                     padding-right: 5vw;
+                                     font-size: 2vh;
+                                     background-color: silver;
+                                     margin-left: 1vw;
+                                     }
+                                     .txtlink {
+                                     max-width:90vw;
+                                     margin: 1vw;
+                                     font-size: 2vh;
+                                     padding: 1vh;
+                                     //border: 1px solid red;
+                                     color: blue;
+                                     }
+                                     .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
+                                     max-width:98vw;
+                                     margin: 1vw;
+                                     font-size: 2vh;
+                                     padding: 1vh;
+                                     //border: 1px solid red;
+                                     color: white;
+                                     //display: flex;
+                                     //width: 100vw;
+                                     }
+                                     .txtabred {
+                                     max-width:40%;
+                                     border: 1px solid red;
+                                     color: white;
+                                     }
+                                     .txtabgreen {
+                                     max-width:40%;
+                                     border: 1px solid green;
+                                     color: white;
+                                     }
+                                     .txtabblue {
+                                     max-width:40%;
+                                     border: 1px solid blue;
+                                     color: white;
+                                     }
+                                    .txtabbluelong {
+                                     width:75%;
+                                     border: 1px solid blue;
+                                     color: white;
+                                     font-size: 4vw;
+                                     padding: 2vw;
+                                       display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     margin: 2vw;
+                                     }
 
-                   i {
-                   color: gray;
-                   }
-                   flexright {
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                   padding-left: 5vw;
-                   }
-                   flexleft {
-                   width: 50vw;
-                   display: flex;
-                   justify-content: right;
-                   align-items: center;
-                   }
-                   .fl {
-                   display: inline-block;
-                   text-align: left;
-                   width: 35vw;
-                   //font-size: 3vw;
-                   }
-                   .fr {
-                   display: inline-block;
-                   text-align: left;
-                   //font-size: 3vw;
-                   }
-                   .tfl {
-                   display: inline-block;
-                   text-align: left;
-                   width: 15vw;
-                   //font-size: 3vw;
-                   }
-                   .tfr {
-                   display: inline-block;
-                   text-align: left;
-                   //font-size: 3vw;
-                   }
-                   #page {
-                   //width: 100vw;
-                   }
+                                     i {
+                                     color: gray;
+                                     }
+                                     flexright {
+                                     display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     padding-left: 5vw;
+                                     }
+                                     flexleft {
+                                     width: 50vw;
+                                     display: flex;
+                                     justify-content: right;
+                                     align-items: center;
+                                     }
+                                     .fl {
+                                     display: inline-block;
+                                     text-align: left;
+                                     width: 35vw;
+                                     //font-size: 3vw;
+                                     }
+                                     .fr {
+                                     display: inline-block;
+                                     text-align: left;
+                                     //font-size: 3vw;
+                                     }
+                                     .tfl {
+                                     display: inline-block;
+                                     text-align: left;
+                                     width: 15vw;
+                                     //font-size: 3vw;
+                                     }
+                                     .tfr {
+                                     display: inline-block;
+                                     text-align: left;
+                                     //font-size: 3vw;
+                                     }
+                                     #page {
+                                     //width: 100vw;
+                                     }
+
+
+         table {
+            margin-left: 5vw;
+         }
+         .tg  {
+            border-collapse:collapse;
+            border-spacing:0;
+         }
+         .tg td{
+            border-color:gainsboro;
+            border-style:solid;
+            border-width:1px;
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            overflow:hidden;padding:10px 5px;
+            word-break:normal;
+         }
+         .tg th{
+            border-color:gainsboro;
+            border-style:solid;
+            border-width:1px;
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            font-weight:normal;
+            overflow:hidden;
+            padding:10px 5px;
+            word-break:normal;
+         }
+         .tg .tg-0lax{
+            text-align:center; //left;
+            vertical-align:top;
+         }
+         .it {
+            color: gray;
+            font-style: italic;
+            text-align: center;
+         }
+         .red {
+            color: red;
+         }
       </style>
    </head>
    <body>
@@ -1355,6 +1396,139 @@
                   <img src="bandit.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">Side bets by arrangement ...</div>
+               <div class="txta">&nbsp;</div>
+
+               <div class="mainx">
+                  <div class="mainxtxt">Payments made</div>
+               </div>
+               <div class="txta">
+                  <img src="goldcoins.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
+               <div class="txta">This is the current money situation and payments made.</div>
+               <div class="txta">
+                  Trip money is due before 12th August 2026, other outstanding money is in red and due at the airport or
+                  in Spain, before first round of golf.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <table class="tg">
+                  <thead>
+                     <tr>
+                        <th class="tg-0lax it">Player</th>
+                        <td class="tg-0lax it">deposit</td>
+                        <th class="tg-0lax it">Trip</th>
+                        <th class="tg-0lax it">Prizes</th>
+                        <th class="tg-0lax it">Tips</th>
+                        <th class="tg-0lax it">Blind<br />Golfer</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td class="tg-0lax it"></td>
+                        <td class="tg-0lax it">(£100)</td>
+                        <td class="tg-0lax it">(£745)</td>
+                        <td class="tg-0lax it">(£25)</td>
+                        <td class="tg-0lax it">(5€)</td>
+                        <td class="tg-0lax it">(5€)</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Bryan</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax">5€</td>
+                        <td class="tg-0lax">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Dale</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Eddie</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Graham</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Jamie</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">JohnD</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">JohnS</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax red">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Oz</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Peter</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax red">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Richard</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">SteveA</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">SteveW</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                  </tbody>
+               </table>
+
                <div class="txta">&nbsp;</div>
             </details>
          </div>
