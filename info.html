@@ -10,203 +10,246 @@
       <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <style>
-          * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          }
-          html {
-          width: 100vw;
-          }
-          body {
-          //overflow: hidden;
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 3vh;
-          background: white;
-          color: black;
-          height: 100%;
-          //width: 100%;
-          }
-          .flexcontainer {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          align-items: stretch;
-          align-content: stretch;
-          gap: 1px;
-          }
-          .flexcontainer div {
-          color: black;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          align-items: stretch;
-          align-content: stretch;
-          gap: 1px;
-          //width: 100%;
-          //background: white;
-          }
-          .headerwrapper {
-          height: 7vh;
-          font-size: 3vh;
-          flex-direction: row;
-          display: flex;
-          }
-          #mainpage {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100vh;
-          width: 100vw;
-          background: dodgerBlue;
-          display: block; //none;
-          }
-          #headermainpage {
-          color: black;
-          background: white;
-          height: 100%;
-          width: 100vw; //100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          }
-          #headerpage {
-          color: black;
-          background: white;
-          height: 100%;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          }
-          details {
-          width: 100%;
-          }
-          .days {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          //width: 98vw;
-          height: 9.9vh;
-          //border: 3px solid gray;
-          background: gray;
-          font-size: 3vh;
-          color: white;
-          border-radius: 5px;
-          margin: 1vw;
-          }
-          img {
-          //min-width:100%;
-          }
-          .mainx {
-          }
-          .mainxtxt {
-          //width: 50vw;
-          border-top-right-radius: 25px;
-          border-bottom-right-radius: 25px;
-          border: 2px solid cyan;
-          padding-top: 2vh;
-          padding-bottom: 2vh;
-          padding-left: 2vw;
-          padding-right: 5vw;
-          font-size: 2vh;
-          background-color: silver;
-          margin-left: 1vw;
-          }
-          .txtlink {
-          max-width:90vw;
-          margin: 1vw;
-          font-size: 2vh;
-          padding: 1vh;
-          //border: 1px solid red;
-          color: blue;
-          }
-          .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
-          max-width:98vw;
-          margin: 1vw;
-          font-size: 2vh;
-          padding: 1vh;
-          //border: 1px solid red;
-          color: white;
-          //display: flex;
-          //width: 100vw;
-          }
-          .txtabred {
-          max-width:40%;
-          border: 1px solid red;
-          color: white;
-          }
-          .txtabgreen {
-          max-width:40%;
-          border: 1px solid green;
-          color: white;
-          }
-          .txtabblue {
-          max-width:40%;
-          border: 1px solid blue;
-          color: white;
-          }
-         .txtabbluelong {
-          width:75%;
-          border: 1px solid blue;
-          color: white;
-          font-size: 4vw;
-          padding: 2vw;
-            display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: 2vw;
-          }
+                                     * {
+                                     margin: 0;
+                                     padding: 0;
+                                     box-sizing: border-box;
+                                     }
+                                     html {
+                                     width: 100vw;
+                                     }
+                                     body {
+                                     //overflow: hidden;
+                                     font-family: Arial, Helvetica, sans-serif;
+                                     font-size: 3vh;
+                                     background: navy; //white;
+                                     color: black;
+                                     height: 100%;
+                                     //width: 100%;
+                                     }
+                                     .flexcontainer {
+                                     display: flex;
+                                     flex-direction: column;
+                                     flex-wrap: nowrap;
+                                     justify-content: flex-start;
+                                     align-items: stretch;
+                                     align-content: stretch;
+                                     gap: 1px;
+                                     }
+                                     .flexcontainer div {
+                                     color: black;
+                                     display: flex;
+                                     flex-direction: row;
+                                     flex-wrap: nowrap;
+                                     justify-content: flex-start;
+                                     align-items: stretch;
+                                     align-content: stretch;
+                                     gap: 1px;
+                                     //width: 100%;
+                                     //background: white;
+                                     }
+                                     .headerwrapper {
+                                     height: 7vh;
+                                     font-size: 3vh;
+                                     flex-direction: row;
+                                     display: flex;
+                                     }
+                                     #mainpage {
+                                     position: fixed;
+                                     top: 0;
+                                     left: 0;
+                                     height: 100vh;
+                                     width: 100vw;
+                                     background: dodgerBlue;
+                                     display: block; //none;
+                                     }
+                                     #headermainpage {
+                                     color: black;
+                                     background: white;
+                                     height: 100%;
+                                     width: 100vw; //100%;
+                                     display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     }
+                                     #headerpage {
+                                     color: black;
+                                     background: white;
+                                     height: 100%;
+                                     width: 100%;
+                                     display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     }
+                                     details {
+                                     width: 100%;
+                                     }
+                                     .days {
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: center;
+                                     //width: 98vw;
+                                     height: 9.9vh;
+                                     //border: 3px solid gray;
+                                     background: rgba(105, 105, 105, 0.8);
+                                     box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
+                           border: 2px solid rgba(255, 255, 255, 0.3);
+                                     font-size: 3vh;
+                                     color: white;
+                                     border-radius: 5px;
+                                     margin: 1vw;
+                                     }
+                                     img {
+                                     //min-width:100%;
+                                     }
+                                     .mainx {
+                                     }
+                                     .mainxtxt {
+                                     //width: 50vw;
+                                     border-top-right-radius: 25px;
+                                     border-bottom-right-radius: 25px;
+                                     border: 2px solid blue; //cyan;
+                                     padding-top: 2vh;
+                                     padding-bottom: 2vh;
+                                     padding-left: 2vw;
+                                     padding-right: 5vw;
+                                     font-size: 2vh;
+                                     background-color: silver;
+                                     margin-left: 1vw;
+                                     }
+                                     .txtlink {
+                                     max-width:90vw;
+                                     margin: 1vw;
+                                     font-size: 2vh;
+                                     padding: 1vh;
+                                     //border: 1px solid red;
+                                     color: blue;
+                                     }
+                                     .txta, .imga, .txtabred, .txtabgreen, .txtabblue {
+                                     max-width:98vw;
+                                     margin: 1vw;
+                                     font-size: 2vh;
+                                     padding: 1vh;
+                                     //border: 1px solid red;
+                                     color: white;
+                                     //display: flex;
+                                     //width: 100vw;
+                                     }
+                                     .txtabred {
+                                     max-width:40%;
+                                     border: 1px solid red;
+                                     color: white;
+                                     }
+                                     .txtabgreen {
+                                     max-width:40%;
+                                     border: 1px solid green;
+                                     color: white;
+                                     }
+                                     .txtabblue {
+                                     max-width:40%;
+                                     border: 1px solid blue;
+                                     color: white;
+                                     }
+                                    .txtabbluelong {
+                                     width:75%;
+                                     border: 1px solid blue;
+                                     color: white;
+                                     font-size: 4vw;
+                                     padding: 2vw;
+                                       display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     margin: 2vw;
+                                     }
 
-          i {
-          color: gray;
-          }
-          flexright {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding-left: 5vw;
-          }
-          flexleft {
-          width: 50vw;
-          display: flex;
-          justify-content: right;
-          align-items: center;
-          }
-          .fl {
-          display: inline-block;
-          text-align: left;
-          width: 35vw;
-          //font-size: 3vw;
-          }
-          .fr {
-          display: inline-block;
-          text-align: left;
-          //font-size: 3vw;
-          }
-          .tfl {
-          display: inline-block;
-          text-align: left;
-          width: 15vw;
-          //font-size: 3vw;
-          }
-          .tfr {
-          display: inline-block;
-          text-align: left;
-          //font-size: 3vw;
-          }
-          #page {
-          //width: 100vw;
-          }
+                                     i {
+                                     color: gray;
+                                     }
+                                     flexright {
+                                     display: flex;
+                                     justify-content: center;
+                                     align-items: center;
+                                     padding-left: 5vw;
+                                     }
+                                     flexleft {
+                                     width: 50vw;
+                                     display: flex;
+                                     justify-content: right;
+                                     align-items: center;
+                                     }
+                                     .fl {
+                                     display: inline-block;
+                                     text-align: left;
+                                     width: 35vw;
+                                     //font-size: 3vw;
+                                     }
+                                     .fr {
+                                     display: inline-block;
+                                     text-align: left;
+                                     //font-size: 3vw;
+                                     }
+                                     .tfl {
+                                     display: inline-block;
+                                     text-align: left;
+                                     width: 15vw;
+                                     //font-size: 3vw;
+                                     }
+                                     .tfr {
+                                     display: inline-block;
+                                     text-align: left;
+                                     //font-size: 3vw;
+                                     }
+                                     #page {
+                                     //width: 100vw;
+                                     }
+
+
+         table {
+            margin-left: 5vw;
+         }
+         .tg  {
+            border-collapse:collapse;
+            border-spacing:0;
+         }
+         .tg td{
+            border-color:gainsboro;
+            border-style:solid;
+            border-width:1px;
+            font-family:Arial, sans-serif;
+            font-size:4vw;
+            overflow:hidden;padding:10px 5px;
+            word-break:normal;
+         }
+         .tg th{
+            border-color:gainsboro;
+            border-style:solid;
+            border-width:1px;
+            font-family:Arial, sans-serif;
+            font-size:4vw;
+            font-weight:normal;
+            overflow:hidden;
+            padding:10px 5px;
+            word-break:normal;
+         }
+         .tg .tg-0lax{
+            text-align:center; //left;
+            vertical-align:top;
+         }
+         .it {
+            color: gray;
+            font-style: italic;
+            text-align: center;
+         }
+         .red {
+            color: red;
+         }
       </style>
    </head>
    <body>
       <div class="flexcontainer">
          <!-- headings -->
          <!-- ##### Sunday ##### -->
-         <div>
+         <div id="sun">
             <details closed>
                <summary class="days" id="sunday" onclick="view(this.id)">Sunday 11th October</summary>
                <div class="mainx">
@@ -224,6 +267,7 @@
                <div class="imga">
                   <img src="tapandbrew.jpg" id="tapandbrew" style="width: 100%; height: auto" />
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">7:55am - flight departs Newcastle</div>
                </div>
@@ -270,8 +314,12 @@
                      <a>LS557</a>
                   </div>
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">7:50am - flight arrives in Spain</div>
+               </div>
+               <div class="txta">
+                  <img src="queue.jpg" style="width: 85vw; height: auto; margin: 5vw" alt="" />
                </div>
                <div class="txta">
                   After disembarking, there is the new passport control rules, requiring UK nationals to register their
@@ -320,6 +368,7 @@
                   When passport control is successfully negotiated, proceed to the pickup area to collect the bags and
                   then to the main entrance where our driver will be waiting just outside the main doors.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">12:15pm - Malaga airport bus pickup</div>
                </div>
@@ -330,8 +379,12 @@
                   Once everyone is assembled, we go down to the bus in the parking area, the bags are loaded and we
                   board the bus. The journey to the hotel is less than 15 minutes, where we unload the bags.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
-                  <div class="mainxtxt">15:00pm - Hotel check-in</div>
+                  <div class="mainxtxt">12:30pm - Arrive at hotel</div>
+               </div>
+               <div class="txta">
+                  <img src="reception.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
                </div>
                <div class="txta">
                   The rooms will not normally be available until 15:00 but we can sign in, get fitted with a
@@ -343,9 +396,14 @@
                <div class="txta">- C. Corelli, 2, 29620 Torremolinos</div>
                <div class="txta">- Málaga, Spain</div>
                <div class="txta">... and local bars etc. a short walk away.</div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
-                  <div class="mainxtxt">7:50am - Hotel rooms available</div>
+                  <div class="mainxtxt">15:00pm - Hotel rooms available</div>
                </div>
+               <div class="txta">
+                  <img src="keycard.jpg" style="width: 30vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
+               </div>
+               <div class="txta">Rooms become available and we transfer the bags to the rooms etc.</div>
 
                <div class="txtabbluelong">
                   <div>Bryan Maddison&nbsp;&nbsp;&amp;&nbsp;&nbsp;Steve Alldridge</div>
@@ -366,7 +424,6 @@
                   <div>Peter Dowson&nbsp;&nbsp;&amp;&nbsp;&nbsp;John Storey</div>
                </div>
 
-               <div class="txta">Rooms become available and we transfer the bags to the rooms etc.</div>
                <div class="txta">Meal times are:</div>
                <div class="txtabbluelong">
                   <div class="fl">08:00 - 10:30</div>
@@ -386,13 +443,14 @@
                      <a>Dinner</a>
                   </div>
                </div>
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- end of sunday -->
          <!-- ##### Monday ##### -->
-         <div>
+         <div id="mon">
             <details closed>
-               <summary class="days" id="monday">Monday 12th October</summary>
+               <summary class="days" id="monday" onclick="view(this.id)">Monday 12th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">Calanova golf</div>
                </div>
@@ -400,10 +458,10 @@
                   <img src="calanova1.jpg" id="calanova1" style="width: 100%; height: auto" />
                </div>
                <div class="txta">
-                  A course we haven't played. The course had a change of ownership a year or 2 ago and a lot of work was
-                  done. The course is hilly, undulating, with elevated tees and lots of elevation changes. Not an easy
-                  course.
+                  A course we haven't played. The course had a change of ownership a year or two ago and a lot of work
+                  was done. The course is hilly, undulating, with elevated tees and lots of elevation changes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">9:00am - depart for Calanova golf</div>
                </div>
@@ -414,6 +472,7 @@
                   Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey should
                   take less than 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">10:20am - Tee off</div>
                </div>
@@ -499,6 +558,16 @@
                </div>
                <div class="txta">&nbsp;</div>
                <div class="mainx">
+                  <div class="mainxtxt">15:00pm - Meet in the bar after your round</div>
+               </div>
+               <div class="txta">
+                  <img src="calanovabar.jpg" style="width: 100%; height: auto" />
+               </div>
+               <div class="txta">
+                  First group in, try to find a table and we sort our drinks, food, scoring, daily prizes etc.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
@@ -507,12 +576,21 @@
                <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:30pm - Arrive at hotel</div>
+               </div>
+               <div class="txta">
+                  <img src="carry.png" style="width: 20vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
+               </div>
+               <div class="txta">Unload bags and take them up to rooms.</div>
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- ##### Tuesday ##### -->
-         <div>
+         <div id="tue">
             <details closed>
-               <summary class="days" id="tuesday">Tuesday 13th October</summary>
+               <summary class="days" id="tuesday" onclick="view(this.id)">Tuesday 13th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">La Cala America</div>
                </div>
@@ -523,6 +601,7 @@
                   A course nearly all of us have played. It is a little longer, undulating with some elevated tees and
                   more suitable for long hitters.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">9:00am - depart for La Cala America</div>
                </div>
@@ -533,6 +612,7 @@
                   Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
                   about 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Tee off</div>
                </div>
@@ -618,6 +698,16 @@
                </div>
                <div class="txta">&nbsp;</div>
                <div class="mainx">
+                  <div class="mainxtxt">15:00pm - Meet in the bar after your round</div>
+               </div>
+               <div class="txta">
+                  <img src="lacalabar.jpg" style="width: 100%; height: auto" />
+               </div>
+               <div class="txta">
+                  First group in, try to find a table and we sort our drinks, food, scoring, daily prizes etc.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
@@ -626,12 +716,21 @@
                <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:30pm - Arrive at hotel</div>
+               </div>
+               <div class="txta">
+                  <img src="carry.png" style="width: 20vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
+               </div>
+               <div class="txta">Unload bags and take them up to rooms.</div>
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- ##### Wednesday ##### -->
-         <div>
+         <div id="wed">
             <details closed>
-               <summary class="days" id="wednesday">Wednesday 14th October</summary>
+               <summary class="days" id="wednesday" onclick="view(this.id)">Wednesday 14th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">Mijas Los Lagos</div>
                </div>
@@ -644,8 +743,18 @@
                   improvement so we are playing the Los Lagos course, where the work that was in progress last year has
                   been completed.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
-                  <div class="mainxtxt">9:50am - depart for Mijas Los Lagos</div>
+                  <div class="mainxtxt">Special rule for the 18th hole</div>
+               </div>
+               <div class="txta">
+                  Because of the driving range, there is a large quantity of golf balls lying on the fairway, making it
+                  difficult to find your own. <br />So if everyone in the group watches each drive and agree on where
+                  the ball probably is, if it is not found, the player can proceed with a free drop.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">9:00am - depart for Mijas Los Lagos</div>
                </div>
                <div class="txta">
                   <img src="bus.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
@@ -654,31 +763,32 @@
                   Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
                   about 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Tee off</div>
                </div>
                <div class="txta">Tee groups and times:</div>
 
                <div class="txtabred">
-                  <div class="tfl">10:20</div>
+                  <div class="tfl">10:30</div>
                   <div class="tfr">
                      <p>Oz</p>
                   </div>
                </div>
                <div class="txtabred">
-                  <div class="tfl">10:20</div>
+                  <div class="tfl">10:30</div>
                   <div class="tfr">
                      <p>Graham</p>
                   </div>
                </div>
                <div class="txtabred">
-                  <div class="tfl">10:20</div>
+                  <div class="tfl">10:30</div>
                   <div class="tfr">
                      <p>JohnD</p>
                   </div>
                </div>
                <div class="txtabred">
-                  <div class="tfl">10:20</div>
+                  <div class="tfl">10:30</div>
                   <div class="tfr">
                      <p>JohnS</p>
                   </div>
@@ -689,53 +799,63 @@
                -->
                <div class="txta">&nbsp;</div>
                <div class="txtabgreen">
-                  <div class="tfl">10:28</div>
+                  <div class="tfl">10:38</div>
                   <div class="tfr">
                      <p>Jamie</p>
                   </div>
                </div>
                <div class="txtabgreen">
-                  <div class="tfl">10:28</div>
+                  <div class="tfl">10:38</div>
                   <div class="tfr">
                      <p>SteveA</p>
                   </div>
                </div>
                <div class="txtabgreen">
-                  <div class="tfl">10:28</div>
+                  <div class="tfl">10:38</div>
                   <div class="tfr">
                      <p>Bryan</p>
                   </div>
                </div>
                <div class="txtabgreen">
-                  <div class="tfl">10:28</div>
+                  <div class="tfl">10:38</div>
                   <div class="tfr">
                      <p>SteveW</p>
                   </div>
                </div>
                <div class="txta">&nbsp;</div>
                <div class="txtabblue">
-                  <div class="tfl">10:36</div>
+                  <div class="tfl">10:46</div>
                   <div class="tfr">
                      <p>Dale</p>
                   </div>
                </div>
                <div class="txtabblue">
-                  <div class="tfl">10:36</div>
+                  <div class="tfl">10:46</div>
                   <div class="tfr">
                      <p>Eddie</p>
                   </div>
                </div>
                <div class="txtabblue">
-                  <div class="tfl">10:36</div>
+                  <div class="tfl">10:46</div>
                   <div class="tfr">
                      <p>Peter</p>
                   </div>
                </div>
                <div class="txtabblue">
-                  <div class="tfl">10:36</div>
+                  <div class="tfl">10:46</div>
                   <div class="tfr">
                      <p>Richard</p>
                   </div>
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">15:00pm - Meet in the bar after your round</div>
+               </div>
+               <div class="txta">
+                  <img src="mijasbar.png" style="width: 100%; height: auto" />
+               </div>
+               <div class="txta">
+                  First group in, try to find a table and we sort our drinks, food, scoring, daily prizes etc.
                </div>
                <div class="txta">&nbsp;</div>
                <div class="mainx">
@@ -747,12 +867,21 @@
                <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:30pm - Arrive at hotel</div>
+               </div>
+               <div class="txta">
+                  <img src="carry.png" style="width: 20vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
+               </div>
+               <div class="txta">Unload bags and take them up to rooms.</div>
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- ##### Thursday ##### -->
-         <div>
+         <div id="thu">
             <details closed>
-               <summary class="days" id="thursday">Thursday 15th October</summary>
+               <summary class="days" id="thursday" onclick="view(this.id)">Thursday 15th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">La Cala Europa</div>
                </div>
@@ -763,6 +892,7 @@
                   A course nearly all of us have played. The most forgiving course, flatter with wider fairways and
                   larger greens.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">9:00am - depart for La Cala Europa</div>
                </div>
@@ -773,6 +903,7 @@
                   Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
                   about 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">10:30am - Tee off</div>
                </div>
@@ -858,6 +989,16 @@
                </div>
                <div class="txta">&nbsp;</div>
                <div class="mainx">
+                  <div class="mainxtxt">15:00pm - Meet in the bar after your round</div>
+               </div>
+               <div class="txta">
+                  <img src="lacalabar.jpg" style="width: 100%; height: auto" />
+               </div>
+               <div class="txta">
+                  First group in, try to find a table and we sort our drinks, food, scoring, daily prizes etc.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
                   <div class="mainxtxt">17:00pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
@@ -866,12 +1007,21 @@
                <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">17:30pm - Arrive at hotel</div>
+               </div>
+               <div class="txta">
+                  <img src="carry.png" style="width: 20vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
+               </div>
+               <div class="txta">Unload bags and take them up to rooms.</div>
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- ##### Friday ##### -->
-         <div>
+         <div id="fri">
             <details closed>
-               <summary class="days" id="friday">Friday 16th October</summary>
+               <summary class="days" id="friday" onclick="view(this.id)">Friday 16th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">La Cala Asia</div>
                </div>
@@ -882,6 +1032,7 @@
                   A course nearly all of us have played. The oldest and tightest course with narrower fairways and some
                   elevated greens..
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">9:30am - depart for La Cala Asia</div>
                </div>
@@ -892,6 +1043,7 @@
                   Be outside of hotel in time to load golf bags and board the bus to leave on time. The journey takes
                   about 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">11:00am - Tee off</div>
                </div>
@@ -977,6 +1129,16 @@
                </div>
                <div class="txta">&nbsp;</div>
                <div class="mainx">
+                  <div class="mainxtxt">15:30pm - Meet in the bar after your round</div>
+               </div>
+               <div class="txta">
+                  <img src="lacalabar.jpg" style="width: 100%; height: auto" />
+               </div>
+               <div class="txta">
+                  First group in, try to find a table and we sort our drinks, food, scoring, daily prizes etc.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
                   <div class="mainxtxt">17:30pm - Bus pickup for return to hotel</div>
                </div>
                <div class="txta">
@@ -985,12 +1147,21 @@
                <div class="txta">
                   Be ready to load bags and ourselves for the return journey to the hotel which is less than 30 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">18:00pm - Arrive at hotel</div>
+               </div>
+               <div class="txta">
+                  <img src="carry.png" style="width: 20vw; height: auto; margin: 5vw; margin-left: 30vw" alt="" />
+               </div>
+               <div class="txta">Unload bags and take them up to rooms.</div>
+               <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- ##### Saturday ##### -->
-         <div>
+         <div id="sat">
             <details closed>
-               <summary class="days" id="saturday">Saturday 17th October</summary>
+               <summary class="days" id="saturday" onclick="view(this.id)">Saturday 17th October</summary>
                <div class="mainx">
                   <div class="mainxtxt">Return home</div>
                </div>
@@ -998,6 +1169,7 @@
                   <img src="bags.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">Pack bags, breakfast, checkout etc. and be ready for transport to the airport.</div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">10:00am - bus pickup</div>
                </div>
@@ -1008,8 +1180,9 @@
                   Be outside of hotel in time to load golf bags etc. and board bus to leave on time. The journey takes
                   about 15 minutes.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
-                  <div class="mainxtxt">10:30am - Arrive at Malaga airport</div>
+                  <div class="mainxtxt">10:15am - Arrive at Malaga airport</div>
                </div>
                <div class="txta">
                   <img src="Jet2.jpg" style="width: 100%; height: auto" />
@@ -1019,6 +1192,7 @@
                   <br />Once golf bags are processed, proceed through security. <br />Remember there are new procedures
                   in place.
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">12.15pm - Flight departs Spain</div>
                </div>
@@ -1065,17 +1239,19 @@
                      <a>LS558</a>
                   </div>
                </div>
+               <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">14.40pm - Flight arrives UK</div>
                </div>
                <div class="txta">
                   <img src="manwithbag.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
+               <div class="txta">After landing, passport control and pick up bags, then back home.</div>
                <div class="txta">&nbsp;</div>
             </details>
          </div>
          <!-- ##### notes ##### -->
-         <div>
+         <div id="not">
             <details id="notesdetails" closed>
                <summary class="days" id="notes" onclick="view(this.id)">Notes</summary>
                <div class="mainx">
@@ -1101,6 +1277,9 @@
                <div class="mainx">
                   <div class="mainxtxt">Daily prize money</div>
                </div>
+               <div class="txta">
+                  <img src="goldcoins.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
                <div class="txta">Daily prizes.</div>
                <div class="txta">
                   <div class="fl">1st place:</div>
@@ -1119,6 +1298,9 @@
                <div class="txta">&nbsp;</div>
                <div class="mainx">
                   <div class="mainxtxt">Overall prize money</div>
+               </div>
+               <div class="txta">
+                  <img src="goldcoins.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
                <div class="txta">Same as last year.</div>
                <div class="txta">
@@ -1181,18 +1363,172 @@
                <div class="mainx">
                   <div class="mainxtxt">Birdie Club</div>
                </div>
+               <div class="txta">
+                  <img src="bluebird.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
                <div class="txta">Winner at the end of the week takes all of the money collected from participants.</div>
                <div class="txta">(an eagle counts as 2 birdies 😉)</div>
                <div class="txta">&nbsp;</div>
-
                <div class="mainx">
                   <div class="mainxtxt">Blindgolfer</div>
                </div>
                <div class="txta">
                   <img src="blind.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
                </div>
+               <div class="txta">Entry fee is 5 euros each, so 60 euros total will be collected.</div>
                <div class="txta">A single winner each day receives 12 euros.</div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">Bus driver tips</div>
+               </div>
+               <div class="txta">
+                  <img src="tips.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
+               <div class="txta">5 euros each, so 60 euros total will be collected.</div>
+               <div class="txta">
+                  Each trip by bus 5 euros goes to the driver. (To and from the airport and 5 days to and from golf)
+               </div>
+               <div class="txta">&nbsp;</div>
+               <div class="mainx">
+                  <div class="mainxtxt">Side bets</div>
+               </div>
+               <div class="txta">
+                  <img src="bandit.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
+               <div class="txta">Side bets by arrangement ...</div>
+               <div class="txta">&nbsp;</div>
 
+               <div class="mainx">
+                  <div class="mainxtxt">Money collected</div>
+               </div>
+               <div class="txta">
+                  <img src="goldcoins.png" style="width: 30vw; height: auto; margin: 5vw; margin-left: 25vw" alt="" />
+               </div>
+               <div class="txta">This is the current money situation and payments made.</div>
+               <div class="txta">
+                  Money yet to be collected is in red. Trip money is due before 12th August 2026, other outstanding
+                  money is due at the airport or in Spain, before first round of golf.
+               </div>
+               <div class="txta">&nbsp;</div>
+               <table class="tg">
+                  <thead>
+                     <tr>
+                        <th class="tg-0lax it">Player</th>
+                        <td class="tg-0lax it">deposit</td>
+                        <th class="tg-0lax it">Trip</th>
+                        <th class="tg-0lax it">Prizes</th>
+                        <th class="tg-0lax it">Tips</th>
+                        <th class="tg-0lax it">Blind<br />Golfer</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td class="tg-0lax it"></td>
+                        <td class="tg-0lax it">(£100)</td>
+                        <td class="tg-0lax it">(£745)</td>
+                        <td class="tg-0lax it">(£25)</td>
+                        <td class="tg-0lax it">(5€)</td>
+                        <td class="tg-0lax it">(5€)</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Bryan</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax">5€</td>
+                        <td class="tg-0lax">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Dale</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Eddie</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Graham</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Jamie</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">JohnD</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">JohnS</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax red">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Oz</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Peter</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax red">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">Richard</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax red">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">SteveA</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                     <tr>
+                        <td class="tg-0lax">SteveW</td>
+                        <td class="tg-0lax">£100</td>
+                        <td class="tg-0lax">£745</td>
+                        <td class="tg-0lax">£25</td>
+                        <td class="tg-0lax red">5€</td>
+                        <td class="tg-0lax red">5€</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="txta">&nbsp;</div>
                <div class="txta">&nbsp;</div>
             </details>
          </div>
@@ -1210,21 +1546,38 @@
          // declare global variables
 
          function view(id) {
-            console.log("in view");
-
             const All_Details = document.querySelectorAll("details");
 
             All_Details.forEach((deet) => {
-               deet.addEventListener("toggle", toggleOpenOneOnly);
-            });
+               deet.addEventListener("toggle", (event) => {
+                  if (deet.open) {
+                     /* the element was toggled open */
+                     document.getElementById("sun").style.display = "none";
+                     document.getElementById("mon").style.display = "none";
+                     document.getElementById("tue").style.display = "none";
+                     document.getElementById("wed").style.display = "none";
+                     document.getElementById("thu").style.display = "none";
+                     document.getElementById("fri").style.display = "none";
+                     document.getElementById("sat").style.display = "none";
+                     document.getElementById("not").style.display = "none";
 
-            function toggleOpenOneOnly(e) {
-               if (this.open) {
-                  All_Details.forEach((deet) => {
-                     if (deet != this && deet.open) deet.open = false;
-                  });
-               }
-            }
+                     document.getElementById(id.substring(0, 3)).style.background = "white";
+                     document.getElementById(id.substring(0, 3)).style.display = "flex";
+                  } else {
+                     /* the element was toggled closed */
+                     document.getElementById("sun").style.display = "flex";
+                     document.getElementById("mon").style.display = "flex";
+                     document.getElementById("tue").style.display = "flex";
+                     document.getElementById("wed").style.display = "flex";
+                     document.getElementById("thu").style.display = "flex";
+                     document.getElementById("fri").style.display = "flex";
+                     document.getElementById("sat").style.display = "flex";
+                     document.getElementById("not").style.display = "flex";
+
+                     document.getElementById(id.substring(0, 3)).style.background = "navy";
+                  }
+               });
+            });
          }
       </script>
    </body>
