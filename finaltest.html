@@ -722,7 +722,7 @@
                             document.getElementById("headermainpage").innerText = "Overall Results";
                             k = 1;
                             data.forEach((el, i) => {
-                                console.log(el.players, el.playerpoints);
+                                //console.log(el.players, el.playerpoints);
                                 k++;
                                 setTimeout(function () {
                                     bodyUpdateScores(el.players, el.playerpoints, i);
@@ -810,7 +810,7 @@
 
             function bodyUpdate(nom, points, i) {
                 let pos = i + 1;
-                console.log("bodyUpdate = ", nom, points);
+                //console.log("bodyUpdate = ", nom, points);
                 data.find((team) => team.players === nom);
                 // now sort out positions for same scores
                 let AllTeams = Array.from(document.querySelectorAll(".team"));
@@ -1151,7 +1151,7 @@
                 element.classList.add("animate");
             }
 
-            function bodyUpdateScores(nom, points, i) {
+            async function bodyUpdateScores(nom, points, i) {
                 let pos = i + 1;
 
                 data.find((team) => team.namebirdies === nom);
@@ -1186,11 +1186,14 @@
                 //
 
                 // sort out the birdies
+
                 for (eye = 0; eye < 12; eye++) {
-                    //
-                    if ("0123456789".includes(document.getElementById("birdgifnumber" + eye).innerHTML)) {
-                        document.getElementById("birdgif" + eye).style.visibility = "visible";
-                        document.getElementById("birdgifnumber" + eye).style.visibility = "visible";
+                    await sleep(300);
+                    if (document.getElementById("birdgifnumber" + eye)) {
+                        if ("0123456789".includes(document.getElementById("birdgifnumber" + eye).innerHTML)) {
+                            document.getElementById("birdgif" + eye).style.visibility = "visible";
+                            document.getElementById("birdgifnumber" + eye).style.visibility = "visible";
+                        }
                     }
                 }
 
