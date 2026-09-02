@@ -696,7 +696,7 @@
                                     document.getElementById("name" + i).style.color = "white";
                                     document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdatep3(el.namep3, el.scorep3, el.positionp3, i);
-                                }, k * 300);
+                                }, k * 100);
                             });
                         } else if (document.getElementById("headermainpage").innerText == "Par 3 Champion") {
                             /* par 3 move to par 5 */
@@ -713,7 +713,7 @@
                                     document.getElementById("name" + i).style.color = "white";
                                     document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdatep5(el.namep5, el.scorep5, el.positionp5, i);
-                                }, k * 300);
+                                }, k * 100);
                             });
                         }
                     } else if (SwipeLengthX < SwipeWidth) {
@@ -734,7 +734,7 @@
                                     document.getElementById("name" + i).style.color = "white";
                                     document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdatep3(el.namep3, el.scorep3, el.positionp3, i);
-                                }, k * 300);
+                                }, k * 100);
                             });
                             /* par 3 move to birdies */
                         } else if (document.getElementById("headermainpage").innerText == "Par 3 Champion") {
@@ -751,7 +751,7 @@
                                     document.getElementById("name" + i).style.color = "white";
                                     document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdateBirdies(el.namebirdies, el.scorebirdies, el.positionbirdies, i);
-                                }, k * 300);
+                                }, k * 100);
                             });
                         } else if (document.getElementById("headermainpage").innerText == "Birdies Champion") {
                             /* birdies move to scores */
@@ -769,7 +769,7 @@
                                     document.getElementById("name" + i).style.color = "white";
                                     document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdateScores(el.players, el.playerpoints, i);
-                                }, k * 300);
+                                }, k * 100);
                             });
                         }
                     }
