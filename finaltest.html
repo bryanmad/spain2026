@@ -674,13 +674,11 @@
                                 document.getElementById("scores" + i).style.color = "cyan";
                                 k++;
                                 setTimeout(function () {
-                                    if ((document.getElementById("headermainpage").innerText = "Birdies Champion")) {
-                                        document.getElementById("position" + i).style.color = "white";
-                                        document.getElementById("name" + i).style.color = "white";
-                                        document.getElementById("scores" + i).style.color = "white";
-                                        bodyUpdateBirdies(el.namebirdies, el.scorebirdies, el.positionbirdies, i);
-                                    }
-                                }, k * 300);
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
+                                    bodyUpdateBirdies(el.namebirdies, el.scorebirdies, el.positionbirdies, i);
+                                }, k * 100);
                             });
                             /* birdies move to par 3 */
                         } else if (document.getElementById("headermainpage").innerText == "Birdies Champion") {
