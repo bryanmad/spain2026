@@ -666,10 +666,17 @@
                         /* scores move to birdies */
                         if (document.getElementById("headermainpage").innerText == "Overall Results") {
                             document.getElementById("headermainpage").innerText = "Birdies Champion";
+
                             k = 1;
                             data.forEach((el, i) => {
+                                document.getElementById("position" + i).style.color = "cyan";
+                                document.getElementById("name" + i).style.color = "cyan";
+                                document.getElementById("scores" + i).style.color = "cyan";
                                 k++;
                                 setTimeout(function () {
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdateBirdies(el.namebirdies, el.scorebirdies, el.positionbirdies, i);
                                 }, k * 300);
                             });
@@ -677,9 +684,17 @@
                         } else if (document.getElementById("headermainpage").innerText == "Birdies Champion") {
                             document.getElementById("headermainpage").innerText = "Par 3 Champion";
                             k = 1;
+
                             data.forEach((el, i) => {
+                                document.getElementById("position" + i).style.color = "cyan";
+                                document.getElementById("name" + i).style.color = "cyan";
+                                document.getElementById("scores" + i).style.color = "cyan";
+
                                 k++;
                                 setTimeout(function () {
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdatep3(el.namep3, el.scorep3, el.positionp3, i);
                                 }, k * 300);
                             });
@@ -687,9 +702,16 @@
                             /* par 3 move to par 5 */
                             document.getElementById("headermainpage").innerText = "Par 5 Champion";
                             k = 1;
+
                             data.forEach((el, i) => {
+                                document.getElementById("position" + i).style.color = "cyan";
+                                document.getElementById("name" + i).style.color = "cyan";
+                                document.getElementById("scores" + i).style.color = "cyan";
                                 k++;
                                 setTimeout(function () {
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdatep5(el.namep5, el.scorep5, el.positionp5, i);
                                 }, k * 300);
                             });
@@ -701,9 +723,16 @@
                         if (document.getElementById("headermainpage").innerText == "Par 5 Champion") {
                             document.getElementById("headermainpage").innerText = "Par 3 Champion";
                             k = 1;
+
                             data.forEach((el, i) => {
+                                document.getElementById("position" + i).style.color = "cyan";
+                                document.getElementById("name" + i).style.color = "cyan";
+                                document.getElementById("scores" + i).style.color = "cyan";
                                 k++;
                                 setTimeout(function () {
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdatep3(el.namep3, el.scorep3, el.positionp3, i);
                                 }, k * 300);
                             });
@@ -711,9 +740,16 @@
                         } else if (document.getElementById("headermainpage").innerText == "Par 3 Champion") {
                             document.getElementById("headermainpage").innerText = "Birdies Champion";
                             k = 1;
+
                             data.forEach((el, i) => {
+                                document.getElementById("position" + i).style.color = "cyan";
+                                document.getElementById("name" + i).style.color = "cyan";
+                                document.getElementById("scores" + i).style.color = "cyan";
                                 k++;
                                 setTimeout(function () {
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdateBirdies(el.namebirdies, el.scorebirdies, el.positionbirdies, i);
                                 }, k * 300);
                             });
@@ -721,10 +757,17 @@
                             /* birdies move to scores */
                             document.getElementById("headermainpage").innerText = "Overall Results";
                             k = 1;
+
                             data.forEach((el, i) => {
+                                document.getElementById("position" + i).style.color = "cyan";
+                                document.getElementById("name" + i).style.color = "cyan";
+                                document.getElementById("scores" + i).style.color = "cyan";
                                 //console.log(el.players, el.playerpoints);
                                 k++;
                                 setTimeout(function () {
+                                    document.getElementById("position" + i).style.color = "white";
+                                    document.getElementById("name" + i).style.color = "white";
+                                    document.getElementById("scores" + i).style.color = "white";
                                     bodyUpdateScores(el.players, el.playerpoints, i);
                                 }, k * 300);
                             });
@@ -1068,6 +1111,7 @@
                 }
 
                 // fade in results
+
                 elementPos.style.opacity = 0;
                 elementName.style.opacity = 0;
                 elementScore.style.opacity = 0;
