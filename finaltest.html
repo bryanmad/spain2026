@@ -1231,15 +1231,15 @@
 
                 // sort out the birdies
 
-                for (eye = 0; eye < 12; eye++) {
-                    await sleep(300);
-                    if (document.getElementById("birdgifnumber" + eye)) {
-                        if ("0123456789".includes(document.getElementById("birdgifnumber" + eye).innerHTML)) {
-                            document.getElementById("birdgif" + eye).style.visibility = "visible";
-                            document.getElementById("birdgifnumber" + eye).style.visibility = "visible";
-                        }
+                //for (eye = 0; eye < 12; eye++) {
+                //await sleep(300);
+                if (document.getElementById("birdgifnumber" + i)) {
+                    if ("0123456789".includes(document.getElementById("birdgifnumber" + i).innerHTML)) {
+                        document.getElementById("birdgif" + i).style.visibility = "visible";
+                        document.getElementById("birdgifnumber" + i).style.visibility = "visible";
                     }
                 }
+                //}
 
                 // fade in results
                 elementPos.style.opacity = 0;
