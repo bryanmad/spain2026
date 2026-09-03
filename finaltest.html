@@ -1233,8 +1233,15 @@
 
                 //for (eye = 0; eye < 12; eye++) {
                 //await sleep(300);
+                console.log("first = " + i);
                 if (document.getElementById("birdgifnumber" + i)) {
-                    if ("0123456789".includes(document.getElementById("birdgifnumber" + i).innerHTML)) {
+                    console.log("second = " + i);
+                    if (
+                        "01234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950".includes(
+                            document.getElementById("birdgifnumber" + i).innerHTML
+                        )
+                    ) {
+                        console.log("third = " + i);
                         document.getElementById("birdgif" + i).style.visibility = "visible";
                         document.getElementById("birdgifnumber" + i).style.visibility = "visible";
                     }
