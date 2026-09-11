@@ -661,9 +661,9 @@
             });
 
             // declare global variables
-
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             var data;
-            var getDataRetryCount = 0;
+            //var getDataRetryCount = 0;
             // set up courses with details for calculations etc.
             // array ["hole num",par,si]
             // day 1 - calanova
@@ -675,7 +675,7 @@
             // La Cala Europa
             // Thursday
             // hole, par, si
-            arrCourse = [
+            var arrCourse = [
                 [0, 0, 0],
                 [1, 4, 16],
                 [2, 4, 8],
@@ -710,45 +710,54 @@
             // - gets results data
             //=============================================================
             async function getData() {
-                var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/resultsDay4";
-                try {
-                    console.log("timeout delay = " + (getDataRetryCount * 1000 + 2000));
-                    const dataStream = await fetch(url, {
-                        signal: AbortSignal.timeout(getDataRetryCount * 1000 + 2000)
-                    });
-                    if (!dataStream.ok) {
-                        throw new Error(`Response status: ${dataStream.status}`);
-                    } else {
+                var url = "https://opensheet.elk.sh/1Y4wLTqSUd4lkYlgsFiPpbgi6e4rAKVqo1wW32_7NBSQ/resultsDay4";
+
+                for (let attempt = 0; attempt < 5; attempt++) {
+                    const timeout = attempt * 1000 + 2000;
+
+                    try {
+                        console.log("timeout delay = " + timeout);
+
+                        const dataStream = await fetch(url, {
+                            signal: AbortSignal.timeout(timeout)
+                        });
+
+                        if (!dataStream.ok) {
+                            throw new Error(`Response status: ${dataStream.status}`);
+                        }
+
                         data = await dataStream.json();
-                        $("#pagetwo").fadeIn(500);
+
+                        //$("#pagetwo").fadeIn(500);
                         document.getElementById("panel").style.display = "none";
-                        if (data[0].players.length > 0) {
-                            // change < to >
-                            //console.log("using useDataResults()");
-                            document.getElementById("panel").style.display = "none";
+
+                        if (data[0]?.players?.length > 0) {
                             useDataResults();
                         } else {
                             useDataHcp();
                         }
-                    }
-                } catch (err) {
-                    console.error(err.message);
-                    if (err.name === "TimeoutError") {
-                        // This exception is from the abort signal
-                        console.error("Timeout: server too busy");
-                    } else if (err.name === "AbortError") {
-                        // This exception is from the fetch itself
-                        console.error("Fetch aborted by user action (browser stop button, closing tab, etc.");
-                    } else if (err.name === "TypeError") {
-                        console.error("AbortSignal.timeout() method is not supported");
-                    } else {
-                        // A network error, or some other problem.
-                        console.error(`Error: type: ${err.name}, message: ${err.message}`);
-                    }
-                    // retry
-                    getDataRetryCount++;
-                    if (getDataRetryCount < 5) {
-                        getData();
+
+                        return; // success — stop retrying
+                    } catch (err) {
+                        console.error(err);
+
+                        if (err.name === "TimeoutError") {
+                            console.error("Timeout: server too busy");
+                        } else if (err.name === "AbortError") {
+                            console.error("Fetch aborted by user action (browser stop button, closing tab, etc.)");
+                        } else {
+                            console.error(`Error: type: ${err.name}, message: ${err.message}`);
+                        }
+
+                        if (attempt < 4) {
+                            const retryNumber = attempt + 1;
+
+                            document.getElementsByClassName("load-text")[0].innerText = `retrying ${retryNumber}/5`;
+
+                            await sleep(retryNumber * 1000 + 2000);
+                        } else {
+                            document.getElementsByClassName("load-text")[0].innerText = "Please try again later.";
+                        }
                     }
                 }
             }
@@ -805,22 +814,16 @@
                     }, k * 300);
                 });
 
-                document.getElementById("box0").style.borderColor = "white";
-                document.getElementById("box1").style.borderColor = "white";
-                document.getElementById("box2").style.borderColor = "white";
-                document.getElementById("box3").style.borderColor = "white";
-
-                document.getElementById("box4").style.borderColor = "cyan";
-                document.getElementById("box5").style.borderColor = "cyan";
-                document.getElementById("box6").style.borderColor = "cyan";
-                document.getElementById("box7").style.borderColor = "cyan";
-
-                document.getElementById("box8").style.borderColor = "yellow";
-                document.getElementById("box9").style.borderColor = "yellow";
-                document.getElementById("box10").style.borderColor = "yellow";
-                document.getElementById("box11").style.borderColor = "yellow";
+                document.querySelectorAll(".teamhcp").forEach((box, i) => {
+                    if (i < 4) {
+                        box.style.borderColor = "white";
+                    } else if (i < 8) {
+                        box.style.borderColor = "cyan";
+                    } else {
+                        box.style.borderColor = "yellow";
+                    }
+                });
             }
-
             function useDataResults() {
                 let container = document.getElementById("createleaderboarditems");
                 // empty container
@@ -891,9 +894,9 @@
                 data.forEach((el, i) => {
                     k++;
                     setTimeout(function () {
-                        //if (el.players !== "") {
-                        bodyUpdate(el.players, el.playerpoints, i);
-                        //}
+                        if (el.players.length > 0) {
+                            bodyUpdate(el.players, el.playerpoints, i);
+                        }
                     }, k * 300);
                 });
             }
@@ -901,7 +904,7 @@
             function bodyUpdateHcps(nom, hcps, i) {
                 document.getElementById("headermainpage").innerText = "Tee Slots for Thursday";
                 // find the correct data
-                data.find((team) => team.players === nom);
+                //data.find((team) => team.players === nom);
                 // find the correct place for the data
                 let AllTeams = Array.from(document.querySelectorAll(".teamhcp"));
                 let element = AllTeams[i];
@@ -921,7 +924,7 @@
                 let pos = i + 1;
                 //temp
 
-                data.find((team) => team.players === nom);
+                //data.find((team) => team.players === nom);
                 // now sort out positions for same scores
                 let AllTeams = Array.from(document.querySelectorAll(".team"));
                 let element = AllTeams[i];
@@ -958,7 +961,9 @@
                 if (elementName.innerHTML == nom) {
                     elementScore.innerHTML = points;
                 }
-                var birdnum = data.find((team) => team.players === elementName.innerHTML).birdieclub;
+                const player = data.find((team) => team.players === elementName.innerHTML);
+
+                const birdnum = Number(player?.birdieclub ?? 0);
                 if (birdnum > 0) {
                     document.getElementById("birdgif" + i).style.visibility = "visible";
                     document.getElementById("birdgifnumber" + i).className = "numbird";
@@ -999,7 +1004,7 @@
                         document.getElementById("theader").innerText = "\n" + childtxt + "\n\n";
 
                         // box0 is position 1 etc.
-                        statspos = id.replace("box", "");
+                        var statspos = id.replace("box", "");
 
                         document.getElementById("st1").innerText = data[statspos].h1;
                         document.getElementById("st2").innerText = data[statspos].h2;
@@ -1045,9 +1050,9 @@
                         var parfront = 0;
                         var parfront9 = 0;
 
-                        for (i = 1; i <= 9; i++) {
-                            sfront += +document.getElementById("st" + i).innerText;
-                            pfront += +document.getElementById("p" + i).innerText;
+                        for (let i = 1; i <= 9; i++) {
+                            sfront += Number(data[statspos]["h" + i]) || 0;
+                            pfront += Number(data[statspos]["p" + i]) || 0;
                             document.getElementById("si" + i).innerText = arrCourse[i][2];
                             document.getElementById("par" + i).innerText = arrCourse[i][1];
 
@@ -1060,7 +1065,7 @@
                         var parback = 0;
                         var parback9 = 0;
 
-                        for (i = 10; i <= 18; i++) {
+                        for (let i = 10; i <= 18; i++) {
                             sback += +document.getElementById("st" + i).innerText;
                             pback += +document.getElementById("p" + i).innerText;
                             document.getElementById("si" + i).innerText = arrCourse[i][2];
