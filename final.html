@@ -666,7 +666,7 @@
                         /* scores move to birdies */
                         if (document.getElementById("headermainpage").innerText == "Overall Results") {
                             document.getElementById("headermainpage").innerText = "Birdies Champion";
-
+                            textEvent("Birdies Champion");
                             k = 1;
                             data.forEach((el, i) => {
                                 document.getElementById("position" + i).style.color = "cyan";
@@ -683,6 +683,7 @@
                             /* birdies move to par 3 */
                         } else if (document.getElementById("headermainpage").innerText == "Birdies Champion") {
                             document.getElementById("headermainpage").innerText = "Par 3 Champion";
+                            textEvent("Par 3 Champion");
                             k = 1;
 
                             data.forEach((el, i) => {
@@ -701,6 +702,7 @@
                         } else if (document.getElementById("headermainpage").innerText == "Par 3 Champion") {
                             /* par 3 move to par 5 */
                             document.getElementById("headermainpage").innerText = "Par 5 Champion";
+                            textEvent("Par 5 Champion");
                             k = 1;
 
                             data.forEach((el, i) => {
@@ -722,6 +724,7 @@
                         /* par 5 move to par 3 */
                         if (document.getElementById("headermainpage").innerText == "Par 5 Champion") {
                             document.getElementById("headermainpage").innerText = "Par 3 Champion";
+                            textEvent("Par 3 Champion");
                             k = 1;
 
                             data.forEach((el, i) => {
@@ -739,6 +742,7 @@
                             /* par 3 move to birdies */
                         } else if (document.getElementById("headermainpage").innerText == "Par 3 Champion") {
                             document.getElementById("headermainpage").innerText = "Birdies Champion";
+                            textEvent("Birdies Champion");
                             k = 1;
 
                             data.forEach((el, i) => {
@@ -756,6 +760,7 @@
                         } else if (document.getElementById("headermainpage").innerText == "Birdies Champion") {
                             /* birdies move to scores */
                             document.getElementById("headermainpage").innerText = "Overall Results";
+                            textEvent("Overall Results");
                             k = 1;
 
                             data.forEach((el, i) => {
@@ -1256,6 +1261,40 @@
                 elementScore.style.opacity = 1;
 
                 element.classList.add("animate");
+            }
+
+            /* -- Text effect -- */
+            function textEvent(originaltext) {
+                let result = " ";
+                const charlength = document.getElementById("headermainpage").innerText.length;
+                //var originaltext = document.getElementById("headermainpage").innerText;
+                const letters = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz".substring(0, charlength);
+                var count = 0;
+                var tempresult = "";
+                // set color
+                document.getElementById("headermainpage").style.color = "cyan";
+                clearInterval(interval);
+                var interval = setInterval(() => {
+                    count++;
+                    result = "";
+                    tempresult = "";
+                    // create a string
+                    for (let i = 0; i < charlength; i++) {
+                        tempresult = letters.charAt(Math.floor(Math.random() * charlength));
+                        if (originaltext.charAt(i) == " ") {
+                            tempresult = " ";
+                        }
+                        result += tempresult;
+                    }
+                    console.log(result);
+                    // write string
+                    document.getElementById("headermainpage").innerText = result;
+                    if (count > 10) {
+                        clearInterval(interval);
+                        document.getElementById("headermainpage").innerText = originaltext;
+                        document.getElementById("headermainpage").style.color = "white";
+                    }
+                }, 30);
             }
         </script>
     </body>
