@@ -132,7 +132,7 @@
             getData();
 
             async function getData() {
-                var url = "https://opensheet.elk.sh/1wmKWaoRF7aXMGToFcXQoKtK8XNyBdvcFXCgDcaqZnvM/blindgolfer";
+                var url = "https://opensheet.elk.sh/1Y4wLTqSUd4lkYlgsFiPpbgi6e4rAKVqo1wW32_7NBSQ/blindgolfer";
                 try {
                     // 10 second timeout
                     const dataStream = await fetch(url, {
@@ -147,51 +147,35 @@
                         data = data.filter(function (el) {
                             return el.list !== "";
                         });
-
-                        //today = data[0].blindgolfer;
-
                         for (i = 0; i <= 11; i++) {
                             if (today == "Monday") {
                                 document.getElementById("list" + i).innerText = data[i].Monday;
                                 if (i == 0) {
                                     document.getElementById("headerpagetwo").innerText = "Monday Blindgolfer";
                                 }
-                            }
-                            if (today == "Tuesday") {
+                            } else if (today == "Tuesday") {
                                 document.getElementById("list" + i).innerText = data[i].Tuesday;
                                 if (i == 0) {
                                     document.getElementById("headerpagetwo").innerText = "Tuesday Blindgolfer";
                                 }
-                            }
-                            if (today == "Wednesday") {
+                            } else if (today == "Wednesday") {
                                 document.getElementById("list" + i).innerText = data[i].Wednesday;
                                 if (i == 0) {
                                     document.getElementById("headerpagetwo").innerText = "Wednesday Blindgolfer";
                                 }
-                            }
-                            if (today == "Thursday") {
+                            } else if (today == "Thursday") {
                                 document.getElementById("list" + i).innerText = data[i].Thursday;
                                 if (i == 0) {
                                     document.getElementById("headerpagetwo").innerText = "Thursday Blindgolfer";
                                 }
-                            }
-                            if (today == "Friday") {
+                            } else if (today == "Friday") {
                                 document.getElementById("list" + i).innerText = data[i].Friday;
                                 if (i == 0) {
                                     document.getElementById("headerpagetwo").innerText = "Friday Blindgolfer";
                                 }
-                            }
-                            if (today == "Saturday" || today == "Sunday") {
-                                if (i == 0) {
-                                    document.getElementById("list" + i).innerText = "not a competition day";
-                                    document.getElementById("headerpagetwo").innerText = "No Blindgolfer";
-                                }
-                            }
-                            if (today == "empty") {
-                                if (i == 0) {
-                                    //document.getElementById("list" + i).innerText = "Blindgolfer not yet drawn.";
-                                    document.getElementById("headerpagetwo").innerText = "No Blindgolfer";
-                                }
+                            } else if (i == 0) {
+                                document.getElementById("list" + i).innerText = "not a competition day";
+                                document.getElementById("headerpagetwo").innerText = "No Blindgolfer";
                             }
                         }
                     }
