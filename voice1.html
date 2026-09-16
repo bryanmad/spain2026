@@ -72,15 +72,15 @@
                                 const transcript = event.results[0][0].transcript;
                                 outputDiv.textContent += ` ${transcript}`;
                                 // addition by me
-                                document.getElementById("score1").innerText = transcript.slice(1, 2);
-                                document.getElementById("score2").innerText = transcript.slice(2, 3);
-                                document.getElementById("score3").innerText = transcript.slice(3, 4);
-                                document.getElementById("score4").innerText = transcript.slice(4, 5);
-                                document.getElementById("score5").innerText = transcript.slice(5, 6);
-                                document.getElementById("score6").innerText = transcript.slice(6, 7);
-                                document.getElementById("score7").innerText = transcript.slice(7, 8);
-                                document.getElementById("score8").innerText = transcript.slice(8, 9);
-                                document.getElementById("score9").innerText = transcript.slice(9, 10);
+                                document.getElementById("score1").innerText = outputDiv.textContent.slice(1, 2);
+                                document.getElementById("score2").innerText = outputDiv.textContent.slice(2, 3);
+                                document.getElementById("score3").innerText = outputDiv.textContent.slice(3, 4);
+                                document.getElementById("score4").innerText = outputDiv.textContent.slice(4, 5);
+                                document.getElementById("score5").innerText = outputDiv.textContent.slice(5, 6);
+                                document.getElementById("score6").innerText = outputDiv.textContent.slice(6, 7);
+                                document.getElementById("score7").innerText = outputDiv.textContent.slice(7, 8);
+                                document.getElementById("score8").innerText = outputDiv.textContent.slice(8, 9);
+                                document.getElementById("score9").innerText = outputDiv.textContent.slice(9, 10);
                         };
 
                         recognition.onstart = () => (startButton.textContent = "Listening...");
