@@ -76,6 +76,7 @@
                                 outputDiv.textContent += ` ${transcript}`;
                                 // addition by me
                                 var scorestext = outputDiv.textContent.replace(/\D/g, "");
+                                document.getElementById("score1").innerText = scorestext.slice(0, 1);
                                 document.getElementById("score1").innerText = scorestext.slice(1, 2);
                                 document.getElementById("score2").innerText = scorestext.slice(2, 3);
                                 document.getElementById("score3").innerText = scorestext.slice(3, 4);
@@ -84,7 +85,6 @@
                                 document.getElementById("score6").innerText = scorestext.slice(6, 7);
                                 document.getElementById("score7").innerText = scorestext.slice(7, 8);
                                 document.getElementById("score8").innerText = scorestext.slice(8, 9);
-                                document.getElementById("score9").innerText = scorestext.slice(9, 10);
                         };
 
                         recognition.onstart = () => (startButton.textContent = "Listening...");
