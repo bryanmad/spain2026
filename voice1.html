@@ -26,42 +26,63 @@
                 <button onclick="startListening()">Start Listening</button>
                 <div id="result">Say something...</div>
                 <script>
-                                               const resultDiv = document.getElementById('result');
-                        // Save original styles
-                        const originalStyles = {
-                          backgroundColor: window.getComputedStyle(document.body).backgroundColor,
-                          fontSize: window.getComputedStyle(resultDiv).fontSize,
-                        };
-                        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;\
-                        if (!SpeechRecognition) {
-                          resultDiv.textContent = "Speech recognition not supported 😞";
-                        } else {
-                          const recognition = new SpeechRecognition();
-                          recognition.lang = 'en-US';
-                          recognition.interimResults = false;
-                          recognition.maxAlternatives = 1;
-                          recognition.onresult = (event) => {
-                            const transcript = event.results[0][0].transcript.toLowerCase().trim();
-                            resultDiv.textContent = `You said: "${transcript}"`;
-                            // Voice commands
-                            if (transcript.includes("change background")) {
-                              document.body.style.backgroundColor = "#ffeaa7";
-                            } else if (transcript.includes("make text bigger")) {
-                              resultDiv.style.fontSize = "32px";
-                            } else if (transcript.includes("reset")) {
-                              document.body.style.backgroundColor = originalStyles.backgroundColor;
-                              resultDiv.style.fontSize = originalStyles.fontSize;
-                            }
-                          };
-                          recognition.onerror = (event) => {
-                            resultDiv.textContent = 'Error: ' + event.error;
-                          };
-                          function startListening() {
-                            resultDiv.textContent = "Listening...";
-                            recognition.start();
-                          }
-                          window.startListening = startListening;
-                        }
+                                                                                               const resultDiv = document.getElementById('result');
+                                                                        // Save original styles
+                                                                        const originalStyles = {
+                                                                          backgroundColor: window.getComputedStyle(document.body).backgroundColor,
+                                                                          fontSize: window.getComputedStyle(resultDiv).fontSize,
+                                                                        };
+                                                                        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;\
+                                                                        if (!SpeechRecognition) {
+                                                                          resultDiv.textContent = "Speech recognition not supported 😞";
+                                                                        } else {
+                                                                          const recognition = new SpeechRecognition();
+                                                                          recognition.lang = 'en-US';
+                                                                          recognition.interimResults = false;
+                                                                          recognition.maxAlternatives = 1;
+                                                                          recognition.onresult = (event) => {
+                                                                            const transcript = event.results[0][0].transcript.toLowerCase().trim();
+                                                                            resultDiv.textContent = `You said: "${transcript}"`;
+                                                                            // Voice commands
+                                                                            if (transcript.includes("change background")) {
+                                                                              document.body.style.backgroundColor = "#ffeaa7";
+                                                                            } else if (transcript.includes("make text bigger")) {
+                                                                              resultDiv.style.fontSize = "32px";
+                                                                            } else if (transcript.includes("reset")) {
+                                                                              document.body.style.backgroundColor = originalStyles.backgroundColor;
+                                                                              resultDiv.style.fontSize = originalStyles.fontSize;
+                                                                            }
+                                                                          };
+                                                                          recognition.onerror = (event) => {
+                                                                            resultDiv.textContent = 'Error: ' + event.error;
+                                                                          };
+                                                                          function startListening() {
+                                                                            resultDiv.textContent = "Listening...";
+                                                                            recognition.start();
+                                                                          }
+                                                                          window.startListening = startListening;
+                                                                        }
+
+
+
+
+
+
+
+                        function getLocalStream() {
+                                navigator.mediaDevices
+                                .getUserMedia({ video: false, audio: true })
+                                .then((stream) => {
+                                window.localStream = stream; // A
+                                window.localAudio.srcObject = stream; // B
+                                window.localAudio.autoplay = true; // C
+                                })
+                                .catch((err) => {
+                                console.error(`you got an error: ${err}`);
+                                });
+                                }
+
+                                getLocalStream();
                 </script>
         </body>
 </html>
