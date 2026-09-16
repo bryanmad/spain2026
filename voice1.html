@@ -24,8 +24,8 @@
                                 margin: 8px;
                                 border: 1px solid #ccc;
                                 border-radius: 8px;
-                                min-height: 50%;
-                                height: 50%;
+                                //min-height: 50%;
+                                height: 20vh;
                         }
                         .scores {
                                 color: blue;
@@ -33,7 +33,7 @@
                 </style>
         </head>
         <body>
-                <button id="startButton">Start Voice Input</button>
+                <button id="startButton">Start</button>
                 <button id="clear">Clear</button>
                 <!--
                 <select id="language" onchange="recognition.lang = this.value">
@@ -75,7 +75,7 @@
                                 const transcript = event.results[0][0].transcript;
                                 outputDiv.textContent += ` ${transcript}`;
                                 // addition by me
-                                var scorestext = outputDiv.textContent..replace(/\D/g,'');
+                                var scorestext = outputDiv.textContent.replace(/\D/g, "");
                                 document.getElementById("score1").innerText = scorestext.slice(1, 2);
                                 document.getElementById("score2").innerText = scorestext.slice(2, 3);
                                 document.getElementById("score3").innerText = scorestext.slice(3, 4);
