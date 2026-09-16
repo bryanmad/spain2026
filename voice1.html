@@ -40,6 +40,16 @@
 -->
                 <div id="output" contenteditable="true">Hello</div>
 
+                <div id="score1"></div>
+                <div id="score2"></div>
+                <div id="score3"></div>
+                <div id="score4"></div>
+                <div id="score5"></div>
+                <div id="score6"></div>
+                <div id="score7"></div>
+                <div id="score8"></div>
+                <div id="score9"></div>
+
                 <script>
                         const startButton = document.getElementById("startButton");
                         const outputDiv = document.getElementById("output");
@@ -61,6 +71,16 @@
                         recognition.onresult = (event) => {
                                 const transcript = event.results[0][0].transcript;
                                 outputDiv.textContent += ` ${transcript}`;
+                                // addition by me
+                                document.getElementById("score1").innerText = transcript.slice(1, 2);
+                                document.getElementById("score2").innerText = transcript.slice(2, 3);
+                                document.getElementById("score3").innerText = transcript.slice(3, 4);
+                                document.getElementById("score4").innerText = transcript.slice(4, 5);
+                                document.getElementById("score5").innerText = transcript.slice(5, 6);
+                                document.getElementById("score6").innerText = transcript.slice(6, 7);
+                                document.getElementById("score7").innerText = transcript.slice(7, 8);
+                                document.getElementById("score8").innerText = transcript.slice(8, 9);
+                                document.getElementById("score9").innerText = transcript.slice(9, 10);
                         };
 
                         recognition.onstart = () => (startButton.textContent = "Listening...");
