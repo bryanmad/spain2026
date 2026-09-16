@@ -80,6 +80,15 @@
                         const LANG = "en-US";
                         clearButton.addEventListener("click", () => {
                                 outputDiv.textContent = "";
+                                document.getElementById("score1").innerText = 0;
+                                document.getElementById("score2").innerText = 0;
+                                document.getElementById("score3").innerText = 0;
+                                document.getElementById("score4").innerText = 0;
+                                document.getElementById("score5").innerText = 0;
+                                document.getElementById("score6").innerText = 0;
+                                document.getElementById("score7").innerText = 0;
+                                document.getElementById("score8").innerText = 0;
+                                document.getElementById("score9").innerText = 0;
                         });
 
                         const recognition = new (window.SpeechRecognition ||
