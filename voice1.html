@@ -1332,12 +1332,15 @@
                 // put scores and points in current hole
                 for (eye = 0; eye < 18; eye++) { 
                     //document.getElementById("strokes" + currenthole).innerText = id.replace("score", "");
-                    document.getElementById("points" + eye).innerText = pointsCalc(
+                    /*
+                        document.getElementById("points" + eye).innerText = pointsCalc(
                         hcp,
                         arrCourse[eye][1],
                         arrCourse[eye][2],
                         id.replace("score", "")
                     );
+                    */
+                        alert(hcp + arrCourse[eye][1] + arrCourse[eye][2] + id.replace("score", ""));
                 };
                 
                 
