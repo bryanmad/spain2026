@@ -1227,6 +1227,130 @@
                 event.preventDefault();
             });
 
+                
+                
+                
+                
+                
+                
+                
+                  
+            //=================================================================================
+            // declare global variables
+
+            var currenthole = 0;
+
+            var selectedplayer = 1;
+            // highlight first player entry
+            //	document.getElementById("p1name").classList.add("highlight");
+            var arrCourse = [];
+            //var arrHcps = [];
+            //var arrPlayers = [];
+            var arrBirdies = [];
+            var arrStatsData = [];
+            //var arrLadies = [];
+            var arrOptions = [];
+            var oldArrOptions = [];
+            var arrPlayersDropdown = [];
+            var arrHcpsDropdown = [];
+            var compcourse = "none";
+            var compdate = "";
+            var shotsscore = "";
+
+            // declare global variables
+            var hcp = "0";
+            var player = "select player";
+            var comp;
+            var course = "";
+            var arrOptions = [];
+            var hcplist = "";
+            var msglist = "";
+            var msglistcount = 0;
+            var player1name = "player 1";
+
+            var player1hcp = "?";
+            var fullday = "";
+            //var datastream;
+            var player1teecolor = "yellow";
+
+            var whichhole = 1;
+            var frontp1 = 0;
+            var frontp2 = 0;
+            var frontp3 = 0;
+            var backp1 = 0;
+            var backp2 = 0;
+            var backp3 = 0;
+            var allp1 = 0;
+            var allp2 = 0;
+            var allp3 = 0;
+            var fronttxt9 = "";
+            var backtxt9 = "";
+            var alltxt18 = "";
+            var winspercent = 0;
+            var scorelist = "";
+
+            var data;
+
+            var currentday;
+
+            //==============================================================
+            // data may change so retrieve it on each occasion
+            //==============================================================
+            // retrieve arrays
+
+            dd = new Date();
+            day = dd.getDay();
+            date = dd.getDate();
+            month = dd.getMonth();
+            days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            //============================================
+            // default
+            //console.log(day + " using Monday as default")
+            // console.log(day + " Monday")
+            //course = "Calanova";
+            fullday = days[day] + " " + date + " " + months[month];
+            currentday = days[day];
+
+            //console.log(fullday);
+            if (days[day] === "Monday") {
+                setupCourseMonday();
+            }
+            if (days[day] === "Tuesday") {
+                setupCourseTuesday();
+            }
+            if (days[day] === "Wednesday") {
+                setupCourseWednesday();
+            }
+            if (days[day] === "Thursday") {
+                setupCourseThursday();
+            }
+            if (days[day] === "Friday") {
+                setupCourseFriday();
+            }
+ 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             //=================================================================================
             // this runs the speech to text bit
             //=================================================================================
@@ -1340,7 +1464,7 @@
                         id.replace("score", "")
                     );
                     */
-                        alert("here2");
+                        alert("here3");
                         //alert(hcp);
                         alert(arrCourse[eye][1]);
                         alert(arrCourse[eye][2]);
@@ -1365,101 +1489,7 @@
                 
                 
                 
-                
-            //=================================================================================
-            // declare global variables
-
-            var currenthole = 0;
-
-            var selectedplayer = 1;
-            // highlight first player entry
-            //	document.getElementById("p1name").classList.add("highlight");
-            var arrCourse = [];
-            //var arrHcps = [];
-            //var arrPlayers = [];
-            var arrBirdies = [];
-            var arrStatsData = [];
-            //var arrLadies = [];
-            var arrOptions = [];
-            var oldArrOptions = [];
-            var arrPlayersDropdown = [];
-            var arrHcpsDropdown = [];
-            var compcourse = "none";
-            var compdate = "";
-            var shotsscore = "";
-
-            // declare global variables
-            var hcp = "0";
-            var player = "select player";
-            var comp;
-            var course = "";
-            var arrOptions = [];
-            var hcplist = "";
-            var msglist = "";
-            var msglistcount = 0;
-            var player1name = "player 1";
-
-            var player1hcp = "?";
-            var fullday = "";
-            //var datastream;
-            var player1teecolor = "yellow";
-
-            var whichhole = 1;
-            var frontp1 = 0;
-            var frontp2 = 0;
-            var frontp3 = 0;
-            var backp1 = 0;
-            var backp2 = 0;
-            var backp3 = 0;
-            var allp1 = 0;
-            var allp2 = 0;
-            var allp3 = 0;
-            var fronttxt9 = "";
-            var backtxt9 = "";
-            var alltxt18 = "";
-            var winspercent = 0;
-            var scorelist = "";
-
-            var data;
-
-            var currentday;
-
-            //==============================================================
-            // data may change so retrieve it on each occasion
-            //==============================================================
-            // retrieve arrays
-
-            dd = new Date();
-            day = dd.getDay();
-            date = dd.getDate();
-            month = dd.getMonth();
-            days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            //============================================
-            // default
-            //console.log(day + " using Monday as default")
-            // console.log(day + " Monday")
-            //course = "Calanova";
-            fullday = days[day] + " " + date + " " + months[month];
-            currentday = days[day];
-
-            //console.log(fullday);
-            if (days[day] === "Monday") {
-                setupCourseMonday();
-            }
-            if (days[day] === "Tuesday") {
-                setupCourseTuesday();
-            }
-            if (days[day] === "Wednesday") {
-                setupCourseWednesday();
-            }
-            if (days[day] === "Thursday") {
-                setupCourseThursday();
-            }
-            if (days[day] === "Friday") {
-                setupCourseFriday();
-            }
-
+             
             // test
             //==========================
             //==========================
