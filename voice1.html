@@ -1109,7 +1109,7 @@
             
             
             
-            <div id="output">text here</div>
+           
             
             
             
@@ -1247,13 +1247,42 @@
                                 document.getElementById("score7").innerText = 0;
                                 document.getElementById("score8").innerText = 0;
                                 document.getElementById("score9").innerText = 0;
+                                
+                                document.getElementById("score10").innerText = 0;
+                                document.getElementById("score11").innerText = 0;
+                                document.getElementById("score12").innerText = 0;
+                                document.getElementById("score13").innerText = 0;
+                                document.getElementById("score14").innerText = 0;
+                                document.getElementById("score15").innerText = 0;
+                                document.getElementById("score16").innerText = 0;
+                                document.getElementById("score17").innerText = 0;
+                                document.getElementById("score18").innerText = 0;
+                                
                         });
 
+                        /*
                         const recognition = new (window.SpeechRecognition ||
                                 window.webkitSpeechRecognition ||
                                 window.mozSpeechRecognition ||
                                 window.msSpeechRecognition)();
+                        */
+                
+                        // Check if ANY variant of the SpeechRecognition object exists
+                        const SpeechRecognition = window.SpeechRecognition || 
+                        window.webkitSpeechRecognition || 
+                        window.mozSpeechRecognition || 
+                        window.msSpeechRecognition;
 
+                        if (SpeechRecognition) {
+                        // Safe to instantiate if it exists
+                        const recognition = new SpeechRecognition();
+                        console.log("Speech recognition is supported!");
+                        
+                
+                
+                
+                
+                
                         recognition.lang = LANG;
 
                         recognition.onresult = (event) => {
@@ -1288,6 +1317,14 @@
                         startButton.addEventListener("click", () => recognition.start());
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
                 // temp for testing
                 hcp = 21;
                 
@@ -1308,7 +1345,11 @@
                 
                 
                 
-                
+                } else {
+                        // Handle the error gracefully without crashing
+                        console.error("Speech recognition is not supported in this browser.");
+                        alert("Your browser does not support voice features. Please try Google Chrome or Microsoft Edge.");
+                        }
                 
                 
                 
