@@ -1090,14 +1090,15 @@
             <table class="table" border="0" style="height: 85%; width: 100%">
                 <tbody>
                     <tr>
-                        <td colspan="3" id="startButton" onclick="numberScore(this.id)">start</td>
+                        <td colspan="3" id="startButton" onclick="numberScore(this.id)">Speak</td>
                         <td colspan="3" id="clear" onclick="numberScore(this.id)">clear</td>
                     </tr>
-                    <tr>
-                        <td colspan="6" id="score4" onclick="numberScore(this.id)">4</td>
-                    </tr>
+               
                     <tr>
                         <td colspan="6" id="score7" onclick="numberScore(this.id)"><div id="output" contenteditable="true"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" id="score4" onclick="numberScore(this.id)">submit here ?</td>
                     </tr>
                 </tbody>
             </table>
@@ -1283,7 +1284,7 @@
                         };
 
                         recognition.onstart = () => (startButton.textContent = "Listening...");
-                        recognition.onend = () => (startButton.textContent = "Start Voice Input");
+                        recognition.onend = () => (startButton.textContent = "Speak");
                         startButton.addEventListener("click", () => recognition.start());
             //=================================================================================
             // declare global variables
