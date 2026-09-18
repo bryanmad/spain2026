@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Recognition Number Populator</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .number-box {
+      padding: 15px 25px;
+      background-color: #007bff;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      animation: popIn 0.3s ease-out;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Speak some numbers!</h1>
+  <button id="start-btn">Start Listening</button>
+  <p id="status">Status: Idle</p>
+  <p><strong>Heard text:</strong> <span id="transcript-preview">-</span></p>
+
+  <!-- This container will be filled with <div> elements -->
+  <div id="container"></div>
+
+  <script>
+    // 1. Handle browser prefix support for Web Speech API
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Your browser does not support the Web Speech API. Please try Google Chrome or Microsoft Edge.");
+    } else {
+      const recognition = new SpeechRecognition();
+      
+      // Configure settings
+      recognition.continuous = true;    // Keep listening continuously
+      recognition.interimResults = false; // Only trigger on final recognized chunks
+      recognition.lang = 'en-US';       // Match language
+
+      const startBtn = document.getElementById('start-btn');
+      const statusText = document.getElementById('status');
+      const previewText = document.getElementById('transcript-preview');
+      const container = document.getElementById('container');
+
+      // 2. Start listening on button click
+      startBtn.addEventListener('click', () => {
+        recognition.start();
+        statusText.textContent = "Status: Listening... Speak your numbers clearly.";
+      });
+
+      // 3. Process the voice recognition result
+      recognition.onresult = (event) => {
+        // Grab the most recent final text result
+        const currentResultIndex = event.resultIndex;
+        const transcript = event.results[currentResultIndex][0].transcript;
+        
+        previewText.textContent = transcript;
+        console.log(`Raw Transcript: ${transcript}`);
+
+        // 4. Extract digits or groups of numbers using RegExp (\d+)
+        // Note: Browsers generally return words like "five" as digits "5" automatically.
+        const matchedNumbers = transcript.match(/\d+/g);
+
+        if (matchedNumbers) {
+          matchedNumbers.forEach(num => {
+            // Create a new <div> element for every matched number
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('number-box');
+            newDiv.textContent = num;
+            
+            // Append it to our container
+            container.appendChild(newDiv);
+          });
+        }
+      };
+
+      // Handle lifecycle ends / errors gracefully
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error: ", event.error);
+        statusText.textContent = `Status: Error (${event.error})`;
+      };
+
+      recognition.onend = () => {
+        statusText.textContent = "Status: Idle (Stopped listening)";
+      };
+    }
+  </script>
+</body>
+</html>
