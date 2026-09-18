@@ -1338,7 +1338,7 @@
 
             if (SpeechRecognition) {
                 const recognition = new SpeechRecognition();
-                console.log("Speech recognition is supported!");
+                document.getElementById("score4").innerText = "Speech recognition is supported!";
 
                 recognition.continuous = true;
                 recognition.interimResults = false;
@@ -1378,7 +1378,7 @@
                     }
 
                     // update calc totals
-                    if (typeof totalScores === "function") totalScores();
+                    //if (typeof totalScores === "function") totalScores();
                 };
 
                 recognition.onstart = () => (startButton.textContent = "Listening...");
