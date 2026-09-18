@@ -1317,7 +1317,6 @@
             clearButton.addEventListener("click", () => {
                 outputDiv.textContent = "";
                 for (let i = 1; i <= 18; i++) {
-                    // FIXED: Changed 'score' to 'strokes' to match the IDs used below
                     const strokeEl = document.getElementById(`strokes${i}`);
                     if (strokeEl) strokeEl.innerText = "0"; // Best practice to pass a string
 
@@ -1335,11 +1334,10 @@
                 window.webkitSpeechRecognition ||
                 window.mozSpeechRecognition ||
                 window.msSpeechRecognition;
-
+            document.getElementById("score4").innerText = "Speech recognition";
             if (SpeechRecognition) {
                 const recognition = new SpeechRecognition();
                 document.getElementById("score4").innerText = "Speech recognition is supported!";
-
                 recognition.continuous = true;
                 recognition.interimResults = false;
                 recognition.lang = "en-US";
