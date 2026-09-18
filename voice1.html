@@ -1313,16 +1313,20 @@
             const outputDiv = document.getElementById("output");
             const clearButton = document.getElementById("clear");
 
-            // Config
-            const LANG = "en-US";
-
-            // Clear button logic using a loop
+            // Clear button logic updated to target "strokes" instead of "score"
             clearButton.addEventListener("click", () => {
                 outputDiv.textContent = "";
                 for (let i = 1; i <= 18; i++) {
-                    const scoreEl = document.getElementById(`score${i}`);
-                    if (scoreEl) scoreEl.innerText = 0;
+                    // FIXED: Changed 'score' to 'strokes' to match the IDs used below
+                    const strokeEl = document.getElementById(`strokes${i}`);
+                    if (strokeEl) strokeEl.innerText = "0"; // Best practice to pass a string
+
+                    // Optional: Also clear points if they exist
+                    const pointsEl = document.getElementById(`points${i}`);
+                    if (pointsEl) pointsEl.innerText = "0";
                 }
+                // Update totals after clearing
+                if (typeof totalScores === "function") totalScores();
             });
 
             // Check if ANY variant of the SpeechRecognition object exists
@@ -1338,10 +1342,9 @@
 
                 recognition.continuous = true;
                 recognition.interimResults = false;
-                recognition.lang = LANG;
+                recognition.lang = "en-US";
 
                 recognition.onresult = (event) => {
-                    // FIX: Loop through all new results instead of just checking index 0
                     let transcript = "";
                     for (let i = event.resultIndex; i < event.results.length; i++) {
                         transcript += event.results[i][0].transcript;
@@ -1362,9 +1365,8 @@
                         }
                     }
 
-                    // Testing / Setup stub (Make sure arrCourse, pointsCalc, and currenthole are defined globally elsewhere)
+                    // Points calculation stub
                     let hcp = "21";
-                    // This loop will fail if arrCourse or pointsCalc are not defined in your wider script
                     if (typeof arrCourse !== "undefined" && typeof pointsCalc !== "undefined") {
                         for (let eye = 1; eye <= 18; eye++) {
                             const holeScore = scorestext.slice(eye - 1, eye);
@@ -1374,8 +1376,9 @@
                             }
                         }
                     }
+
                     // update calc totals
-                    totalScores();
+                    if (typeof totalScores === "function") totalScores();
                 };
 
                 recognition.onstart = () => (startButton.textContent = "Listening...");
