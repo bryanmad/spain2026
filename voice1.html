@@ -1343,19 +1343,19 @@
                 recognition.continuous = true;
                 recognition.interimResults = false;
                 recognition.lang = "en-US";
-
+                document.getElementById("score4").innerText = "here1";
                 recognition.onresult = (event) => {
                     let transcript = "";
                     for (let i = event.resultIndex; i < event.results.length; i++) {
                         transcript += event.results[i][0].transcript;
                         document.getElementById("score4").innerText = transcript;
                     }
-
+                    document.getElementById("score4").innerText = "here2";
                     outputDiv.textContent += ` ${transcript}`;
-
+                    document.getElementById("score4").innerText = "here3";
                     // Strip everything except digits
                     const scorestext = outputDiv.textContent.replace(/\D/g, "");
-
+                    document.getElementById("score4").innerText = "here4";
                     // If we have exactly 18 digits, map them to the 18 holes
                     if (scorestext.length === 18) {
                         for (let hole = 1; hole <= 18; hole++) {
