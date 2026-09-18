@@ -1407,13 +1407,25 @@
                 
                 
                 
-                        recognition.lang = LANG;
+                        //recognition.lang = LANG;
+                        // Configure settings
+      recognition.continuous = true;    // Keep listening continuously
+      recognition.interimResults = false; // Only trigger on final recognized chunks
+      recognition.lang = 'en-US';       // Match language
+    
+                            
+                            
+                            
+                            
+                            
+                            
 
                         recognition.onresult = (event) => {
                                 const transcript = event.results[0][0].transcript;
                                 outputDiv.textContent += ` ${transcript}`;
                                 // addition by me
                                 var scorestext = outputDiv.textContent.replace(/\D/g, "");
+                            if (scorestext.length ==18){
                                 document.getElementById("strokes1").innerText = scorestext.slice(0, 1);
                                 document.getElementById("strokes2").innerText = scorestext.slice(1, 2);
                                 document.getElementById("strokes3").innerText = scorestext.slice(2, 3);
@@ -1433,7 +1445,7 @@
                                 document.getElementById("strokes16").innerText = scorestext.slice(15, 16);
                                 document.getElementById("strokes17").innerText = scorestext.slice(16, 17);
                                 document.getElementById("strokes18").innerText = scorestext.slice(17, 18);
-                                
+                            }
                         };
 
                         recognition.onstart = () => (startButton.textContent = "Listening...");
