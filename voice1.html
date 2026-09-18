@@ -1408,9 +1408,9 @@
                         // Update calculation totals
                         if (typeof totalScores === "function") totalScores();
                     }
-*/
-                };
 
+                };
+*/
                 recognition.onstart = () => (startButton.textContent = "Listening...");
                 recognition.onend = () => (startButton.textContent = "speak");
                 startButton.addEventListener("click", () => recognition.start());
