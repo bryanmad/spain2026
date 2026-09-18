@@ -1090,8 +1090,8 @@
             <table class="table" border="0" style="height: 85%; width: 100%">
                 <tbody>
                     <tr>
-                        <td colspan="3" id="startButton" onclick="numberScore(this.id)">Speak</td>
-                        <td colspan="3" id="clear" onclick="numberScore(this.id)">clear</td>
+                        <td colspan="3" id="startButton" onclick="submitForm()">speak</td>
+                        <td colspan="3" id="clear" onclick="resetInput()">clear</td>
                     </tr>
 
                     <tr>
@@ -1356,7 +1356,6 @@
                     if (scorestext.length === 18) {
                         for (let hole = 1; hole <= 18; hole++) {
                             const strokeEl = document.getElementById(`strokes${hole}`);
-
                             if (strokeEl) {
                                 strokeEl.innerText = scorestext.slice(hole - 1, hole);
                             }
@@ -1365,25 +1364,26 @@
 
                     // Testing / Setup stub (Make sure arrCourse, pointsCalc, and currenthole are defined globally elsewhere)
                     let hcp = "21";
-                    // Note: This loop will fail if arrCourse or pointsCalc are not defined in your wider script
+                    // This loop will fail if arrCourse or pointsCalc are not defined in your wider script
                     if (typeof arrCourse !== "undefined" && typeof pointsCalc !== "undefined") {
                         for (let eye = 1; eye <= 18; eye++) {
                             const holeScore = scorestext.slice(eye - 1, eye);
                             const pointsEl = document.getElementById("points" + eye);
-
                             if (pointsEl) {
                                 pointsEl.innerText = pointsCalc(hcp, arrCourse[eye][1], arrCourse[eye][2], holeScore);
                             }
                         }
                     }
+                    // update calc totals
+                    totalScores();
                 };
 
                 recognition.onstart = () => (startButton.textContent = "Listening...");
-                recognition.onend = () => (startButton.textContent = "Speak");
+                recognition.onend = () => (startButton.textContent = "speak");
                 startButton.addEventListener("click", () => recognition.start());
             } else {
                 console.error("Speech recognition is not supported in this browser.");
-                alert("Your browser does not support voice features. Please try Google Chrome or Microsoft Edge.");
+                alert("Your browser does not support voice features.");
             }
 
             function setupCourseMonday() {
