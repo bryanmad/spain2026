@@ -1374,11 +1374,11 @@
                 // Note: This loop will fail if arrCourse or pointsCalc are not defined in your wider script
                 if (typeof arrCourse !== "undefined" && typeof pointsCalc !== "undefined") {
                     for (let eye = 1; eye <= 18; eye++) {
-                        // FIX: Removed syntax error (misplaced semicolon inside pointsCalc arguments)
                         const holeScore = scorestext.slice(eye - 1, eye);
                         const pointsEl = document.getElementById("points" + eye);
 
                         if (pointsEl) {
+                            alert(hcp + arrCourse[eye][1] + arrCourse[eye][2] + holeScore);
                             pointsEl.innerText = pointsCalc(hcp, arrCourse[eye][1], arrCourse[eye][2], holeScore);
                         }
                     }
