@@ -1341,6 +1341,13 @@
                 recognition.interimResults = false;
                 recognition.lang = "en-US";
                 document.getElementById("score4").innerText = "just before event";
+
+                recognition.onresult = (event) => {
+                    let transcript = "";
+                    transcript += event.results[i][0].transcript;
+                    document.getElementById("score4").innerText = transcript;
+                };
+
                 /*
                 recognition.onresult = (event) => {
                     document.getElementById("score4").innerText = "in event";
@@ -1372,12 +1379,8 @@
                     }
                     
                     */
-                    
-                    
-                    
-                    
-                    
-                    /*
+
+                /*
                     // Only update the DOM if we hit one of our 9 or 18 digit targets
                     if (startHole > 0) {
                         for (let hole = startHole; hole <= endHole; hole++) {
