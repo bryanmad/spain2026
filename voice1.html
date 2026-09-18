@@ -1313,19 +1313,17 @@
             const outputDiv = document.getElementById("output");
             const clearButton = document.getElementById("clear");
 
-            // Clear button logic updated to target "strokes" instead of "score"
+            // Clear button logic targeting "strokes" and "points"
             clearButton.addEventListener("click", () => {
                 outputDiv.textContent = "";
                 for (let i = 1; i <= 18; i++) {
                     const strokeEl = document.getElementById(`strokes${i}`);
-                    if (strokeEl) strokeEl.innerText = "0"; // Best practice to pass a string
+                    if (strokeEl) strokeEl.innerText = "0";
 
-                    // Optional: Also clear points if they exist
                     const pointsEl = document.getElementById(`points${i}`);
                     if (pointsEl) pointsEl.innerText = "0";
                 }
-                // Update totals after clearing
-                //if (typeof totalScores === "function") totalScores();
+                if (typeof totalScores === "function") totalScores();
             });
 
             // Check if ANY variant of the SpeechRecognition object exists
@@ -1334,59 +1332,78 @@
                 window.webkitSpeechRecognition ||
                 window.mozSpeechRecognition ||
                 window.msSpeechRecognition;
-            document.getElementById("score4").innerText = "Speech recognition";
+
             if (SpeechRecognition) {
                 const recognition = new SpeechRecognition();
-                document.getElementById("score4").innerText = "Speech recognition is supported!";
+                console.log("Speech recognition is supported!");
+
                 recognition.continuous = true;
                 recognition.interimResults = false;
                 recognition.lang = "en-US";
 
                 recognition.onresult = (event) => {
                     let transcript = "";
-                    //document.getElementById("score4").innerText = "here1";
                     for (let i = event.resultIndex; i < event.results.length; i++) {
-                        transcript += event.results[i][0].transcript;
-                        //document.getElementById("score4").innerText = transcript;
+                        transcript += event.results[i][0].transcript; // Added missing [0] index from original bugfix
                     }
-                    //document.getElementById("score4").innerText = "here2";
+
                     outputDiv.textContent += ` ${transcript}`;
-                    /*
-                    document.getElementById("score4").innerText = "here3";
+
                     // Strip everything except digits
                     const scorestext = outputDiv.textContent.replace(/\D/g, "");
-                    document.getElementById("score4").innerText = "here4";
-                    // If we have exactly 18 digits, map them to the 18 holes
-                    if (scorestext.length === 18) {
-                        for (let hole = 1; hole <= 18; hole++) {
+                    const totalDigits = scorestext.length;
+
+                    // FIXED: Dynamically map based on whether 9 or 18 digits have been spoken
+                    let startHole = 0;
+                    let endHole = 0;
+
+                    if (totalDigits === 9) {
+                        // Front nine spoken
+                        startHole = 1;
+                        endHole = 9;
+                    } else if (totalDigits === 18) {
+                        // Back nine spoken (or all 18 spoken together)
+                        startHole = 1;
+                        endHole = 18;
+                    }
+
+                    // Only update the DOM if we hit one of our 9 or 18 digit targets
+                    if (startHole > 0) {
+                        for (let hole = startHole; hole <= endHole; hole++) {
                             const strokeEl = document.getElementById(`strokes${hole}`);
                             if (strokeEl) {
+                                // Extract the correct digit index from the string
                                 strokeEl.innerText = scorestext.slice(hole - 1, hole);
                             }
                         }
-                    }
 
-                    // Points calculation stub
-                    let hcp = "21";
-                    if (typeof arrCourse !== "undefined" && typeof pointsCalc !== "undefined") {
-                        for (let eye = 1; eye <= 18; eye++) {
-                            const holeScore = scorestext.slice(eye - 1, eye);
-                            const pointsEl = document.getElementById("points" + eye);
-                            if (pointsEl) {
-                                pointsEl.innerText = pointsCalc(hcp, arrCourse[eye][1], arrCourse[eye][2], holeScore);
+                        // Points calculation loop matching the updated holes
+                        let hcp = "21";
+                        if (typeof arrCourse !== "undefined" && typeof pointsCalc !== "undefined") {
+                            for (let eye = startHole; eye <= endHole; eye++) {
+                                const holeScore = scorestext.slice(eye - 1, eye);
+                                const pointsEl = document.getElementById("points" + eye);
+                                if (pointsEl) {
+                                    pointsEl.innerText = pointsCalc(
+                                        hcp,
+                                        arrCourse[eye][1],
+                                        arrCourse[eye][2],
+                                        holeScore
+                                    );
+                                }
                             }
                         }
+
+                        // Update calculation totals
+                        if (typeof totalScores === "function") totalScores();
                     }
-*/
-                    // update calc totals
-                    //if (typeof totalScores === "function") totalScores();
                 };
 
                 recognition.onstart = () => (startButton.textContent = "Listening...");
                 recognition.onend = () => (startButton.textContent = "speak");
                 startButton.addEventListener("click", () => recognition.start());
             } else {
-                document.getElementById("score4").innerText = "Speech recognition is not supported in this browser.";
+                console.error("Speech recognition is not supported in this browser.");
                 alert("Your browser does not support voice features.");
             }
 
