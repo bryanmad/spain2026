@@ -1096,7 +1096,7 @@
 
                     <tr>
                         <td colspan="6" id="score7" onclick="numberScore(this.id)">
-                            <div id="output" contenteditable="true"></div>
+                            <div id="output"></div>
                         </td>
                     </tr>
                     <tr>
@@ -1323,7 +1323,7 @@
                     const pointsEl = document.getElementById(`points${i}`);
                     if (pointsEl) pointsEl.innerText = "0";
                 }
-                if (typeof totalScores === "function") totalScores();
+                //        if (typeof totalScores === "function") totalScores();
             });
 
             // Check if ANY variant of the SpeechRecognition object exists
@@ -1336,24 +1336,27 @@
             if (SpeechRecognition) {
                 const recognition = new SpeechRecognition();
                 console.log("Speech recognition is supported!");
-
+                document.getElementById("score4").innerText = "Speech recognition is supported!";
                 recognition.continuous = true;
                 recognition.interimResults = false;
                 recognition.lang = "en-US";
 
                 recognition.onresult = (event) => {
+                    document.getElementById("score4").innerText = "in event";
                     let transcript = "";
                     for (let i = event.resultIndex; i < event.results.length; i++) {
-                        transcript += event.results[i][0].transcript; // Added missing [0] index from original bugfix
+                        transcript += event.results[i][0].transcript;
+                        // Added missing [0] index from original bugfix
+                        document.getElementById("score4").innerText = "in loop 1";
                     }
 
                     outputDiv.textContent += ` ${transcript}`;
-
+                    document.getElementById("score4").innerText = transcript;
                     // Strip everything except digits
                     const scorestext = outputDiv.textContent.replace(/\D/g, "");
                     const totalDigits = scorestext.length;
 
-                    // FIXED: Dynamically map based on whether 9 or 18 digits have been spoken
+                    // Dynamically map based on whether 9 or 18 digits have been spoken
                     let startHole = 0;
                     let endHole = 0;
 
