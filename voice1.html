@@ -1356,6 +1356,10 @@
                     if (scorestext.length === 18) {
                         for (let hole = 1; hole <= 18; hole++) {
                             const strokeEl = document.getElementById(`strokes${hole}`);
+
+                            //testing
+                            strokeEl.innerText = "X";
+
                             if (strokeEl) {
                                 strokeEl.innerText = scorestext.slice(hole - 1, hole);
                             }
