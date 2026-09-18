@@ -1344,8 +1344,10 @@
 
                 recognition.onresult = (event) => {
                     let transcript = "";
-                    transcript += event.results[0][0].transcript;
+                    for (let i = 1, i<=9, i++){
+                    transcript += event.results[i][0].transcript;
                     document.getElementById("score4").innerText = transcript;
+                    }
                 };
 
                 /*
