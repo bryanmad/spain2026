@@ -1348,6 +1348,7 @@
                     let transcript = "";
                     for (let i = event.resultIndex; i < event.results.length; i++) {
                         transcript += event.results[i][0].transcript;
+                        document.getElementById("score4").innerText = transcript;
                     }
 
                     outputDiv.textContent += ` ${transcript}`;
@@ -1385,7 +1386,7 @@
                 recognition.onend = () => (startButton.textContent = "speak");
                 startButton.addEventListener("click", () => recognition.start());
             } else {
-                console.error("Speech recognition is not supported in this browser.");
+                document.getElementById("score4").innerText = "Speech recognition is not supported in this browser.";
                 alert("Your browser does not support voice features.");
             }
 
