@@ -1365,8 +1365,6 @@
 
                     // Testing / Setup stub (Make sure arrCourse, pointsCalc, and currenthole are defined globally elsewhere)
                     let hcp = "21";
-                    console.log("testing");
-                    alert(typeof arrCourse + " " + typeof pointsCalc);
                     // Note: This loop will fail if arrCourse or pointsCalc are not defined in your wider script
                     if (typeof arrCourse !== "undefined" && typeof pointsCalc !== "undefined") {
                         for (let eye = 1; eye <= 18; eye++) {
@@ -1374,11 +1372,7 @@
                             const pointsEl = document.getElementById("points" + eye);
 
                             if (pointsEl) {
-                                alert(holeScore);
-                                pointsEl.innerText = "Y";
-                                //pointsEl.innerText = pointsCalc(hcp, arrCourse[eye][1], arrCourse[eye][2], holeScore);
-                            } else {
-                                alert((pointsEl.innerText = "X"));
+                                pointsEl.innerText = pointsCalc(hcp, arrCourse[eye][1], arrCourse[eye][2], holeScore);
                             }
                         }
                     }
