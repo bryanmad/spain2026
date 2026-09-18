@@ -1357,9 +1357,6 @@
                         for (let hole = 1; hole <= 18; hole++) {
                             const strokeEl = document.getElementById(`strokes${hole}`);
 
-                            //testing
-                            strokeEl.innerText = "X";
-
                             if (strokeEl) {
                                 strokeEl.innerText = scorestext.slice(hole - 1, hole);
                             }
@@ -1383,7 +1380,10 @@
 
                         if (pointsEl) {
                             alert(hcp + arrCourse[eye][1] + arrCourse[eye][2] + holeScore);
+                            pointsEl.innerText = "Y";
                             pointsEl.innerText = pointsCalc(hcp, arrCourse[eye][1], arrCourse[eye][2], holeScore);
+                        } else {
+                            pointsEl.innerText = "X";
                         }
                     }
                 }
