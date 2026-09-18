@@ -1342,12 +1342,12 @@
                 recognition.lang = "en-US";
                 document.getElementById("score4").innerText = "just before event";
 
-                recognition.onresult = (event) => {
-                    let transcript = "";
-                    for (let i = 1, i<=9, i++){
-                    transcript += event.results[i][0].transcript;
-                    document.getElementById("score4").innerText = transcript;
-                    }
+              
+                    recognition.onresult = (event) => {
+  const speechText = event.results[0][0].transcript;
+  document.getElementById("score4").innerText = speechText;
+};
+             
                 };
 
                 /*
