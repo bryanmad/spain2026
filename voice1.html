@@ -1344,12 +1344,12 @@
 
                 recognition.onresult = (event) => {
                     let transcript = "";
-                    document.getElementById("score4").innerText = "here1";
+                    //document.getElementById("score4").innerText = "here1";
                     for (let i = event.resultIndex; i < event.results.length; i++) {
                         transcript += event.results[i][0].transcript;
-                        document.getElementById("score4").innerText = transcript;
+                        //document.getElementById("score4").innerText = transcript;
                     }
-                    document.getElementById("score4").innerText = "here2";
+                    //document.getElementById("score4").innerText = "here2";
                     outputDiv.textContent += ` ${transcript}`;
                     /*
                     document.getElementById("score4").innerText = "here3";
