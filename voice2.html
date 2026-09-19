@@ -1,151 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-        <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Speech Recognition - 18 Single Digits</title>
-                <style>
-                        body {
-                                font-family: Arial, sans-serif;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: center;
-                                height: 100vh;
-                                margin: 0;
-                                background-color: #f4f4f9;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Digit Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        #display-box {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            min-height: 50px;
+            margin-top: 20px;
+            word-break: break-all;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        #status {
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="start-btn">Start Listening</button>
+    <div id="status">Click the button and say single-digit numbers.</div>
+    
+    <!-- The div element that will be updated with each value -->
+    <div id="display-box"></div>
+
+    <script>
+        // Set up cross-browser support
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            alert("Your browser does not support the Web Speech API. Please try Google Chrome.");
+        } else {
+            const recognition = new SpeechRecognition();
+            
+            // Configure recognition rules
+            recognition.continuous = true;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            const startBtn = document.getElementById('start-btn');
+            const statusText = document.getElementById('status');
+            const displayBox = document.getElementById('display-box');
+
+            let digitCount = 0;
+            const targetDigits = 18;
+
+            // Map verbal names to actual single digits
+            const numberMap = {
+                'zero': '0', 'oh': '0', 'one': '1', 'two': '2', 'to': '2', 'too': '2', 
+                'three': '3', 'four': '4', 'for': '4', 'five': '5', 'six': '6', 
+                'seven': '7', 'eight': '8', 'ate': '8', 'nine': '9'
+            };
+
+            startBtn.addEventListener('click', () => {
+                digitCount = 0;
+                displayBox.textContent = '';
+                statusText.textContent = "Listening for 18 digits... Speak clearly.";
+                recognition.start();
+            });
+
+            recognition.onresult = (event) => {
+                // Get the latest transcript segment
+                const currentResultIndex = event.resultIndex;
+                const transcript = event.results[currentResultIndex][0].transcript.trim().toLowerCase();
+                
+                // Split words in case multiple numbers were stated in a single breath
+                const words = transcript.split(/\s+/);
+
+                for (let word of words) {
+                    if (digitCount >= targetDigits) break;
+
+                    let digit = '';
+
+                    // Check if it's already a numeric character (e.g. "7")
+                    if (/^[0-9]\$/.test(word)) {
+                        digit = word;
+                    } 
+                    // Check if it's a homophone or spoken word mapped to a digit
+                    else if (numberMap[word] !== undefined) {
+                        digit = numberMap[word];
+                    }
+
+                    // If a valid single digit was found, append it to the div
+                    if (digit !== '') {
+                        displayBox.textContent += (displayBox.textContent ? ' ' : '') + digit;
+                        digitCount++;
+                        
+                        if (digitCount >= targetDigits) {
+                            statusText.textContent = `Completed! Captured ${targetDigits} digits.`;
+                            recognition.stop();
+                            break;
                         }
-                        #display {
-                                font-size: 4rem;
-                                font-weight: bold;
-                                color: #333;
-                                margin: 20px;
-                                padding: 20px;
-                                border: 2px solid #ccc;
-                                border-radius: 10px;
-                                background: #fff;
-                                min-width: 200px;
-                                text-align: center;
-                        }
-                        #status {
-                                font-size: 1.2rem;
-                                color: #666;
-                        }
-                        button {
-                                padding: 10px 20px;
-                                font-size: 1rem;
-                                cursor: pointer;
-                                border: none;
-                                background-color: #007bff;
-                                color: white;
-                                border-radius: 5px;
-                        }
-                        button:disabled {
-                                background-color: #ccc;
-                        }
-                </style>
-        </head>
-        <body>
-                <button id="start-btn">Start Listening</button>
-                <div id="display">-</div>
-                <div id="status">Click "Start Listening" and speak single digits (0-9).</div>
+                    }
+                }
+            };
 
-                <script>
-                        const startBtn = document.getElementById("start-btn");
-                        const displayDiv = document.getElementById("display");
-                        const statusDiv = document.getElementById("status");
+            recognition.onerror = (event) => {
+                statusText.textContent = `Error occurred: ${event.error}`;
+            };
 
-                        // Map word numbers to digits just in case the API returns text words
-                        const numberMap = {
-                                zero: 0,
-                                one: 1,
-                                two: 2,
-                                three: 3,
-                                four: 4,
-                                five: 5,
-                                six: 6,
-                                seven: 7,
-                                eight: 8,
-                                nine: 9
-                        };
-
-                        let digitCount = 0;
-                        const targetCount = 18;
-
-                        // Check for browser support
-                        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-                        if (!SpeechRecognition) {
-                                statusDiv.textContent =
-                                        "Speech Recognition API is not supported in this browser. Try Chrome or Edge.";
-                                startBtn.disabled = true;
-                        } else {
-                                const recognition = new SpeechRecognition();
-                                recognition.continuous = true;
-                                recognition.interimResults = false;
-                                recognition.lang = "en-US";
-
-                                startBtn.addEventListener("click", () => {
-                                        digitCount = 0;
-                                        displayDiv.textContent = "-";
-                                        statusDiv.textContent = "Listening for 18 digits... Speak clearly.";
-                                        startBtn.disabled = true;
-                                        recognition.start();
-                                });
-
-                                recognition.onresult = (event) => {
-                                        // Get the latest result
-                                        const latestResultIndex = event.results.length - 1;
-                                        const transcript = event.results[latestResultIndex][0].transcript
-                                                .trim()
-                                                .toLowerCase();
-
-                                        // Process words or digits
-                                        let cleanValue = transcript.replace(/\D/g, ""); // Clear punctuation
-
-                                        let detectedDigit = null;
-                                        if (numberMap[cleanValue] !== undefined) {
-                                                detectedDigit = numberMap[cleanValue];
-                                        } else {
-                                                detectedDigit = parseInt(cleanValue, 10);
-                                        }
-
-                                        // test
-                                        statusDiv.textContent =
-                                                "received: " + transcript + "#" + cleanValue + "#" + detectedDigit;
-
-                                        // If it's a valid single digit, update the UI
-                                        if (detectedDigit !== null) {
-                                                digitCount++;
-                                                displayDiv.textContent = detectedDigit;
-                                                statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
-
-                                                if (digitCount >= targetCount) {
-                                                        statusDiv.textContent = `Finished! Successfully captured ${targetCount} single digits.`;
-                                                        recognition.stop();
-                                                        startBtn.disabled = false;
-                                                }
-                                        }
-                                };
-
-                                recognition.onerror = (event) => {
-                                        console.error("Speech recognition error", event.error);
-                                        if (event.error === "no-speech") {
-                                                statusDiv.textContent = "No speech detected. Still listening...";
-                                        } else {
-                                                statusDiv.textContent = `Error: ${event.error}. Restarting...`;
-                                                startBtn.disabled = false;
-                                                recognition.stop();
-                                        }
-                                };
-
-                                recognition.onend = () => {
-                                        // Keep listening if we haven't reached 18 digits yet and it closed unexpectedly
-                                        if (digitCount < targetCount && !startBtn.disabled) {
-                                                recognition.start();
-                                        }
-                                };
-                        }
-                </script>
-        </body>
+            recognition.onend = () => {
+                if (digitCount < targetDigits) {
+                    statusText.textContent = "Stopped early. Click 'Start Listening' to retry.";
+                }
+            };
+        }
+    </script>
+</body>
 </html>
