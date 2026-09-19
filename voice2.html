@@ -111,7 +111,8 @@
                                         }
 
                                         // test
-                                        statusDiv.textContent = "received: " + transcript + " " + detectedDigit;
+                                        statusDiv.textContent =
+                                                "received: " + transcript + "#" + cleanValue + "#" + detectedDigit;
 
                                         // If it's a valid single digit, update the UI
                                         if (detectedDigit !== null) {
