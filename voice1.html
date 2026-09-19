@@ -1390,12 +1390,15 @@
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
                         recognition.start();
+                    } else {
+                        for (eye = 1; eye <= 18; eye++) {
+                            document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(
+                                eye - 1,
+                                eye
+                            );
+                        }
                     }
                 };
-
-                for (eye = 1; eye <= 18; eye++) {
-                    document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(eye - 1, eye);
-                }
             }
 
             function setupCourseMonday() {
