@@ -106,7 +106,7 @@
                                         let detectedDigit = null;
                                         if (numberMap[cleanValue] !== undefined) {
                                                 detectedDigit = numberMap[cleanValue];
-                                        } else if (/^\d\$/.test(cleanValue)) {
+                                        } else if (/^\d$/.test(cleanValue)) {
                                                 detectedDigit = parseInt(cleanValue, 10);
                                         }
 
