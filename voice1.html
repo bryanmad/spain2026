@@ -1104,11 +1104,6 @@
                     </tr>
                 </tbody>
             </table>
-
-            <div id="start-btn"></div>
-            <div id="display"></div>
-            <div id="status"></div>
-            <div id="status2"></div>
         </div>
         <!--end of front 9 -->
 
@@ -1314,10 +1309,9 @@
             //================================================================================= // this runs the
             // speech to text bit
             //=================================================================================
-            const startBtn = document.getElementById("start-btn");
-            const displayDiv = document.getElementById("display");
-            const statusDiv = document.getElementById("status");
-            const statusDiv2 = document.getElementById("status2");
+            const startBtn = document.getElementById("startButton");
+            const displayDiv = document.getElementById("score4");
+
 
             // Map word numbers to digits just in case the API returns text words
             const numberMap = {
@@ -1340,8 +1334,8 @@
             // Check for browser support
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (!SpeechRecognition) {
-                statusDiv.textContent =
-                "Speech Recognition API is not supported in this browser. Try Chrome or Edge.";
+                //statusDiv.textContent =
+                //"Speech Recognition API is not supported in this browser. Try Chrome or Edge.";
                 startBtn.disabled = true;
             } else {
                 const recognition = new SpeechRecognition();
@@ -1373,10 +1367,10 @@
                     let cleanTranscript = transcriptFirstCheck.replace(/\D/g, "");
                     // Append new digits to a global tracker (accumulatedDigits)
                     accumulatedDigits += cleanTranscript;
-                    statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
+                    //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
                     displayDiv.textContent = accumulatedDigits;
                     if (accumulatedDigits.length >= targetCount) {
-                        statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
+                        //statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
                         isRunning = false;
                         recognition.stop();
                         startBtn.disabled = false;
@@ -1386,9 +1380,9 @@
                 recognition.onerror = (event) => {
                     console.error("Speech recognition error", event.error);
                     if (event.error === "no-speech") {
-                        statusDiv.textContent = "No speech detected. Still listening...";
+                        //statusDiv.textContent = "No speech detected. Still listening...";
                     } else {
-                        statusDiv.textContent = `Error: ${event.error}.`;
+                        //statusDiv.textContent = `Error: ${event.error}.`;
                         // If it's a critical error, stop attempting to auto-restart
                         if (event.error === "not-allowed" || event.error === "audio-capture") {
                             isRunning = false;
@@ -1399,7 +1393,7 @@
                 recognition.onend = () => {
                     // If it ended automatically but not reached 18 digits yet, restart it
                     if (isRunning && accumulatedDigits.length < targetCount) {
-                        statusDiv.textContent = "Resuming listening...";
+                        //statusDiv.textContent = "Resuming listening...";
                         recognition.start();
                     }
                 };
