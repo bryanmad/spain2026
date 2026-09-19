@@ -1391,6 +1391,7 @@
                         //statusDiv.textContent = "Resuming listening...";
                         recognition.start();
                     } else {
+                        alert(cleanTranscript.substring(eye - 1, eye));
                         for (eye = 1; eye <= 18; eye++) {
                             document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(
                                 eye - 1,
