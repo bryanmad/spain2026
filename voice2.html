@@ -100,11 +100,11 @@
                                                 .trim()
                                                 .toLowerCase();
 
-                                        // test
-                                        statusDiv.textContent = "received: " + transcript;
-
                                         // Process words or digits
                                         let cleanValue = transcript.replace(/\D/g, ""); // Clear punctuation
+
+                                        // test
+                                        statusDiv.textContent = "received: " + transcript + " " + cleanValue;
 
                                         let detectedDigit = null;
                                         if (numberMap[cleanValue] !== undefined) {
