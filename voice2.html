@@ -100,8 +100,11 @@
                                                 .trim()
                                                 .toLowerCase();
 
+                                        // test
+                                        statusDiv.textContent = "received: " + transcript;
+
                                         // Process words or digits
-                                        let cleanValue = transcript.replace(/[^a-z0-9]/g, ""); // Clear punctuation
+                                        let cleanValue = transcript.replace(/\D/g, ""); // Clear punctuation
 
                                         let detectedDigit = null;
                                         if (numberMap[cleanValue] !== undefined) {
