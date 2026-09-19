@@ -1365,12 +1365,12 @@
                     accumulatedDigits += cleanTranscript;
                     //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
                     displayDiv.textContent = accumulatedDigits;
-                    doScoring();
                     if (accumulatedDigits.length >= targetCount) {
                         //statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
                         isRunning = false;
                         recognition.stop();
                         startBtn.disabled = false;
+                        doScoring();
                     }
                 };
 
