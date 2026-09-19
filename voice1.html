@@ -1330,6 +1330,7 @@
             let accumulatedDigits = ""; // Global state to track accumulated digits across sessions
             let isRunning = false; // Explicit flag to track if we want recognition active
             var cleanTranscript = "";
+            var accumulatedDigits = "";
 
             // Check for browser support
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1364,7 +1365,7 @@
                     accumulatedDigits += cleanTranscript;
                     //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
                     displayDiv.textContent = accumulatedDigits;
-
+                    doScoring();
                     if (accumulatedDigits.length >= targetCount) {
                         //statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
                         isRunning = false;
@@ -1397,7 +1398,7 @@
 
             function doScoring() {
                 for (eye = 1; eye <= 18; eye++) {
-                    document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(eye - 1, eye);
+                    document.getElementById("strokes" + eye).innerText = accumulatedDigits.substring(eye - 1, eye);
                 }
             }
 
