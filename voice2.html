@@ -52,109 +52,102 @@
                 <div id="status">Click "Start Listening" and speak single digits (0-9).</div>
                 <div id="status2">none</div>
                 <script>
-                                                const startBtn = document.getElementById("start-btn");
-                                                const displayDiv = document.getElementById("display");
-                                                const statusDiv = document.getElementById("status");
-                                                const statusDiv2 = document.getElementById("status2");
-                                                // Map word numbers to digits just in case the API returns text words
-                                                const numberMap = {
-                                                        zero: 0,
-                                                        one: 1,
-                                                        two: 2,
-                                                        three: 3,
-                                                        four: 4,
-                                                        five: 5,
-                                                        six: 6,
-                                                        seven: 7,
-                                                        eight: 8,
-                                                        nine: 9
-                                                };
+                        const startBtn = document.getElementById("start-btn");
+                        const displayDiv = document.getElementById("display");
+                        const statusDiv = document.getElementById("status");
+                        const statusDiv2 = document.getElementById("status2");
+                        // Map word numbers to digits just in case the API returns text words
+                        const numberMap = {
+                                zero: 0,
+                                one: 1,
+                                two: 2,
+                                three: 3,
+                                four: 4,
+                                five: 5,
+                                six: 6,
+                                seven: 7,
+                                eight: 8,
+                                nine: 9
+                        };
 
-                                                let digitCount = 0;
-                                                const targetCount = 18;
+                        let digitCount = 0;
+                        const targetCount = 18;
+                        // Check for browser support
+                        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                        if (!SpeechRecognition) {
+                                statusDiv.textContent =
+                                        "Speech Recognition API is not supported in this browser. Try Chrome or Edge.";
+                                startBtn.disabled = true;
+                        } else {
+                                const recognition = new SpeechRecognition();
+                                recognition.continuous = true; // allows speaking at any pace
+                                recognition.interimResults = false; // returns final text that will not change
+                                recognition.lang = "en-US";
+                                startBtn.addEventListener("click", () => {
+                                        digitCount = 0;
+                                        displayDiv.textContent = "-";
+                                        statusDiv.textContent = "Listening for 18 digits";
+                                        startBtn.disabled = true;
+                                        recognition.start();
+                                });
 
-                                                // Check for browser support
-                                                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                                recognition.onresult = (event) => {
+                                        // Get the latest result
+                                        const latestResultIndex = event.results.length - 1;
+                                        // transcript is the whole spoken bit ie. all 18 holes
+                                        const transcript = event.results[latestResultIndex][0].transcript
+                                                .trim()
+                                                .toLowerCase();
+                                        //alert(transcript);
+                                        // 1. Create a regex pattern from the object keys: /zero|one|two|...|nine/g
+                                        const pattern = new RegExp(Object.keys(numberMap).join("|"), "g");
 
-                                                if (!SpeechRecognition) {
-                                                        statusDiv.textContent =
-                                                                "Speech Recognition API is not supported in this browser. Try Chrome or Edge.";
-                                                        startBtn.disabled = true;
-                                                } else {
-                                                        const recognition = new SpeechRecognition();
-                                                        recognition.continuous = true; // allows speaking at any pace
-                                                        recognition.interimResults = false; // returns final text that will not change
-                                                        recognition.lang = "en-US";
+                                        // 2. Perform the replacement
+                                        //const inputString = "I have one dog, two cats, and zero fish.";
+                                        const transcriptFirstCheck = transcript.replace(
+                                                pattern,
+                                                (match) => numberMap[match]
+                                        );
 
-                                                        startBtn.addEventListener("click", () => {
-                                                                digitCount = 0;
-                                                                displayDiv.textContent = "-";
-                                                                statusDiv.textContent = "Listening for 18 digits";
-                                                                startBtn.disabled = true;
-                                                                recognition.start();
-                                                        });
+                                        statusDiv2.textContent = transcriptFirstCheck;
+                                        // Process words or digits
+                                        // Clear punctuation, spaces etc.
+                                        // cleanTranscript is the tidy version of transcript
+                                        let cleanTranscript = transcriptFirstCheck.replace(/\D/g, "");
+                                        // test
+                                        statusDiv2.textContent = "received: " + cleanTranscript;
+                                        // If it's a valid single digit, update the UI
+                                        //if (detectedDigit !== null) {
+                                        //        digitCount++;
+                                        displayDiv.textContent = cleanTranscript;
+                                        //statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
+                                        // test
+                                        //statusDiv2.textContent = "len = " + digitCount;
+                                        if (cleanTranscript.length >= 18) {
+                                                statusDiv.textContent = `Finished! Successfully captured 18 single digits.`;
+                                                recognition.stop();
+                                                startBtn.disabled = false;
+                                        }
+                                };
 
-                                                        recognition.onresult = (event) => {
-                                                                // Get the latest result
-                                                                const latestResultIndex = event.results.length - 1;
-                                                                // transcript is the whole spoken bit ie. all 18 holes
-                                                                const transcript = event.results[latestResultIndex][0].transcript
-                                                                        .trim()
-                                                                        .toLowerCase();
-                                                                //alert(transcript);
+                                recognition.onerror = (event) => {
+                                        console.error("Speech recognition error", event.error);
+                                        if (event.error === "no-speech") {
+                                                statusDiv.textContent = "No speech detected. Still listening...";
+                                        } else {
+                                                statusDiv.textContent = `Error: ${event.error}. Restarting...`;
+                                                startBtn.disabled = false;
+                                                recognition.stop();
+                                        }
+                                };
 
-                        // 1. Create a regex pattern from the object keys: /zero|one|two|...|nine/g
-                        const pattern = new RegExp(Object.keys(numberMap).join('|'), 'g');
-
-                        // 2. Perform the replacement
-                        //const inputString = "I have one dog, two cats, and zero fish.";
-                        const transcriptFirstCheck = transcript.replace(pattern, (match) => numberMap[match]);
-
-
-                                                                statusDiv2.textContent = transcriptFirstCheck;
-                                                                // Process words or digits
-                                                                // Clear punctuation, spaces etc.
-                                                                // cleanTranscript is the tidy version of transcript
-                                                                let cleanTranscript = transcriptFirstCheck.replace(/\D/g, "");
-
-                                                                // test
-                                                                statusDiv2.textContent = "received: " + cleanTranscript;
-
-                                                                // If it's a valid single digit, update the UI
-                                                                //if (detectedDigit !== null) {
-                                                                //        digitCount++;
-                                                                        displayDiv.textContent = cleanTranscript;
-                                                                        //statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
-
-                                                                        // test
-                                                                        //statusDiv2.textContent = "len = " + digitCount;
-
-                                                                        if (cleanTranscript.length >= 18) {
-                                                                                statusDiv.textContent = `Finished! Successfully captured 18 single digits.`;
-                                                                                recognition.stop();
-                                                                                startBtn.disabled = false;
-                                                                        }
-                                                                }
-                                                        };
-
-                                                        recognition.onerror = (event) => {
-                                                                console.error("Speech recognition error", event.error);
-                                                                if (event.error === "no-speech") {
-                                                                        statusDiv.textContent = "No speech detected. Still listening...";
-                                                                } else {
-                                                                        statusDiv.textContent = `Error: ${event.error}. Restarting...`;
-                                                                        startBtn.disabled = false;
-                                                                        recognition.stop();
-                                                                }
-                                                        };
-
-                                                        recognition.onend = () => {
-                                                                // Keep listening if we haven't reached 18 digits yet and it closed unexpectedly
-                                                                if (cleamTranscript.length < 18 && !startBtn.disabled) {
-                                                                        recognition.start();
-                                                                }
-                                                        };
-                                                }
+                                recognition.onend = () => {
+                                        // Keep listening if we haven't reached 18 digits yet and it closed unexpectedly
+                                        if (cleamTranscript.length < 18 && !startBtn.disabled) {
+                                                recognition.start();
+                                        }
+                                };
+                        }
                 </script>
         </body>
 </html>
