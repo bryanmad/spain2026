@@ -121,8 +121,9 @@
                                                 //statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
 
                                                 if (targetCount == 18) {
-                                                        statusDiv.textContent = `Finished! Successfully captured ${targetCount} single digits.`;
                                                         recognition.stop();
+                                                        statusDiv.textContent = `Finished! Successfully captured ${targetCount} single digits.`;
+                                                        //recognition.stop();
                                                         startBtn.disabled = false;
                                                 }
                                         }
