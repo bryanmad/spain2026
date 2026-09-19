@@ -100,11 +100,12 @@
                                         const transcript = event.results[latestResultIndex][0].transcript
                                                 .trim()
                                                 .toLowerCase();
-
+                                        statusDiv2.textContent = transcript;
                                         // Process words or digits
                                         // Clear punctuation, spaces etc.
                                         // cleanValue is the numbers entered so far
                                         let cleanValue = transcript.replace(/\D/g, "");
+
                                         let detectedDigit = null;
                                         if (numberMap[cleanValue] !== undefined) {
                                                 detectedDigit = numberMap[cleanValue];
@@ -113,7 +114,7 @@
                                         }
 
                                         // test
-                                        statusDiv2.textContent = "received: " + transcript + "#" + cleanValue;
+                                        //statusDiv2.textContent = "received: " + transcript + "#" + cleanValue;
 
                                         // If it's a valid single digit, update the UI
                                         if (detectedDigit !== null) {
