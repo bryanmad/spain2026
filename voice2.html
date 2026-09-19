@@ -100,6 +100,10 @@
                                         const transcript = event.results[latestResultIndex][0].transcript
                                                 .trim()
                                                 .toLowerCase();
+
+                                        alert(event.results);
+                                        alert(transcript);
+
                                         statusDiv2.textContent = transcript;
                                         // Process words or digits
                                         // Clear punctuation, spaces etc.
@@ -114,7 +118,7 @@
                                         }
 
                                         // test
-                                        //statusDiv2.textContent = "received: " + transcript + "#" + cleanValue;
+                                        statusDiv2.textContent = "received: " + detectedDigit;
 
                                         // If it's a valid single digit, update the UI
                                         if (detectedDigit !== null) {
