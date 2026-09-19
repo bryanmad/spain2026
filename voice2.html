@@ -27,7 +27,8 @@
                                 min-width: 200px;
                                 text-align: center;
                         }
-                        #status {
+                        #status,
+                        #status2 {
                                 font-size: 1.2rem;
                                 color: #666;
                         }
@@ -49,12 +50,12 @@
                 <button id="start-btn">Start Listening</button>
                 <div id="display">-</div>
                 <div id="status">Click "Start Listening" and speak single digits (0-9).</div>
-
+                <div id="status2">none</div>
                 <script>
                         const startBtn = document.getElementById("start-btn");
                         const displayDiv = document.getElementById("display");
                         const statusDiv = document.getElementById("status");
-
+                        const statusDiv2 = document.getElementById("status2");
                         // Map word numbers to digits just in case the API returns text words
                         const numberMap = {
                                 zero: 0,
@@ -81,14 +82,14 @@
                                 startBtn.disabled = true;
                         } else {
                                 const recognition = new SpeechRecognition();
-                                recognition.continuous = true;
-                                recognition.interimResults = false;
+                                recognition.continuous = true; // allows speaking at any pace
+                                recognition.interimResults = false; // returns final text that will not change
                                 recognition.lang = "en-US";
 
                                 startBtn.addEventListener("click", () => {
                                         digitCount = 0;
                                         displayDiv.textContent = "-";
-                                        statusDiv.textContent = "Listening for 18 digits... Speak clearly.";
+                                        statusDiv.textContent = "Listening for 18 digits";
                                         startBtn.disabled = true;
                                         recognition.start();
                                 });
@@ -101,8 +102,9 @@
                                                 .toLowerCase();
 
                                         // Process words or digits
-                                        let cleanValue = transcript.replace(/\D/g, ""); // Clear punctuation
-
+                                        // Clear punctuation, spaces etc.
+                                        // cleanValue is the numbers entered so far
+                                        let cleanValue = transcript.replace(/\D/g, "");
                                         let detectedDigit = null;
                                         if (numberMap[cleanValue] !== undefined) {
                                                 detectedDigit = numberMap[cleanValue];
@@ -111,8 +113,7 @@
                                         }
 
                                         // test
-                                        statusDiv.textContent =
-                                                "received: " + transcript + "#" + cleanValue + "#" + detectedDigit;
+                                        statusDiv2.textContent = "received: " + transcript + "#" + cleanValue;
 
                                         // If it's a valid single digit, update the UI
                                         if (detectedDigit !== null) {
