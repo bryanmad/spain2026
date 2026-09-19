@@ -106,10 +106,9 @@
                                         let detectedDigit = null;
                                         if (numberMap[cleanValue] !== undefined) {
                                                 detectedDigit = numberMap[cleanValue];
+                                        } else {
+                                                detectedDigit = parseInt(cleanValue, 10);
                                         }
-                                        //else {
-                                        //        detectedDigit = parseInt(cleanValue, 10);
-                                        //}
 
                                         // test
                                         statusDiv.textContent =
