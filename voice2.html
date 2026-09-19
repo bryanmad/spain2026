@@ -142,7 +142,7 @@
 
                                 recognition.onend = () => {
                                         // Keep listening if we haven't reached 18 digits yet and it closed unexpectedly
-                                        if (digitCount < targetCount && !startBtn.disabled) {
+                                        if (detectedDigit < 18 && !startBtn.disabled) {
                                                 recognition.start();
                                         }
                                 };
