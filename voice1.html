@@ -1312,19 +1312,18 @@
             const startBtn = document.getElementById("startButton");
             const displayDiv = document.getElementById("output");
 
-
             // Map word numbers to digits just in case the API returns text words
             const numberMap = {
-                    zero: 0,
-                    one: 1,
-                    two: 2,
-                    three: 3,
-                    four: 4,
-                    five: 5,
-                    six: 6,
-                    seven: 7,
-                    eight: 8,
-                    nine: 9
+                zero: 0,
+                one: 1,
+                two: 2,
+                three: 3,
+                four: 4,
+                five: 5,
+                six: 6,
+                seven: 7,
+                eight: 8,
+                nine: 9
             };
 
             const targetCount = 18;
@@ -1353,16 +1352,11 @@
 
                 recognition.onresult = (event) => {
                     const latestResultIndex = event.results.length - 1;
-                    const transcript = event.results[latestResultIndex][0].transcript
-                        .trim()
-                        .toLowerCase();
+                    const transcript = event.results[latestResultIndex][0].transcript.trim().toLowerCase();
                     // Create a regex pattern from the object keys
                     const pattern = new RegExp(Object.keys(numberMap).join("|"), "g");
                     // Perform the replacement
-                    const transcriptFirstCheck = transcript.replace(
-                        pattern,
-                        (match) => numberMap[match]
-                    );
+                    const transcriptFirstCheck = transcript.replace(pattern, (match) => numberMap[match]);
                     // Keep only digits from the transcriptFirstCheck
                     let cleanTranscript = transcriptFirstCheck.replace(/\D/g, "");
                     // Append new digits to a global tracker (accumulatedDigits)
@@ -1398,19 +1392,9 @@
                     }
                 };
 
-
-
-             for (eye=1; eye <=18,eye++){
-                document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(eye - 1,eye);
-             }
-
-
-
-
-
-
-
-
+                for (eye = 1; eye <= 18; eye++) {
+                    document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(eye - 1, eye);
+                }
             }
 
             function setupCourseMonday() {
