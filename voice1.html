@@ -1364,6 +1364,11 @@
                     accumulatedDigits += cleanTranscript;
                     //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
                     displayDiv.textContent = accumulatedDigits;
+
+                    for (eye = 1; eye <= 18; eye++) {
+                        document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(eye - 1, eye);
+                    }
+
                     if (accumulatedDigits.length >= targetCount) {
                         //statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
                         isRunning = false;
@@ -1390,14 +1395,6 @@
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
                         recognition.start();
-                    } else {
-                        alert(cleanTranscript.substring(eye - 1, eye));
-                        for (eye = 1; eye <= 18; eye++) {
-                            document.getElementById("strokes" + eye).innerText = cleanTranscript.substring(
-                                eye - 1,
-                                eye
-                            );
-                        }
                     }
                 };
             }
