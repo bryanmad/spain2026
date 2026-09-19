@@ -118,13 +118,13 @@
                                         if (detectedDigit !== null) {
                                                 digitCount++;
                                                 displayDiv.textContent = detectedDigit;
-                                                statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
+                                                //statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
 
-                                                if (digitCount >= targetCount) {
-                                                        statusDiv.textContent = `Finished! Successfully captured ${targetCount} single digits.`;
-                                                        recognition.stop();
-                                                        startBtn.disabled = false;
-                                                }
+                                                //if (digitCount >= targetCount) {
+                                                statusDiv.textContent = `Finished! Successfully captured ${targetCount} single digits.`;
+                                                recognition.stop();
+                                                startBtn.disabled = false;
+                                                //}
                                         }
                                 };
 
