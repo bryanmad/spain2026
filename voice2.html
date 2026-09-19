@@ -122,9 +122,9 @@
                                                 //statusDiv.textContent = `Digit ${digitCount} of ${targetCount} received.`;
 
                                                 // test
-                                                statusDiv2.textContent = "len = " + detectedDigit.length;
+                                                statusDiv2.textContent = "len = " + digitCount;
 
-                                                if (detectedDigit.length >= 18) {
+                                                if (digitCount >= 18) {
                                                         recognition.stop();
                                                         statusDiv.textContent = `Finished! Successfully captured ${detectedDigit} single digits.`;
                                                         //recognition.stop();
