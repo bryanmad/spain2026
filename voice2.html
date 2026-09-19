@@ -1,126 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-        <head>
-                <title>Voice to Text</title>
-                <style>
-                        * {
-                                font-size: 5vh;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognition - 18 Numbers Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        #number-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px dashed #bdc3c7;
+            max-width: 400px;
+            min-height: 50px;
+        }
+        #status {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Number Caller (18 Limit)</h1>
+    <p>Click "Start" and call out 18 numbers one by one.</p>
+    
+    <button id="start-btn">Start Listening</button>
+    
+    <!-- The div element updated with each value -->
+    <div id="number-display">Waiting for numbers...</div>
+    <p id="status">Status: Idle</p>
+
+    <script>
+        // Cross-browser setup for SpeechRecognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            alert("Your browser does not support the Web Speech API. Please use Google Chrome or Microsoft Edge.");
+        } else {
+            const recognition = new SpeechRecognition();
+            const startBtn = document.getElementById('start-btn');
+            const displayDiv = document.getElementById('number-display');
+            const statusText = document.getElementById('status');
+            
+            // Array to store up to 18 captured numbers
+            let capturedNumbers = [];
+            const MAX_NUMBERS = 18;
+
+            // Configure speech properties
+            recognition.continuous = true; // Keep listening after single phrases
+            recognition.interimResults = false; // Only want finalized phrases
+            recognition.lang = 'en-US';
+
+            startBtn.addEventListener('click', () => {
+                capturedNumbers = []; // Reset array
+                displayDiv.innerText = "Listening for number 1...";
+                statusText.innerText = "Status: Microphone active...";
+                startBtn.disabled = true;
+                recognition.start();
+            });
+
+            recognition.onresult = (event) => {
+                // Iterate through the newly received results
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        // Extract the transcript text string and clean it up
+                        let transcript = event.results[i][0].transcript.trim();
+                        
+                        // Parse individual words in case multiple numbers were spoken together
+                        let words = transcript.split(/\s+/);
+                        
+                        for (let word of words) {
+                            // Extract numeric digits from the word or match textual representations
+                            let cleanWord = word.replace(/[^0-9]/g, '');
+                            
+                            if (cleanWord !== '') {
+                                let num = parseInt(cleanWord, 10);
+                                processNumber(num);
+                            }
                         }
-                        body {
-                                padding: 8px 16px;
-                                font-family: sans-serif;
-                                min-width: 90vw;
-                                min-height: 90vh;
-                        }
-                        button,
-                        select,
-                        option {
-                                padding: 8px;
-                                margin: 8px;
-                                width: 40%;
-                        }
-                        #output {
-                                background: cyan;
-                                color: blue;
-                                border: 2px solid blue;
-                                border-radius: 5px;
-                                padding: 8px;
-                                margin: 8px;
-                                //border: 1px solid #ccc;
-                                //border-radius: 8px;
-                                //min-height: 50%;
-                                height: 15vh;
-                        }
-                        .scores {
-                                color: blue;
-                                display: inline-block;
-                        }
-                </style>
-        </head>
-        <body>
-                <button id="startButton">Start</button>
-                <button id="clear">Clear</button>
-                <!--
-                <select id="language" onchange="recognition.lang = this.value">
-                        <option value="en-US">English</option>
-                        <option value="hi-IN">Hindi</option>
-                </select>
--->
-                <div id="output" contenteditable="true"></div>
+                    }
+                }
+            };
 
-                hole 1
-                <div id="score1" class="scores">0</div>
-                <div></div>
-                hole 2
-                <div id="score2" class="scores">0</div>
-                <div></div>
-                hole 3
-                <div id="score3" class="scores">0</div>
-                <div></div>
-                hole 4
-                <div id="score4" class="scores">0</div>
-                <div></div>
-                hole 5
-                <div id="score5" class="scores">0</div>
-                <div></div>
-                hole 6
-                <div id="score6" class="scores">0</div>
-                <div></div>
-                hole 7
-                <div id="score7" class="scores">0</div>
-                <div></div>
-                hole 8
-                <div id="score8" class="scores">0</div>
-                <div></div>
-                hole 9
-                <div id="score9" class="scores">0</div>
+            function processNumber(num) {
+                if (capturedNumbers.length < MAX_NUMBERS) {
+                    capturedNumbers.push(num);
+                    
+                    // Update the <div> element with the current sequence of values
+                    displayDiv.innerHTML = `
+                        <div style="font-size: 1.2rem; color: #7f8c8d;">
+                            Count: ${capturedNumbers.length} / ${MAX_NUMBERS}
+                        </div>
+                        <div style="margin-top: 10px;">${capturedNumbers.join(', ')}</div>
+                    `;
 
-                <script>
-                        const startButton = document.getElementById("startButton");
-                        const outputDiv = document.getElementById("output");
-                        const clearButton = document.getElementById("clear");
+                    // Check if we hit the limit
+                    if (capturedNumbers.length === MAX_NUMBERS) {
+                        statusText.innerText = "Status: Finished! Collected 18 numbers.";
+                        recognition.stop();
+                    }
+                }
+            }
 
-                        // Config
-                        const LANG = "en-US";
-                        clearButton.addEventListener("click", () => {
-                                outputDiv.textContent = "";
-                                document.getElementById("score1").innerText = 0;
-                                document.getElementById("score2").innerText = 0;
-                                document.getElementById("score3").innerText = 0;
-                                document.getElementById("score4").innerText = 0;
-                                document.getElementById("score5").innerText = 0;
-                                document.getElementById("score6").innerText = 0;
-                                document.getElementById("score7").innerText = 0;
-                                document.getElementById("score8").innerText = 0;
-                                document.getElementById("score9").innerText = 0;
-                        });
+            recognition.onend = () => {
+                startBtn.disabled = false;
+                if (capturedNumbers.length < MAX_NUMBERS) {
+                    statusText.innerText = "Status: Stopped early.";
+                }
+            };
 
-                        const recognition = new (window.SpeechRecognition ||
-                                window.webkitSpeechRecognition ||
-                                window.mozSpeechRecognition ||
-                                window.msSpeechRecognition)();
-
-                        recognition.lang = LANG;
-
-                        recognition.onresult = (event) => {
-                                const transcript = event.results[0][0].transcript;
-                                outputDiv.textContent += ` ${transcript}`;
-                                // addition by me
-                                var scorestext = outputDiv.textContent.replace(/\D/g, "");
-                                document.getElementById("score1").innerText = scorestext.slice(0, 1);
-                                document.getElementById("score2").innerText = scorestext.slice(1, 2);
-                                document.getElementById("score3").innerText = scorestext.slice(2, 3);
-                                document.getElementById("score4").innerText = scorestext.slice(3, 4);
-                                document.getElementById("score5").innerText = scorestext.slice(4, 5);
-                                document.getElementById("score6").innerText = scorestext.slice(5, 6);
-                                document.getElementById("score7").innerText = scorestext.slice(6, 7);
-                                document.getElementById("score8").innerText = scorestext.slice(7, 8);
-                                document.getElementById("score9").innerText = scorestext.slice(8, 9);
-                        };
-
-                        recognition.onstart = () => (startButton.textContent = "Listening...");
-                        recognition.onend = () => (startButton.textContent = "Start Voice Input");
-                        startButton.addEventListener("click", () => recognition.start());
-                </script>
-        </body>
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error", event.error);
+                statusText.innerText = `Status: Error encountered (${event.error})`;
+                startBtn.disabled = false;
+            };
+        }
+    </script>
+</body>
 </html>
