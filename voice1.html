@@ -1370,6 +1370,7 @@
                         recognition.stop();
                         startBtn.disabled = false;
                         doScoring();
+                        doPoints();
                     }
                 };
 
@@ -1398,6 +1399,21 @@
             function doScoring() {
                 for (eye = 1; eye <= 18; eye++) {
                     document.getElementById("strokes" + eye).innerText = accumulatedDigits.substring(eye - 1, eye);
+                }
+            }
+
+            function doPoints() {
+
+                // tesing only
+                hcp= "21";
+
+
+                for (eye = 1; eye <= 18; eye++) {
+                    document.getElementById("points" + eye).innerText = pointsCalc(
+                        hcp,
+                        arrCourse[currenthole][1],
+                        arrCourse[currenthole][2],
+                        accumulatedDigits.substring(eye - 1, eye);
                 }
             }
 
