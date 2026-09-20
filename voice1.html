@@ -1303,12 +1303,14 @@
                     // If it ended automatically but not reached 18 digits yet, restart it
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
-                        //alert("hiccup");
+                        alert("hiccup");
+                        /*
                         Swal.fire({
                             title: "Voice Recording",
                             text: "xxxxx", //accumulatedDigits.padEnd(18, "?"),
                             icon: "success"
                         });
+                        */
                         recognition.start();
                     }
                 };
