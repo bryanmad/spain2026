@@ -1271,28 +1271,28 @@
                     //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
                     displayDiv.textContent = accumulatedDigits.padEnd(18, "?");
                     if (accumulatedDigits.length >= targetCount) {
-                        //statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
                         isRunning = false;
                         recognition.stop();
                         startBtn.disabled = false;
                         doScoring();
                         doPoints();
                         totalScores();
+                        document.getElementById("score4").innerText = "Submit";
                     }
                 };
 
                 recognition.onerror = (event) => {
                     console.error("Speech recognition error", event.error);
-                    if (event.error === "no-speech") {
-                        //statusDiv.textContent = "No speech detected. Still listening...";
-                    } else {
-                        //statusDiv.textContent = `Error: ${event.error}.`;
-                        // If it's a critical error, stop attempting to auto-restart
-                        if (event.error === "not-allowed" || event.error === "audio-capture") {
-                            isRunning = false;
-                            startBtn.disabled = false;
-                        }
+                    //if (event.error === "no-speech") {
+                    //statusDiv.textContent = "No speech detected. Still listening...";
+                    //} else {
+                    //statusDiv.textContent = `Error: ${event.error}.`;
+                    // If it's a critical error, stop attempting to auto-restart
+                    if (event.error === "not-allowed" || event.error === "audio-capture") {
+                        isRunning = false;
+                        startBtn.disabled = false;
                     }
+                    //}
                 };
                 recognition.onend = () => {
                     // If it ended automatically but not reached 18 digits yet, restart it
