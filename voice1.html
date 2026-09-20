@@ -1013,10 +1013,12 @@
             <div class="spacer1vh"></div>
 
             <!-- alert box -->
-            <div id="alertbox">
-                confirmation
-                <button id="alertboxok">OK</button>
-            </div>
+            <dialog id="dialog">
+                <button type="button" id="close">Close dialog</button>
+            </dialog>
+
+            <p><button id="open">Open dialog</button></p>
+            <p><button id="alert">Trigger alert</button></p>
 
             <!-- numberpad -->
             <table class="table" border="0" style="height: 85%; width: 100%">
@@ -1334,11 +1336,26 @@
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
                         //alert("hiccup");
-                        document.getElementById("alertbox").style.display = "block";
-                        document.getElementById("alertboxok").onclick = function () {
-                            document.getElementById("alertbox").style.display = "none";
-                            return false;
-                        };
+
+                        const dialog = document.getElementById("dialog");
+                        const openButton = document.getElementById("open");
+                        const closeButton = document.getElementById("close");
+                        const alertButton = document.getElementById("alert");
+
+                        // Open button opens a modal dialog
+                        openButton.addEventListener("click", () => {
+                            dialog.showModal();
+                        });
+
+                        // Alert button triggers an alert
+                        alertButton.addEventListener("click", () => {
+                            alert("you clicked me!");
+                        });
+
+                        // Close button closes the dialog box
+                        closeButton.addEventListener("click", () => {
+                            dialog.close();
+                        });
 
                         /*
                         Swal.fire({
