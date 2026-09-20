@@ -1283,8 +1283,9 @@
 
                 recognition.onerror = (event) => {
                     console.error("Speech recognition error", event.error);
-                    //if (event.error === "no-speech") {
-                    //statusDiv.textContent = "No speech detected. Still listening...";
+                    if (event.error === "no-speech") {
+                        document.getElementById("score4").innerText = "No speech";
+                    }
                     //} else {
                     //statusDiv.textContent = `Error: ${event.error}.`;
                     // If it's a critical error, stop attempting to auto-restart
