@@ -10,6 +10,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
+        <script src="sweetalert2.all.min.js"></script>
         <style>
             /* icon color #bef081 */
 
@@ -1302,7 +1303,12 @@
                     // If it ended automatically but not reached 18 digits yet, restart it
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
-                        alert("hiccup");
+                        //alert("hiccup");
+                        Swal.fire({
+                            title: "Voice Recording",
+                            text: "voice recording paused tempoarily",
+                            icon: "success"
+                        });
                         recognition.start();
                     }
                 };
