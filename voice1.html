@@ -1412,8 +1412,8 @@
                 for (eye = 1; eye <= 18; eye++) {
                     document.getElementById("points" + eye).innerText = pointsCalc(
                         hcp,
-                        arrCourse[currenthole][1],
-                        arrCourse[currenthole][2],
+                        arrCourse[eye][1],
+                        arrCourse[eye][2],
                         accumulatedDigits.substring(eye - 1, eye)
                     );
                 }
