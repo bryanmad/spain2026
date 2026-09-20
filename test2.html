@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, 
+initial-scale=1.0" />
+    <title>Web Speech API example</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      html,
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #transcription-result {
+        font-size: 18px;
+        color: #5e5e5e;
+      }
+      #transcription-result .final {
+        color: #000;
+      }
+      #error-message {
+        color: #ff0000;
+      }
+      button {
+        font-size: 20px;
+        font-weight: 200;
+        color: #fff;
+        background: #2f2ff2;
+        width: 220px;
+        border-radius: 20px;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding: 1em;
+        cursor: pointer;
+      }
+      button:hover,
+      button:focus {
+        background: #2f70f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Speech API example</h1>
+    <p>Click the button and start speaking</p>
+    <button id="recording-button">Start recording</button>
+    <div id="transcription-result"></div>
+    <p id="error-message" hidden aria-hidden="true">
+      Button was removed<br />Your browser doesn't support Speech Recognition
+    </p>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const recordingButton = document.getElementById("recording-button");
+        const transcriptionResult = document.getElementById("transcription-result");
+        let isRecording = false;
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (typeof SpeechRecognition !== "undefined") {
+          const recognition = new SpeechRecognition();
+          recognition.continuous = true;
+          recognition.interimResults = true;
+
+          const onResult = (event) => {
+            transcriptionResult.textContent = "";
+            for (const result of event.results) {
+              const text = document.createTextNode(result[0].transcript);
+              const p = document.createElement("p");
+              p.appendChild(text);
+              if (result.isFinal) {
+                p.classList.add("final");
+              }
+              transcriptionResult.appendChild(p);
+            }
+          };
+
+          const onClick = (event) => {
+            if (isRecording) {
+              recognition.stop();
+              recordingButton.textContent = "Start recording";
+            } else {
+              recognition.start();
+              recordingButton.textContent = "Stop recording";
+            }
+            isRecording = !isRecording;
+          };
+
+          recognition.addEventListener("result", onResult);
+          recordingButton.addEventListener("click", onClick);
+        } else {
+          recordingButton.remove();
+          const message = document.getElementById("error-message");
+          message.removeAttribute("hidden");
+          message.setAttribute("aria-hidden", "false");
+        }
+      });
+    </script>
+  </body>
+</html>
