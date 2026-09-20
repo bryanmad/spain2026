@@ -687,6 +687,10 @@
 
                         background: dodgerBlue;
                         }
+
+                        #output {
+                        font-size: 7vw;
+                        }
         </style>
     </head>
     <body>
@@ -1366,7 +1370,7 @@
                     // Append new digits to a global tracker (accumulatedDigits)
                     accumulatedDigits += cleanTranscript;
                     //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
-                    displayDiv.textContent = accumulatedDigits.padEnd(18, "*");
+                    displayDiv.textContent = accumulatedDigits.padEnd(18, "❔");
                     if (accumulatedDigits.length >= targetCount) {
                         //statusDiv.textContent = `Finished! Successfully captured ${accumulatedDigits.length} digits.`;
                         isRunning = false;
