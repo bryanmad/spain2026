@@ -1017,9 +1017,6 @@
                 <button type="button" id="close">Close dialog</button>
             </dialog>
 
-            <p><button id="open">Open dialog</button></p>
-            <p><button id="alert">Trigger alert</button></p>
-
             <!-- numberpad -->
             <table class="table" border="0" style="height: 85%; width: 100%">
                 <tbody>
@@ -1343,14 +1340,14 @@
                         const alertButton = document.getElementById("alert");
 
                         // Open button opens a modal dialog
-                        openButton.addEventListener("click", () => {
-                            dialog.showModal();
-                        });
+                        //openButton.addEventListener("click", () => {
+                        dialog.showModal();
+                        //});
 
                         // Alert button triggers an alert
-                        alertButton.addEventListener("click", () => {
-                            alert("you clicked me!");
-                        });
+                        //alertButton.addEventListener("click", () => {
+                        //    alert("you clicked me!");
+                        //});
 
                         // Close button closes the dialog box
                         closeButton.addEventListener("click", () => {
