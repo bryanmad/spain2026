@@ -1292,7 +1292,6 @@
             // testing only
             setupCourseMonday();
 
-
             //console.log(fullday);
             if (days[day] === "Monday") {
                 setupCourseMonday();
@@ -1407,17 +1406,16 @@
             }
 
             function doPoints() {
-
                 // tesing only
-                hcp= "21";
-
+                hcp = "21";
 
                 for (eye = 1; eye <= 18; eye++) {
                     document.getElementById("points" + eye).innerText = pointsCalc(
                         hcp,
                         arrCourse[currenthole][1],
                         arrCourse[currenthole][2],
-                        accumulatedDigits.substring(eye - 1, eye);
+                        accumulatedDigits.substring(eye - 1, eye)
+                    );
                 }
             }
 
