@@ -902,74 +902,74 @@
                         <td class="head">points</td>
                     </tr>
                     <tr>
-                        <td id="hole1" onclick="resethole(this.id)">1</td>
+                        <td id="hole1">1</td>
                         <td id="strokes1">0</td>
                         <td id="points1">0</td>
-                        <td id="hole10" onclick="resethole(this.id)">10</td>
+                        <td id="hole10">10</td>
                         <td id="strokes10">0</td>
                         <td id="points10">0</td>
                     </tr>
                     <tr>
-                        <td id="hole2" onclick="resethole(this.id)">2</td>
+                        <td id="hole2">2</td>
                         <td id="strokes2">0</td>
                         <td id="points2">0</td>
-                        <td id="hole11" onclick="resethole(this.id)">11</td>
+                        <td id="hole11">11</td>
                         <td id="strokes11">0</td>
                         <td id="points11">0</td>
                     </tr>
                     <tr>
-                        <td id="hole3" onclick="resethole(this.id)">3</td>
+                        <td id="hole3">3</td>
                         <td id="strokes3">0</td>
                         <td id="points3">0</td>
-                        <td id="hole12" onclick="resethole(this.id)">12</td>
+                        <td id="hole12">12</td>
                         <td id="strokes12">0</td>
                         <td id="points12">0</td>
                     </tr>
                     <tr>
-                        <td id="hole4" onclick="resethole(this.id)">4</td>
+                        <td id="hole4">4</td>
                         <td id="strokes4">0</td>
                         <td id="points4">0</td>
-                        <td id="hole13" onclick="resethole(this.id)">13</td>
+                        <td id="hole13">13</td>
                         <td id="strokes13">0</td>
                         <td id="points13">0</td>
                     </tr>
                     <tr>
-                        <td id="hole5" onclick="resethole(this.id)">5</td>
+                        <td id="hole5">5</td>
                         <td id="strokes5">0</td>
                         <td id="points5">0</td>
-                        <td id="hole14" onclick="resethole(this.id)">14</td>
+                        <td id="hole14">14</td>
                         <td id="strokes14">0</td>
                         <td id="points14">0</td>
                     </tr>
                     <tr>
-                        <td id="hole6" onclick="resethole(this.id)">6</td>
+                        <td id="hole6">6</td>
                         <td id="strokes6">0</td>
                         <td id="points6">0</td>
-                        <td id="hole15" onclick="resethole(this.id)">15</td>
+                        <td id="hole15">15</td>
                         <td id="strokes15">0</td>
                         <td id="points15">0</td>
                     </tr>
                     <tr>
-                        <td id="hole7" onclick="resethole(this.id)">7</td>
+                        <td id="hole7">7</td>
                         <td id="strokes7">0</td>
                         <td id="points7">0</td>
-                        <td id="hole16" onclick="resethole(this.id)">16</td>
+                        <td id="hole16">16</td>
                         <td id="strokes16">0</td>
                         <td id="points16">0</td>
                     </tr>
                     <tr>
-                        <td id="hole8" onclick="resethole(this.id)">8</td>
+                        <td id="hole8">8</td>
                         <td id="strokes8">0</td>
                         <td id="points8">0</td>
-                        <td id="hole17" onclick="resethole(this.id)">17</td>
+                        <td id="hole17">17</td>
                         <td id="strokes17">0</td>
                         <td id="points17">0</td>
                     </tr>
                     <tr>
-                        <td id="hole9" onclick="resethole(this.id)">9</td>
+                        <td id="hole9">9</td>
                         <td id="strokes9">0</td>
                         <td id="points9">0</td>
-                        <td id="hole18" onclick="resethole(this.id)">18</td>
+                        <td id="hole18">18</td>
                         <td id="strokes18">0</td>
                         <td id="points18">0</td>
                     </tr>
@@ -1599,9 +1599,6 @@
                 calcAllHoles();
                 document.getElementById("hole1").style.color = "black";
                 document.getElementById("hole1").style.background = "lime";
-
-                // highlight doublebogey
-                //doubleBogeyCalc(hcp, arrCourse[1][1], arrCourse[1][2]);
             }
             //=============================================================
             // function toggleDropdown()
@@ -1611,76 +1608,7 @@
                 // When the user clicks on the button, toggle between hiding and showing the dropdown content
                 document.getElementById("playersDropdown").classList.toggle("show");
             }
-            //=================================================================================
-            // function numberScore(id)
-            // - enter player score and move on
-            //=================================================================================
-            function numberScore(id) {
-                // id is number button pressed eg. score5
-                // move onto first hole
-                currenthole++;
-                // set nexthole for highlight
-                nexthole = currenthole;
-                nexthole++;
-                if (nexthole >= 18) {
-                    nexthole = 18;
-                }
 
-                // color the hole
-                for (var i = 1; i <= 18; i++) {
-                    document.getElementById("hole" + i).style.color = "cyan";
-                    document.getElementById("hole" + i).style.background = "black";
-                }
-                document.getElementById("hole" + nexthole).style.color = "black";
-                document.getElementById("hole" + nexthole).style.background = "lime";
-
-                // highlight double bogey hole
-                if (currenthole <= 18) {
-                    // highlight doublebogey for next hole
-                    doubleBogeyCalc(hcp, arrCourse[nexthole][1], arrCourse[nexthole][2]);
-
-                    // put scores and points in current hole
-                    document.getElementById("strokes" + currenthole).innerText = id.replace("score", "");
-                    document.getElementById("points" + currenthole).innerText = pointsCalc(
-                        hcp,
-                        arrCourse[currenthole][1],
-                        arrCourse[currenthole][2],
-                        id.replace("score", "")
-                    );
-
-                    // update calc totals
-                    totalScores();
-                }
-
-                // update totals and show accept panel
-                if (currenthole >= 18) {
-                    currenthole = 18;
-                    var total18points =
-                        parseInt(document.getElementById("front9points").innerText) +
-                        parseInt(document.getElementById("back9points").innerText);
-
-                    document.getElementById("playerx").innerHTML = player1name + " " + total18points + " points";
-
-                    document.getElementById("acceptpanel").style.display = "block";
-                }
-            }
-            //=============================================================
-            // function resethole(id)
-            // - allow restart of score entry from a point
-            //=============================================================
-            function resethole(id) {
-                // reset hole current selection
-                for (var i = 1; i <= 18; i++) {
-                    document.getElementById("strokes" + i).style.color = "cyan";
-                    document.getElementById("strokes" + i).style.background = "black";
-                }
-                currenthole = id.replace("hole", "");
-                document.getElementById("strokes" + currenthole).style.color = "black";
-                document.getElementById("strokes" + currenthole).style.background = "lime";
-                currenthole--;
-                // recalc totals
-                totalScores();
-            }
             //=============================================================
             // function totalScores()
             // - calc totals
@@ -1769,33 +1697,6 @@
                     }
                     return points;
                 }
-            }
-
-            //=============================================================
-            // function doubleBogeyCalc(xhcp, xpar, xsi, xscore)
-            // - indicates score to No stableford points
-            //=============================================================
-            function doubleBogeyCalc(xhcp, xpar, xsi) {
-                // reset color of numbers
-                for (n = 1; n <= 9; n++) {
-                    el = document.getElementById("score" + n);
-                    if (el.classList.contains("cyan")) {
-                        el.classList.remove("cyan");
-                    }
-                }
-
-                var db = 0;
-                var temp = 0;
-                for (xscore = 1; xscore <= 9; xscore++) {
-                    temp = pointsCalc(xhcp, xpar, xsi, xscore);
-                    if (temp == 0) {
-                        db = xscore;
-                        break;
-                    }
-                }
-
-                // set color of doublebogey number
-                document.getElementById("score" + db).classList.add("cyan");
             }
 
             //=============================================================
