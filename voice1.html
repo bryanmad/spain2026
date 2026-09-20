@@ -1012,11 +1012,6 @@
 
             <div class="spacer1vh"></div>
 
-            <!-- alert box -->
-            <dialog id="dialog">
-                <button type="button" id="close">Close dialog</button>
-            </dialog>
-
             <!-- numberpad -->
             <table class="table" border="0" style="height: 85%; width: 100%">
                 <tbody>
@@ -1332,35 +1327,7 @@
                     // If it ended automatically but not reached 18 digits yet, restart it
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
-                        //alert("hiccup");
-
-                        const dialog = document.getElementById("dialog");
-                        const openButton = document.getElementById("open");
-                        const closeButton = document.getElementById("close");
-                        const alertButton = document.getElementById("alert");
-
-                        // Open button opens a modal dialog
-                        //openButton.addEventListener("click", () => {
-                        dialog.showModal();
-                        //});
-
-                        // Alert button triggers an alert
-                        //alertButton.addEventListener("click", () => {
-                        //    alert("you clicked me!");
-                        //});
-
-                        // Close button closes the dialog box
-                        closeButton.addEventListener("click", () => {
-                            dialog.close();
-                        });
-
-                        /*
-                        Swal.fire({
-                            title: "Voice Recording",
-                            text: "xxxxx", //accumulatedDigits.padEnd(18, "?"),
-                            icon: "success"
-                        });
-                        */
+                        alert("hiccup");
                         recognition.start();
                     }
                 };
