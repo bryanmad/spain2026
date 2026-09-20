@@ -1,696 +1,593 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <title>spain2026</title>
         <meta content="Bryan M" name="author" />
-        <meta name="theme-color" content="indigo" />
         <meta name="robots" content="noindex" />
         <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
         <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
         <style>
-
-                               	/* icon color #bef081 */
-
-                               	* {
-                               		margin: 0;
-                               		padding: 0;
-                               		box-sizing: border-box;
-                               	}
-
-                               	html {
-                               		//height: 100vh;
-                               		width: 100vw;
-                               	}
-
-                               	body {
-                                    overflow: hidden;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		font-size: 3vh;
-                               		background: black;
-                               		height: 100%;
-                               		width: 100%;
-                               	}
-                               	/* dropdown */
-
-                               	#dropbtn {
-                               		color: white;
-                               		background: black;
-                               		height: 100%;
-                                 width:100%;
-                               		display: flex;
-                               		justify-content: center;
-                               		align-items: center;
-                               		border-radius: 10px;
-                                 border: 5px solid gray;
-                               	}
-
-                                #iconpageone, #iconpagetwo, #iconpagethree {
-                               		color: white;
-                               		background: dodgerBlue;
-                               		height: 100%;
-                               		display: flex;
-                               		justify-content: center;
-                               		align-items: center;
-                               		//border: 1px solid Gray;
-                                 //border-radius: 10px;
-                                 width:20%;
-                                 margin-left: 0.5%;
-                                 //margin-top:1%;
-                               	}
-
-
-
-                                #headerpageone, #headerpagetwo, #headerpagethree {
-                               	color: white;
-                              		background: black;
-                              		height: 100%;
-                                width:80%;
-                              		display: flex;
-                              		justify-content: center;
-                              		align-items: center;
-                              		//border-radius: 10px;
-                                //border: 5px solid gray;
-                                }
-
-
-                                #xpageone {
-                                    position: fixed;
-                                    top: 0;
-                                    left:0;
-                                    height: 100vh;
-                                    width: 100vw;
-                                    background: dodgerBlue;
-                                    display:none;
-                                }
-
-                                #pagetwo {
-                                    position: fixed;
-                                    top: 0;
-                                    left:0;
-                                    height: 100vh;
-                                    width: 100vw;
-                                    background: dodgerBlue;
-                                    display:none;
-                                }
-
-                                #pagethree {
-                                    position: fixed;
-                                    top: 0;
-                                    left:0;
-                                    height: 100vh;
-                                    width: 100vw;
-                                    background: dodgerBlue;
-                                    color: white;
-                                    display:none;
-                                }
-
-                               	.dropdown, .statsdropdown {
-                               		position: relative;
-                               		display: inline-block;
-                               	}
-
-                               	.dropdown-content, .statsdropdown-content {
-                                  		display: none;
-                               		position: absolute;
-                               		background-color: black;
-                               		min-width: 160px;
-                               		overflow: auto;
-                               		z-index: 1;
-                               		border-radius: 5px;
-                               		box-shadow: 10px 10px 25px black;
-                               		max-height: 85vh;
-                               	}
-
-                               	.dropdown-content a, .statsdropdown-content a {
-                               		color: black;
-                               		font-size: 4vh;
-                               		background: whiteSmoke;
-                               		padding: 9px 16px;
-                               		text-decoration: none;
-                               		display: block;
-                               		border: 1px solid gray;
-                               		border-radius: 5px;
-                               	}
-
-                               	.show {
-                               		display: block;
-                               	}
-                               	/* end of dropdown */
-
-
-                               	/* highlights selected player */
-
-                               	.highlight {
-                               		color: white;
-                               		background: dodgerBlue;
-                               	}
-
-                               	.scorelow {
-                               		font-size: 4vh;
-                               		color: lime;
-                               		display: inline-block;
-                               		border: 1px solid Gray;
-                               		text-align: center;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		border-radius: 5px;
-                               	}
-                               	/* highlights keyboard score pressed */
-
-                               	.scorehigh {
-                               		font-size: 4vh;
-                               		color: white;
-                               		display: inline-block;
-                               		border: 5px solid Gray;
-                               		text-align: center;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		border-radius: 5px;
-                               		background: dodgerBlue;
-                               	}
-
-                                  	#info {
-                               		display: none;
-                               		overflow: auto;
-                               		position: absolute;
-                               		top: 0;
-                               		left: 0;
-                               		height: 100%;
-                               		width: 100%;
-                               		color: white;
-                               		background-color: black;
-                               		padding-left: 1px;
-                               		padding-right: 1px;
-                               		padding-bottom: 1px;
-
-                               	}
-
-                               	#popuppanel {
-                               		background-color: #ddd;
-                               		font-size: 3vh;
-                               		display: inline-block;
-                               		border-radius: 3px;
-                               		border: 1px solid #aaa;
-                               		padding: 10px;
-                               		margin: 5vw;
-                               		text-align: center;
-                               		width: 80vw;
-
-                               		cursor: pointer;
-                               	}
-                               	/* hide forms */
-
-                               	#my-response-iframe,
-                               	#my-form {
-                               		display: none;
-                               	}
-                               	/* */
-
-                               	.child-one {
-                               		height: 7vh;
-                               		font-size: 3vh;
-
-                                 display: flex;
-                               	}
-
-                                .child-two {
-                               		height: 7vh;
-                               		font-size: 3vh;
-                        flex-direction: row;
-                                 display: flex;
-                                 //flex-wrap: wrap;
-                               	}
-
-                                .child-three {
-                               		height: 7vh;
-                               		font-size: 2.5vh;
-
-                                 display: flex;
-                                 //flex-wrap: wrap;
-                               	}
-
-
-                               	/* player names */
-
-                               	#p1name {
-                               		font-size: 3vh;
-                               		display: inline-block;
-                               		width: calc(100% / 3 * 2);
-                               		height: 8vh;
-                               		line-height: 8vh;
-                               		border: 1px solid Gray;
-                               		text-align: center;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		border-radius: 5px;
-                               	}
-                               	/* player scores */
-
-                               	#p1score {
-                               		font-size: 4vh;
-                               		display: inline-block;
-                               		width: calc(100% / 3);
-                               		height: 8vh; //calc(100% / 9);
-                               		line-height: 8vh;
-                               		padding-left: 5%;
-                               		padding-right: 5%;
-                               		border: 1px solid Gray;
-                               		text-align: center;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		border-radius: 5px;
-                               	}
-                               	/* default "keyboard" */
-
-                               	.small {
-                               		font-size: 4vh;
-                                 color: lime;
-                               		display: inline-block;
-                               		height: 7vh;
-                               		line-height: 7vh;
-                               		padding-left: 20%;
-                               		padding-right: 20%;
-                               		border: 1px solid Gray;
-                               		text-align: center;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		border-radius: 5px;
-                               	}
-                               	/* banner hole details */
-
-                               	#holedetails {
-                               		color: white;
-                               		background: black;
-                               		font-size: 3vh;
-                               		display: inline-block;
-                               		width: 100%;
-                               		height: 5vh;
-                               		line-height: 5vh;
-                               		padding-left: 5%;
-                               		padding-right: 5%;
-                               		border: 1px solid Gray;
-                               		text-align: center;
-                               		font-family: Arial, Helvetica, sans-serif;
-                               		border-radius: 5px;
-                               	}
-
-
-
-                               	#player4ballplayer {
-                               		width: 30%;
-                               		padding: 1vw;
-
-                               	}
-
-                               	#player4ballname {
-                               		width: 55%;
-                               		padding: 1vw;
-
-                               	}
-
-                               	#player4ballhcp {
-                               		width: 15%;
-                               		padding: 1vw;
-
-                               	}
-
-                               	.submit {
-                               		font-size: 100%;
-                               		color: white;
-                               		//background: dodgerBlue;
-                               		height: 100%;
-                               		line-height: 10vh;
-                               		text-align: center;
-                               	}
-
-
-
-
-                               	#sending {
-                               		position: relative;
-                               		background: black;
-                               	}
-
-
-
-                                   #front9 {
-                                     color:  white;
-                                     //height:  100vh;
-                                   }
-
-                                   tr {
-                                       text-align: center;
-                                   }
-                                   td {
-                                       width: calc(100vw/6);
-                                   }
-                                   .head {
-                                       font-size: 2vh;
-                                   }
-
-                                   #hole1,
-                                   #hole2,
-                                   #hole3,
-                                   #hole4,
-                                   #hole5,
-                                   #hole6,
-                                   #hole7,
-                                   #hole8,
-                                   #hole9,
-                                   #hole10,
-                                   #hole11,
-                                   #hole12,
-                                   #hole13,
-                                   #hole14,
-                                   #hole15,
-                                   #hole16,
-                                   #hole17,
-                                   #hole18 {
-                                       color: cyan;
-                                   }
-
-                                   #front9points ,
-                                   #back9points {
-                                       border: 1px solid cyan;
-                                   }
-
-            #startButton, #clear,
-                                   #score1,
-                                   #score2,
-                                   #score3,
-                                   #score4,
-                                   #score5,
-                                   #score6,
-                                   #score7,
-                                   #score8,
-                                   #score9 {
-                                       //margin: 3vh;
-                                       width: calc(100vw / 3);
-                                       color: lime;
-                                       border-radius: 10px;
-                                       border: 5px solid gray;
-                                       height:12vh;
-                                       font-size: 10vw;
-
-                                   }
-
-                                   #pageone {
-
-                                   }
-
-                                  #acceptpanel, #statspanel {
-                                      display: none;
-                                      position: fixed;
-                                      //top: 20vh;
-
-                                      bottom: 5vh;
-                                      //left: 2vw;
-                                      //right: 20vw;
-
-                                    border: 1px silver solid;
-                                      background: black;
-                                      color: white;
-                                      font-size: 4vw;
-                                      padding: 5vw;
-                                      border-radius: 5px;
-                                      text-align: center;
-
-                                      margin-left: 14vw;
-                                      //margin-right: 5vw;
-                                      //margin: auto;
-                                      //width: 80vw;
-                                      //height: 40vh;
-
-                                      //opacity: 1;
-
-                                  }
-
-                               .button1 {
-                                   width: 25vw;
-                                   height: 10vh;
-                                   text-align: center;
-                                   //padding: 2vw;
-                                  font-size: 4vw;
-                                   border-radius: 5px;
-                                   //margin: 5vw;
-                                   background: silver;
-                               }
-
-                               .spacer1vh {
-                                   //height: 2vh;
-                                   display: flex;
-                                   padding: 0.5vh;
-                               }
-
-                               #podium, #home, #stat {
-                                   height: 5vh;
-                                   width: 5vh;
-                               }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                               /* for each day */
-                               #createleaderboarditems {
-                                   text-align: center;
-                                   color: white;
-                                   font-size: 4vh;
-                                   height: auto;
-                                   display: block;
-                               }
-
-                               .team {
-                                   //position: absolute;
-                                   width: 90%;
-                                   height: 5vh;
-                                   margin-left: 5%;
-                                   margin-top: 2%;
-                                   margin-bottom: 2%;
-                                   background: rgba(105, 105, 105, 0.8);
-                                   box-shadow: 0 3px 5px black;
-                                   display: flex;
-                                   align-items: center;
-                                   transition-property: top;
-                                   transition-duration: 1500ms;
-                                   border-radius: 10px;
-                                   transition-timing-function: cubic-bezier(
-                                       0.68,
-                                       -0.55,
-                                       0.265,
-                                       1.55
-                                   );
-                                   border: 4px solid rgba(255, 255, 255, 0.3);
-                                   background-clip: padding-box;
-                               }
-
-                               .name {
-                                   //height: 50%;
-                                   width: 30%;
-                                   display: flex;
-                                   align-items: center;
-                                   justify-content: left;
-                                   font-size: 1.3rem;
-                                   color: white;
-                                   font-weight: 400;
-                                   text-transform: capitalize;
-                               }
-
-                               .scores {
-                                   //height: 50%;
-                                   width: 12%;
-                                   font-size: 1.3rem;
-                                   color: white;
-                                   font-weight: 400;
-                                   display: flex;
-                                   text-align: center;
-                                   justify-content: center;
-                               }
-
-                               .position {
-                                   //height: 50%;
-                                   width: 12%;
-                                   font-size: 1.3rem;
-                                   color: white;
-                                   font-weight: 400;
-                                   display: flex;
-                                   text-align: center;
-                                   justify-content: center;
-                               }
-
-
-                        #headerinfo {
-                        padding-top: 2vh;
-                        padding-bottom: 1vh;
-                        color: white;
-                        font-size: 7vw;
-                        display: flex;
-                        text-align: center;
-                        justify-content: center;
-
-
-
-
-
-                        width: 80%;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        }
-
-                        #footerinfo, #footerstats {
-                        position: absolute;
-                           bottom: 200px;
-                           width:100%;
-                        color: white;
-                        font-size: 4vw;
-                        display: flex;
-                        text-align: center;
-                        justify-content: center;
-                        }
-
-                        .bird {
-                        width:8%;
-                        padding-right: 1vw;
-                        visibility: hidden;
-                        }
-
-                        .birdimg {
-                        src: "bird.png";
-                        height:2vh;
-                        width: 7vw;
-                        display: flex;
-                        text-align: center;
-                        justify-content: center;
-                        padding-left: 1vw;
-                        padding-right: 1vw;
-                        }
-
-                        .flag {
-                        width:7%;
-                        visibility: hidden;
-                        }
-
-                        .flagimg {
-                        src: "flag.png";
-                        height:2vh;
-                        width: 7vw;
-                        display: flex;
-                        text-align: center;
-                        justify-content: center;
-                        padding-left: 1vw;
-                        padding-right: 1vw;
-                        }
-
-                        #statsinfo {
-                        width: 300px;
-                        height: 300px;
-                        border: 1px solid cyan;
-                        display: flex;
-                        }
-
-                        #statsinfo div {
-                        border: 1px sold yellow;
-                        flex: 1;
-                        }
-
-
-
-
-
-
-                                    .table {
-                                        align: left;
-                                        cellpadding: 1;
-                                        cellspacing: 1;
-
-
-                                    }
-
-
-
-
-
-                        .table_component {
-                        overflow: auto;
-                        width: 100%;
-                        }
-
-                        .table_component table {
-                        //border: 1px solid #dededf;
-                        height: 100%;
-                        width: 100%;
-                        //table-layout: fixed;
-                        border-collapse: collapse;
-                        border-spacing: 1px;
-                        text-align: center;
-                        font-size: 3.5vw;
-                        }
-
-                        .table_component caption {
-                        caption-side: top;
-                        text-align: left;
-                        }
-
-                        .table_component th {
-                        //border: 1px solid indigo;
-                        background-color: #1589FF;
-                        color: cyan; //white;
-                        padding: 5px;
-                        }
-
-                        .table_component td {
-                        //border: 1px solid indigo;
-                        background-color: dodgerBlue;
-                        color: white;
-                        padding: 5px;
-                        //border: 1px solid silver;
-                        }
-
-                        .table_component table tbody tr:nth-of-type(even) > * {
-                        background: #1589FF;
-                        }
-
-                        #toptr {
-                        color: cyan;
-                        }
-
-                        .cyan {
-
-                        background: dodgerBlue;
-                        }
-
-                        #output {
-                        font-size: 9vw;
-                        }
+            /* icon color #bef081 */
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                width: 100vw;
+            }
+
+            body {
+                overflow: hidden;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 3vh;
+                background: black;
+                height: 100%;
+                width: 100%;
+            }
+            /* dropdown */
+
+            #dropbtn {
+                color: white;
+                background: black;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                border: 5px solid gray;
+            }
+
+            #iconpageone,
+            #iconpagetwo,
+            #iconpagethree {
+                color: white;
+                background: dodgerBlue;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20%;
+                margin-left: 0.5%;
+            }
+
+            #headerpageone,
+            #headerpagetwo,
+            #headerpagethree {
+                color: white;
+                background: black;
+                height: 100%;
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #xpageone {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                background: dodgerBlue;
+                display: none;
+            }
+
+            #pagetwo {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                background: dodgerBlue;
+                display: none;
+            }
+
+            #pagethree {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                background: dodgerBlue;
+                color: white;
+                display: none;
+            }
+
+            .dropdown,
+            .statsdropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content,
+            .statsdropdown-content {
+                display: none;
+                position: absolute;
+                background-color: black;
+                min-width: 160px;
+                overflow: auto;
+                z-index: 1;
+                border-radius: 5px;
+                box-shadow: 10px 10px 25px black;
+                max-height: 85vh;
+            }
+
+            .dropdown-content a,
+            .statsdropdown-content a {
+                color: black;
+                font-size: 4vh;
+                background: whiteSmoke;
+                padding: 9px 16px;
+                text-decoration: none;
+                display: block;
+                border: 1px solid gray;
+                border-radius: 5px;
+            }
+
+            .show {
+                display: block;
+            }
+            /* end of dropdown */
+
+            /* highlights selected player */
+
+            .highlight {
+                color: white;
+                background: dodgerBlue;
+            }
+
+            .scorelow {
+                font-size: 4vh;
+                color: lime;
+                display: inline-block;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
+            /* highlights keyboard score pressed */
+
+            .scorehigh {
+                font-size: 4vh;
+                color: white;
+                display: inline-block;
+                border: 5px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+                background: dodgerBlue;
+            }
+
+            #info {
+                display: none;
+                overflow: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                color: white;
+                background-color: black;
+                padding-left: 1px;
+                padding-right: 1px;
+                padding-bottom: 1px;
+            }
+
+            #popuppanel {
+                background-color: #ddd;
+                font-size: 3vh;
+                display: inline-block;
+                border-radius: 3px;
+                border: 1px solid #aaa;
+                padding: 10px;
+                margin: 5vw;
+                text-align: center;
+                width: 80vw;
+
+                cursor: pointer;
+            }
+            /* hide forms */
+
+            #my-response-iframe,
+            #my-form {
+                display: none;
+            }
+            /* */
+
+            .child-one {
+                height: 7vh;
+                font-size: 3vh;
+
+                display: flex;
+            }
+
+            .child-two {
+                height: 7vh;
+                font-size: 3vh;
+                flex-direction: row;
+                display: flex;
+            }
+
+            .child-three {
+                height: 7vh;
+                font-size: 2.5vh;
+                display: flex;
+            }
+
+            /* player names */
+
+            #p1name {
+                font-size: 3vh;
+                display: inline-block;
+                width: calc(100% / 3 * 2);
+                height: 8vh;
+                line-height: 8vh;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
+            /* player scores */
+
+            #p1score {
+                font-size: 4vh;
+                display: inline-block;
+                width: calc(100% / 3);
+                height: 8vh;
+                line-height: 8vh;
+                padding-left: 5%;
+                padding-right: 5%;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
+            /* default "keyboard" */
+
+            .small {
+                font-size: 4vh;
+                color: lime;
+                display: inline-block;
+                height: 7vh;
+                line-height: 7vh;
+                padding-left: 20%;
+                padding-right: 20%;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
+            /* banner hole details */
+
+            #holedetails {
+                color: white;
+                background: black;
+                font-size: 3vh;
+                display: inline-block;
+                width: 100%;
+                height: 5vh;
+                line-height: 5vh;
+                padding-left: 5%;
+                padding-right: 5%;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
+
+            #player4ballplayer {
+                width: 30%;
+                padding: 1vw;
+            }
+
+            #player4ballname {
+                width: 55%;
+                padding: 1vw;
+            }
+
+            #player4ballhcp {
+                width: 15%;
+                padding: 1vw;
+            }
+
+            .submit {
+                font-size: 100%;
+                color: white;
+                height: 100%;
+                line-height: 10vh;
+                text-align: center;
+            }
+
+            #sending {
+                position: relative;
+                background: black;
+            }
+
+            #front9 {
+                color: white;
+            }
+
+            tr {
+                text-align: center;
+            }
+            td {
+                width: calc(100vw / 6);
+            }
+            .head {
+                font-size: 2vh;
+            }
+
+            #hole1,
+            #hole2,
+            #hole3,
+            #hole4,
+            #hole5,
+            #hole6,
+            #hole7,
+            #hole8,
+            #hole9,
+            #hole10,
+            #hole11,
+            #hole12,
+            #hole13,
+            #hole14,
+            #hole15,
+            #hole16,
+            #hole17,
+            #hole18 {
+                color: cyan;
+            }
+
+            #front9points,
+            #back9points {
+                border: 1px solid cyan;
+            }
+
+            #startButton,
+            #clearButton,
+            #score1,
+            #score2,
+            #score3,
+            #score4,
+            #score5,
+            #score6,
+            #score7,
+            #score8,
+            #score9 {
+                width: calc(100vw / 3);
+                color: lime;
+                border-radius: 10px;
+                border: 5px solid gray;
+                height: 12vh;
+                font-size: 10vw;
+            }
+
+            #pageone {
+            }
+
+            #acceptpanel,
+            #statspanel {
+                display: none;
+                position: fixed;
+                bottom: 5vh;
+                border: 1px silver solid;
+                background: black;
+                color: white;
+                font-size: 4vw;
+                padding: 5vw;
+                border-radius: 5px;
+                text-align: center;
+                margin-left: 14vw;
+            }
+
+            .button1 {
+                width: 25vw;
+                height: 10vh;
+                text-align: center;
+                font-size: 4vw;
+                border-radius: 5px;
+                background: silver;
+            }
+
+            .spacer1vh {
+                display: flex;
+                padding: 0.5vh;
+            }
+
+            #podium,
+            #home,
+            #stat {
+                height: 5vh;
+                width: 5vh;
+            }
+
+            /* for each day */
+            #createleaderboarditems {
+                text-align: center;
+                color: white;
+                font-size: 4vh;
+                height: auto;
+                display: block;
+            }
+
+            .team {
+                width: 90%;
+                height: 5vh;
+                margin-left: 5%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                background: rgba(105, 105, 105, 0.8);
+                box-shadow: 0 3px 5px black;
+                display: flex;
+                align-items: center;
+                transition-property: top;
+                transition-duration: 1500ms;
+                border-radius: 10px;
+                transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                border: 4px solid rgba(255, 255, 255, 0.3);
+                background-clip: padding-box;
+            }
+
+            .name {
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                font-size: 1.3rem;
+                color: white;
+                font-weight: 400;
+                text-transform: capitalize;
+            }
+
+            .scores {
+                width: 12%;
+                font-size: 1.3rem;
+                color: white;
+                font-weight: 400;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .position {
+                width: 12%;
+                font-size: 1.3rem;
+                color: white;
+                font-weight: 400;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+            }
+
+            #headerinfo {
+                padding-top: 2vh;
+                padding-bottom: 1vh;
+                color: white;
+                font-size: 7vw;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+
+                width: 80%;
+            }
+
+            #footerinfo,
+            #footerstats {
+                position: absolute;
+                bottom: 200px;
+                width: 100%;
+                color: white;
+                font-size: 4vw;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .bird {
+                width: 8%;
+                padding-right: 1vw;
+                visibility: hidden;
+            }
+
+            .birdimg {
+                src: "bird.png";
+                height: 2vh;
+                width: 7vw;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                padding-left: 1vw;
+                padding-right: 1vw;
+            }
+
+            .flag {
+                width: 7%;
+                visibility: hidden;
+            }
+
+            .flagimg {
+                src: "flag.png";
+                height: 2vh;
+                width: 7vw;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                padding-left: 1vw;
+                padding-right: 1vw;
+            }
+
+            #statsinfo {
+                width: 300px;
+                height: 300px;
+                border: 1px solid cyan;
+                display: flex;
+            }
+
+            #statsinfo div {
+                //border: 1px solid yellow;
+                flex: 1;
+            }
+
+            .table {
+                //align: left;
+                //cellpadding: 1;
+                //cellspacing: 1;
+            }
+
+            .table_component {
+                overflow: auto;
+                width: 100%;
+            }
+
+            .table_component table {
+                height: 100%;
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 1px;
+                text-align: center;
+                font-size: 3.5vw;
+            }
+
+            .table_component caption {
+                caption-side: top;
+                text-align: left;
+            }
+
+            .table_component th {
+                background-color: #1589ff;
+                color: cyan;
+                padding: 5px;
+            }
+
+            .table_component td {
+                background-color: dodgerBlue;
+                color: white;
+                padding: 5px;
+            }
+
+            .table_component table tbody tr:nth-of-type(even) > * {
+                background: #1589ff;
+            }
+
+            #toptr {
+                color: cyan;
+            }
+
+            .cyan {
+                background: dodgerBlue;
+            }
+
+            #output {
+                font-size: 9vw;
+            }
         </style>
     </head>
     <body>
@@ -710,7 +607,7 @@
 
                 <!-- icon link to stats -->
                 <div id="iconpagetwo" onclick="showPageThree()">
-                    <img id="stat" src="stat.png" width="90vw" />
+                    <img id="stat" src="stat.png" alt="" />
                 </div>
 
                 <!-- popup stats panel -->
@@ -741,7 +638,7 @@
                 <div id="headerpagethree">no player selected</div>
 
                 <div id="iconpagethree" onclick="showPageOne()">
-                    <img id="home" src="home.png" width="90vw" />
+                    <img id="home" src="home.png" alt="" />
                 </div>
             </div>
             <div class="table_component" role="region" tabindex="0">
@@ -972,7 +869,7 @@
             </div>
             <!--
 <div id="footerstats">
-<img src="exit.png" width="90vw" />
+<img src="exit.png" width="90vw" alt=""/>
 </div>
 -->
         </div>
@@ -1095,12 +992,12 @@
                 <tbody>
                     <tr>
                         <td colspan="3" id="startButton">speak</td>
-                        <td colspan="3" id="clear">clear</td>
+                        <td colspan="3" id="clearButton" onclick="clearButton()">clear</td>
                     </tr>
 
                     <tr>
                         <td colspan="6" id="score7">
-                            <div id="output"></div>
+                            <div id="output">??????????????????</div>
                         </td>
                     </tr>
                     <tr>
@@ -1317,6 +1214,7 @@
             // speech to text bit
             //=================================================================================
             const startBtn = document.getElementById("startButton");
+            //const clearBtn = document.getElementById("clearButton");
             const displayDiv = document.getElementById("output");
 
             // Map word numbers to digits just in case the API returns text words
@@ -1350,9 +1248,10 @@
                 recognition.interimResults = false;
                 recognition.lang = "en-US";
                 startBtn.addEventListener("click", () => {
+                    startButton();
                     accumulatedDigits = ""; // Reset
                     isRunning = true;
-                    displayDiv.textContent = "-";
+                    displayDiv.textContent = "?";
                     //statusDiv.textContent = "Listening for 18 digits...";
                     startBtn.disabled = true;
                     recognition.start();
@@ -2183,6 +2082,30 @@
                 currenthole--;
                 // recalc totals
                 totalScores();
+            }
+
+            function clearButton() {
+                window.location.reload;
+                var tempcolor = document.getElementById("clearButton").style.color;
+                var tempbackground = document.getElementById("clearButton").style.background;
+                document.getElementById("clearButton").style.color = "white";
+                document.getElementById("clearButton").style.background = "gray";
+                setTimeout(function () {
+                    document.getElementById("clearButton").style.color = tempcolor;
+                    document.getElementById("clearButton").style.background = tempbackground;
+                }, 500);
+            }
+
+            function startButton() {
+                window.location.reload;
+                var tempcolor = document.getElementById("startButton").style.color;
+                var tempbackground = document.getElementById("startButton").style.background;
+                document.getElementById("startButton").style.color = "white";
+                document.getElementById("startButton").style.background = "gray";
+                setTimeout(function () {
+                    document.getElementById("startButton").style.color = tempcolor;
+                    document.getElementById("startButton").style.background = tempbackground;
+                }, 500);
             }
 
             /*
