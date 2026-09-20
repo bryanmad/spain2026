@@ -10,7 +10,6 @@
         <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/gh/noumanqamar450/alertbox@main/version/1.0.2/alertbox.min.js"></script>
         <style>
             /* icon color #bef081 */
 
@@ -589,6 +588,31 @@
             #output {
                 font-size: 9vw;
             }
+
+            #alertbox {
+                display: none;
+                background-color: #eee;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                position: fixed;
+                width: 300px;
+                left: 50%;
+                margin-left: -150px;
+                padding: 6px 8px 8px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            #alertboxok {
+                background-color: #ccc;
+                display: inline-block;
+                border-radius: 3px;
+                border: 1px solid #aaa;
+                padding: 2px;
+                text-align: center;
+                width: 80px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
@@ -988,6 +1012,12 @@
 
             <div class="spacer1vh"></div>
 
+            <!-- alert box -->
+            <div id="alertbox">
+                confirmation
+                <button id="alertboxok">OK</button>
+            </div>
+
             <!-- numberpad -->
             <table class="table" border="0" style="height: 85%; width: 100%">
                 <tbody>
@@ -1304,16 +1334,11 @@
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         //statusDiv.textContent = "Resuming listening...";
                         //alert("hiccup");
-
-                        alertbox.render({
-                            alertIcon: "question",
-                            title: "Thank You!",
-                            message: "AlertBox Popup Message",
-                            btnTitle: "Ok",
-                            themeColor: "#000000",
-                            btnColor: "#7CFC00",
-                            border: true
-                        });
+                        document.getElementById("alertbox").style.display = "block";
+                        document.getElementById("alertboxok").onclick = function () {
+                            document.getElementById("alertbox").style.display = "none";
+                            return false;
+                        };
 
                         /*
                         Swal.fire({
