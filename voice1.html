@@ -1294,13 +1294,12 @@
                     // Append new digits to a global tracker (accumulatedDigits)
                     accumulatedDigits += cleanTranscript;
                     //statusDiv2.textContent = "Total digits received: " + accumulatedDigits;
-                    
-                    
-                    
-                    displayDiv.textContent = accumulatedDigits.padEnd(18, "?").substring(1,9) + "\n" + accumulatedDigits.padEnd(18, "?").substring(10,18);
-                    
-                    
-                    
+
+                    displayDiv.textContent =
+                        accumulatedDigits.padEnd(18, "?").substring(0, 9) +
+                        " " +
+                        accumulatedDigits.padEnd(18, "?").substring(9, 18);
+
                     // only when finished ...
                     if (accumulatedDigits.length >= targetCount) {
                         isRunning = false;
