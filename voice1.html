@@ -1157,7 +1157,7 @@
 
             var player1hcp = "?";
             //var fullday = "";
-            //var datastream;
+            var datastream;
             //var player1teecolor = "yellow";
 
             //var whichhole = 1;
@@ -1338,12 +1338,14 @@
             }
 
             function doScoring() {
+                var eye = 0;
                 for (eye = 1; eye <= 18; eye++) {
                     document.getElementById("strokes" + eye).innerText = accumulatedDigits.substring(eye - 1, eye);
                 }
             }
 
             function doPoints() {
+                var eye = 0;
                 for (eye = 1; eye <= 18; eye++) {
                     document.getElementById("points" + eye).innerText = pointsCalc(
                         hcp,
@@ -1557,7 +1559,7 @@
                 var i = 0;
                 // create options array for dropdown
                 for i = 0; i < arrPlayersDropdown.length; i++) {
-                    x = arrPlayersDropdown[i];
+                    var x = arrPlayersDropdown[i];
                     arrOptions.push([x, 0]);
                 }
 
@@ -1645,12 +1647,13 @@
             // - calc totals
             //=============================================================
             function totalScores() {
-                totalstrokesfront9 = 0;
-                totalstrokesback9 = 0;
-                totalpointsfront9 = 0;
-                totalpointsback9 = 0;
-var i = 0;
-                checkdigits = "0123456789";
+                var totalstrokesfront9 = 0;
+                var totalstrokesback9 = 0;
+                var totalpointsfront9 = 0;
+                var totalpointsback9 = 0;
+                var i = 0;
+                var checkdigits = "0123456789";
+                var checkhole = "";
 
                 for (i = 1; i <= 9; i++) {
                     checkhole = document.getElementById("strokes" + i).innerText;
@@ -1693,13 +1696,13 @@ var i = 0;
             //=============================================================
             function pointsCalc(xhcp, xpar, xsi, xscore) {
                 //console.log(xhcp +","+ xpar+","+xsi+","+xscore+" = ")
-                hcp = parseInt(xhcp);
+                var hcp = parseInt(xhcp);
                 hcp = hcp.toFixed();
-                par = parseInt(xpar);
-                si = parseInt(xsi);
-                score = parseInt(xscore);
+                var par = parseInt(xpar);
+                var si = parseInt(xsi);
+                var score = parseInt(xscore);
 
-                allowance = 0;
+                var allowance = 0;
                 if (score == 0) {
                     return 0;
                 } else {
@@ -1761,19 +1764,19 @@ var i = 0;
                 // points 1 to 18
                 // total the points as well
                 totalpoints = 0;
-                p1 = document.getElementById("mx863123802").value = pointsCalc(
+                var p1 = document.getElementById("mx863123802").value = pointsCalc(
                     player1hcp,
                     arrCourse[1][1],
                     arrCourse[1][2],
                     document.getElementById("strokes1").innerText
                 );
-                p2 = document.getElementById("mx909665606").value = pointsCalc(
+                var p2 = document.getElementById("mx909665606").value = pointsCalc(
                     player1hcp,
                     arrCourse[2][1],
                     arrCourse[2][2],
                     document.getElementById("strokes2").innerText
                 );
-                p3 = document.getElementById("mx559953478").value = pointsCalc(
+                var p3 = document.getElementById("mx559953478").value = pointsCalc(
                     player1hcp,
                     arrCourse[3][1],
                     arrCourse[3][2],
@@ -1783,79 +1786,79 @@ var i = 0;
                 console.log("par = " + arrCourse[3][1]);
                 console.log("si = " + arrCourse[3][2]);
                 console.log("strokes = " + document.getElementById("strokes3").innerText);
-                p4 = document.getElementById("mx553966355").value = pointsCalc(
+                var p4 = document.getElementById("mx553966355").value = pointsCalc(
                     player1hcp,
                     arrCourse[4][1],
                     arrCourse[4][2],
                     document.getElementById("strokes4").innerText
                 );
-                p5 = document.getElementById("mx544592194").value = pointsCalc(
+                var p5 = document.getElementById("mx544592194").value = pointsCalc(
                     player1hcp,
                     arrCourse[5][1],
                     arrCourse[5][2],
                     document.getElementById("strokes5").innerText
                 );
-                p6 = document.getElementById("mx257972239").value = pointsCalc(
+                var p6 = document.getElementById("mx257972239").value = pointsCalc(
                     player1hcp,
                     arrCourse[6][1],
                     arrCourse[6][2],
                     document.getElementById("strokes6").innerText
                 );
-                p7 = document.getElementById("mx215646764").value = pointsCalc(
+                var p7 = document.getElementById("mx215646764").value = pointsCalc(
                     player1hcp,
                     arrCourse[7][1],
                     arrCourse[7][2],
                     document.getElementById("strokes7").innerText
                 );
-                p8 = document.getElementById("mx1925588416").value = pointsCalc(
+                var p8 = document.getElementById("mx1925588416").value = pointsCalc(
                     player1hcp,
                     arrCourse[8][1],
                     arrCourse[8][2],
                     document.getElementById("strokes8").innerText
                 );
-                p9 = document.getElementById("mx1592088012").value = pointsCalc(
+                var p9 = document.getElementById("mx1592088012").value = pointsCalc(
                     player1hcp,
                     arrCourse[9][1],
                     arrCourse[9][2],
                     document.getElementById("strokes9").innerText
                 );
-                p10 = document.getElementById("mx367122893").value = pointsCalc(
+                var p10 = document.getElementById("mx367122893").value = pointsCalc(
                     player1hcp,
                     arrCourse[10][1],
                     arrCourse[10][2],
                     document.getElementById("strokes10").innerText
                 );
-                p11 = document.getElementById("mx1977397574").value = pointsCalc(
+                var p11 = document.getElementById("mx1977397574").value = pointsCalc(
                     player1hcp,
                     arrCourse[11][1],
                     arrCourse[11][2],
                     document.getElementById("strokes11").innerText
                 );
-                p12 = document.getElementById("mx561835634").value = pointsCalc(
+                var p12 = document.getElementById("mx561835634").value = pointsCalc(
                     player1hcp,
                     arrCourse[12][1],
                     arrCourse[12][2],
                     document.getElementById("strokes12").innerText
                 );
-                p13 = document.getElementById("mx520203825").value = pointsCalc(
+                var p13 = document.getElementById("mx520203825").value = pointsCalc(
                     player1hcp,
                     arrCourse[13][1],
                     arrCourse[13][2],
                     document.getElementById("strokes13").innerText
                 );
-                p14 = document.getElementById("mx1943641728").value = pointsCalc(
+                var p14 = document.getElementById("mx1943641728").value = pointsCalc(
                     player1hcp,
                     arrCourse[14][1],
                     arrCourse[14][2],
                     document.getElementById("strokes14").innerText
                 );
-                p15 = document.getElementById("mx2086437733").value = pointsCalc(
+                var p15 = document.getElementById("mx2086437733").value = pointsCalc(
                     player1hcp,
                     arrCourse[15][1],
                     arrCourse[15][2],
                     document.getElementById("strokes15").innerText
                 );
-                p16 = document.getElementById("mx61441653").value = pointsCalc(
+                var p16 = document.getElementById("mx61441653").value = pointsCalc(
                     player1hcp,
                     arrCourse[16][1],
                     arrCourse[16][2],
@@ -1865,37 +1868,18 @@ var i = 0;
                 //console.log("par = " + arrCourse[16][1]);
                 //console.log("si = " + arrCourse[16][2]);
                 //console.log("strokes = " + document.getElementById("strokes16").innerText);
-                p17 = document.getElementById("mx1214112516").value = pointsCalc(
+                var p17 = document.getElementById("mx1214112516").value = pointsCalc(
                     player1hcp,
                     arrCourse[17][1],
                     arrCourse[17][2],
                     document.getElementById("strokes17").innerText
                 );
-                p18 = document.getElementById("mx1238567880").value = pointsCalc(
+                var p18 = document.getElementById("mx1238567880").value = pointsCalc(
                     player1hcp,
                     arrCourse[18][1],
                     arrCourse[18][2],
                     document.getElementById("strokes18").innerText
                 );
-
-                //console.log("p1 = " + p1);
-                //console.log("p2 = " + p2);
-                //console.log("p3 = " + p3);
-                //console.log("p4 = " + p4);
-                //console.log("p5 = " + p5);
-                //console.log("p6 = " + p6);
-                //console.log("p7 = " + p7);
-                //console.log("p8 = " + p8);
-                //console.log("p9 = " + p9);
-                //console.log("p10 = " + p10);
-                //console.log("p11 = " + p11);
-                //console.log("p12 = " + p12);
-                //console.log("p13 = " + p13);
-                //console.log("p14 = " + p14);
-                //console.log("p15 = " + p15);
-                //console.log("p16 = " + p16);
-                //console.log("p17 = " + p17);
-                //console.log("p18 = " + p18);
 
                 // now add all points together
                 totalpoints =
@@ -1955,7 +1939,7 @@ var i = 0;
                 var teststring = "0123456789";
                 var i = 0;
                 for (i = 1; i <= 18; i++) {
-                    temp = document.getElementById("strokes" + i).innerText;
+                    var temp = document.getElementById("strokes" + i).innerText;
                     if (teststring.indexOf(temp) > -1) {
                         document.getElementById("points" + i).innerText = pointsCalc(
                             player1hcp,
