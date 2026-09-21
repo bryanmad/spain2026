@@ -892,27 +892,11 @@
                 </table>
                 <div style="margin-top: 8px"></div>
             </div>
-            <!--
-<div id="footerstats">
-<img src="exit.png" width="90vw" alt=""/>
-</div>
--->
         </div>
         <!-- end of pagethree -->
 
         <!-- spacer -->
         <div class="spacer1vh"></div>
-
-        <!-- popup accept panel -->
-        <div id="acceptpanel">
-            <span id="playerx"></span>
-            <br /><br />
-
-            Accept to save or Reject to re-edit.
-            <br /><br />
-            <button class="button1" onclick="rejectButton()">Reject</button>
-            <button class="button1" onclick="acceptButton()">Accept</button>
-        </div>
 
         <!-- numbers grid -->
         <div id="front9">
@@ -1141,58 +1125,58 @@
             //=================================================================================
             // declare global variables
 
-            var currenthole = 0;
+            //var currenthole = 0;
 
-            var selectedplayer = 1;
+            //var selectedplayer = 1;
             // highlight first player entry
             //	document.getElementById("p1name").classList.add("highlight");
             var arrCourse = [];
             //var arrHcps = [];
             //var arrPlayers = [];
-            var arrBirdies = [];
-            var arrStatsData = [];
+            //var arrBirdies = [];
+            //var arrStatsData = [];
             //var arrLadies = [];
             var arrOptions = [];
-            var oldArrOptions = [];
+            //var oldArrOptions = [];
             var arrPlayersDropdown = [];
             var arrHcpsDropdown = [];
-            var compcourse = "none";
-            var compdate = "";
-            var shotsscore = "";
+            //var compcourse = "none";
+            //var compdate = "";
+            //var shotsscore = "";
 
             // declare global variables
             var hcp = "0";
-            var player = "select player";
-            var comp;
-            var course = "";
+            //var player = "select player";
+            //var comp;
+            //var course = "";
             var arrOptions = [];
-            var hcplist = "";
-            var msglist = "";
-            var msglistcount = 0;
+            //var hcplist = "";
+            //var msglist = "";
+            //var msglistcount = 0;
             var player1name = "player 1";
 
             var player1hcp = "?";
             var fullday = "";
             //var datastream;
-            var player1teecolor = "yellow";
+            //var player1teecolor = "yellow";
 
-            var whichhole = 1;
-            var frontp1 = 0;
-            var frontp2 = 0;
-            var frontp3 = 0;
-            var backp1 = 0;
-            var backp2 = 0;
-            var backp3 = 0;
-            var allp1 = 0;
-            var allp2 = 0;
-            var allp3 = 0;
-            var fronttxt9 = "";
-            var backtxt9 = "";
-            var alltxt18 = "";
-            var winspercent = 0;
-            var scorelist = "";
+            //var whichhole = 1;
+            //var frontp1 = 0;
+            // var frontp2 = 0;
+            // var frontp3 = 0;
+            //var backp1 = 0;
+            // var backp2 = 0;
+            //var backp3 = 0;
+            //var allp1 = 0;
+            //var allp2 = 0;
+            //var allp3 = 0;
+            //var fronttxt9 = "";
+            //var backtxt9 = "";
+            //var alltxt18 = "";
+            //var winspercent = 0;
+            //var scorelist = "";
 
-            var data;
+            //var data;
 
             var currentday;
 
@@ -1259,7 +1243,7 @@
             const targetCount = 18;
             let accumulatedDigits = ""; // Global state to track accumulated digits across sessions
             let isRunning = false; // Explicit flag to track if we want recognition active
-            var cleanTranscript = "";
+            //var cleanTranscript = "";
 
             // Check for browser support
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1271,7 +1255,7 @@
                 const recognition = new SpeechRecognition();
                 recognition.continuous = true;
                 recognition.interimResults = false;
-                recognition.lang = "en-US";
+                recognition.lang = "en-GB";
                 startBtn.addEventListener("click", () => {
                     startButton();
                     accumulatedDigits = ""; // Reset
@@ -1328,12 +1312,27 @@
                     }
                     //}
                 };
+                //recognition.onend = () => {
+                // If it ended automatically but not reached 18 digits yet, restart it
+                //    if (isRunning && accumulatedDigits.length < targetCount) {
+                //statusDiv.textContent = "Resuming listening...";
+                //        recognition.start();
+                //    }
+                //};
+
                 recognition.onend = () => {
-                    // If it ended automatically but not reached 18 digits yet, restart it
+                    // If it ended automatically but has not reached 18 digits yet, restart it
                     if (isRunning && accumulatedDigits.length < targetCount) {
-                        //statusDiv.textContent = "Resuming listening...";
-                        alert("hiccup");
-                        recognition.start();
+                        try {
+                            alert("hiccup");
+                            recognition.start();
+                        } catch (e) {
+                            console.error("Failed to restart recognition:", e);
+                            alert("Failed to restart recognition: " + e);
+                        }
+                    } else {
+                        isRunning = false;
+                        startBtn.disabled = false;
                     }
                 };
             }
@@ -1345,9 +1344,6 @@
             }
 
             function doPoints() {
-                // testing only
-                //hcp = "21";
-
                 for (eye = 1; eye <= 18; eye++) {
                     document.getElementById("points" + eye).innerText = pointsCalc(
                         hcp,
@@ -1954,22 +1950,6 @@
                 location.reload();
             }
 
-            function acceptButton() {
-                document.getElementById("acceptpanel").style.display = "none";
-                submitForm();
-            }
-
-            function rejectButton() {
-                document.getElementById("acceptpanel").style.display = "none";
-            }
-
-            function clearForm() {
-                // reset each hole
-                for (var i = 1; i < arrTemp; i++) {
-                    document.getElementById(arrTemp[i]).innerText = "0";
-                }
-            }
-
             function calcAllHoles() {
                 var teststring = "0123456789";
                 for (var i = 1; i <= 18; i++) {
@@ -1984,39 +1964,6 @@
                     }
                 }
 
-                totalScores();
-            }
-
-            function acceptButton() {
-                document.getElementById("acceptpanel").style.display = "none";
-                submitForm();
-            }
-
-            function rejectButton() {
-                document.getElementById("acceptpanel").style.display = "none";
-            }
-
-            function clearForm() {
-                // reset each hole
-                for (var i = 1; i <= 18; i++) {
-                    document.getElementById("strokes" + i).innerText = "0";
-                    document.getElementById("points" + i).innerText = "0";
-                }
-
-                document.getElementById("front9strokes").innerText = "0";
-                document.getElementById("back9strokes").innerText = "0";
-                document.getElementById("front9points").innerText = "0";
-                document.getElementById("back9points").innerText = "0";
-
-                currenthole = 1;
-                document.getElementById("hole18").style.background = "black";
-                document.getElementById("hole18").style.color = "cyan";
-
-                document.getElementById("strokes" + currenthole).style.color = "white";
-                document.getElementById("strokes" + currenthole).style.background = "black";
-
-                currenthole--;
-                // recalc totals
                 totalScores();
             }
 
