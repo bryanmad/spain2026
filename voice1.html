@@ -1036,8 +1036,8 @@
         <dialog id="customModal">
             <div class="modal-content">
                 <h2>Action Required</h2>
-                <p>The code is currently paused. Click below to resume execution.</p>
-                <button id="dismissBtn" autofocus>Continue Execution</button>
+                <p id="prompt">empty</p>
+                <button id="dismissBtn" autofocus>Continue scoring</button>
             </div>
         </dialog>
         <!-- The native dialog handles accessibility and backdrops natively -->
@@ -1388,7 +1388,7 @@
                                     try {
                                         //alert("hiccup");
 
-                                        //alert("continue with hole " + (accumulatedDigits.length + 1));
+                                        document.getElementById("prompt").innerText = "continue with hole " + (accumulatedDigits.length + 1);
             // The execution blocks here until the modal dismiss button is clicked
                             await waitForDismissal();
                                         recognition.start();
