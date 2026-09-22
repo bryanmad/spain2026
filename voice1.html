@@ -10,7 +10,6 @@
         <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>
             /* icon color #bef081 */
 
@@ -1128,8 +1127,7 @@
 
                         //var currenthole = 0;
                         //
-                        // get sweet alerts
-           // const Swal = require('sweetalert2');
+        
 
                         //var selectedplayer = 1;
                         // highlight first player entry
@@ -1329,11 +1327,7 @@
                                 if (isRunning && accumulatedDigits.length < targetCount) {
                                     try {
                                         //alert("hiccup");
-                                        Swal.fire({
-                                            html: accumulatedDigits.padEnd(18, "?").substring(0, 9) +
-                                                "\n" +
-                                                accumulatedDigits.padEnd(18, "?").substring(9, 18)
-                                       });
+                                        alert("continue with hole " + accumulatedDigits.length);
 
                                         recognition.start();
                                     } catch (e) {
