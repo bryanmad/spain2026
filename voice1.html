@@ -593,11 +593,12 @@
             /* Base styles for the native dialog */
             dialog {
                 border: none;
-                border-radius: 8px;
-                padding: 24px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                border-radius: 10px;
+                padding: 20px;
+                //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 max-width: 400px;
                 width: 100%;
+                color: dodgerBlue;
             }
 
             /* Backdrop overlay styling */
@@ -615,7 +616,7 @@
 
             #dismissBtn {
                 padding: 40px 20px;
-                border-radius: 5px;
+                border-radius: 10px;
                 border: 1px solid blue;
                 background-color: dodgerBlue;
                 color: white;
@@ -1383,7 +1384,7 @@
                             //alert("hiccup");
 
                             document.getElementById("dismissBtn").innerText =
-                                "continue with hole \n" + (accumulatedDigits.length + 1);
+                                "continue with \nhole " + (accumulatedDigits.length + 1);
                             // The execution blocks here until the modal dismiss button is clicked
                             await waitForDismissal();
                             recognition.start();
