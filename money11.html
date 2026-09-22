@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+        <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
+        <title>spain2026</title>
+        <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <style>
+                                    * {
+                                    margin: 0;
+                                    padding: 0;
+                                    box-sizing: border-box;
+                                    }
+
+                                    html {
+                                    width: 100vw;
+                                    }
+
+                                    body {
+                                    overflow: hidden;
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    font-size: 3vh;
+                                    background: navy; //dodgerBlue;
+                                    height: 100%;
+                                    width: 100%;
+                                    }
+
+                                    /* hide forms */
+                                    #my-response-iframe,
+                                    #my-form {
+                                    display: none;
+                                    }
+
+                                    .headerwrapper {
+                                    height: 7vh;
+                                    font-size: 3vh;
+                                    flex-direction: row;
+                                    display: flex;
+                                    }
+
+                                    #headermainpage {
+                                    color: white;
+                                    background: navy; //black;
+                                    height: 100%;
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    }
+
+                                    #mainpage {
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    height: 100vh;
+                                    width: 100vw;
+                                    background: navy; //dodgerBlue;
+                                    display: block; //none;
+                                    }
+
+                                    .submit {
+                                    font-size: 100%;
+                                    color: white;
+                                    height: 100%;
+                                    line-height: 10vh;
+                                    text-align: center;
+                                    }
+
+                                    tr {
+                                    text-align: center;
+                                    }
+
+                                    td {
+                                    width: calc(100vw / 6);
+                                    }
+
+
+
+                                    .spacer1vh {
+                                    display: flex;
+                                    padding: 1vh;
+                                    }
+
+                                    /* for each day */
+                                    #createleaderboarditems {
+                                    text-align: center;
+                                    color: white;
+                                    font-size: 3vh;
+                                    height: auto;
+                                    display: block;
+                                    }
+
+                                    .team {
+                                    width: 90%;
+                                    height: 5vh;
+                                    margin-left: 5%;
+                                    margin-top: 2%;
+                                    margin-bottom: 2%;
+                                    background: rgba(105, 105, 105, 0.8);
+                                    box-shadow: 0 3px 5px black;
+                                    display: flex;
+                                    align-items: center;
+                                    transition-property: top;
+                                    /* how fast ? is */
+                                    transition-duration: 200ms;
+                                    border-radius: 5px; //10px;
+                                    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                                    border: 2px solid rgba(255, 255, 255, 0.3);
+                                    //background-clip: padding-box;
+                                    margin-left: 100%;
+                                    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.2);
+                                    }
+
+                                    /* how fast it slides in */
+                                    .animate {
+                                    transform: translate3d(-105%, 0, 0);
+                                    //-webkit-transform: translate3d(-105%, 0, 0);
+                                    -webkit-transition: transform 0.5s ease;
+                                    }
+
+                                    .team {
+                                    width: 90%;
+                                    height: 5vh;
+                                    margin-left: 5%;
+                                    margin-top: 2%;
+                                    margin-bottom: 2%;
+                                    padding-left: 5vw;
+                                    background: rgba(105, 105, 105, 0.8);
+                                    box-shadow: 0 3px 5px black;
+                                    display: flex;
+                                    align-items: center;
+                                    transition-property: top;
+                                    /* how fast ? is */
+                                    transition-duration: 500ms;
+                                    border-radius: 5px; //10px;
+                                    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                                    border: 2px solid rgba(255, 255, 255, 0.3);
+                                    //background-clip: padding-box;
+                                    }
+
+                                    .name {
+                                    width: 40%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: left;
+                                    font-size: 3vh;
+                                    color: white;
+                                    font-weight: 400;
+                                    text-transform: capitalize;
+                                    }
+
+                                    .namemoney {
+                                    width: 35%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: left;
+                                    font-size: 3vh;
+                                    color: white;
+                                    font-weight: 400;
+                                    text-transform: capitalize;
+                                    }
+
+                                    .scores {
+                                    width: 40%;
+                                    font-size: 3vh;
+                                    color: white;
+                                    font-weight: 400;
+                                    display: flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    padding-left: 5vh;
+                                    }
+
+                                    .pos {
+                                    width: 40%;
+                                    font-size: 3vh;
+                                    color: white;
+                                    font-weight: 400;
+                                    display: flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    //padding-left: 5vh;
+                                    }
+
+
+
+
+                                    .position {
+                                    width: 20%;
+                                    font-size: 3vh;
+                                    color: white;
+                                    font-weight: 400;
+                                    display: flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    }
+
+                                    .hcps {
+                                    width: 12%;
+                                    font-size: 3vh;
+                                    color: white;
+                                    font-weight: 400;
+                                    display: flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    }
+
+                                    .hcpsadj {
+                                    padding-left: 6vh;
+                                    width: auto;
+                                    font-size: 2.5vh;
+                                    color: silver;
+                                    font-weight: 400;
+                                    display: flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    }
+
+                                    #footerstats {
+                                    position: absolute;
+                                    bottom: 200px;
+                                    width: 100%;
+                                    color: white;
+                                    font-size: 2.5vh;
+                                    display: flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    }
+
+
+
+
+                                    #toptr {
+                                    color: cyan;
+                                    }
+
+                                    .cyan {
+                                    background: navy; //dodgerBlue;
+                                    }
+
+
+
+                                    @keyframes expandfrommiddle {
+                                    from {
+                                    scale: 0.1;
+                                    opacity: 0%;
+                                    }
+                                    to {
+                                    scale: 1;
+                                    opacity: 100%;
+                                    }
+                                    }
+
+                                    @keyframes fade-in {
+                                    from {
+                                    opacity: 0%;
+                                    scale: 0.2;
+                                    }
+                                    to {
+                                    opacity: 100%;
+                                    scale: 1;
+                                    }
+                                    }
+
+                                    @keyframes slide-in {
+                                    from {
+                                    translate: 0 -100vh;
+                                    }
+                                    to {
+                                    translate: 0 0;
+                                    }
+                                    }
+
+                                    /* DivTable.com */
+                                    tr {
+                                    color: white;
+                                    background: black;
+                                    font-size: 2vh;
+                                    }
+
+                                    .static {
+                                    color: cyan;
+                                    }
+
+                                    .bg {
+                                    font-size: 3vh;
+                                    }
+
+
+
+                                    .container {
+                                    width: 100vw;
+                                    height: 40vh;
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    background: navy; //dodgerBlue;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: stretch;
+                                    justify-content: center;
+                                    align-content: center;
+                                    }
+
+                                    .flex {
+                                    min-height: 60pt;
+                                    }
+
+                                    @keyframes loading {
+                                    0% {
+                                    width: 50pt;
+                                    height: 50pt;
+                                    margin-top: 0;
+                                    }
+                                    25% {
+                                    height: 4pt;
+                                    margin-top: 23pt;
+                                    }
+                                    50% {
+                                    width: 4pt;
+                                    }
+                                    75% {
+                                    width: 50pt;
+                                    }
+                                    100% {
+                                    width: 50pt;
+                                    height: 50pt;
+                                    margin-top: 0;
+                                    }
+                                    }
+
+                                    .loader {
+                                    width: 50pt;
+                                    height: 50pt;
+                                    border-radius: 100%;
+                                    border: cyan 4pt solid;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    background-color: transparent;
+                                    animation: loading 1s infinite;
+                                    }
+
+                                    .load-text {
+                                    padding-top: 15px;
+                                    text-align: center;
+                                    //font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                    font-size: 3vh;
+                                    color: cyan;
+                                    }
+
+                        table {
+              border-collapse: collapse;
+            }
+            #back {
+                position: absolute;
+                left: 5vw;
+                top: 5vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mainpage">
+            <!-- leaderboard -->
+            <div class="headerwrapper">
+                <div id="headermainpage"></div>
+                <!--
+                <div id="playersList"></div>
+-->
+            </div>
+            <div id="createleaderboarditems">
+                <!-- this is overwritten on start -->
+                <div class="container">
+                    <div class="flex">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="load-text" id="load-text">Loading...</div>
+                </div>
+                <!-- end of this is overwritten on start -->
+            </div>
+        </div>
+
+        <div style="margin-top: 8px"></div>
+
+        <!-- popup panel 
+        <div id="panel" onclick="closePanel()"></div>
+-->
+        <!-- spacer -->
+        <div class="spacer1vh"></div>
+        <script>
+            //=================================================================================
+            // this runs on startup or reload
+            //
+            //=================================================================================
+            // prevent default img menu of options
+            document.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+            });
+
+            // declare global variables
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+            var data;
+            var getDataRetryCount = 0;
+            var leaderboard = [];
+            var ll = [];
+            var arrDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var dd = new Date();
+            var today = arrDays[dd.getDay()];
+
+            //===========================
+            // this code runs at startup
+            //===========================
+            getData();
+            //=============================================================
+            // functions - run when called
+            //=============================================================
+
+            //=============================================================
+            // async function getData()
+            // - gets results data
+            //=============================================================
+            async function getData() {
+                const url = "https://opensheet.elk.sh/1Y4wLTqSUd4lkYlgsFiPpbgi6e4rAKVqo1wW32_7NBSQ/money";
+
+                for (let attempt = 0; attempt < 5; attempt++) {
+                    const timeout = attempt * 1000 + 2000;
+
+                    try {
+                        //console.log("timeout delay = " + timeout);
+
+                        const dataStream = await fetch(url, {
+                            signal: AbortSignal.timeout(timeout)
+                        });
+
+                        if (!dataStream.ok) {
+                            throw new Error(`Response status: ${dataStream.status}`);
+                        }
+
+                        data = await dataStream.json();
+
+                        $("#pagetwo").fadeIn(500);
+
+                        for (j = 0; j < 12; j++) {
+                            if (today == "Monday") {
+                                leaderboard.push({ name: data[j].monday, position: +data[j].pos1 });
+                            }
+                            if (today == "Tuesday") {
+                                leaderboard.push({ name: data[j].tuesday, position: +data[j].pos2 });
+                            }
+                            if (today == "Wednesday") {
+                                leaderboard.push({ name: data[j].wednesday, position: +data[j].pos3 });
+                            }
+                            if (today == "Thursday") {
+                                leaderboard.push({ name: data[j].thursday, position: +data[j].pos4 });
+                            }
+                            if (today == "Friday") {
+                                leaderboard.push({ name: data[j].friday, position: +data[j].pos5 });
+                            }
+                        }
+
+                        if (
+                            today == "Monday" ||
+                            today == "Tuesday" ||
+                            today == "Wednesday" ||
+                            today == "Thursday" ||
+                            today == "Friday"
+                        ) {
+                            ll = calculatePayouts(leaderboard);
+                            useMoney();
+                        } else {
+                            document.getElementById("load-text").innerText = "no results available";
+                            setTimeout(function () {
+                                window.history.go(-1);
+                            }, 5000);
+                        }
+                        return; // success — stop retrying
+                    } catch (err) {
+                        console.error(err);
+
+                        if (err.name === "TimeoutError") {
+                            console.error("Timeout: server too busy");
+                        } else if (err.name === "AbortError") {
+                            console.error("Fetch aborted by user action (browser stop button, closing tab, etc.)");
+                        } else {
+                            console.error(`Error: type: ${err.name}, message: ${err.message}`);
+                        }
+
+                        if (attempt < 4) {
+                            const retryNumber = attempt + 1;
+
+                            document.getElementsByClassName("load-text")[0].innerText = `retrying ${retryNumber}/5`;
+
+                            await sleep(retryNumber * 1000 + 2000);
+                        } else {
+                            document.getElementsByClassName("load-text")[0].innerText = "Please try again later.";
+                        }
+                    }
+                }
+            }
+
+            //=============================================================
+            // functions - run when called
+            //=============================================================
+
+            function useMoney() {
+                let container = document.getElementById("createleaderboarditems");
+                // empty container
+                container.innerHTML = "";
+
+                // build screen
+
+                data.forEach((el, i) => {
+                    let box = document.createElement("div");
+                    box.id = "box" + i;
+                    box.className = "team";
+
+                    let name = document.createElement("span");
+                    name.id = "namemoney" + i;
+                    name.className = "namemoney";
+                    name.innerHTML = "updating";
+
+                    let pos = document.createElement("span");
+                    pos.id = "pos" + i;
+                    pos.className = "pos";
+
+                    let money = document.createElement("span");
+                    money.id = "money" + i;
+                    money.className = "money";
+
+                    box.appendChild(name);
+                    box.appendChild(pos);
+                    box.appendChild(money);
+
+                    container.appendChild(box);
+                    // fade the initial view
+                    box.style.opacity = 0.3;
+                });
+
+                var k = 0;
+
+                // do proper display
+                ll.forEach((l, i) => {
+                    k++;
+                    setTimeout(function () {
+                        if (l.payout !== "0") {
+                            bodyUpdateMoney(l.name, l.payout, l.position, i);
+                        }
+                    }, k * 300);
+                });
+            }
+
+            function bodyUpdateMoney(nom, money, pos, i) {
+                document.getElementById("headermainpage").innerText = "Prize money for " + today;
+                // find the correct data
+                if (today == "Monday") {
+                    data.find((team) => team.monday === nom);
+                }
+                if (today == "Tuesday") {
+                    data.find((team) => team.tuesday === nom);
+                }
+                if (today == "Wednesday") {
+                    data.find((team) => team.wednesday === nom);
+                }
+                if (today == "Thursday") {
+                    data.find((team) => team.thursday === nom);
+                }
+                if (today == "Friday") {
+                    data.find((team) => team.friday === nom);
+                }
+
+                // find the correct place for the data
+                let AllTeams = Array.from(document.querySelectorAll(".team"));
+                let element = AllTeams[i];
+                let elementName = element.querySelector(".namemoney");
+                let elementPos = element.querySelector(".pos");
+                let elementMoney = element.querySelector(".money");
+                elementName.innerHTML = nom;
+
+                //console.log(elementName.innerHTML, nom);
+                if (elementName.innerHTML == nom && pos < 4) {
+                    //console.log("yes " + elementName.innerHTML, nom);
+                    elementName.innerHTML = nom;
+                    elementMoney.innerHTML = "£" + money.toFixed(2);
+                    if (pos == 1) {
+                        elementPos.innerHTML = pos + "st place ";
+                    }
+                    if (pos == 2) {
+                        elementPos.innerHTML = pos + "nd place ";
+                    }
+                    if (pos == 3) {
+                        elementPos.innerHTML = pos + "rd place ";
+                    }
+                    element.style.opacity = 1;
+                }
+            }
+
+            function calculatePayouts(players) {
+                // 1. Define prize pool amounts by finishing position (1-indexed)
+                const prizePool = { 1: 12, 2: 8, 3: 5 };
+
+                // 2. Group players by their finishing position
+                const positionGroups = {};
+                players.forEach((player) => {
+                    if (!positionGroups[player.position]) {
+                        positionGroups[player.position] = [];
+                    }
+                    positionGroups[player.position].push(player);
+                });
+
+                // 3. Track how many prize slots have been consumed globally
+                let currentPrizeRank = 1;
+
+                // Sort positions ascending (1st, 2nd, 3rd...) to process them in order
+                const sortedPositions = Object.keys(positionGroups)
+                    .map(Number)
+                    .sort((a, b) => a - b);
+                const payoutMap = new Map();
+
+                sortedPositions.forEach((pos) => {
+                    const tiedPlayers = positionGroups[pos];
+                    const count = tiedPlayers.length;
+
+                    // If players are tied, they consume 'count' number of consecutive prize slots
+                    let combinedPrizeSum = 0;
+                    for (let i = 0; i < count; i++) {
+                        const slot = currentPrizeRank + i;
+                        combinedPrizeSum += prizePool[slot] || 0;
+                    }
+
+                    // Split the total prize money evenly among the tied players
+                    const share = count > 0 ? combinedPrizeSum / count : 0;
+                    payoutMap.set(pos, Number(share.toFixed(2)));
+
+                    // Advance the global prize slot tracker by the number of players processed
+                    currentPrizeRank += count;
+                });
+
+                // 4. Map the original player list to include their calculated payouts
+                return players.map((player) => ({
+                    name: player.name,
+                    position: player.position,
+                    payout: payoutMap.get(player.position) || 0
+                }));
+            }
+
+            function xxcalculateFinalPayouts(players) {
+                // 1. Define standard pool amounts by positional tier
+                // for final prizes ....
+                const prizePool = { 1: 15, 2: 10, 3: 5 };
+
+                // 2. Count how many players finished in each position
+                const positionCounts = {};
+                players.forEach((player) => {
+                    positionCounts[player.position] = (positionCounts[player.position] || 0) + 1;
+                });
+
+                // 3. Map players to their calculated payout amounts
+                return players.map((player) => {
+                    const pos = player.position;
+                    let payout = 0;
+
+                    if (pos === 1) {
+                        if (positionCounts[1] === 2) {
+                            // If there are exactly two 1st place finishes, they split 1st & 2nd pool money
+                            payout = (prizePool[1] + prizePool[2]) / 2;
+                        } else if (positionCounts[1] > 2) {
+                            // Handle edge case of 3+ way ties for 1st (split all 3 pools)
+                            payout = (prizePool[1] + prizePool[2] + prizePool[3]) / positionCounts[1];
+                        } else {
+                            // Sole winner gets the entire 1st place prize
+                            payout = prizePool[1];
+                        }
+                    } else if (pos === 2) {
+                        // 2nd place players only get paid if 1st place wasn't tied (which consumes the 2nd place pool)
+                        if ((positionCounts[1] || 0) < 2) {
+                            const tieCount = positionCounts[2];
+                            if (tieCount > 1) {
+                                // Tied 2nd places split 2nd and 3rd place money
+                                payout = (prizePool[2] + prizePool[3]) / tieCount;
+                            } else {
+                                payout = prizePool[2];
+                            }
+                        }
+                    } else if (pos === 3) {
+                        // 3rd place only gets paid if 1st and 2nd positions haven't exhausted the top 3 pools
+                        const slotsUsedBefore = (positionCounts[1] || 0) + (positionCounts[2] || 0);
+                        if (slotsUsedBefore < 3) {
+                            payout = prizePool[3] / positionCounts[3];
+                        }
+                    }
+
+                    return {
+                        name: player.name,
+                        position: pos,
+                        payout: Number(payout.toFixed(2))
+                    };
+                });
+            }
+        </script>
+    </body>
+</html>
