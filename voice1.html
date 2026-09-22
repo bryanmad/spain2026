@@ -1382,7 +1382,7 @@
                             //    }
                             //};
 
-                            recognition.onend = () => {
+                            recognition.onend = async () => {
                                 // If it ended automatically but has not reached 18 digits yet, restart it
                                 if (isRunning && accumulatedDigits.length < targetCount) {
                                     try {
