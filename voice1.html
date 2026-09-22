@@ -1033,7 +1033,9 @@
         <dialog id="customModal">
             <div class="modal-content">
                 <h2>input paused</h2>
+                <!--
                 <p id="prompt">empty</p>
+-->
                 <button id="dismissBtn" autofocus>Continue scoring</button>
             </div>
         </dialog>
@@ -1381,7 +1383,7 @@
                             //alert("hiccup");
 
                             document.getElementById("prompt").innerText =
-                                "continue with hole " + (accumulatedDigits.length + 1);
+                                "continue with hole \n" + (accumulatedDigits.length + 1);
                             // The execution blocks here until the modal dismiss button is clicked
                             await waitForDismissal();
                             recognition.start();
