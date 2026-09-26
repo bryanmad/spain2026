@@ -1314,13 +1314,17 @@
                 recognition.interimResults = false;
                 recognition.lang = "en-GB";
                 startBtn.addEventListener("click", () => {
-                    startButton();
-                    accumulatedDigits = ""; // Reset
-                    isRunning = true;
-                    displayDiv.textContent = "?";
-                    //statusDiv.textContent = "Listening for 18 digits...";
-                    startBtn.disabled = true;
-                    recognition.start();
+                    if (document.getElementById("dropbtn").innerText == "select player") {
+                        alert("No player selected");
+                    } else {
+                        startButton();
+                        accumulatedDigits = ""; // Reset
+                        isRunning = true;
+                        displayDiv.textContent = "?";
+                        //statusDiv.textContent = "Listening for 18 digits...";
+                        startBtn.disabled = true;
+                        recognition.start();
+                    }
                 });
 
                 recognition.onresult = (event) => {
