@@ -1370,6 +1370,12 @@
                 recognition.onresult = (event) => {
                     const latestResultIndex = event.results.length - 1;
                     const transcript = event.results[latestResultIndex][0].transcript.trim().toLowerCase();
+                    //
+                    //
+                    document.getElementById("score4").innerText = transcript;
+                    //
+                    //
+
                     // Create a regex pattern from the object keys
                     const pattern = new RegExp(Object.keys(numberMap).join("|"), "g");
 
