@@ -1282,7 +1282,7 @@
             const startBtn = document.getElementById("startButton");
             //const clearBtn = document.getElementById("clearButton");
             const displayDiv = document.getElementById("output");
-
+            var partaccumulatedDigits = "";
             // Map word numbers to digits just in case the API returns text words
             const numberMap = {
                 zero: 0,
@@ -1374,7 +1374,7 @@
                     const pattern = new RegExp(Object.keys(numberMap).join("|"), "g");
                     //
                     //
-                    document.getElementById("score4").innerText = transcript;
+                    document.getElementById("score4").innerText = partaccumulatedDigits;
                     //
                     //
                     // Perform the replacement
@@ -1382,6 +1382,7 @@
                     // Keep only digits from the transcriptFirstCheck
                     let cleanTranscript = transcriptFirstCheck.replace(/\D/g, "");
                     // Append new digits to a global tracker (accumulatedDigits)
+                    partaccumulatedDigits = cleanTranscript;
                     accumulatedDigits += cleanTranscript;
                     // display 2 sets of 9
                     displayDiv.textContent =
