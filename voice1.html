@@ -1372,11 +1372,7 @@
                     const transcript = event.results[latestResultIndex][0].transcript.trim().toLowerCase();
                     // Create a regex pattern from the object keys
                     const pattern = new RegExp(Object.keys(numberMap).join("|"), "g");
-                    //
-                    //
-                    document.getElementById("score4").innerText = partaccumulatedDigits;
-                    //
-                    //
+
                     // Perform the replacement
                     const transcriptFirstCheck = transcript.replace(pattern, (match) => numberMap[match]);
                     // Keep only digits from the transcriptFirstCheck
@@ -1421,7 +1417,7 @@
                     if (isRunning && accumulatedDigits.length < targetCount) {
                         try {
                             document.getElementById("dismissBtn").innerText =
-                                transcript + "\n" + "continue with \nhole " + (accumulatedDigits.length + 1);
+                                partaccumulatedDigits + "\n" + "continue with \nhole " + (accumulatedDigits.length + 1);
                             // The execution blocks here until the modal dismiss button is clicked
                             await waitForDismissal();
                             recognition.start();
